@@ -358,7 +358,7 @@ class WPRI_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	private setting_form($setting_name) {
+	private function setting_form($setting_name) {
 	 	$table_name = $GLOBALS['wpdb']->prefix . 'wpri_' . $setting_name ;
 		$locale_table_name = $GLOBALS['wpdb']->prefix . 'wpri_locale';
 		$locales = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $locale_table_name );
