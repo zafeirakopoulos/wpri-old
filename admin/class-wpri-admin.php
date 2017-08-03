@@ -290,7 +290,181 @@ class WPRI_Admin {
 		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
 	}
 
+	public function settings_title_menu() {	 
+		function wpri_settings_title_management() {
+			echo '<div class="wrap">';
+			echo '<h2>Manage Academic Titles</h2>';
+			WPRI_Admin::setting_form('title');
+			echo '</div>';
+		}
 
+		add_submenu_page( 'wpri-settings-menu', 'Academic Titles Management','Academic Titles' , 'manage_options', 'wpri-settings-title' , 'wpri_settings_title_management');
+	}
+
+
+	public function settings_position_menu() {
+		function wpri_settings_position_management() {
+			echo '<div class="wrap">';
+			echo '<h2>Manage Positions</h2>';
+			WPRI_Admin::setting_form('position');
+			echo '</div>';
+		}	 
+		add_submenu_page( 'wpri-settings-menu', 'Positions Management','Positions' , 'manage_options', 'wpri-settings-position' , 'wpri_settings_position_management');
+	}
+
+
+	public function settings_agency_menu() {	 
+		function wpri_settings_agency_management() {
+			echo '<div class="wrap">';
+			echo '<h2>Manage Funding Agencies</h2>';
+			WPRI_Admin::setting_form('agency');
+			echo '</div>';
+		}
+		add_submenu_page( 'wpri-settings-menu', 'Funding Agencies Management','Funding Agencies' , 'manage_options', 'wpri-settings-agency' , 'wpri_settings_agency_management');
+	}
+
+
+
+
+
+
+	public function settings_member_menu() {	 
+		function wpri_settings_member_management() {
+
+			function add_member_page($member_id) {
+			 	$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
+				$member = $GLOBALS['wpdb']->get_row("SELECT * FROM " . $member_table_name . " WHERE id = ". $member_id);
+			 
+			    $member_page_title = $member->username;
+			    $member_page_content = 'This is blog page placeholder. Use a template';
+			    // $member_page_check = get_page_by_title($member_page_title);
+			    $member_page = array(
+				    'post_type' => 'page',
+				    'post_title' => $member_page_title,
+				    'post_content' => $member_page_content,
+				    'post_status' => 'publish',
+				    'post_author' => $member->user,
+					// Change this. It exposes usernames to public
+				    'post_slug' => $member->username
+			    );
+			    $new_post_id = wp_insert_post($member_page);
+				return $new_post_id;
+			}
+			echo '<div class="wrap">';
+			echo '<h2>Manage Members</h2>';
+
+
+		 	$table_name = $GLOBALS['wpdb']->prefix . 'wpri_member' ;
+			echo '<div class="wrap wpa">';
+
+			// If POST for adding
+			if( isset( $_POST['type']) && $_POST['type'] == 'add_member') {
+
+				$u_query = new WP_User_Query( array('include' => array($_POST["user"])));
+				$user = $u_query->results;
+
+				$new_member_id = $GLOBALS['wpdb']->insert( $table_name , array( 
+					'user' => $_POST["user"],
+					'username' => $user[0]->display_name,
+					'position' => $_POST["position"] 
+				));
+				if($GLOBALS['wpdb']->insert_id) {
+					?>
+			    <div class="updated"><p><strong>Added.</strong></p></div>
+				<?php
+				} else {
+					?>
+			    <div class="error"><p>Unable to add.</p></div>
+			    <?php
+				}
+
+				$new_post_id = add_member_page( $GLOBALS['wpdb']->insert_id);
+		/*
+				$GLOBALS['wpdb']->update( $table_name , 
+					array('user' => $new_post_id), 
+					array( 'id' => $new_member_id )
+				);
+		*/
+			}
+	
+			// If POST for deleting
+			if( isset( $_POST['type']) && $_POST['type'] == 'delete_member' ) {
+				$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( "DELETE FROM " . $table_name . " WHERE id = %d", $_POST['member_id'] ) );
+				if($result) {
+					?>
+			    <div class="updated"><p><strong>Deleted.</strong></p></div>
+				<?php
+				} else {
+					?>
+			    <div class="error"><p>Unable to delete.</p></div>
+			    <?php
+				}
+			}
+		 
+
+			echo '<h3> Existing members: </h3>';
+
+
+			$all_entries = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $table_name );
+			echo '<table>';
+		 	foreach ( $all_entries as $dbitem ) {
+				echo '<form name="delete_member" method="post" action="">';
+				echo '<tr>';
+				echo '<td><label>' . $dbitem->username . ': </label></td>';
+				echo '<td> <input type="submit" name="delete_button' . $dbitem->id  . '" value="Delete" class="button" />';
+		    	echo '<input type="hidden" name="type" value="delete_member" />';
+		   		echo '<input type="hidden" name="member_id" value=' . $dbitem->id . '/></td>';
+				echo '</tr>';
+				echo '</form>';
+		    }
+			echo '</table>';
+
+
+			echo '<h3> Add member </h3>';
+			echo '<form name="add_member" method="post" action="">';
+			echo '<table class="form-table">';
+
+			$user_query = new WP_User_Query(array( 'role__not_in' => '' ) );
+			$users = $user_query->results;
+
+
+			echo '<tr>';
+			echo '<th><label>User</label></th>';
+			echo '<td>';
+			echo '<select name="user">';
+				foreach ( $users as $user ) {
+					echo '<option value='.$user->ID.'>'.$user->display_name.'</option>';
+				}
+			echo '</select>';
+			echo '<span class="description">Choose a user.</span>';
+			echo '</td></tr>';
+
+			// Change this to access rights (instead of position)
+			$position_table_name = $GLOBALS['wpdb']->prefix . "wpri_position" ;
+			$positions = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $position_table_name );
+
+			echo '<tr>';
+			echo '<th><label>Position</label></th>';
+			echo '<td>';
+			echo '<select name="position">';
+			foreach ( $positions as $position ) {
+					echo '<option value='.$position->id.'>'.$position->name.'</option>';
+				}
+			echo '</select>';
+			echo '<span class="description">Choose a position.</span>';
+			echo '</td></tr>';
+		 
+		    echo '<td><input type="submit" name="add_button" value="Add" class="button-secondary" />';
+		    echo '<input type="hidden" name="type" value="add_member" /></td>';
+		    echo '</tr>';
+			echo '</table>';
+			echo '</form>';
+
+			echo '</div>';
+			echo '</div>';
+		}
+		add_submenu_page( 'wpri-settings-menu','Members Management','Members' ,  'manage_options', 'wpri-settings-member' , 'wpri_settings_member_management');
+	}
 /**********************************************************
 **  Settings pages helper functions
 **********************************************************/
