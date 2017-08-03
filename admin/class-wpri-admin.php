@@ -270,16 +270,17 @@ class WPRI_Admin {
 	 * @since    1.0.0
 	 */
 	public function settings_menu() {
+		function wpri_settings_management() {
+			echo '<div class="wrap">';
+			echo '<h2>Manage Research Institute Options</h2>';
+			echo '</div>';
+		}
+
 		add_menu_page( 'Research Institute Management', 'Research Institute', 'manage_options', 'wpri-settings-menu','wpri_settings_management');
 	}
 	
  
-	private function wpri_settings_management() {
-		echo '<div class="wrap">';
-		echo '<h2>Manage Research Institute Options</h2>';
-		echo '</div>';
-	}
-
+	
 
 
 /**********************************************************
