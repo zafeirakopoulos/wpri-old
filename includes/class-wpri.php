@@ -127,6 +127,13 @@ class WPRI {
 
 		$this->loader = new WPRI_Loader();
 
+		/**
+		 * The class responsible for defining the shortcodes functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-shortcodes.php';
+
+
 	}
 
 	/**

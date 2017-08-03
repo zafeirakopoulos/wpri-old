@@ -39,11 +39,7 @@ $GLOBALS['wpdb']->show_errors();
  * Include dependencies
  */
 
-//include_once("setup-database.php");
-//include_once("settings.php");
-//include_once("project.php");
-//include_once("publication.php");
-
+ 
 
 /**
  * The code that runs during plugin activation.
