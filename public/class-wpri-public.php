@@ -100,4 +100,13 @@ class WPRI_Public {
 
 	}
 
+	public function faculty_page_template( $template ) {
+
+		if ( is_page( 'faculty' ) ) {
+			$template = dirname( __FILE__ ) . '/templates/faculty.php';
+		}
+	    return $template;
+	}
+
+
 }
