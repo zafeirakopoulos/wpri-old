@@ -96,11 +96,6 @@ class WPRI {
 	 */
 	private function load_dependencies() {
 
-		/**
-		 * The class responsible for defining the database functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-database.php';
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
@@ -126,6 +121,21 @@ class WPRI {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wpri-public.php';
 
 		$this->loader = new WPRI_Loader();
+
+
+		/**
+		 * The class responsible for defining the projects functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-project.php';
+
+
+		/**
+		 * The class responsible for defining the publications functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-publication.php';
+
 
 		/**
 		 * The class responsible for defining the shortcodes functionality
@@ -163,6 +173,7 @@ class WPRI {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new WPRI_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_project = new WPRI_Project( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -172,6 +183,10 @@ class WPRI {
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_position_menu' );
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_agency_menu' );
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_member_menu' );
+
+ 
+
+		$this->loader->	add_action( 'admin_menu', $plugin_project, 'project_menu' );
 
 
 		$this->loader->add_action( 'personal_options_update', $plugin_admin, 'save_member_fields' );
