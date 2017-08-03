@@ -100,6 +100,11 @@ class WPRI_Admin {
 
 	}
 
+	/**
+	 * Register custom user fields related to academic capacity.
+	 *
+	 * @since    1.0.0
+	 */
 	public function member_fields( $user ) 
 	{ 
 
@@ -213,7 +218,11 @@ class WPRI_Admin {
 	    echo '</table>';
 	}
 
-
+	/**
+	 * Save the custom user fields.
+	 *
+	 * @since    1.0.0
+	 */
 	public function save_member_fields( $user_id ) 
 	{
 	    if ( !current_user_can( 'edit_user', $user_id ) ) { return false; }else{
@@ -255,5 +264,189 @@ class WPRI_Admin {
 	    }
 	}
 
+	/**
+	 * Add menu pages
+	 *
+	 * @since    1.0.0
+	 */
+	public function settings_menu() {
+		add_menu_page( 'Research Institute Management', 'Research Institute', 'manage_options', 'wpri-settings-menu','wpri_settings_management');
+	}
+	
+ 
+	private function wpri_settings_management() {
+		echo '<div class="wrap">';
+		echo '<h2>Manage Research Institute Options</h2>';
+		echo '</div>';
+	}
 
+
+
+/**********************************************************
+**  Settings pages helper functions
+**********************************************************/
+
+	/**
+	 * Register a non-translatable field.
+	 *
+	 * @since    1.0.0
+	 */
+	private function simple_setting_form($setting_name) {
+	 	$table_name = $GLOBALS['wpdb']->prefix . 'wpri_' . $setting_name ;
+		echo '<div class="wrap wpa">';
+
+		// If POST for adding
+		if( isset( $_POST['type']) && $_POST['type'] == 'add_' . $setting_name ) {
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => $_POST["setting_name"] ) );
+			echo $GLOBALS['wpdb']->insert_id ; 
+			if($GLOBALS['wpdb']->insert_id) {
+				?>
+		    <div class="updated"><p><strong>Added.</strong></p></div>
+		        <?php
+			} else {
+				?>
+		    <div class="error"><p>Unable to add.</p></div>
+		    <?php
+			}
+		}
+	
+		// If POST for deleting
+		if( isset( $_POST['type']) && $_POST['type'] == 'delete_' . $setting_name ) {
+			$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( "DELETE FROM " . $table_name . " WHERE id = %d", $_POST['setting_id'] ) );
+			if($result) {
+				?>
+		    <div class="updated"><p><strong>Deleted.</strong></p></div>
+		        <?php
+			} else {
+				?>
+		    <div class="error"><p>Unable to delete.</p></div>
+		    <?php
+			}
+		}
+	 
+
+		echo '<h3> Existing ' . $setting_name . ': </h3>';
+
+		echo '<ul>';
+		$all_entries = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $table_name );
+	 	foreach ( $all_entries as $dbitem ) {
+			echo '<form name="delete_$setting_name" method="post" action="">';
+			echo '<li><label for="delete_button' . $dbitem->id  . '">' . $dbitem->name . ': </label>';
+			echo ' <input type="submit" name="delete_button' . $dbitem->id  . '" value="Delete" class="button" />';
+	    	echo '<input type="hidden" name="type" value="delete_' . $setting_name . '" />';
+	   		echo '<li><input type="hidden" name="setting_id" value=' . $dbitem->id . '/></li>';
+			echo '</form>';
+	    }
+		echo '</ul>';
+
+
+		echo '<form name="add_$setting_name" method="post" action="">';
+		echo '<ul>';
+		echo '<li><label for="setting_name">New ' . $setting_name . ': </label>';
+		echo '<textarea id="setting_name" name="setting_name" cols="60" rows="1"></textarea> ';
+	    echo '<input type="submit" name="add_button" value="Add" class="button-secondary" /></li>';
+	    echo '<li><input type="hidden" name="type" value="add_' . $setting_name . '" /></li>';
+		echo '</ul>';
+		echo '</form>';
+
+
+		echo '</div>';
+	}
+
+	/**
+	 * Register translatable field.
+	 *
+	 * @since    1.0.0
+	 */
+	private setting_form($setting_name) {
+	 	$table_name = $GLOBALS['wpdb']->prefix . 'wpri_' . $setting_name ;
+		$locale_table_name = $GLOBALS['wpdb']->prefix . 'wpri_locale';
+		$locales = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $locale_table_name );
+		$mixed_table_name = $GLOBALS['wpdb']->prefix . 'wpri_locale_'  . $setting_name ;
+
+		echo '<div class="wrap wpa">';
+
+		// If POST for adding
+		if( isset( $_POST['type']) && $_POST['type'] == 'add_' . $setting_name ) {
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => $_POST["setting_name"] ) );
+			echo $GLOBALS['wpdb']->insert_id ; 
+			$new_id = $GLOBALS['wpdb']->insert_id;
+			if($GLOBALS['wpdb']->insert_id) {
+				?>
+		    <div class="updated"><p><strong>Added.</strong></p></div>
+		        <?php
+			} else {
+				?>
+		    <div class="error"><p>Unable to add.</p></div>
+		    <?php
+			}
+	 		foreach ( $locales as $locale ) {
+				$GLOBALS['wpdb']->insert( $mixed_table_name , array( 
+					'locale' => $locale->id,
+					$setting_name => $new_id,
+					'name' => $_POST["setting_name_" . $locale->id],		 				
+				));
+			}
+		
+		}
+	
+		// If POST for deleting
+		if( isset( $_POST['type']) && $_POST['type'] == 'delete_' . $setting_name ) {
+	 		foreach ( $locales as $locale ) {
+				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 
+					"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id'] 
+				));
+			}
+			$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 
+				"DELETE FROM " . $table_name . " WHERE id = %d", $_POST['setting_id'] 
+				));
+			if($result) {
+				?>
+		    <div class="updated"><p><strong>Deleted.</strong></p></div>
+		        <?php
+			} else {
+				?>
+		    <div class="error"><p>Unable to delete.</p></div>
+		    <?php
+			}
+		}
+	 
+
+		echo '<h3> Existing ' . $setting_name . ': </h3>';
+
+		$all_entries = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $table_name );
+		echo '<table>';
+	 	foreach ( $all_entries as $dbitem ) {
+			echo '<form name="delete_$setting_name" method="post" action="">';
+			echo '<tr>';
+			echo '<td><label>' . $dbitem->name . ': </label></td>';
+			echo '<td> <input type="submit" name="delete_button' . $dbitem->id  . '" value="Delete" class="button" />';
+	    	echo '<input type="hidden" name="type" value="delete_' . $setting_name . '" />';
+	   		echo '<input type="hidden" name="setting_id" value=' . $dbitem->id . '/></td>';
+			echo '</tr>';
+			echo '</form>';
+	    }
+		echo '</table>';
+
+		echo '<h3> Add new ' . $setting_name . ' key: </h3>';
+		echo '<form name="add_$setting_name" method="post" action="">';
+		echo '<table>';
+		echo '<tr>';
+		echo '<td><label>New ' . $setting_name . ': </label></td>';
+		echo '<td><textarea id="setting_name" name="setting_name" cols="60" rows="1"></textarea></td> ';
+		echo '</tr>';
+	 	foreach ( $locales as $locale ) {
+			echo '<tr>';
+			echo '<td><label>' . $locale->name . ': </label></td>';
+			echo '<td><textarea id="setting_name_' . $locale->id . '" name="setting_name_' . $locale->id . '" cols="60" rows="1"></textarea></td>';
+			echo '</tr>';
+		}
+	    echo '<tr>';
+	    echo '<td><input type="submit" name="add_button" value="Add" class="button-secondary" />';
+	    echo '<input type="hidden" name="type" value="add_' . $setting_name . '" /></td>';
+	    echo '</tr>';
+		echo '</table>';
+		echo '</form>';
+		echo '</div>';
+	}
 }

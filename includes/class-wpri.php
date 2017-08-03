@@ -166,6 +166,8 @@ class WPRI {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_menu' );
+
 
 		$this->loader->add_action( 'personal_options_update', $plugin_admin, 'save_member_fields' );
 		$this->loader->add_action( 'edit_user_profile_update', $plugin_admin, 'save_member_fields' );
