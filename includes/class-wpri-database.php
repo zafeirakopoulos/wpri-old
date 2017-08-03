@@ -423,7 +423,7 @@ class WPRI_Database {
 	    'wpri_locale'
 	    );
 
-	    $tables_to_drop = array();
+	    //$tables_to_drop = array();
 
 	    foreach($tables_to_drop as $table_name){
 		    $GLOBALS['wpdb']->query( "DROP TABLE IF EXISTS  " . $GLOBALS['wpdb']->prefix . $table_name );

@@ -31,7 +31,7 @@ class WPRI_Deactivator {
 	 */
 	public static function deactivate() {
 
-		WPRI_Database->drop_tables(); 
+		WPRI_Database::drop_tables(); 
 	 
         flush_rewrite_rules();
 	}
