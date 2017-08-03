@@ -20,7 +20,7 @@
  * @subpackage wpri/includes
  * @author     Zafeirakis Zafeirakopoulos
  */
-class WPRI_Project {
+class WPRI_Publication {
 
 	/**
 	 * Short Description. (use period)
