@@ -185,23 +185,13 @@ class WPRI {
 
 		$this->loader->add_filter( 'template_include',$plugin_public, 'faculty_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'faculty_page_template', 99 );
-add_action('init', 'wpri_shortcodes_init');
-
-	}
-
-	/**
-	 * Register all of the shortcodes of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function define_shortcodes() {
 
 		$plugin_shortcodes = new WPRI_Shortcodes( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action('init', $plugin_shortcodes, 'shortcodes_init');
 
 	}
+
 
 
 	/**
