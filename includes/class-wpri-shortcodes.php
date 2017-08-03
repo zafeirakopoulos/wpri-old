@@ -32,9 +32,23 @@ class WPRI_Shortcodes {
 	public function shortcodes_init()
 	{
 
+
 		function shortcode_project($atts = [], $content = null)
 		    {
 				 
+				function get_project_html($project_id)
+				{
+					$table_name = $GLOBALS['wpdb']->prefix . 'wpri_project' ; 
+
+					$result= $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare("SELECT * FROM " . $table_name . " WHERE id = %d", $project_id));
+					$project = $result[0];
+				    $html = "<div>";
+					$html .= "<h2>" . $result[0]->title . "</h2><br>";
+				    $html .= "website: " . $result[0]->website . "<br>";
+				    $html .= "Funded by " . $result[0]->funding . "<br>";
+					$html .= "</div>";
+					return $html;
+				}
 				$atts = array_change_key_case((array)$atts, CASE_LOWER);
 				$table_name = $GLOBALS['wpdb']->prefix . 'wpri_project' ; 
 
