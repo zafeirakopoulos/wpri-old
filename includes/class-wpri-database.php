@@ -204,8 +204,8 @@ class WPRI_Database {
 	 	}
 	  	 	
 	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-		return $first_install;
-	};
+        return $first_install;
+	}
 
 
 	/**
@@ -398,7 +398,7 @@ class WPRI_Database {
 			'agency' => $insert_id)
 		);
 
-	};
+	}
 
 
     public static function drop_tables() {
