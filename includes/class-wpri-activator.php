@@ -30,9 +30,9 @@ class WPRI_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-	 	$first_install = WPRI_Database::create_tables();
-		if ($first_install == 1) {
-            wpri_populate_tables();
+        $first_install = WPRI_Database::create_tables();
+        if ($first_install == 1) {
+            WPRI_Database::populate_tables();
         }
 
         flush_rewrite_rules();

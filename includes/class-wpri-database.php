@@ -29,7 +29,7 @@ class WPRI_Database {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function wpri_create_tables() {
+	public static function create_tables() {
 
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
@@ -215,7 +215,7 @@ class WPRI_Database {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function  wpri_populate_tables() {
+	public static function  populate_tables() {
 		/* Create pubtypes */
 		$table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype";
 		$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "Journal"));
