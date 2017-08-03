@@ -100,4 +100,160 @@ class WPRI_Admin {
 
 	}
 
+	public function member_fields( $user ) 
+	{ 
+
+	    echo '<h3>Office</h3>';
+
+	    echo '<h3>Academic Profile</h3>';
+
+	    echo '<table class="form-table">';
+
+		$title_table_name = $GLOBALS['wpdb']->prefix . "wpri_title" ;
+		$titles = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $title_table_name );
+
+		echo '<tr>';
+		echo '<th><label>Academic Title</label></th>';
+		echo '<td>';
+		echo '<select name="title">';
+			foreach ( $titles as $title ) {
+				echo '<option value='.$title->id. ' ' . ( $title->id == get_usermeta($user,'title')? 'selected ' : ' ') .'>'.$title->name.'</option>';
+			}
+		echo '</select>';
+		echo '<span class="description"></span>';
+		echo '</td></tr>';
+
+
+
+		$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
+		$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
+
+		echo '<tr>';
+		echo '<th><label>Advisor</label></th>';
+		echo '<td>';
+		echo '<select name="advisor">';
+			foreach ( $members as $member ) {
+				echo '<option value='.$member->id. ' ' . ( $member->id == get_usermeta($user,'advisor')? 'selected ' : ' ') .'>'.$member->username.'</option>';
+			}
+		echo '</select>';
+		echo '<span class="description"> </span>';
+		echo '</td></tr>';
+	    
+	    echo '</table>';
+
+
+	    echo '<h3>Projects</h3>';
+
+	    echo '<table class="form-table">';
+
+
+	 	$project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
+		$projects = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $project_table_name );
+
+		echo '<tr>';
+		echo '<th><label">Projects</label></th>';
+		echo '<td><select size="4" multiple="multiple" name="projects[]">';
+			foreach ( $projects as $project ) {
+			echo '<option value='.$project->id. ' ' . ( $project->id == get_usermeta($user,'project')? 'selected ' : ' ') .'>'.$project->title.'</option>';
+			}
+		echo '</select>';
+		echo '<span class="description">Choose projects you participate.</span>';
+		echo '</td></tr>';
+
+	    echo '</table>';
+
+
+	    echo '<h3>Education</h3>';
+
+	    echo '<h2>Undergraduate</h2>';
+	    echo '<table class="form-table">';
+	 	echo '<tr>';
+		echo '<th><label">Institution</label></th>';
+		echo '<td><textarea id="bs_inst" name="bs_inst" cols="70" rows="1"></textarea>';
+		echo '<span class="description">Write uni/dept name.</span>';
+		echo '</td></tr>';
+	 	echo '<tr>';
+		echo '<th><label">Year</label></th>';
+		echo '<td><textarea id="bs_year" name="bs_year" cols="4" rows="1"></textarea>';
+		echo '<span class="description">Graduation year</span>';
+		echo '</td></tr>';
+	 	echo '<tr>';
+	    echo '</table>';
+
+
+	    echo '<h2>Masters</h2>';
+	    echo '<table class="form-table">';
+	 	echo '<tr>';
+		echo '<th><label">Institution</label></th>';
+		echo '<td><textarea id="ms_inst" name="ms_inst" cols="70" rows="1"></textarea>';
+		echo '<span class="description">Write uni/dept name.</span>';
+		echo '</td></tr>';
+	 	echo '<tr>';
+		echo '<th><label">Year</label></th>';
+		echo '<td><textarea id="ms_year" name="ms_year" cols="4" rows="1"></textarea>';
+		echo '<span class="description">Graduation year</span>';
+		echo '</td></tr>';
+	 	echo '<tr>';
+	    echo '</table>';
+
+
+	    echo '<h2>PhD</h2>';
+	    echo '<table class="form-table">';
+	 	echo '<tr>';
+		echo '<th><label">Institution</label></th>';
+		echo '<td><textarea id="phd_inst" name="phd_inst" cols="70" rows="1"></textarea>';
+		echo '<span class="description">Write uni/dept name.</span>';
+		echo '</td></tr>';
+	 	echo '<tr>';
+		echo '<th><label">Year</label></th>';
+		echo '<td><textarea id="phd_year" name="phd_year" cols="4" rows="1"></textarea>';
+		echo '<span class="description">Graduation year</span>';
+		echo '</td></tr>';
+	 	echo '<tr>';
+	    echo '</table>';
+	}
+
+
+	public function save_member_fields( $user_id ) 
+	{
+	    if ( !current_user_can( 'edit_user', $user_id ) ) { return false; }else{
+
+		if(isset($_POST['title']) && $_POST['title'] != ""){
+		    update_usermeta( $user_id, 'title', $_POST['title'] );
+		}
+
+		if(isset($_POST['advisor']) && $_POST['advisor'] != ""){
+		    update_usermeta( $user_id, 'advisor', $_POST['advisor'] );
+		}
+
+		if(isset($_POST['bs_inst']) && $_POST['bs_inst'] != ""){
+		    update_usermeta( $user_id, 'bs_inst', $_POST['bs_inst'] );
+		}
+
+		if(isset($_POST['bs_year']) && $_POST['bs_year'] != ""){
+		    update_usermeta( $user_id, 'bs_year', $_POST['bs_year'] );
+		}
+
+		if(isset($_POST['ms_inst']) && $_POST['ms_inst'] != ""){
+		    update_usermeta( $user_id, 'ms_inst', $_POST['ms_inst'] );
+		}
+
+		if(isset($_POST['ms_year']) && $_POST['ms_year'] != ""){
+		    update_usermeta( $user_id, 'ms_year', $_POST['ms_year'] );
+		}
+		if(isset($_POST['phd_inst']) && $_POST['phd_inst'] != ""){
+		    update_usermeta( $user_id, 'phd_inst', $_POST['phd_inst'] );
+		}
+
+		if(isset($_POST['phd_year']) && $_POST['phd_year'] != ""){
+		    update_usermeta( $user_id, 'phd_year', $_POST['phd_year'] );
+		}
+
+		if(isset($_POST['projects[]']) && $_POST['projects[]'] != ""){
+		    update_usermeta( $user_id, 'projects[]', $_POST['projects[]'] );
+		}
+	    }
+	}
+
+
 }
