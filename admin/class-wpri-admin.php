@@ -300,7 +300,7 @@ class WPRI_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function simple_setting_form($setting_name) {
+	public static function simple_setting_form($setting_name) {
 	 	$table_name = $GLOBALS['wpdb']->prefix . 'wpri_' . $setting_name ;
 		echo '<div class="wrap wpa">';
 
@@ -367,7 +367,7 @@ class WPRI_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function setting_form($setting_name) {
+	public static function setting_form($setting_name) {
 	 	$table_name = $GLOBALS['wpdb']->prefix . 'wpri_' . $setting_name ;
 		$locale_table_name = $GLOBALS['wpdb']->prefix . 'wpri_locale';
 		$locales = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $locale_table_name );
