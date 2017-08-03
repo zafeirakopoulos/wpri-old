@@ -12,7 +12,7 @@
  * @subpackage wpri/includes
  * @author     Zafeirakis Zafeirakopoulos
  */
-class Plugin_Name_i18n {
+class WPRI_i18n {
 
 
 	/**
