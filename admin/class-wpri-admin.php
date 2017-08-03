@@ -20,7 +20,7 @@
  * @subpackage wpri/admin
  * @author     Zafeirakis Zafeirakopoulos
  */
-class Plugin_Name_Admin {
+class WPRI_Admin {
 
 	/**
 	 * The ID of this plugin.
