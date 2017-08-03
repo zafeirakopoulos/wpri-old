@@ -280,7 +280,15 @@ class WPRI_Admin {
 	}
 	
  
-	
+	public function settings_locale_menu() {	 
+		function wpri_settings_locale_management() {
+			echo '<div class="wrap">';
+			echo '<h2>Manage Locale Options</h2>';
+			$this::simple_setting_form('locale');
+			echo '</div>';
+		}
+		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
+	}
 
 
 /**********************************************************
