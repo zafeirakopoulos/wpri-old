@@ -31,29 +31,31 @@ class WPRI_Shortcodes {
 
 	public function shortcodes_init()
 	{
+
+		function shortcode_project($atts = [], $content = null)
+		    {
+				 
+				$atts = array_change_key_case((array)$atts, CASE_LOWER);
+				$table_name = $GLOBALS['wpdb']->prefix . 'wpri_project' ; 
+
+				if (isset($atts['id'])){
+			 		$html = get_project_html($atts['id']);
+				}
+				else{
+					$results= $GLOBALS['wpdb']->get_results("SELECT * FROM " . $table_name);
+				$html = "<div><h1> All projects </h1><br>" ;
+					foreach ($results as $result){
+						$html .= get_project_html($result->id); 
+						$html .= "<br>"; 
+					}
+					$html .= "</div>";			
+				}
+			    return  $html;
+		    }
 	    add_shortcode('wpri-project', 'shortcode_project');
 	}
 
 
-	function shortcode_project($atts = [], $content = null)
-	    {
-			 
-			$atts = array_change_key_case((array)$atts, CASE_LOWER);
-			$table_name = $GLOBALS['wpdb']->prefix . 'wpri_project' ; 
 
-			if (isset($atts['id'])){
-		 		$html = get_project_html($atts['id']);
-			}
-			else{
-				$results= $GLOBALS['wpdb']->get_results("SELECT * FROM " . $table_name);
-			$html = "<div><h1> All projects </h1><br>" ;
-				foreach ($results as $result){
-					$html .= get_project_html($result->id); 
-					$html .= "<br>"; 
-				}
-				$html .= "</div>";			
-			}
-		    return  $html;
-	    }
 
 }
