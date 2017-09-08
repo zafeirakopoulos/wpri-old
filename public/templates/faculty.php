@@ -26,8 +26,8 @@ get_header(); ?>
   	    			echo "<ul class='faculty'>";
                     $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
                     $user_table = $GLOBALS['wpdb']->prefix . "users";
-                    $position_table = $GLOBALS['wpdb']->prefix . "position";
-                    $title_table = $GLOBALS['wpdb']->prefix . "title";
+                    $position_table = $GLOBALS['wpdb']->prefix . "wpri_position";
+                    $title_table = $GLOBALS['wpdb']->prefix . "wpri_title";
 
     				foreach ( $members as $member ) {
                         $fname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->user));
