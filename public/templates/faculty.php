@@ -26,11 +26,11 @@ get_header(); ?>
   	    			echo "<ul class='faculty'>";
     				foreach ( $members as $member ) {
 	                    echo "<li class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
-                        echo "<table><tr>";
+                        echo "<table>";
                         echo "<tr><h3 class='faculty'><?php $member->id.'>'.$member->username. ?></h3></tr>";
-                        echo "<td><img src='http://lorempixum.com/100/100/nature/1' /></td>";
-                        echo "<td><p class='faculty'>Lorem ipsum dolor sit amet...</p></td>";
-                        echo "</tr></table>";
+                        echo "<tr><td><img src='http://lorempixum.com/100/100/nature/1' /></td>";
+                        echo "<td><p class='faculty'>Lorem ipsum dolor sit amet...</p></td></tr>";
+                        echo "</table>";
                         echo "</li>";
 					}
   	    			echo "</ul>";
