@@ -27,7 +27,7 @@ get_header(); ?>
                     $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
 
     				foreach ( $members as $member ) {
-                        $userm = $GLOBALS['wpdb']->get_row(
+                        $fname = $GLOBALS['wpdb']->get_var(
                             $GLOBALS['wpdb']->prepare(
                                 "SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->id
                             ));
@@ -35,7 +35,7 @@ get_header(); ?>
 	                    echo "<li class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'>";
-                        echo $userm[first_name];
+                        echo $fname;
                         echo "</h3></tr>";
                         echo "<tr><td>";
                         echo get_avatar( $member->user );
