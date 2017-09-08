@@ -334,39 +334,7 @@ class WPRI_Admin {
 			function add_member_page($member_id) {
 			 	$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 				$member = $GLOBALS['wpdb']->get_row("SELECT * FROM " . $member_table_name . " WHERE id = ". $member_id);
-			 
-			    $member_page_title = $member->username;
-			    $member_page_content = 'This is blog page placeholder. Use a template';
-			    $member_page = array(
-				    'post_type' => 'page',
-				    'post_title' => $member_page_title,
-				    'post_content' => $member_page_content,
-				    'post_status' => 'publish',
-				    'post_author' => $member->user,
-					// Change this. It exposes usernames to public
-				    'post_slug' => $member->username
-			    );
-			    $new_post_id = wp_insert_post($member_page);
-
-			    $member_page_title_tr = $member->username;;
-			    $member_page_content_tr = 'This is blog page placeholder. Use a template';
-			    $member_page_tr = array(
-				    'post_type' => 'page',
-				    'post_title' => $member_page_title_tr,
-				    'post_content' => $member_page_content_tr,
-				    'post_status' => 'publish',
-				    'post_author' => $member->user,
-					// Change this. It exposes usernames to public
-				    'post_slug' => $member->username._tr
-			    );
-			    $new_post_id_tr = wp_insert_post($member_page_tr);
-
-
-			    pll_set_post_language($new_post_id, 'en');
-			    pll_set_post_language($new_post_id_tr, 'tr');
-
-			    pll_save_post_translations(array('en' => $new_post_id, 'tr' => $new_post_id_tr));
-
+			  
 
 				return $new_post_id;
 			}
