@@ -25,22 +25,30 @@ get_header(); ?>
 					echo "<div class='faculty' >";
   	    			echo "<ul class='faculty'>";
                     $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
+                    $user_table = $GLOBALS['wpdb']->prefix . "users";
+                    $position_table = $GLOBALS['wpdb']->prefix . "position";
+                    $title_table = $GLOBALS['wpdb']->prefix . "title";
 
     				foreach ( $members as $member ) {
-                        $fname = $GLOBALS['wpdb']->get_var(
-                            $GLOBALS['wpdb']->prepare(
-                                "SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->id
-                            ));
+                        $fname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->user));
+                        $lname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='last_name' AND user_id = %d", $member->user));
+                        $email = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT user_email FROM " . $user_table . " WHERE ID = %d", $member->user));
+                        $position = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $position_table ." WHERE id = %d", $member->position));
+                        $atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $member->title));
 
 	                    echo "<li class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'>";
-                        echo $fname;
+                        echo $atitle." ".$fname." ".$lname;
                         echo "</h3></tr>";
                         echo "<tr><td>";
                         echo get_avatar( $member->user );
                         echo "</td>";
-                        echo "<td><p class='faculty'>Lorem ipsum dolor sit amet...</p></td></tr>";
+                        echo "<td><p>";
+                        echo $position."<br>";
+                        echo $member->website."<br>";
+                        echo $email."<br>";
+                        echo "</p></td></tr>";
                         echo "</table>";
                         echo "</li>";
 					}
