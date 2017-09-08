@@ -24,11 +24,18 @@ get_header(); ?>
 					$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
 					echo "<div class='faculty' >";
   	    			echo "<ul class='faculty'>";
+                    $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
+
     				foreach ( $members as $member ) {
+                        $all_entries = $GLOBALS['wpdb']->get_results("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->id));
+                        echo $all_entries;
+
 	                    echo "<li class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
                         echo "<table>";
-                        echo "<tr><h3 class='faculty'><?php $member->id.'>'.$member->username. ?></h3></tr>";
-                        echo "<tr><td><?php echo get_avatar( $member->user ); ?></td>";
+                        echo "<tr><h3 class='faculty'><?php $member->id.'>'.$member->username ?></h3></tr>";
+                        echo "<tr><td>"
+                        echo get_avatar( $member->user );
+                        echo "</td>";
                         echo "<td><p class='faculty'>Lorem ipsum dolor sit amet...</p></td></tr>";
                         echo "</table>";
                         echo "</li>";
