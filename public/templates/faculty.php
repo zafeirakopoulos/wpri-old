@@ -27,7 +27,7 @@ get_header(); ?>
                     $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
 
     				foreach ( $members as $member ) {
-                        $all_entries = $GLOBALS['wpdb']->get_results("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->id));
+                        $all_entries = $GLOBALS['wpdb']->get_results("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->id);
                         echo $all_entries;
 
 	                    echo "<li class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
