@@ -1,11 +1,11 @@
 <?php /**
  * Template Name: faculty
  * Template Post Type: page
- * 
+ *
  * Display a list of all faculty members of the institute
  **/
- 
- 
+
+
 get_header(); ?>
 
 <div id="main-content" class="main-content">
@@ -21,8 +21,8 @@ get_header(); ?>
 
 					// Start the Loop.
 					$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
-					$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );		
-					echo "<div class='faculty'>";
+					$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
+					echo "<div class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px; '>";
   	    			echo "<ul class='faculty'>";
     				foreach ( $members as $member ) {
 	                    echo "<li class='faculty'>";
@@ -40,5 +40,5 @@ get_header(); ?>
 </div><!-- #main-content -->
 
 <?php
- 
+
 get_footer();
