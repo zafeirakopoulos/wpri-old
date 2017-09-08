@@ -22,13 +22,15 @@ get_header(); ?>
 					// Start the Loop.
 					$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 					$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
-					echo "<div class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px; '>";
+					echo "<div class='faculty' >";
   	    			echo "<ul class='faculty'>";
     				foreach ( $members as $member ) {
-	                    echo "<li class='faculty'>";
-                        echo "<img src='http://lorempixum.com/100/100/nature/1' />";
-                        echo "<h3 class='faculty'><?php $member->id.'>'.$member->username. ?></h3>";
-                        echo "<p class='faculty'>Lorem ipsum dolor sit amet...</p>";
+	                    echo "<li class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
+                        echo "<table><tr>";
+                        echo "<tr><h3 class='faculty'><?php $member->id.'>'.$member->username. ?></h3></tr>";
+                        echo "<td><img src='http://lorempixum.com/100/100/nature/1' /></td>";
+                        echo "<td><p class='faculty'>Lorem ipsum dolor sit amet...</p></td>";
+                        echo "</tr></table>";
                         echo "</li>";
 					}
   	    			echo "</ul>";
