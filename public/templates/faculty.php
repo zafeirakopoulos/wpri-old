@@ -33,7 +33,7 @@ get_header(); ?>
 	                    echo "<li class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'><?php $member->id.'>'.$member->username ?></h3></tr>";
-                        echo "<tr><td>"
+                        echo "<tr><td>";
                         echo get_avatar( $member->user );
                         echo "</td>";
                         echo "<td><p class='faculty'>Lorem ipsum dolor sit amet...</p></td></tr>";
