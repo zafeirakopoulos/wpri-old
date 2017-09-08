@@ -2,7 +2,7 @@
  * Template Name: faculty
  * Template Post Type: page
  * 
- * Template Description...
+ * Display a list of all faculty members of the institute
  **/
  
  
@@ -14,12 +14,14 @@ get_header(); ?>
 		<div id="content" class="site-content" role="main">
 
 			<?php
-				pll_current_language();
+				echo 'language:'.pll_current_language();
 
 				// Start the Loop.
 				$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 				$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
 				foreach ( $members as $member ) {
+					
+
 					echo $member->id.'>'.$member->username.'<br>';
 				}
 			?>
