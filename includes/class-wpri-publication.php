@@ -80,7 +80,24 @@ class WPRI_Publication {
 						));	
 					}	
 				}
-		 
+
+
+ 
+
+				// Add page for publication
+			    $publication_page_title = $_POST["title"];
+    			$publication_page_content = $_POST["bibentry"];
+  			 	$publication_page_check = get_page_by_title($blog_page_title);
+ 			  	$publication_page = array(
+				    'post_type' => 'page',
+				    'post_title' => $publication_page_title,
+				    'post_content' => $publication_page_content,
+				    'post_status' => 'publish',
+				    'post_author' => 1,
+				    'post_slug' => $_POST["doi"]
+			    );
+		   	  	$publication_page_id = wp_insert_post($publication_page);
+				update_post_meta( $publication_page_id, '_visibility', 'visible' );
 			}
 	
 			// If POST for deleting
