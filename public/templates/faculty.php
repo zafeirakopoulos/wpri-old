@@ -14,15 +14,13 @@ get_header(); ?>
 		<div id="content" class="site-content" role="main">
 
 			<?php
+				pll_current_language();
+
 				// Start the Loop.
-				while ( have_posts() ) : the_post();
-					// Include the page content template.
-					get_template_part( 'content', 'page' );
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
-					}
-				endwhile;
+				$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
+				foreach ( $members as $member ) {
+					echo '<option value='.$member->id.'>'.$member->username.'</option>';
+				}
 			?>
 
 		</div><!-- #content -->
