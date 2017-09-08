@@ -124,6 +124,13 @@ class WPRI {
 
 
 		/**
+		 * The class responsible for database functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-database.php';
+
+
+		/**
 		 * The class responsible for defining the projects functionality
 		 * of the plugin.
 		 */
