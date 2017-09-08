@@ -15,7 +15,7 @@ get_header(); ?>
 			<div id="faculty" >
 				<h1> <?php Faculty ?> </h1>
 				<?php
-					$current_language = "en" 
+					$current_language = "en";
 					// This has to be done using js. Cannot be written in DB for example.
 					// Have a hidden element in the DOM to keep track of language.
 
