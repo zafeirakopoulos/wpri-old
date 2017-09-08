@@ -31,8 +31,10 @@ get_header(); ?>
                             $GLOBALS['wpdb']->prepare(
                                 "SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->id
                             ));
-                        echo $all_entries;
+                        foreach ( $all_entries as $entr) {
 
+                            echo $entr;
+                        }
 	                    echo "<li class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'><?php $member->id.'>'.$member->username ?></h3></tr>";
