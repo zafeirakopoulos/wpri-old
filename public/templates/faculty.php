@@ -28,7 +28,7 @@ get_header(); ?>
 	                    echo "<li class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'><?php $member->id.'>'.$member->username. ?></h3></tr>";
-                        echo "<tr><td><img src='http://lorempixum.com/100/100/nature/1' /></td>";
+                        echo "<tr><td><?php echo get_avatar( $member->user ); ?></td>";
                         echo "<td><p class='faculty'>Lorem ipsum dolor sit amet...</p></td></tr>";
                         echo "</table>";
                         echo "</li>";
