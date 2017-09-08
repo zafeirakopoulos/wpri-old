@@ -17,6 +17,7 @@ get_header(); ?>
 				pll_current_language();
 
 				// Start the Loop.
+				$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 				$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
 				foreach ( $members as $member ) {
 					echo '<option value='.$member->id.'>'.$member->username.'</option>';
