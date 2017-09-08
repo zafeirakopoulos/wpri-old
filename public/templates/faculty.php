@@ -33,7 +33,7 @@ get_header(); ?>
                             ));
                         foreach ( $all_entries as $entr) {
 
-                            echo $entr;
+                            echo $entr->first_name;
                         }
 	                    echo "<li class='faculty' style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
                         echo "<table>";
