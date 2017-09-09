@@ -133,10 +133,10 @@ class WPRI_Public {
 	}
 
 	public function load_plugin_theme_templates() {
-		load_template(dirname( __FILE__ ) . '/templates/header.php', true )
-		load_template(dirname( __FILE__ ) . '/templates/footer.php', true )
-		load_template(dirname( __FILE__ ) . '/templates/sidebar.php', true )
-		load_template(dirname( __FILE__ ) . '/templates/index.php', true )
+		load_template(dirname( __FILE__ ) . '/templates/header.php', true );
+		load_template(dirname( __FILE__ ) . '/templates/footer.php', true );
+		load_template(dirname( __FILE__ ) . '/templates/sidebar.php', true );
+		load_template(dirname( __FILE__ ) . '/templates/index.php', true );
 	}
 
 }
