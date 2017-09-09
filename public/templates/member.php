@@ -33,6 +33,27 @@ get_header(); ?>
 					echo "<br>";
 					echo $usermeta[last_name];
 					echo "<br>";
+
+					$fname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->user));
+					$lname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='last_name' AND user_id = %d", $member->user));
+					$email = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT user_email FROM " . $user_table . " WHERE ID = %d", $member->user));
+					$position = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $position_table ." WHERE id = %d", $member->position));
+					$titlen= $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='title' AND user_id = %d", $member->user));
+					$atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $titlen));
+
+					echo "<table>";
+					echo "<tr><h3 class='faculty'>";
+					echo $atitle." ".$fname." ".$lname;
+					echo "</h3></tr>";
+					echo "<tr><td>";
+					echo get_avatar( $member->user );
+					echo "</td>";
+					echo "<td><p>";
+					echo $position."<br>";
+					echo $member->website."<br>";
+					echo $email."<br>";
+					echo "</p></td></tr>";
+					echo "</table>";
 				?>
 
 				<h1> <?php echo 'Faculty' ?> </h1>
