@@ -228,7 +228,7 @@ class WPRI {
 		$this->loader->add_filter( 'template_include',$plugin_public, 'projects_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'header_template', 99 );
 
-		#$plugin_public->load_plugin_theme_templates();
+		wpri_load_templates();
 
 		$plugin_shortcodes = new WPRI_Shortcodes( $this->get_plugin_name(), $this->get_version() );
 
@@ -236,6 +236,16 @@ class WPRI {
 
 	}
 
+	function wpri_load_templates() {
+
+		$template_loader = new WPRI_Template_Loader;
+
+		ob_start();
+		$template_loader->get_template_part( 'content', 'header-bte' );
+		$template_loader->get_template_part( 'content', 'footer-bte' );
+		return ob_get_clean();
+
+	}
 
 
 	/**
