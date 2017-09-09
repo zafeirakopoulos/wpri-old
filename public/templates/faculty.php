@@ -7,6 +7,7 @@
 
 /* Choose the header from the plugin */
 /* instantiate in main, dont do it every time */
+get_header();
 
 <div id="main-content" class="main-content">
 
