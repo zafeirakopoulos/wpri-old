@@ -36,7 +36,7 @@ get_header(); ?>
                         $titlen= $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='title' AND user_id = %d", $member->user));
                         $atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $titlen));
 
-	                    echo "<div class='faculty-thumb col-md-5'>";
+						echo "<a href=''><div class='faculty-thumb col-md-5'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'>";
                         echo $atitle." ".$fname." ".$lname;
@@ -50,7 +50,7 @@ get_header(); ?>
                         echo $email."<br>";
                         echo "</p></td></tr>";
                         echo "</table>";
-                        echo "</div>";
+                        echo "</div></a>";
 					}
 					echo "</div>";
 				?>

@@ -22,7 +22,7 @@ get_header(); ?>
 					$position_table = $GLOBALS['wpdb']->prefix . "wpri_position";
 					$title_table = $GLOBALS['wpdb']->prefix . "wpri_title";
 
-					$member_id=$_POST['id'];
+					$member_id=$_GET['id'];
 					$member = $GLOBALS['wpdb']->get_row($GLOBALS['wpdb']->prepare("SELECT * FROM " . $member_table_name . " WHERE id = %d", $member_id));
 					$user_id = $member->user;
 					$user = $GLOBALS['wpdb']->get_row($GLOBALS['wpdb']->prepare("SELECT * FROM " . $user_table . " WHERE ID = %d", $user_id));
