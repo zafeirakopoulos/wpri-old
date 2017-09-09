@@ -55,7 +55,7 @@ class WPRI_Template_Loader extends Gamajo_Template_Loader {
    *
    * @var string
    */
-  protected $plugin_directory = dirname( __FILE__ );
+  protected $plugin_directory = plugin_dir_path( __FILE__ );
 
   /**
    * Directory name where templates are found in this plugin.
@@ -70,5 +70,5 @@ class WPRI_Template_Loader extends Gamajo_Template_Loader {
    */
   protected $plugin_template_directory = 'templates';
 
-  
+
 }
