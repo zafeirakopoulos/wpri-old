@@ -27,10 +27,16 @@ get_header(); ?>
 					$user_id = $member->user;
 					$user = $GLOBALS['wpdb']->get_row($GLOBALS['wpdb']->prepare("SELECT * FROM " . $user_table . " WHERE ID = %d", $user_id));
 					$usermeta = $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare("SELECT * FROM " . $usermeta_table . " WHERE user_id = %d", $user_id));
+					echo $member_id;
+					echo "<br>";
+					echo $user_id;
+					echo "<br>";
+					echo $usermeta->last_name;
+					echo "<br>";
 				?>
 
 				<h1> <?php echo 'Faculty' ?> </h1>
- 
+
 			</div><!-- #faculty -->
 		</div><!-- #content -->
 	</div><!-- #primary -->
