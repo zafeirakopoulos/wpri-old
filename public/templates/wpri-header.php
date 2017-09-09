@@ -37,7 +37,7 @@
 			        <span class="icon-bar"></span>
 			      </button>
 				  <a class="navbar-brand" href="<?php echo site_url();?>">
-				      <img width="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png">
+				      <img width="50px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png">
 				  </a>
 			    </div>
 			    <div id="navbar" class="navbar-collapse collapse">
