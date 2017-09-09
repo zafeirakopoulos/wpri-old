@@ -23,6 +23,7 @@ get_header(); ?>
 					$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 					$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
 					echo "<div class='grid-col' >";
+  	    			echo "<ul>";
                     $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
                     $user_table = $GLOBALS['wpdb']->prefix . "users";
                     $position_table = $GLOBALS['wpdb']->prefix . "wpri_position";
@@ -36,7 +37,7 @@ get_header(); ?>
                         $titlen= $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='title' AND user_id = %d", $member->user));
                         $atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $titlen));
 
-	                    echo "<div'>";
+	                    echo "<li style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;width:30%'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'>";
                         echo $atitle." ".$fname." ".$lname;
@@ -50,8 +51,9 @@ get_header(); ?>
                         echo $email."<br>";
                         echo "</p></td></tr>";
                         echo "</table>";
-                        echo "</div>";
+                        echo "</li>";
 					}
+  	    			echo "</ul>";
 					echo "</div>";
 				?>
 			</div><!-- #faculty -->
