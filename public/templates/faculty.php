@@ -37,7 +37,7 @@ get_header(); ?>
                         $titlen= $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='title' AND user_id = %d", $member->user));
                         $atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $titlen));
 
-	                    echo "<li style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
+	                    echo "<li style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;width:30%;'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'>";
                         echo $atitle." ".$fname." ".$lname;
