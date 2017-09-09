@@ -228,7 +228,7 @@ class WPRI {
 		$this->loader->add_filter( 'template_include',$plugin_public, 'projects_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'header_template', 99 );
 
-		wpri_load_templates();
+		$this->wpri_load_templates();
 
 		$plugin_shortcodes = new WPRI_Shortcodes( $this->get_plugin_name(), $this->get_version() );
 
