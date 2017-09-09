@@ -226,9 +226,9 @@ class WPRI {
 		$this->loader->add_filter( 'template_include',$plugin_public, 'member_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'project_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'projects_page_template', 99 );
-		$this->loader->add_filter( 'template_include',$plugin_public, 'header_template', 99 );
 
-
+		$plugin_public->load_plugin_theme_templates();
+		
 		$plugin_shortcodes = new WPRI_Shortcodes( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action('init', $plugin_shortcodes, 'shortcodes_init');
