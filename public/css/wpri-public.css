@@ -2,3 +2,244 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+
+ /*
+  * Globals
+  */
+
+ body {
+   font-family: Georgia, "Times New Roman", Times, serif;
+   color: #555;
+ }
+
+ h1, .h1,
+ h2, .h2,
+ h3, .h3,
+ h4, .h4,
+ h5, .h5,
+ h6, .h6 {
+   margin-top: 0;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: normal;
+   color: #fff;
+ }
+
+
+ /*
+  * Override Bootstrap's default container.
+  */
+
+ @media (min-width: 1200px) {
+   .container {
+     width: 970px;
+   }
+ }
+
+
+ /*
+  * Masthead for nav
+  */
+
+ .bte-masthead {
+   background-color: #808080;
+   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+   text-align: center;
+   width: 100%;
+ }
+
+ /* Nav links */
+ .bte-nav-item {
+   position: relative;
+   display: inline-block;
+   padding: 10px;
+   font-weight: 500;
+  }
+ .bte-nav-item:hover,
+ .bte-nav-item:focus {
+   color: #fff;
+   text-decoration: none;
+ }
+
+
+
+
+ /*
+  * BTE name and description
+  */
+
+ .bte-header {
+   padding-top: 20px;
+   padding-bottom: 20px;
+ }
+ .bte-title {
+   text-align: center;
+   margin-top: 30px;
+   margin-bottom: 0;
+   font-size: 40px;
+   font-weight: normal;
+ }
+
+
+
+ /*
+  * Main column and sidebar layout
+  */
+
+ .bte-main {
+   font-size: 18px;
+   line-height: 1.5;
+ }
+
+ /* Sidebar modules for boxing content */
+ .sidebar-module {
+   padding: 15px;
+   margin: 0 -15px 15px;
+ }
+ .sidebar-module-inset {
+   padding: 15px;
+   background-color: #f5f5f5;
+   border-radius: 4px;
+ }
+ .sidebar-module-inset p:last-child,
+ .sidebar-module-inset ul:last-child,
+ .sidebar-module-inset ol:last-child {
+   margin-bottom: 0;
+ }
+
+
+ /* Pagination */
+ .pager {
+   margin-bottom: 60px;
+   text-align: left;
+ }
+ .pager > li > a {
+   width: 140px;
+   padding: 10px 20px;
+   text-align: center;
+   border-radius: 30px;
+ }
+
+
+ /*
+  * Blog posts
+  */
+
+ .blog-post {
+   margin-bottom: 60px;
+ }
+ .blog-post-title {
+   margin-bottom: 5px;
+   font-size: 40px;
+ }
+ .blog-post-meta {
+   margin-bottom: 20px;
+   color: #999;
+ }
+
+
+ /*
+  * Footer
+  */
+
+ .bte-footer {
+   padding: 40px 0;
+   color: #999;
+   text-align: center;
+   background-color: #808080;
+   border-top: 1px solid #e5e5e5;
+ }
+ .bte-footer p:last-child {
+   margin-bottom: 0;
+ }
+
+ /*
+  * Menu
+  */
+  .navbar-default {
+    background-color: #808080;
+    border: 0;
+  }
+  .navbar-default .navbar-brand {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-brand:hover,
+  .navbar-default .navbar-brand:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-text {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+    font-size: 25px;
+  }
+  .navbar-default .navbar-nav > li > a:hover,
+  .navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color: #404040;
+  }
+  .navbar-default .navbar-nav > .open > a,
+  .navbar-default .navbar-nav > .open > a:hover,
+  .navbar-default .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #404040;
+
+  }
+  .navbar-default .navbar-toggle {
+  }
+  .navbar-default .navbar-toggle:hover,
+  .navbar-default .navbar-toggle:focus {
+    background-color: #404040;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+  }
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+  }
+  .navbar-default .navbar-link {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-link:hover {
+    color: #ffffff;
+  }
+
+  @media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+      color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+      color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+      color: #ffffff;
+      background-color: #404040;
+    }
+  }
+
+
+
+ /*
+  * Faculty
+  */
+
+  .faculty-thumb {
+    background-color: #808080;
+    border: 1px solid red;
+    font-size: 15px;
+	padding: 20px;
+	margin-right:5px;
+	margin-left:5px;
+	margin-bottom:10px;
+	margin-top:10px;
+  }
