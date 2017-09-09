@@ -7,8 +7,9 @@
 
 /* Choose the header from the plugin */
 /* instantiate in main, dont do it every time */
-$template_loader = new WPRI_Template_Loader;
+<?php $template_loader = new WPRI_Template_Loader;
 $template_loader->get_template_part( 'bte', 'header' );
+?>
 
 <div id="main-content" class="main-content">
 
