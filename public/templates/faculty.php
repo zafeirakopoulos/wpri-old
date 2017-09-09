@@ -63,5 +63,5 @@ $template_loader->get_template_part( 'bte', 'header' );
 </div><!-- #main-content -->
 
 <?php
-
 $template_loader->get_template_part( 'bte', 'footer' );
+?>
