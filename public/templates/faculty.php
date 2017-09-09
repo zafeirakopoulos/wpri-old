@@ -22,7 +22,7 @@ get_header(); ?>
 					// Start the Loop.
 					$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 					$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
-					echo "<div class='container col-md-8' >";
+					echo "<div class='container' >";
   	    			echo "<ul>";
                     $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
                     $user_table = $GLOBALS['wpdb']->prefix . "users";
@@ -37,7 +37,7 @@ get_header(); ?>
                         $titlen= $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='title' AND user_id = %d", $member->user));
                         $atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $titlen));
 
-	                    echo "<li class='faculty-thumb col-md-4'>";
+	                    echo "<li class='faculty-thumb col-md-6'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'>";
                         echo $atitle." ".$fname." ".$lname;
