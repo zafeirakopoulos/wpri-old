@@ -132,7 +132,7 @@ class WPRI_Public {
 		return $template;
 	}
 
-	public function header-bte_template( $template ) {
+	public function header_template( $template ) {
 
 		if ( is_page( 'projects' ) ) {
 			$template = dirname( __FILE__ ) . '/templates/header-bte.php';
