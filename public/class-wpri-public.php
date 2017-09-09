@@ -136,12 +136,11 @@ class WPRI_Public {
 		return $template;
 	}
 
+	public function index_page_template( $template ) {
 
-	public function load_plugin_theme_templates() {
-		load_template(dirname( __FILE__ ) . '/templates/header-bte.php');
-		load_template(dirname( __FILE__ ) . '/templates/footer-bte.php');
-		#load_template(dirname( __FILE__ ) . '/templates/sidebar.php', true );
-		#load_template(dirname( __FILE__ ) . '/templates/index.php', true );
+		if ( is_page( 'index' ) ) {
+			$template = dirname( __FILE__ ) . '/templates/index.php';
+		}
+		return $template;
 	}
-
 }
