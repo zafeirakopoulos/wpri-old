@@ -5,8 +5,8 @@
  * Display a list of all faculty members of the institute
  **/
 
-
-get_header(); ?>
+/* Choose the header from the plugin */
+get_header('bte'); ?>
 
 <div id="main-content" class="main-content">
 
@@ -61,4 +61,4 @@ get_header(); ?>
 
 <?php
 
-get_footer();
+get_footer('bte');

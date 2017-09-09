@@ -6,7 +6,7 @@
  **/
 
 
-get_header(); ?>
+get_header('bte'); ?>
 
 <div id="main-content" class="main-content">
 
@@ -65,4 +65,4 @@ get_header(); ?>
 
 <?php
 
-get_footer();
+get_footer('bte');
