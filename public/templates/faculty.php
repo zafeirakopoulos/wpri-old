@@ -22,8 +22,8 @@ get_header(); ?>
 					// Start the Loop.
 					$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 					$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
-					echo "<div class='faculty' >";
-  	    			echo "<ul class='faculty'>";
+					echo "<div class='grid-col' >";
+  	    			echo "<ul>";
                     $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
                     $user_table = $GLOBALS['wpdb']->prefix . "users";
                     $position_table = $GLOBALS['wpdb']->prefix . "wpri_position";
