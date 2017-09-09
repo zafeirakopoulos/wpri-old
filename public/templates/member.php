@@ -31,7 +31,7 @@ get_header(); ?>
 					echo "<br>";
 					echo $user_id;
 					echo "<br>";
-					echo $usermeta->last_name;
+					echo $usermeta[last_name];
 					echo "<br>";
 				?>
 
