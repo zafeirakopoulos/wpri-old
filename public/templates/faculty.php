@@ -64,4 +64,4 @@ $template_loader->get_template_part( 'bte', 'header' );
 
 <?php
 
-get_footer('bte');
+$template_loader->get_template_part( 'bte', 'footer' );
