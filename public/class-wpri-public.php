@@ -98,7 +98,7 @@ class WPRI_Public {
 		 * class.
 		 */
 
-		 wp_register_script( 'bootstrap_js, 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ));
+		 wp_register_script( 'bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ));
 
 
 		wp_enqueue_script( 'bootstrap_js' );
