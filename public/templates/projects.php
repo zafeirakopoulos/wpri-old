@@ -5,15 +5,18 @@
  * Display a list of all faculty members of the institute
  **/
 
-
-get_header(); ?>
+/* Choose the header from the plugin */
+/* instantiate in main, dont do it every time */
+$template_loader = new WPRI_Template_Loader;
+$template_loader->get_template_part( 'wpri', 'header' );
+?>
 
 <div id="main-content" class="main-content">
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
-			<div id="faculty" >
-				<h1> <?php echo 'Faculty' ?> </h1>
+			<div id="projects" >
+				<h1> <?php echo 'Projects' ?> </h1>
 				<?php
 					$current_language = "en";
 					// This has to be done using js. Cannot be written in DB for example.
@@ -22,8 +25,7 @@ get_header(); ?>
 					// Start the Loop.
 					$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 					$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
-					echo "<div class='faculty' >";
-  	    			echo "<ul class='faculty'>";
+					echo "<div class='container' >";
                     $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
                     $user_table = $GLOBALS['wpdb']->prefix . "users";
                     $position_table = $GLOBALS['wpdb']->prefix . "wpri_position";
@@ -37,7 +39,7 @@ get_header(); ?>
                         $titlen= $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='title' AND user_id = %d", $member->user));
                         $atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $titlen));
 
-	                    echo "<li style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
+						echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'>";
                         echo $atitle." ".$fname." ".$lname;
@@ -51,9 +53,8 @@ get_header(); ?>
                         echo $email."<br>";
                         echo "</p></td></tr>";
                         echo "</table>";
-                        echo "</li><br>";
+                        echo "</div></a>";
 					}
-  	    			echo "</ul>";
 					echo "</div>";
 				?>
 			</div><!-- #faculty -->
@@ -62,5 +63,5 @@ get_header(); ?>
 </div><!-- #main-content -->
 
 <?php
-
-get_footer();
+$template_loader->get_template_part( 'wpri', 'footer' );
+?>

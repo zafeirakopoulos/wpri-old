@@ -6,61 +6,67 @@
  **/
 
 
-get_header(); ?>
+ /* Choose the header from the plugin */
+ /* instantiate in main, dont do it every time */
+ $template_loader = new WPRI_Template_Loader;
+ $template_loader->get_template_part( 'wpri', 'header' );
+  ?>
 
 <div id="main-content" class="main-content">
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
-			<div id="faculty" >
-				<h1> <?php echo 'Faculty' ?> </h1>
+			<div id="member" >
 				<?php
 					$current_language = "en";
-					// This has to be done using js. Cannot be written in DB for example.
-					// Have a hidden element in the DOM to keep track of language.
 
-					// Start the Loop.
 					$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
-					$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
-					echo "<div class='faculty' >";
-  	    			echo "<ul class='faculty'>";
-                    $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
-                    $user_table = $GLOBALS['wpdb']->prefix . "users";
-                    $position_table = $GLOBALS['wpdb']->prefix . "wpri_position";
-                    $title_table = $GLOBALS['wpdb']->prefix . "wpri_title";
+					$usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
+					$user_table = $GLOBALS['wpdb']->prefix . "users";
+					$position_table = $GLOBALS['wpdb']->prefix . "wpri_position";
+					$title_table = $GLOBALS['wpdb']->prefix . "wpri_title";
 
-    				foreach ( $members as $member ) {
-                        $fname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->user));
-                        $lname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='last_name' AND user_id = %d", $member->user));
-                        $email = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT user_email FROM " . $user_table . " WHERE ID = %d", $member->user));
-                        $position = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $position_table ." WHERE id = %d", $member->position));
-                        $titlen= $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='title' AND user_id = %d", $member->user));
-                        $atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $titlen));
+					$member_id=$_GET['id'];
+					$member = $GLOBALS['wpdb']->get_row($GLOBALS['wpdb']->prepare("SELECT * FROM " . $member_table_name . " WHERE id = %d", $member_id));
+					$user_id = $member->user;
+					$user = $GLOBALS['wpdb']->get_row($GLOBALS['wpdb']->prepare("SELECT * FROM " . $user_table . " WHERE ID = %d", $user_id));
+					$usermeta = $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare("SELECT * FROM " . $usermeta_table . " WHERE user_id = %d", $user_id));
+					echo $member_id;
+					echo "<br>";
+					echo $user_id;
+					echo "<br>";
+					echo $usermeta[last_name];
+					echo "<br>";
 
-	                    echo "<li style='border-radius: 25px;border: 2px solid #73AD21; padding: 20px;'>";
-                        echo "<table>";
-                        echo "<tr><h3 class='faculty'>";
-                        echo $atitle." ".$fname." ".$lname;
-                        echo "</h3></tr>";
-                        echo "<tr><td>";
-                        echo get_avatar( $member->user );
-                        echo "</td>";
-                        echo "<td><p>";
-                        echo $position."<br>";
-                        echo $member->website."<br>";
-                        echo $email."<br>";
-                        echo "</p></td></tr>";
-                        echo "</table>";
-                        echo "</li><br>";
-					}
-  	    			echo "</ul>";
-					echo "</div>";
+					$fname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->user));
+					$lname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='last_name' AND user_id = %d", $member->user));
+					$email = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT user_email FROM " . $user_table . " WHERE ID = %d", $member->user));
+					$position = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $position_table ." WHERE id = %d", $member->position));
+					$titlen= $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='title' AND user_id = %d", $member->user));
+					$atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $titlen));
+
+					echo "<table>";
+					echo "<tr><h3 class='faculty'>";
+					echo $atitle." ".$fname." ".$lname;
+					echo "</h3></tr>";
+					echo "<tr><td>";
+					echo get_avatar( $member->user );
+					echo "</td>";
+					echo "<td><p>";
+					echo $position."<br>";
+					echo $member->website."<br>";
+					echo $email."<br>";
+					echo "</p></td></tr>";
+					echo "</table>";
 				?>
+
+				<h1> <?php echo 'Faculty' ?> </h1>
+
 			</div><!-- #faculty -->
 		</div><!-- #content -->
 	</div><!-- #primary -->
 </div><!-- #main-content -->
 
 <?php
-
-get_footer();
+$template_loader->get_template_part( 'wpri', 'footer' );
+?>
