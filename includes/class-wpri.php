@@ -249,8 +249,8 @@ class WPRI {
 		$template_loader = new WPRI_Template_Loader;
 
 		ob_start();
-		$template_loader->get_template_part( 'content', 'header-bte' );
-		$template_loader->get_template_part( 'content', 'footer-bte' );
+		$template_loader->get_template_part( 'bte', 'header' );
+		$template_loader->get_template_part( 'bte', 'footer' );
 		return ob_get_clean();
 
 	}
