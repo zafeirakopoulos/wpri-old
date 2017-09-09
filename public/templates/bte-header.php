@@ -12,7 +12,7 @@
 
 
 
-	<link rel="shortcut icon" href="<?php echo plugin_dir_url( __FILE__ ).'../public'; ?>/favicon.ico" />
+	<link rel="shortcut icon" href="<?php echo plugin_dir_url( __FILE__ ).'..'; ?>/favicon.ico" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -37,7 +37,7 @@
 			        <span class="icon-bar"></span>
 			      </button>
 				  <a class="navbar-brand" href="<?php echo site_url();?>">
-				      <img height="50px" src="<?php echo plugin_dir_url( __FILE__ ).'../public';?>/favicon.png">
+				      <img height="50px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png">
 				  </a>
 			    </div>
 			    <div id="navbar" class="navbar-collapse collapse">
