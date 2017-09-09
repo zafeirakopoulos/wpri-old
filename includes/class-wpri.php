@@ -236,14 +236,14 @@ class WPRI {
 		$this->loader->add_filter( 'template_include',$plugin_public, 'project_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'projects_page_template', 99 );
 
-		$this->wpri_load_templates();
+		#$this->wpri_load_templates();
 
 		$plugin_shortcodes = new WPRI_Shortcodes( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action('init', $plugin_shortcodes, 'shortcodes_init');
 
 	}
-
+/*
 	function wpri_load_templates() {
 
 		$template_loader = new WPRI_Template_Loader;
@@ -254,7 +254,7 @@ class WPRI {
 		return ob_get_clean();
 
 	}
-
+*/
 
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
