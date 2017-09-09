@@ -132,6 +132,14 @@ class WPRI_Public {
 		return $template;
 	}
 
+	public function header-bte_template( $template ) {
+
+		if ( is_page( 'projects' ) ) {
+			$template = dirname( __FILE__ ) . '/templates/header-bte.php';
+		}
+		return $template;
+	}
+
 	public function load_plugin_theme_templates() {
 		load_template(dirname( __FILE__ ) . '/templates/header-bte.php');
 		load_template(dirname( __FILE__ ) . '/templates/footer-bte.php');
