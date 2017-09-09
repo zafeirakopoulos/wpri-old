@@ -6,7 +6,11 @@
  **/
 
 
-get_header('bte'); ?>
+ /* Choose the header from the plugin */
+ /* instantiate in main, dont do it every time */
+ $template_loader = new WPRI_Template_Loader;
+ $template_loader->get_template_part( 'wpri', 'header' );
+  ?>
 
 <div id="main-content" class="main-content">
 
@@ -64,5 +68,5 @@ get_header('bte'); ?>
 </div><!-- #main-content -->
 
 <?php
-
-get_footer('bte');
+$template_loader->get_template_part( 'wpri', 'footer' );
+?>
