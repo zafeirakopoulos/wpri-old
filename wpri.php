@@ -1,6 +1,6 @@
 <?php
 
- 
+
 
 
 /**
@@ -24,6 +24,8 @@
  * Domain Path:       /languages
  */
 
+ define( 'WPRI_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
@@ -39,7 +41,7 @@ $GLOBALS['wpdb']->show_errors();
  * Include dependencies
  */
 
- 
+
 
 /**
  * The code that runs during plugin activation.
@@ -84,8 +86,3 @@ function run_wpri() {
 
 }
 run_wpri();
-
-
-
-
-

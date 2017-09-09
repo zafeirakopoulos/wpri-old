@@ -55,7 +55,6 @@ class WPRI_Template_Loader extends Gamajo_Template_Loader {
    *
    * @var string
    */
-  define( 'WPRI_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
   protected $plugin_directory = WPRI_PLUGIN_DIR;
 
   /**
