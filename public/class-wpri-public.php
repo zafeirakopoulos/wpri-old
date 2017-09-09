@@ -108,5 +108,27 @@ class WPRI_Public {
 	    return $template;
 	}
 
+	public function member_page_template( $template ) {
+
+		if ( is_page( 'member' ) ) {
+			$template = dirname( __FILE__ ) . '/templates/member.php';
+		}
+	    return $template;
+	}
+	public function project_page_template( $template ) {
+
+		if ( is_page( 'project' ) ) {
+			$template = dirname( __FILE__ ) . '/templates/project.php';
+		}
+		return $template;
+	}
+	public function projects_page_template( $template ) {
+
+		if ( is_page( 'projects' ) ) {
+			$template = dirname( __FILE__ ) . '/templates/projects.php';
+		}
+		return $template;
+	}
+
 
 }
