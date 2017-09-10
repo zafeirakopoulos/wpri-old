@@ -212,7 +212,7 @@ class WPRI_Database {
 	    'locale_title',
 	    'locale_project_description',
 	    'locale_agency',
-		'descrition',
+		'description',
 	    'project_description',
 	    'project_member',
 	    'project',
