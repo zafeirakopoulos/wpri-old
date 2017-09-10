@@ -233,7 +233,20 @@ class WPRI {
 		$this->loader->add_filter( 'template_include',$plugin_public, 'page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'front_page_template', 99 );
 
-		#$this->wpri_load_templates();
+		$this->loader->add_action('init', 'WPRIStartSession', 1);
+		$this->loader->add_action('wp_logout', 'WPRIEndSession');
+		$this->loader->add_action('wp_login', 'WPRIEndSession');
+
+		function WPRIStartSession() {
+		    if(!session_id()) {
+		        session_start();
+		    }
+		}
+
+		function WPRIEndSession() {
+		    session_destroy ();
+		}
+
 
 		$plugin_shortcodes = new WPRI_Shortcodes( $this->get_plugin_name(), $this->get_version() );
 
@@ -260,6 +273,8 @@ class WPRI {
 	 * @since    1.0.0
 	 */
 	public function run() {
+
+
 		$this->loader->run();
 	}
 
