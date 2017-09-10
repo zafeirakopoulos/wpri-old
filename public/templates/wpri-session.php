@@ -1,1 +1,1 @@
-session manager
+<?php echo 'hello'; ?>

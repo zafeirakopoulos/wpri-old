@@ -31,9 +31,9 @@
 
 })( jQuery );
 
-function setLocale ( locale ) {
+function wpri_session ( args ) {
 	 $.ajax({
-	   url:"locale.php", //the page containing php script
+	   url:"session.php", //the page containing php script
 	   type: "POST", //request type
 	   success:function(result){
 		alert(result);
