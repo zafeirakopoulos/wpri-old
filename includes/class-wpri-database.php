@@ -22,7 +22,7 @@
  */
 class WPRI_Database {
 
-	protected static DB = $GLOBALS['wpdb'];
+	protected static $DB = $GLOBALS['wpdb'];
 
 	public static function table_name($name){
 		$wp_prefix = $GLOBALS['wpdb']->prefix;
@@ -437,7 +437,7 @@ class WPRI_Database {
 
 			}
 			public static function get_wpri_members() {
-				return self::BD->get_results("SELECT * FROM " . self::table_name("member") );
+				return self::$BD->get_results("SELECT * FROM " . self::table_name("member") );
 			}
 			public static function get_wpri_projects() {
 				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("project") );
