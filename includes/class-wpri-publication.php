@@ -36,15 +36,15 @@ class WPRI_Publication {
 			echo '<h2>Manage Publications</h2>';
 			$pubtype_table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype" ;
 			$publication_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication" ;
-			$pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_member";
-			$pub_project_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_project";
+			$pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication_member";
+			$pub_project_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication_project";
 
 			echo '<div class="wrap wpa">';
 
 			// If POST for adding
 			if( isset( $_POST['type']) && $_POST['type'] == 'add_pub') {
-				$GLOBALS['wpdb']->insert( $publication_table_name , array( 
-					'title' => $_POST["title"], 
+				$GLOBALS['wpdb']->insert( $publication_table_name , array(
+					'title' => $_POST["title"],
 					'type' => $_POST["pubtype"],
 					'doi' => $_POST["doi"],
 					'international' => $_POST["international"],
@@ -65,24 +65,24 @@ class WPRI_Publication {
 
 				if (!empty($_POST["members"])){
 					foreach ( $_POST["members"] as $member){
-						$GLOBALS['wpdb']->insert( $pub_mem_table_name , array( 
-							'member' => $member, 
+						$GLOBALS['wpdb']->insert( $pub_mem_table_name , array(
+							'member' => $member,
 							'pub' => $new_id
-						));	
+						));
 					}
-				}		
+				}
 
 				if (!empty($_POST["projects"])){
 					foreach ( $_POST["projects"] as $project ){
-						$GLOBALS['wpdb']->insert( $pub_project_table_name , array( 
-							'project' => $project, 
+						$GLOBALS['wpdb']->insert( $pub_project_table_name , array(
+							'project' => $project,
 							'pub' => $new_id
-						));	
-					}	
+						));
+					}
 				}
 
 
- 
+
 
 				// Add page for publication
 			    $publication_page_title = $_POST["title"];
@@ -99,21 +99,21 @@ class WPRI_Publication {
 		   	  	$publication_page_id = wp_insert_post($publication_page);
 				update_post_meta( $publication_page_id, '_visibility', 'visible' );
 			}
-	
+
 			// If POST for deleting
 			if( isset( $_POST['type']) && $_POST['type'] == 'delete_pub') {
-		 
 
-				$result2 = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 
-					"DELETE FROM " . $pub_mem_table_name . " WHERE pub = %d", $_POST['pub_id'] 
+
+				$result2 = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+					"DELETE FROM " . $pub_mem_table_name . " WHERE pub = %d", $_POST['pub_id']
 					));
 
-				$result3 = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 
-					"DELETE FROM " . $pub_project_table_name . " WHERE pub = %d", $_POST['pub_id'] 
+				$result3 = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+					"DELETE FROM " . $pub_project_table_name . " WHERE pub = %d", $_POST['pub_id']
 					));
-		  
-				$result1 = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 
-					"DELETE FROM " . $publication_table_name . " WHERE id = %d", $_POST['pub_id'] 
+
+				$result1 = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+					"DELETE FROM " . $publication_table_name . " WHERE id = %d", $_POST['pub_id']
 					));
 
 				if($result1) {
@@ -122,14 +122,14 @@ class WPRI_Publication {
 			    echo '<div class="error"><p>Unable to delete.</p></div>';
 				}
 			}
-		 
+
 
 			echo '<h3> Existing ' . $setting_name . ': </h3>';
 
 		 	$pubtype_table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype" ;
 			$publication_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication" ;
-			$pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_member";
-			$pub_project_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_project";
+			$pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication_member";
+			$pub_project_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication_project";
 		 	$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 
 			$all_entries = $GLOBALS['wpdb']->get_results(
@@ -154,7 +154,7 @@ class WPRI_Publication {
 
 			$pubtypes = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $pubtype_table_name);
 
-		 	echo '<form name="add_pub" method="post" action="">'; 
+		 	echo '<form name="add_pub" method="post" action="">';
 			echo '<table class="form-table">';
 			echo '<tr>';
 			echo '<th><label for="pubtype">Type</label></th>';
@@ -248,5 +248,5 @@ class WPRI_Publication {
 
 
 
-	 
+
 }
