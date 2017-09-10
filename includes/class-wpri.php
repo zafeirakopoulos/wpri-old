@@ -201,9 +201,6 @@ class WPRI {
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_agency_menu' );
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_member_menu' );
 
-		$this->loader->	add_action( 'wp_ajax_change_locale', $plugin_admin, 'wpri_ajax_change_locale' );
-		$this->loader->	add_action( 'wp_ajax_nopriv_change_locale', $plugin_admin, 'wpri_ajax_change_locale' );
-
 
 		$this->loader->	add_action( 'admin_menu', $plugin_project, 'project_menu' );
 		$this->loader->	add_action( 'admin_menu', $plugin_publication, 'publication_menu' );
@@ -239,6 +236,10 @@ class WPRI {
 		$this->loader->add_action('init', $plugin_public,'WPRIStartSession', 1);
 		$this->loader->add_action('wp_logout', $plugin_public,'WPRIEndSession');
 		$this->loader->add_action('wp_login',$plugin_public, 'WPRIEndSession');
+
+		$this->loader->	add_action( 'wp_ajax_change_locale', $plugin_public, 'wpri_ajax_change_locale' );
+		$this->loader->	add_action( 'wp_ajax_nopriv_change_locale', $plugin_public, 'wpri_ajax_change_locale' );
+
 
 
 
