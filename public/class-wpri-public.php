@@ -106,6 +106,14 @@ class WPRI_Public {
 
 	}
 
+	public function page_template( $template ) {
+
+		if ( is_page() ) {
+			$template = dirname( __FILE__ ) . '/templates/page.php';
+		}
+	    return $template;
+	}
+
 	public function faculty_page_template( $template ) {
 
 		if ( is_page( 'faculty' ) ) {

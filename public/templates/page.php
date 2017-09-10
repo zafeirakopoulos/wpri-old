@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+$template_loader = new WPRI_Template_Loader;
+$template_loader->get_template_part( 'wpri', 'header' );
+?>
 
 	<div class="row">
 		<div class="col-sm-12">
@@ -14,4 +17,6 @@
 		</div> <!-- /.col -->
 	</div> <!-- /.row -->
 
-<?php get_footer(); ?>
+	<?php
+	$template_loader->get_template_part( 'wpri', 'footer' );
+	?>
