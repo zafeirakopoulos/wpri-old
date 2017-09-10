@@ -243,6 +243,7 @@ class WPRI {
 
 		$this->loader->add_action('init', $plugin_shortcodes, 'shortcodes_init');
 
+
 	}
 /*
 	function wpri_load_templates() {
