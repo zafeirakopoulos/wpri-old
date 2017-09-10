@@ -124,7 +124,7 @@ class WPRI_Public {
 
 	public function session_page_template( $template ) {
 
-		if ( is_page() ) {
+		if ( is_page("session") ) {
 			$template = dirname( __FILE__ ) . '/templates/wpri-session.php';
 		}
 	    return $template;
