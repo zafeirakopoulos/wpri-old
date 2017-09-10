@@ -30,8 +30,9 @@
 		}else{
 			$_current_locale = "En_US";
 		}
-		echo $_current_locale;
-		echo $GET['locale'];
+		echo $_current_locale."<br>";
+		echo $GET['locale']."<br>";
+		echo "worked<br>";
 	?>
  		<div class="bte-masthead container">
 			<h1 class="bte-title"><?php echo get_bloginfo( 'name' ); ?></h1>
