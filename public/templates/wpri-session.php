@@ -5,7 +5,7 @@ nocache_headers();
 // ONLY USE A VARIABLE WITHIN $_SESSION (here, "ajjx")
 // OTHERWISE THIS MAY ALLOW ANYONE TO TAKE CONTROL OF YOUR INSTALLATION.
 // Check if locale is set
-$_SESSION['locale'] = $_REQUEST['data'];
+$_SESSION['locale'] = $_REQUEST['data']['locale'];
 
 echo $_SESSION['locale'] ;
 /*
