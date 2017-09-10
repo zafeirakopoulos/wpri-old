@@ -41,7 +41,7 @@ class WPRI_Database {
 
 		$settings_list = array('locale','position','title','agency');
 		foreach ($settings_list as $setting_name){
-			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE 'self::table_name($setting_name)'") != self::table_name($setting_name) ){
+			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($setting_name)."'") != self::table_name($setting_name) ){
 				$sql = "CREATE TABLE  ". self::table_name($setting_name)."(
 					id INT AUTO_INCREMENT PRIMARY KEY,
 					name tinytext
