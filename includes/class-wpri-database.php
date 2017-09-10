@@ -440,10 +440,10 @@ class WPRI_Database {
 			public static function get_wpri_projects() {
 
 			}
-			public static function get_wp_project( $project_id) {
+			public static function get_wpri_project( $project_id) {
 
 			}
-			public static function add_wp_project( $project) {
+			public static function add_wpri_project( $project) {
 				$GLOBALS['wpdb']->insert( self::table_name("project"),
 					array(
 						'title' => $project["title"],
