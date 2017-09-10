@@ -478,9 +478,11 @@ class WPRI_Database {
 					));
 				}
 				*/
-				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
-					"DELETE FROM " . $table_name . " WHERE id = %d",
-					));
+				return $GLOBALS['wpdb']->query(
+					$GLOBALS['wpdb']->prepare(
+						"DELETE FROM " . $table_name . " WHERE id = %d", $project_id
+					)
+				);
 			}
 
 			public static function get_wpri_projects_by_member( $member_id) {
