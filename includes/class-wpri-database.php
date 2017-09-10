@@ -480,7 +480,7 @@ class WPRI_Database {
 				*/
 				return $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
-						"DELETE FROM " . $table_name . " WHERE id = %d", $project_id
+						"DELETE FROM " . self::table_name("project"). " WHERE id = %d", $project_id
 					)
 				);
 			}
