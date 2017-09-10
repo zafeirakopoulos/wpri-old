@@ -37,7 +37,7 @@
 function wpri_change_locale( locale ) {
 	jQuery.post(
 	    /*wpri_ajax.ajaxurl,*/
-		"session",
+		wpri_ajax.session_url,
 	    {
 	        'action': 'add_foobar',
 	        'data':   locale

@@ -105,8 +105,11 @@ class WPRI_Public {
 		wp_enqueue_script( 'bootstrap_js' );
 		wp_enqueue_script($this->plugin_name);
 
-		wp_localize_script( $this->plugin_name, 'wpri_ajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
-
+		wp_localize_script( $this->plugin_name, 'wpri_ajax', array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ) ,
+			'session_url' => site_url()."/session/php"
+			)
+		);
 	}
 
 
