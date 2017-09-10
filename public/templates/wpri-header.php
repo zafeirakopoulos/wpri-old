@@ -32,7 +32,8 @@
 		}
 	*/
 	?>
- 		<div class="bte-masthead container">
+
+ 		<div class="bte-masthead container" style="background-image: url('http://bte.gtu.edu.tr/wp-content/uploads/2016/03/bg2.jpg'); ">
 			<h1 class="bte-title"><?php echo get_bloginfo( 'name' ); ?></h1>
 			<nav class="navbar navbar-default">
 			  <div class="container-fluid">
