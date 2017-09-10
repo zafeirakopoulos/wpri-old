@@ -93,7 +93,7 @@ class WPRI_Database {
 						locale INT,
 						$setting_name INT,
 						name tinytext,
-						FOREIGN KEY (locale) REFERENCES self::$locale_table_name(id),
+						FOREIGN KEY (locale) REFERENCES $(self::$locale_table_name)(id),
 						FOREIGN KEY ($setting_name) REFERENCES $other_table_name(id)
 					);";
 					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
