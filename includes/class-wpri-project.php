@@ -43,15 +43,15 @@ class WPRI_Project {
 
 			// If POST for adding
 			if( isset( $_POST['type']) && $_POST['type'] == 'add_project') {
-				$GLOBALS['wpdb']->insert( $table_name , array(
+				$project = array(
 					'title' => $_POST["title"],
 					'PI' => $_POST["pi"],
 					'budget' => $_POST["budget"],
 					'website' => $_POST["website"],
 					'funding' => $_POST["agency"]
-				));
+				);				
+				$new_id = WPRI_Database::add_wpri_project($project);
 
-				$new_id = $GLOBALS['wpdb']->insert_id;
 				if($GLOBALS['wpdb']->insert_id) {
 					?>
 			    <div class="updated"><p><strong>Added.</strong></p></div>

@@ -443,6 +443,18 @@ class WPRI_Database {
 			public static function get_wp_project( $project_id) {
 
 			}
+			public static function add_wp_project( $project) {
+				$GLOBALS['wpdb']->insert( self::table_name("project"),
+					array(
+						'title' => $project["title"],
+						'PI' => $project["PI"],
+						'budget' => $project["budget"],
+						'website' => $project["website"],
+						'funding' => $project["funding"]
+					)
+				);
+				return $GLOBALS['wpdb']->insert_id;
+			}
 			public static function get_wpri_projects_by_member( $member_id) {
 
 			}
