@@ -1,0 +1,46 @@
+Priority:
+ 1. Clean up database calls
+ 2. Language support
+ 3. Fix CSS
+ 4. Member Pictures
+ 
+
+
+= Fix CSS
+
+= Language support
+  - Create a DOM element to keep active language
+  - or pass it via GET requests
+
+= Clean up database calls
+  - create generic functions
+  - gather all sample name declarations in main class
+  - generic functions should accept language parameter to choose correct string
+  - security testing
+
+= Member pictures
+  - currently only available through gravatar
+  - upload in member profile
+
+
+= Automation
+  - Research reports of the institute
+  - Create Institute Poster (photos and members, titles, positions)
+ 
+= Member’s blog
+  - Each member can have blog posts in their personal page.
+  - Connect the author id of a post with the user_id of the member and show posts
+
+= News
+  - blog posts in front page.
+  - Custom Post Type: news
+
+= Open positions page
+  - Create the template
+  - connect to google forms? Have a WP form plugin to submit things? Create custom?
+  - Custom Post Type: open_position
+
+= Project
+  - display at the bottom the open_position posts related to the project
+
+
