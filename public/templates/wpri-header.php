@@ -24,14 +24,14 @@
 
 <body>
 	<?php
-		if (isset($GET["locale"])){
-			$_current_locale = $GET["locale"];
+		if (isset($_GET["locale"])){
+			$_current_locale = $_GET["locale"];
 
 		}else{
 			$_current_locale = "En_US";
 		}
 		echo $_current_locale."<br>";
-		echo $GET['locale']."<br>";
+		echo $_GET['locale']."<br>";
 		echo "worked<br>";
 	?>
  		<div class="bte-masthead container">
