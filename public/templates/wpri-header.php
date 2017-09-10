@@ -24,12 +24,13 @@
 
 <body>
 	<?php
+	/*
 		if(isset($_SESSION['locale'])) {
 		    $current_locale = $_SESSION['locale'];
 		} else {
 		    $current_locale = 'not set';
 		}
-		echo $current_locale."<br>";
+	*/
 	?>
  		<div class="bte-masthead container">
 			<h1 class="bte-title"><?php echo get_bloginfo( 'name' ); ?></h1>

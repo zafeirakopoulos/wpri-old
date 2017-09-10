@@ -43,6 +43,13 @@ Priority:
 = Project
   - display at the bottom the open_position posts related to the project
 
+== Ajaxify everything
+  - It should be a single page app
+  - The content (everything except header and footer) is served via Ajax
+  - This will help with language changes
+  - It is important for mobile devices
+  - reduce the number of DB calls
+
 
 Because of database initialisation:
 The plugin generated 495 characters of unexpected output during activation. If you notice “headers already sent” messages, problems with syndication feeds or other issues, try deactivating or removing this plugin.

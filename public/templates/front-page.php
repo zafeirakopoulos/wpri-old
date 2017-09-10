@@ -1,6 +1,6 @@
 <?php
-$template_loader = new WPRI_Template_Loader;
-$template_loader->get_template_part( 'wpri', 'header' );
+	$template_loader = new WPRI_Template_Loader;
+	$template_loader->get_template_part( 'wpri', 'header' );
 ?>
 
 	<div class="row">
@@ -15,6 +15,6 @@ $template_loader->get_template_part( 'wpri', 'header' );
 
 	</div> <!-- /.row -->
 
-	<?php
+<?php
 	$template_loader->get_template_part( 'wpri', 'footer' );
-	?>
+?>
