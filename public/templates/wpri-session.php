@@ -7,7 +7,7 @@ nocache_headers();
 // Check if locale is set
 $_SESSION['locale'] = $_POST;
 
-echo $_POST;
+echo $_POST[0];
 /*
 Header('Content-Type: application/json;charset=utf8');
 die(json_encode(array(
