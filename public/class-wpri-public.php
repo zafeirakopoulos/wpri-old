@@ -114,6 +114,14 @@ class WPRI_Public {
 	    return $template;
 	}
 
+	public function front_page_template( $template ) {
+
+		if ( is_page("front-page") ) {
+			$template = dirname( __FILE__ ) . '/templates/front-page.php';
+		}
+	    return $template;
+	}
+
 	public function faculty_page_template( $template ) {
 
 		if ( is_page( 'faculty' ) ) {
