@@ -152,11 +152,5 @@ class WPRI_Public {
 		return $template;
 	}
 
-	public function home_page_template( $template ) {
-
-		if ( is_page( 'home' ) ) {
-			$template = dirname( __FILE__ ) . '/templates/home.php';
-		}
-		return $template;
-	}
+ 
 }
