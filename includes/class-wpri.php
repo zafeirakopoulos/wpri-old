@@ -248,18 +248,7 @@ class WPRI {
 
 
 	}
-/*
-	function wpri_load_templates() {
-
-		$template_loader = new WPRI_Template_Loader;
-
-		ob_start();
-		$template_loader->get_template_part( 'bte', 'header' );
-		$template_loader->get_template_part( 'bte', 'footer' );
-		return ob_get_clean();
-
-	}
-*/
+ 
 
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.

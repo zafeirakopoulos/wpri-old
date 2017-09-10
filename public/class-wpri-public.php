@@ -124,7 +124,7 @@ class WPRI_Public {
 		}
 	    return $template;
 	}
-
+	/*
 	public function session_page_template( $template ) {
 
 		if ( is_page("session") ) {
@@ -132,6 +132,7 @@ class WPRI_Public {
 		}
 	    return $template;
 	}
+	*/
 	public function WPRIStartSession() {
 		if(!session_id()) {
 			session_start();
@@ -145,7 +146,7 @@ class WPRI_Public {
 	function wpri_ajax_change_locale() {
 		// Handle request then generate response using WP_Ajax_Response
 		$_SESSION['locale'] = "locale changed";
-
+		echo "Locale hook ";
 		// Don't forget to stop execution afterward.
 		wp_die();
 	}
