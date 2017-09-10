@@ -7,7 +7,6 @@ nocache_headers();
 // Check if locale is set
 $_SESSION['locale'] = $_REQUEST['data']['locale'];
 
-echo $_SESSION['locale'] ;
 /*
 Header('Content-Type: application/json;charset=utf8');
 die(json_encode(array(

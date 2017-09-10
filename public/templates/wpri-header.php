@@ -56,8 +56,8 @@
 					  <li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>">Contact</a></li>
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
-
-					  <li><button class="navbar-btn" onclick="wpri_change_locale('En_US')"> I'm a link button!</button></li>
+					  <li><button class="navbar-btn" onclick="wpri_change_locale('En_US')"> English</button></li>
+					  <li><button class="navbar-btn" onclick="wpri_change_locale('Tr_TR')"> Turkish</button></li>
 			      </ul>
 			    </div><!--/.nav-collapse -->
 			  </div><!--/.container-fluid -->
