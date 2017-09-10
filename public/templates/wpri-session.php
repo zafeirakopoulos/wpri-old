@@ -12,9 +12,10 @@ alert("Hello World");
 function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
+/*
 Header('Content-Type: application/json;charset=utf8');
 die(json_encode(array(
     'result' => $_SESSION['locale'], // This in case you want to return something to the caller
 )));
-
+*/
  ?>
