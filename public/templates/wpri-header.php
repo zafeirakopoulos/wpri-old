@@ -56,7 +56,8 @@
 					  <li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>">Contact</a></li>
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
-					  <li><p class="navbar-btn"> <a href="#" class="btn btn-default">I'm a link button!</a></p></li>
+
+					  <li><button class="navbar-btn" onclick="setLocale()"> <a href="#" class="btn btn-default">I'm a link button!</a></button></li>
 	<li><a href='<?php echo home_url(add_query_arg(array(),$wp->request))."?locale=En_US";?>'>English</a></li>
 	<li><a href='<?php echo home_url(add_query_arg(array(),$wp->request))."?locale=Tr_TR";?>'>Turkish</a></li>
 	$_SESSION['myKey'] = "Some data I need later";

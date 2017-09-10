@@ -30,3 +30,13 @@
 	 */
 
 })( jQuery );
+
+function setLocale ( locale ) {
+	 $.ajax({
+	   url:"locale.php", //the page containing php script
+	   type: "POST", //request type
+	   success:function(result){
+		alert(result);
+	  }
+	});
+}

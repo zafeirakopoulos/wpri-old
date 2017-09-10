@@ -122,6 +122,13 @@ class WPRI_Public {
 	    return $template;
 	}
 
+	public function session_template( $template ) {
+
+		if ( is_page() ) {
+			$template = dirname( __FILE__ ) . '/templates/wpri-session.php';
+		}
+	    return $template;
+	}
 	public function WPRIStartSession() {
 		if(!session_id()) {
 			session_start();
