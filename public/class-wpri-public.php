@@ -148,6 +148,11 @@ class WPRI_Public {
 		$_SESSION['locale'] = "locale changed";
 		echo "Locale hook <br><br><br><br><br><br> WORKS";
 		// Don't forget to stop execution afterward.
+		alert("Hello World");
+
+		function alert($msg) {
+		    echo "<script type='text/javascript'>alert('$msg');</script>";
+		}
 		wp_die();
 	}
 
