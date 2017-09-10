@@ -23,22 +23,22 @@
 class WPRI_Database {
 
 	// TODO protected?
-	$position_table_name = $GLOBALS['wpdb']->prefix . "wpri_position" ;
-	$title_table_name = $GLOBALS['wpdb']->prefix . "wpri_title" ;
-	$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
-	$project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
-	$agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_agency" ;
-	$description_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_description";
-	$locale_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale" ;
-	$pr_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_member";
-	$pubtype_table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype" ;
-	$publication_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication" ;
-	$pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_member";
-	$pub_ = $GLOBALS['wpdb']->prefix . "wpri_pub_project";
-	$wp_posts_table_name = $GLOBALS['wpdb']->prefix . "posts";
-	$locale_position_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_position";
-	$locale_title_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_title";
-	$locale_agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_agency";
+	protected $position_table_name = $GLOBALS['wpdb']->prefix . "wpri_position" ;
+	protected $title_table_name = $GLOBALS['wpdb']->prefix . "wpri_title" ;
+	protected $member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
+	protected $project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
+	protected $agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_agency" ;
+	protected $description_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_description";
+	protected $locale_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale" ;
+	protected $pr_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_member";
+	protected $pubtype_table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype" ;
+	protected $publication_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication" ;
+	protected protected $pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_member";
+	protected $pub_ = $GLOBALS['wpdb']->prefix . "wpri_pub_project";
+	protected $wp_posts_table_name = $GLOBALS['wpdb']->prefix . "posts";
+	protected $locale_position_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_position";
+	protected $locale_title_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_title";
+	protected $locale_agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_agency";
 
 	/**
 	 * Short Description. (use period)
