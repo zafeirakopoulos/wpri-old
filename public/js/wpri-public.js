@@ -39,8 +39,8 @@ function wpri_change_locale( locale ) {
 	    /*wpri_ajax.ajaxurl,*/
 		wpri_ajax.session_url,
 	    {
-	        'action': 'add_foobar',
-	        'data':   locale
+	        'action': 'change_locale',
+	        'data':   {'locale':locale}
 	    },
 	    function(response){
 	        alert('The server responded: ' + response + locale);
