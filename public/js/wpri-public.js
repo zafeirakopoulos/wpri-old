@@ -43,7 +43,7 @@ function wpri_change_locale( locale ) {
 	        'data':   {'locale':locale}
 	    },
 	    function(response){
-	        alert('The server responded: ' + response + locale);
+	        alert('The server responded: ' + response);
 	    }
 	);
 }
