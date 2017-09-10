@@ -1,20 +1,4 @@
-<?php /**
- * Template Name: faculty
- * Template Post Type: page
- *
- * Display a list of all faculty members of the institute
- **/
 
-/* Choose the header from the plugin */
-/* instantiate in main, dont do it every time */
-$template_loader = new WPRI_Template_Loader;
-$template_loader->get_template_part( 'wpri', 'header' );
-?>
-
-<div id="main-content" class="main-content">
-
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
 			<div id="faculty" >
 				<h1> <?php echo 'Faculty' ?> </h1>
 				<?php
@@ -58,10 +42,3 @@ $template_loader->get_template_part( 'wpri', 'header' );
 					echo "</div>";
 				?>
 			</div><!-- #faculty -->
-		</div><!-- #content -->
-	</div><!-- #primary -->
-</div><!-- #main-content -->
-
-<?php
-$template_loader->get_template_part( 'wpri', 'footer' );
-?>
