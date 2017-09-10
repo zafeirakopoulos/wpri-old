@@ -122,4 +122,13 @@ class WPRI_Public {
 	    return $template;
 	}
 
+	public function WPRIStartSession() {
+		if(!session_id()) {
+			session_start();
+		}
+	}
+
+	public function WPRIEndSession() {
+		session_destroy ();
+	}
 }
