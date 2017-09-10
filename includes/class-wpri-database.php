@@ -22,6 +22,8 @@
  */
 class WPRI_Database {
 
+	protected static DB = $GLOBALS['wpdb'];
+
 	public static function table_name($name){
 		$wp_prefix = $GLOBALS['wpdb']->prefix;
 		return $wp_prefix."wpri_".$name ;
@@ -435,10 +437,10 @@ class WPRI_Database {
 
 			}
 			public static function get_wpri_members() {
-				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
+				return self::BD->get_results("SELECT * FROM " . self::table_name("member") );
 			}
 			public static function get_wpri_projects() {
-				retrun $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("project") );
+				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("project") );
 			}
 
 			public static function get_wpri_project( $project_id) {
