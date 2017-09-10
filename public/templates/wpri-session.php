@@ -7,11 +7,7 @@ nocache_headers();
 // Check if locale is set
 $_SESSION['locale'] = $_POST['locale'];
 
-alert("Hello World");
-
-function alert($msg) {
-    echo "<script type='text/javascript'>alert('$msg');</script>";
-}
+echo $_SESSION['locale'];
 /*
 Header('Content-Type: application/json;charset=utf8');
 die(json_encode(array(
