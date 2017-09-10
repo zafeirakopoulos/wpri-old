@@ -236,6 +236,7 @@ class WPRI {
 		$this->loader->add_filter( 'template_include',$plugin_public, 'project_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'projects_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'home_page_template', 99 );
+		$this->loader->add_filter( 'template_include',$plugin_public, 'page_template', 99 );
 
 		#$this->wpri_load_templates();
 
