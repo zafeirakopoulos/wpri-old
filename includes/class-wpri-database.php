@@ -33,24 +33,23 @@ class WPRI_Database {
 	 */
 	public static function create_tables() {
 
-		// TODO ?
-		 $this->le_name = $GLOBALS['wpdb']->prefix . "wpri_position" ;
-		 $this->title_table_name = $GLOBALS['wpdb']->prefix . "wpri_title" ;
-		 $this->member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
-		 $this->project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
-		 $this->agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_agency" ;
-		 $this->description_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_description";
-		 $this->locale_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale" ;
-		 $this->pr_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_member";
-		 $this->pubtype_table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype" ;
-		 $this->publication_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication" ;
-		 $this->pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_member";
-		 $this->pub_ = $GLOBALS['wpdb']->prefix . "wpri_pub_project";
-		 $this->wp_posts_table_name = $GLOBALS['wpdb']->prefix . "posts";
-		 $this->locale_le_name = $GLOBALS['wpdb']->prefix . "wpri_locale_position";
-		 $this->locale_title_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_title";
-		 $this->locale_agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_agency";
-		
+		 self::$position_table_name = $GLOBALS['wpdb']->prefix . "wpri_position" ;
+		 self::$title_table_name = $GLOBALS['wpdb']->prefix . "wpri_title" ;
+		 self::$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
+		 self::$project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
+		 self::$agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_agency" ;
+		 self::$description_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_description";
+		 self::$locale_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale" ;
+		 self::$pr_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_member";
+		 self::$pubtype_table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype" ;
+		 self::$publication_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication" ;
+		 self::$pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_member";
+		 self::$pub_ = $GLOBALS['wpdb']->prefix . "wpri_pub_project";
+		 self::$wp_posts_table_name = $GLOBALS['wpdb']->prefix . "posts";
+		 self::$locale_le_name = $GLOBALS['wpdb']->prefix . "wpri_locale_position";
+		 self::$locale_title_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_title";
+		 self::$locale_agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_agency";
+
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
 		$settings_list = array('locale','position','title','agency');
