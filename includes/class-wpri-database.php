@@ -253,7 +253,7 @@ class WPRI_Database {
 
 	}
 	public static function get_wpri_locales() {
-
+		return $GLOBALS['wpdb']->get_results("SELECT * FROM " . $locale_table_name );
 	}
 
 

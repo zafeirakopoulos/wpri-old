@@ -44,3 +44,5 @@ Priority:
   - display at the bottom the open_position posts related to the project
 
 
+Because of database initialisation:
+The plugin generated 495 characters of unexpected output during activation. If you notice “headers already sent” messages, problems with syndication feeds or other issues, try deactivating or removing this plugin.

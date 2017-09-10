@@ -37,14 +37,14 @@ class WPRI_Project {
 			echo '<h2>Manage Projects</h2>';
 		 	$table_name = $GLOBALS['wpdb']->prefix . 'wpri_project';
 			$locale_table_name = $GLOBALS['wpdb']->prefix . 'wpri_locale';
-			$locales = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $locale_table_name );
+			$locales = WPRI_Database::get_wpri_locales();
 
 			echo '<div class="wrap wpa">';
 
 			// If POST for adding
 			if( isset( $_POST['type']) && $_POST['type'] == 'add_project') {
-				$GLOBALS['wpdb']->insert( $table_name , array( 
-					'title' => $_POST["title"], 
+				$GLOBALS['wpdb']->insert( $table_name , array(
+					'title' => $_POST["title"],
 					'PI' => $_POST["pi"],
 					'budget' => $_POST["budget"],
 					'website' => $_POST["website"],
@@ -64,26 +64,26 @@ class WPRI_Project {
 
 		/*
 		 		foreach ( $locales as $locale ) {
-					$GLOBALS['wpdb']->insert( $mixed_table_name , array( 
+					$GLOBALS['wpdb']->insert( $mixed_table_name , array(
 						'locale' => $locale->id,
 						$setting_name => $new_id,
-						'name' => $_POST["setting_name_" . $locale->id],		 				
+						'name' => $_POST["setting_name_" . $locale->id],
 					));
 				}
-		*/		
+		*/
 			}
-	
+
 			// If POST for deleting
 			if( isset( $_POST['type']) && $_POST['type'] == 'delete_project') {
 				/*
 		 		foreach ( $locales as $locale ) {
-					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 
-						"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id'] 
+					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+						"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
 					));
 				}
 				*/
-				$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 
-					"DELETE FROM " . $table_name . " WHERE id = %d", $_POST['project_id'] 
+				$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+					"DELETE FROM " . $table_name . " WHERE id = %d", $_POST['project_id']
 					));
 				if($result) {
 					?>
@@ -95,7 +95,7 @@ class WPRI_Project {
 			    <?php
 				}
 			}
-		 
+
 
 			echo '<h3> Existing ' . $setting_name . ': </h3>';
 
@@ -168,7 +168,7 @@ class WPRI_Project {
 			echo '<td><textarea id="website" name="website" cols="70" rows="1"></textarea>';
 			echo '<span class="description">A URL</span>';
 			echo '</td></tr>';
-		 
+
 			$agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_agency" ;
 			$agencies = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $agency_table_name );
 			echo '<tr>';
@@ -181,7 +181,7 @@ class WPRI_Project {
 			echo '</select>';
 			echo '<span class="description">Choose funding agency.</span>';
 			echo '</td></tr>';
-		 
+
 		    echo '<tr>';
 		    echo '<td><input type="submit" name="add_button" value="Add Project" class="button-secondary" />';
 		    echo '<input type="hidden" name="type" value="add_project"/></td>';
