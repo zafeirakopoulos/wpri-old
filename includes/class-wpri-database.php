@@ -447,7 +447,7 @@ class WPRI_Database {
 
 			}
 			public static function get_wpri_locales() {
-				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale");
+				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"));
 			}
 
 }
