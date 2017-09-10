@@ -435,14 +435,16 @@ class WPRI_Database {
 
 			}
 			public static function get_wpri_members() {
-
+				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
 			}
 			public static function get_wpri_projects() {
-
+				retrun $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("project") );
 			}
+
 			public static function get_wpri_project( $project_id) {
 
 			}
+
 			public static function add_wpri_project( $project) {
 				$GLOBALS['wpdb']->insert( self::table_name("project"),
 					array(
@@ -453,13 +455,43 @@ class WPRI_Database {
 						'funding' => $project["funding"]
 					)
 				);
+
+						/*
+						 		foreach ( $locales as $locale ) {
+									$GLOBALS['wpdb']->insert( $mixed_table_name , array(
+										'locale' => $locale->id,
+										$setting_name => $new_id,
+										'name' => $_POST["setting_name_" . $locale->id],
+									));
+								}
+						*/
+
 				return $GLOBALS['wpdb']->insert_id;
 			}
+
+			public static function delete_wpri_project( $project_id) {
+				/*
+				foreach ( $locales as $locale ) {
+					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+						"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
+					));
+				}
+				*/
+				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+					"DELETE FROM " . $table_name . " WHERE id = %d",
+					));
+			}
+
 			public static function get_wpri_projects_by_member( $member_id) {
 
 			}
 			public static function get_wpri_locales() {
 				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"));
 			}
+
+			public static function get_wpri_agencies() {
+				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("agency"));
+			}
+
 
 }

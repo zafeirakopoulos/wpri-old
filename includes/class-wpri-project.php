@@ -33,12 +33,14 @@ class WPRI_Project {
 	public function project_menu() {
 
 		function wpri_project_management() {
+			$locales  = WPRI_Database::get_wpri_locales();
+			$projects = WPRI_Database::get_wpri_projects();
+			$members  = WPRI_Database::get_wpri_members();
+			$agencies = WPRI_Database::get_wpri_agencies();
+
+
 			echo '<div class="wrap">';
 			echo '<h2>Manage Projects</h2>';
-		 	$table_name = $GLOBALS['wpdb']->prefix . 'wpri_project';
-			$locale_table_name = $GLOBALS['wpdb']->prefix . 'wpri_locale';
-			$locales = WPRI_Database::get_wpri_locales();
-
 			echo '<div class="wrap wpa">';
 
 			// If POST for adding
@@ -49,75 +51,42 @@ class WPRI_Project {
 					'budget' => $_POST["budget"],
 					'website' => $_POST["website"],
 					'funding' => $_POST["agency"]
-				);				
-				$new_id = WPRI_Database::add_wpri_project($project);
-
-				if($GLOBALS['wpdb']->insert_id) {
-					?>
-			    <div class="updated"><p><strong>Added.</strong></p></div>
-				<?php
+				);
+				$success = WPRI_Database::add_wpri_project($project);
+				// Returns the new id. 0 on fail.
+				if($success ) {
+			    	echo "<div class='updated'><p><strong>Added.</strong></p></div>";
 				} else {
-					?>
-			    <div class="error"><p>Unable to add.</p></div>
-			    <?php
+			    	echo "<div class='error'><p>Unable to add.</p></div>";
 				}
-
-		/*
-		 		foreach ( $locales as $locale ) {
-					$GLOBALS['wpdb']->insert( $mixed_table_name , array(
-						'locale' => $locale->id,
-						$setting_name => $new_id,
-						'name' => $_POST["setting_name_" . $locale->id],
-					));
-				}
-		*/
 			}
 
 			// If POST for deleting
 			if( isset( $_POST['type']) && $_POST['type'] == 'delete_project') {
-				/*
-		 		foreach ( $locales as $locale ) {
-					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
-						"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
-					));
-				}
-				*/
-				$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
-					"DELETE FROM " . $table_name . " WHERE id = %d", $_POST['project_id']
-					));
-				if($result) {
-					?>
-			    <div class="updated"><p><strong>Deleted.</strong></p></div>
-				<?php
+				$success = WPRI_Database::delete_wpri_project($_POST['project_id']);
+				if($success) {
+					echo "<div class='updated'><p><strong>Deleted.</strong></p></div>";
 				} else {
-					?>
-			    <div class="error"><p>Unable to delete.</p></div>
-			    <?php
+			    	echo "<div class='error'><p>Unable to delete.</p></div>";
 				}
 			}
 
-
-			echo '<h3> Existing ' . $setting_name . ': </h3>';
-
-			$all_entries = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $table_name );
+			echo '<h3> Existing Projects: </h3>';
 			echo '<table>';
-		 	foreach ( $all_entries as $dbitem ) {
+		 	foreach ( $projects as $project ) {
 				echo '<form name="delete_project" method="post" action="">';
 				echo '<tr>';
-				echo '<td><label>' . $dbitem->title . ': </label></td>';
-				echo '<td> <input type="submit" name="delete_button' . $dbitem->id  . '" value="Delete" class="button" />';
+				echo '<td><label>' . $project->title . ': </label></td>';
+				echo '<td> <input type="submit" name="delete_button' . $project->id  . '" value="Delete" class="button" />';
 		    	echo '<input type="hidden" name="type" value="delete_project" />';
-		   		echo '<input type="hidden" name="project_id" value=' . $dbitem->id . '/></td>';
+		   		echo '<input type="hidden" name="project_id" value=' . $project->id . '/></td>';
 				echo '</tr>';
 				echo '</form>';
 		    }
 			echo '</table>';
-
 			echo '<h3> Add new project: </h3>';
 			echo '<form name="add_project" method="post" action="">';
 			echo '<table class="form-table">';
-
-
 			echo '<tr>';
 			echo '<th><label>Official Title</label></th>';
 			echo '<td><textarea id="title_' . $locale->id . '" name="title" cols="60" rows="1"></textarea>';
@@ -132,7 +101,6 @@ class WPRI_Project {
 				echo '</td></tr>';
 			}
 
-
 		 	foreach ( $locales as $locale ) {
 				echo '<tr>';
 				echo '<th><label>Description (' . $locale->name . ')</label></th>';
@@ -140,10 +108,6 @@ class WPRI_Project {
 				echo '<span class="description">other locales</span>';
 				echo '</td></tr>';
 			}
-
-
-			$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
-			$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
 
 			echo '<tr>';
 			echo '<th><label>Principal Investigator</label></th>';
@@ -155,8 +119,7 @@ class WPRI_Project {
 			echo '</select>';
 			echo '<span class="description">As appears for funding agency.</span>';
 			echo '</td></tr>';
-
-
+			
 			echo '<tr>';
 			echo '<th><label>Budget</label></th>';
 			echo '<td><textarea id="budget" name="budget" cols="15" rows="1"></textarea>';
@@ -169,8 +132,6 @@ class WPRI_Project {
 			echo '<span class="description">A URL</span>';
 			echo '</td></tr>';
 
-			$agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_agency" ;
-			$agencies = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $agency_table_name );
 			echo '<tr>';
 			echo '<th><label>Funding agency</label></th>';
 			echo '<td>';
