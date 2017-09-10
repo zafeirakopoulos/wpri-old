@@ -117,7 +117,7 @@ class WPRI_Database {
 
 
 		// Description
-		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("description")."'") != self::table_name("decsription")){
+		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("description")."'") != self::table_name("description")){
 					$sql = "CREATE TABLE  ".self::table_name("description")."(
 						id INT AUTO_INCREMENT PRIMARY KEY,
 						locale INT,
