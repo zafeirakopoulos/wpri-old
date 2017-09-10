@@ -57,7 +57,7 @@
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
 
-					  <li><button class="navbar-btn" onclick="wpri_session()"> I'm a link button!</button></li>
+					  <li><button class="navbar-btn" onclick="wpri_change_locale('test')"> I'm a link button!</button></li>
 			      </ul>
 			    </div><!--/.nav-collapse -->
 			  </div><!--/.container-fluid -->
