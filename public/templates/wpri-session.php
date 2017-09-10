@@ -10,7 +10,7 @@ $_SESSION['locale'] = $_POST['locale'];
 
 Header('Content-Type: application/json;charset=utf8');
 die(json_encode(array(
-    'result' => 'OK', // This in case you want to return something to the caller
+    'result' => $_POST['locale'], // This in case you want to return something to the caller
 )));
 
  ?>
