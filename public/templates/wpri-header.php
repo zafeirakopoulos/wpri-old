@@ -23,8 +23,15 @@
 </head>
 
 <body>
+	<?php
+		if (isset($GET["locale"]){
+			$_current_locale = $GET["locale"];
 
-
+		}else{
+			$_current_locale = "En_US";
+		}
+		echo $_current_locale; 
+	?>
  		<div class="bte-masthead container">
 			<h1 class="bte-title"><?php echo get_bloginfo( 'name' ); ?></h1>
 			<nav class="navbar navbar-default">
@@ -47,9 +54,11 @@
 					  <li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Projects</a></li>
 					  <li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Publications</a></li>
 					  <li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Open Positions</a></li>
+					  <li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>">Contact</a></li>
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
-			          <li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>">Contact</a></li>
+					  <li><a href="<?php echo home_url(add_query_arg(array(),$wp->request))."?locale='En_US';?>">English</a></li>
+					  <li><a href="<?php echo home_url(add_query_arg(array(),$wp->request))."?locale='Tr_TR';?>">Turkish</a></li>
 			      </ul>
 			    </div><!--/.nav-collapse -->
 			  </div><!--/.container-fluid -->
