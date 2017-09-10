@@ -116,7 +116,7 @@ class WPRI_Public {
 
 	public function front_page_template( $template ) {
 
-		if ( is_page("front-page") ) {
+		if ( is_front_page() ) {
 			$template = dirname( __FILE__ ) . '/templates/front-page.php';
 		}
 	    return $template;
