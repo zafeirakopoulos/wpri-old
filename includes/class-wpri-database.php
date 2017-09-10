@@ -203,10 +203,10 @@ class WPRI_Database {
     public static function drop_tables() {
 
 	    $tables_to_drop = array(
-	    'pub_member',
-	    'pub_project',
+	    'pubtype',			
+	    'publication_member',
+	    'publication_project',
 	    'publication',
-	    'pubtype',
 	    'locale_agency',
 	    'locale_position',
 	    'locale_title',
