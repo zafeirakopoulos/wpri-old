@@ -36,8 +36,8 @@
 
 function wpri_change_locale( locale ) {
 	jQuery.post(
-	    wpri_ajax.ajaxurl,
-		/*wpri_ajax.session_url,*/
+	    /*wpri_ajax.ajaxurl,*/
+		wpri_ajax.session_url,
 	    {
 	        'action': 'change_locale',
 	        'data':   {'locale':locale}
