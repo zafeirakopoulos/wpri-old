@@ -22,23 +22,7 @@
  */
 class WPRI_Database {
 
-	// TODO protected?
-	protected $position_table_name = $GLOBALS['wpdb']->prefix . "wpri_position" ;
-	protected $title_table_name = $GLOBALS['wpdb']->prefix . "wpri_title" ;
-	protected $member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
-	protected $project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
-	protected $agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_agency" ;
-	protected $description_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_description";
-	protected $locale_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale" ;
-	protected $pr_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_member";
-	protected $pubtype_table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype" ;
-	protected $publication_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication" ;
-	protected protected $pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_member";
-	protected $pub_ = $GLOBALS['wpdb']->prefix . "wpri_pub_project";
-	protected $wp_posts_table_name = $GLOBALS['wpdb']->prefix . "posts";
-	protected $locale_position_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_position";
-	protected $locale_title_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_title";
-	protected $locale_agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_agency";
+
 
 	/**
 	 * Short Description. (use period)
@@ -49,6 +33,24 @@ class WPRI_Database {
 	 */
 	public static function create_tables() {
 
+		// TODO ?
+		 $this->le_name = $GLOBALS['wpdb']->prefix . "wpri_position" ;
+		 $this->title_table_name = $GLOBALS['wpdb']->prefix . "wpri_title" ;
+		 $this->member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
+		 $this->project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
+		 $this->agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_agency" ;
+		 $this->description_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_description";
+		 $this->locale_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale" ;
+		 $this->pr_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_project_member";
+		 $this->pubtype_table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype" ;
+		 $this->publication_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication" ;
+		 $this->pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_member";
+		 $this->pub_ = $GLOBALS['wpdb']->prefix . "wpri_pub_project";
+		 $this->wp_posts_table_name = $GLOBALS['wpdb']->prefix . "posts";
+		 $this->locale_le_name = $GLOBALS['wpdb']->prefix . "wpri_locale_position";
+		 $this->locale_title_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_title";
+		 $this->locale_agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_agency";
+		
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
 		$settings_list = array('locale','position','title','agency');
@@ -103,7 +105,7 @@ class WPRI_Database {
 				website text,
 				wppage BIGINT,
 				alumni BOOLEAN,
-	  			FOREIGN KEY (position) REFERENCES $this->position_table_name(id),
+	  			FOREIGN KEY (position) REFERENCES $this->le_name(id),
 	  			FOREIGN KEY (title) REFERENCES $this->title_table_name(id)
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
@@ -152,7 +154,7 @@ class WPRI_Database {
 						position INT,
 						FOREIGN KEY (member) REFERENCES $this->member_table_name(id),
 						FOREIGN KEY (project) REFERENCES $this->project_table_name(id),
-						FOREIGN KEY (position) REFERENCES $this->position_table_name(id)
+						FOREIGN KEY (position) REFERENCES $this->le_name(id)
 					);";
 					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 	 	}
@@ -235,84 +237,84 @@ class WPRI_Database {
 		$table_name = $GLOBALS['wpdb']->prefix . "wpri_position";
 		$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "director"));
 		$insert_id = $GLOBALS['wpdb']->insert_id;
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Director",
 			'locale' => 1,
 			'position' => $insert_id)
 		);
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Müdür",
 			'locale' => 2,
 			'position' => $insert_id)
 		);
 		$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "vice-director"));
 		$insert_id = $GLOBALS['wpdb']->insert_id;
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Vice Director",
 			'locale' => 1,
 			'position' => $insert_id)
 		);
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name, array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name, array(
 			'name' => "Yard. Müdür",
 			'locale' => 2,
 			'position' => $insert_id)
 		);
 		$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "faculty"));
 		$insert_id = $GLOBALS['wpdb']->insert_id;
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Faculty",
 			'locale' => 1,
 			'position' => $insert_id)
 		);
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Faculty",
 			'locale' => 2,
 			'position' => $insert_id)
 		);
 		$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "assistant"));
 		$insert_id = $GLOBALS['wpdb']->insert_id;
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Research Assistant",
 			'locale' => 1,
 			'position' => $insert_id)
 		);
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Ar Gör",
 			'locale' => 2,
 			'position' => $insert_id)
 		);
 		$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "secretary"));
 		$insert_id = $GLOBALS['wpdb']->insert_id;
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Secretary",
 			'locale' => 1,
 			'position' => $insert_id)
 		);
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name, array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name, array(
 			'name' => "Secretary",
 			'locale' => 2,
 			'position' => $insert_id)
 		);
 		$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "technician"));
 		$insert_id = $GLOBALS['wpdb']->insert_id;
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Technician",
 			'locale' => 1,
 			'position' => $insert_id)
 		);
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Technician",
 			'locale' => 2,
 			'position' => $insert_id)
 		);
 		$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "collaborator"));
 		$insert_id = $GLOBALS['wpdb']->insert_id;
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Collaborator",
 			'locale' => 1,
 			'position' => $insert_id)
 		);
-		$GLOBALS['wpdb']->insert( $this->$locale_position_table_name , array(
+		$GLOBALS['wpdb']->insert( $this->$locale_le_name , array(
 			'name' => "Collaborator",
 			'locale' => 2,
 			'position' => $insert_id)
