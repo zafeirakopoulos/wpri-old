@@ -39,7 +39,7 @@ function wpri_change_locale( locale ) {
 	    wpri_ajax.ajaxurl,
 	    {
 	        'action': 'add_foobar',
-	        'data':   $locale
+	        'data':   locale
 	    },
 	    function(response){
 	        alert('The server responded: ' + response);
