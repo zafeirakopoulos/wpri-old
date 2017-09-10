@@ -138,8 +138,8 @@ class WPRI_Public {
 
 	public function index_page_template( $template ) {
 
-		if ( is_page( 'index' ) ) {
-			$template = dirname( __FILE__ ) . '/templates/index.php';
+		if ( is_page( 'home' ) ) {
+			$template = dirname( __FILE__ ) . '/templates/home.php';
 		}
 		return $template;
 	}
