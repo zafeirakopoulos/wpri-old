@@ -58,9 +58,6 @@
 			      <ul class="nav navbar-nav navbar-right">
 
 					  <li><button class="navbar-btn" onclick="wpri_session()"> I'm a link button!</button></li>
-	<li><a href='<?php echo home_url(add_query_arg(array(),$wp->request))."?locale=En_US";?>'>English</a></li>
-	<li><a href='<?php echo home_url(add_query_arg(array(),$wp->request))."?locale=Tr_TR";?>'>Turkish</a></li>
-	$_SESSION['myKey'] = "Some data I need later";
 			      </ul>
 			    </div><!--/.nav-collapse -->
 			  </div><!--/.container-fluid -->

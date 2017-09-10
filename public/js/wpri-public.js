@@ -34,12 +34,15 @@
 
 })( jQuery );
 
-function wpri_session ( ) {
-	 $.ajax({
-	   url:"session.php", //the page containing php script
-	   type: "POST", //request type
-	   success:function(result){
-		alert(result);
-	  }
-	});
+function wpri_change_locale( locale ) {
+	jQuery.post(
+	    ajaxurl,
+	    {
+	        'action': 'add_foobar',
+	        'data':   $locale
+	    },
+	    function(response){
+	        alert('The server responded: ' + response);
+	    }
+	);
 }
