@@ -29,9 +29,12 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+
+
+
 })( jQuery );
 
-function wpri_session ( args ) {
+function wpri_session ( ) {
 	 $.ajax({
 	   url:"session.php", //the page containing php script
 	   type: "POST", //request type
