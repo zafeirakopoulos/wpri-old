@@ -107,7 +107,7 @@ class WPRI_Public {
 
 		wp_localize_script( $this->plugin_name, 'wpri_ajax', array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ) ,
-			'session_url' => site_url()."/session/php"
+			'session_url' => site_url()."/session"
 			)
 		);
 	}
