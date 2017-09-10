@@ -24,13 +24,13 @@
 
 <body>
 	<?php
-		if (isset($GET["locale"]){
+		if (isset($GET["locale"])){
 			$_current_locale = $GET["locale"];
 
 		}else{
 			$_current_locale = "En_US";
 		}
-		echo $_current_locale; 
+		echo $_current_locale;
 	?>
  		<div class="bte-masthead container">
 			<h1 class="bte-title"><?php echo get_bloginfo( 'name' ); ?></h1>
