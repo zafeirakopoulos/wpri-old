@@ -24,7 +24,10 @@ $template_loader->get_template_part( 'wpri', 'header' );
 				$template_loader->get_template_part( 'wpri', 'projects' );
 
 			}
+			if ( is_page( 'contact' ) ) {
+				$template_loader->get_template_part( 'wpri', 'contact' );
 
+			}
 
 			/* For the blogs
 				if ( have_posts() ) : while ( have_posts() ) : the_post();
