@@ -227,35 +227,6 @@ class WPRI_Database {
 	    }
     }
 
-	/*
-	* Query Functions
-	*/
-
-	public static function get_wp_user( $user_id) {
-
-	}
-	public static function get_wp_user_metadata( $user_id) {
-
-	}
-	public static function get_wpri_member( $member_id) {
-
-	}
-	public static function get_wpri_members() {
-
-	}
-	public static function get_wpri_projects() {
-
-	}
-	public static function get_wp_project( $project_id) {
-
-	}
-	public static function get_wpri_projects_by_member( $member_id) {
-
-	}
-	public static function get_wpri_locales() {
-		return $GLOBALS['wpdb']->get_results("SELECT * FROM " . $locale_table_name );
-	}
-
 
 
 
@@ -448,4 +419,35 @@ class WPRI_Database {
 			);
 
 		}
+
+
+			/*
+			* Query Functions
+			*/
+
+			public static function get_wp_user( $user_id) {
+
+			}
+			public static function get_wp_user_metadata( $user_id) {
+
+			}
+			public static function get_wpri_member( $member_id) {
+
+			}
+			public static function get_wpri_members() {
+
+			}
+			public static function get_wpri_projects() {
+
+			}
+			public static function get_wp_project( $project_id) {
+
+			}
+			public static function get_wpri_projects_by_member( $member_id) {
+
+			}
+			public static function get_wpri_locales() {
+				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale");
+			}
+
 }
