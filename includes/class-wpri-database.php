@@ -37,7 +37,7 @@ class WPRI_Database {
 	public static function create_tables() {
 
 		// TODO remove in production!!!
-		self::drop_tables();
+		//self::drop_tables();
 
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
