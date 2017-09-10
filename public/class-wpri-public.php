@@ -146,6 +146,7 @@ class WPRI_Public {
 		session_destroy ();
 	}
 
+/*
 	function wpri_ajax_change_locale() {
 		// Handle request then generate response using WP_Ajax_Response
 		//$_SESSION['locale'] = "locale changed";
@@ -158,6 +159,6 @@ class WPRI_Public {
 		}
 		wp_die();
 	}
-
+*/
 
 }
