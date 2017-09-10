@@ -22,7 +22,22 @@
  */
 class WPRI_Database {
 
-
+	static $position_table_name;
+	static $title_table_name ;
+	static $member_table_name ;
+	static $project_table_name ;
+	static $agency_table_name ;
+	static $description_table_name ;
+	static $locale_table_name ;
+	static $pr_mem_table_name ;
+	static $pubtype_table_name ;
+	static $publication_table_name;
+	static $pub_mem_table_name;
+	static $pub_project_table_name;
+	static $wp_posts_table_name;
+	static $locale_table_name ;
+	static $locale_title_table_name ;
+	static $locale_agency_table_name ;
 
 	/**
 	 * Short Description. (use period)
@@ -44,7 +59,7 @@ class WPRI_Database {
 		 self::$pubtype_table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype" ;
 		 self::$publication_table_name = $GLOBALS['wpdb']->prefix . "wpri_publication" ;
 		 self::$pub_mem_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_member";
-		 self::$pub_ = $GLOBALS['wpdb']->prefix . "wpri_pub_project";
+		 self::$pub_project_table_name = $GLOBALS['wpdb']->prefix . "wpri_pub_project";
 		 self::$wp_posts_table_name = $GLOBALS['wpdb']->prefix . "posts";
 		 self::$locale_le_name = $GLOBALS['wpdb']->prefix . "wpri_locale_position";
 		 self::$locale_title_table_name = $GLOBALS['wpdb']->prefix . "wpri_locale_title";
