@@ -2,9 +2,6 @@
 			<div id="faculty" >
 				<h1> <?php echo 'Faculty' ?> </h1>
 				<?php
-					$current_language = "en";
-					// This has to be done using js. Cannot be written in DB for example.
-					// Have a hidden element in the DOM to keep track of language.
 
 					// Start the Loop.
 					$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
@@ -23,7 +20,7 @@
                         $titlen= $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='title' AND user_id = %d", $member->user));
                         $atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $titlen));
 
-						echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
+						echo "<a href='".site_url()."/member?id=".$member->user."&locale=".$current_locale."'><div class='faculty-thumb col-md-5'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'>";
                         echo $atitle." ".$fname." ".$lname;
