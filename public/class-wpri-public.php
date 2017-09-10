@@ -106,6 +106,7 @@ class WPRI_Public {
 
 	}
 
+/*
 	public function page_template( $template ) {
 
 		if ( is_page() ) {
@@ -113,7 +114,7 @@ class WPRI_Public {
 		}
 	    return $template;
 	}
-
+*/
 	public function front_page_template( $template ) {
 
 		if ( is_front_page() ) {
@@ -152,5 +153,5 @@ class WPRI_Public {
 		return $template;
 	}
 
- 
+
 }
