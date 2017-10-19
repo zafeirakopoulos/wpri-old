@@ -34,7 +34,7 @@ class WPRI_Activator {
 
         $first_install = WPRI_Database::create_tables();
         if ($first_install == 1) {
-            //WPRI_Database::populate_tables();
+            WPRI_Database::populate_tables();
         }
 
 
