@@ -146,7 +146,7 @@ class WPRI_Database {
 	//  	}
 
 
-/*
+
 		// Publications
 		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("pubtype")."'") != self::table_name("pubtype") ){
 			$sql = "CREATE TABLE  ".self::table_name("pubtype")." (
@@ -194,7 +194,7 @@ class WPRI_Database {
 					);";
 					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 	 	}
-*/
+ 
 	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         return $first_install;
 	}
