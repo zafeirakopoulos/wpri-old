@@ -34,8 +34,8 @@ class WPRI_Activator {
         if ($first_install == 1) {
             WPRI_Database::populate_tables();
         }
-		
-		WPRI_Pages::create_pages();
+
+		WPRI_Pages::create_pagesf();
 
 
         flush_rewrite_rules();
