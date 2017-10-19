@@ -131,19 +131,19 @@ class WPRI_Database {
 	 	}
 
 
-	// Project Members
-	 	if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("project_member")."'") != self::table_name("project_member")){
-					$sql = "CREATE TABLE  ".self::table_name("project_member")."(
-						id INT AUTO_INCREMENT PRIMARY KEY,
-						member INT,
-						project INT,
-						position INT,
-						FOREIGN KEY (member) REFERENCES $".self::table_name("member")."(id),
-						FOREIGN KEY (project) REFERENCES ".self::table_name("project")."(id),
-						FOREIGN KEY (position) REFERENCES ".self::table_name("position")."(id)
-					);";
-					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
-	 	}
+	// // Project Members
+	//  	if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("project_member")."'") != self::table_name("project_member")){
+	// 				$sql = "CREATE TABLE  ".self::table_name("project_member")."(
+	// 					id INT AUTO_INCREMENT PRIMARY KEY,
+	// 					member INT,
+	// 					project INT,
+	// 					position INT,
+	// 					FOREIGN KEY (member) REFERENCES $".self::table_name("member")."(id),
+	// 					FOREIGN KEY (project) REFERENCES ".self::table_name("project")."(id),
+	// 					FOREIGN KEY (position) REFERENCES ".self::table_name("position")."(id)
+	// 				);";
+	// 				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
+	//  	}
 
 
 /*
