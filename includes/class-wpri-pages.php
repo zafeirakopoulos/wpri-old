@@ -45,9 +45,9 @@ class WPRI_Pages {
 				    'post_author' => 1,
 				    'post_slug' => strtolower($page_title)
 			    );
-			    //if(!isset($page_check->ID) && !the_slug_exists(strtolower($page_title))){
+			    if(!isset($page_check->ID) && !the_slug_exists(strtolower($page_title))){
 			        $page_id = wp_insert_post($page);
-			    //}
+			    }
 			//}
 	 	}
 
