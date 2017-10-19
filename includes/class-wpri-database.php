@@ -38,7 +38,7 @@ class WPRI_Database {
 	public static function create_tables() {
 
 		// TODO remove in production!!!
-		self::drop_tables();
+		//self::drop_tables();
 
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
@@ -74,7 +74,7 @@ class WPRI_Database {
 	 	}
 
 
-
+/*
 
 		// Members
 		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("member")."'") != self::table_name("member") ){
@@ -194,7 +194,7 @@ class WPRI_Database {
 					);";
 					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 	 	}
-
+*/
 	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         return $first_install;
 	}
