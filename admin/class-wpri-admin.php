@@ -105,8 +105,8 @@ class WPRI_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function member_fields( $user ) 
-	{ 
+	public function member_fields( $user )
+	{
 
 	    echo '<h3>Office</h3>';
 
@@ -143,7 +143,7 @@ class WPRI_Admin {
 		echo '</select>';
 		echo '<span class="description"> </span>';
 		echo '</td></tr>';
-	    
+
 	    echo '</table>';
 
 
@@ -223,7 +223,7 @@ class WPRI_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function save_member_fields( $user_id ) 
+	public function save_member_fields( $user_id )
 	{
 	    if ( !current_user_can( 'edit_user', $user_id ) ) { return false; }else{
 
@@ -278,9 +278,9 @@ class WPRI_Admin {
 
 		add_menu_page( 'Research Institute Management', 'Research Institute', 'manage_options', 'wpri-settings-menu','wpri_settings_management');
 	}
-	
- 
-	public function settings_locale_menu() {	 
+
+
+	public function settings_locale_menu() {
 		function wpri_settings_locale_management() {
 			echo '<div class="wrap">';
 			echo '<h2>Manage Locale Options</h2>';
@@ -290,7 +290,7 @@ class WPRI_Admin {
 		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
 	}
 
-	public function settings_title_menu() {	 
+	public function settings_title_menu() {
 		function wpri_settings_title_management() {
 			echo '<div class="wrap">';
 			echo '<h2>Manage Academic Titles</h2>';
@@ -308,12 +308,12 @@ class WPRI_Admin {
 			echo '<h2>Manage Positions</h2>';
 			WPRI_Admin::setting_form('position');
 			echo '</div>';
-		}	 
+		}
 		add_submenu_page( 'wpri-settings-menu', 'Positions Management','Positions' , 'manage_options', 'wpri-settings-position' , 'wpri_settings_position_management');
 	}
 
 
-	public function settings_agency_menu() {	 
+	public function settings_agency_menu() {
 		function wpri_settings_agency_management() {
 			echo '<div class="wrap">';
 			echo '<h2>Manage Funding Agencies</h2>';
@@ -325,16 +325,13 @@ class WPRI_Admin {
 
 
 
-
-
-
-	public function settings_member_menu() {	 
+	public function settings_member_menu() {
 		function wpri_settings_member_management() {
 
 			function add_member_page($member_id) {
 			 	$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 				$member = $GLOBALS['wpdb']->get_row("SELECT * FROM " . $member_table_name . " WHERE id = ". $member_id);
-			  
+
 
 				return $new_post_id;
 			}
@@ -351,10 +348,10 @@ class WPRI_Admin {
 				$u_query = new WP_User_Query( array('include' => array($_POST["user"])));
 				$user = $u_query->results;
 
-				$new_member_id = $GLOBALS['wpdb']->insert( $table_name , array( 
+				$new_member_id = $GLOBALS['wpdb']->insert( $table_name , array(
 					'user' => $_POST["user"],
 					'username' => $user[0]->display_name,
-					'position' => $_POST["position"] 
+					'position' => $_POST["position"]
 				));
 				if($GLOBALS['wpdb']->insert_id) {
 					?>
@@ -367,14 +364,9 @@ class WPRI_Admin {
 				}
 
 				$new_post_id = add_member_page( $GLOBALS['wpdb']->insert_id);
-		/*
-				$GLOBALS['wpdb']->update( $table_name , 
-					array('user' => $new_post_id), 
-					array( 'id' => $new_member_id )
-				);
-		*/
+ 
 			}
-	
+
 			// If POST for deleting
 			if( isset( $_POST['type']) && $_POST['type'] == 'delete_member' ) {
 				$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( "DELETE FROM " . $table_name . " WHERE id = %d", $_POST['member_id'] ) );
@@ -388,7 +380,7 @@ class WPRI_Admin {
 			    <?php
 				}
 			}
-		 
+
 
 			echo '<h3> Existing members: </h3>';
 
@@ -441,7 +433,7 @@ class WPRI_Admin {
 			echo '</select>';
 			echo '<span class="description">Choose a position.</span>';
 			echo '</td></tr>';
-		 
+
 		    echo '<td><input type="submit" name="add_button" value="Add" class="button-secondary" />';
 		    echo '<input type="hidden" name="type" value="add_member" /></td>';
 		    echo '</tr>';
@@ -469,7 +461,7 @@ class WPRI_Admin {
 		// If POST for adding
 		if( isset( $_POST['type']) && $_POST['type'] == 'add_' . $setting_name ) {
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => $_POST["setting_name"] ) );
-			echo $GLOBALS['wpdb']->insert_id ; 
+			echo $GLOBALS['wpdb']->insert_id ;
 			if($GLOBALS['wpdb']->insert_id) {
 				?>
 		    <div class="updated"><p><strong>Added.</strong></p></div>
@@ -480,7 +472,7 @@ class WPRI_Admin {
 		    <?php
 			}
 		}
-	
+
 		// If POST for deleting
 		if( isset( $_POST['type']) && $_POST['type'] == 'delete_' . $setting_name ) {
 			$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( "DELETE FROM " . $table_name . " WHERE id = %d", $_POST['setting_id'] ) );
@@ -494,7 +486,7 @@ class WPRI_Admin {
 		    <?php
 			}
 		}
-	 
+
 
 		echo '<h3> Existing ' . $setting_name . ': </h3>';
 
@@ -540,7 +532,7 @@ class WPRI_Admin {
 		// If POST for adding
 		if( isset( $_POST['type']) && $_POST['type'] == 'add_' . $setting_name ) {
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => $_POST["setting_name"] ) );
-			echo $GLOBALS['wpdb']->insert_id ; 
+			echo $GLOBALS['wpdb']->insert_id ;
 			$new_id = $GLOBALS['wpdb']->insert_id;
 			if($GLOBALS['wpdb']->insert_id) {
 				?>
@@ -552,24 +544,24 @@ class WPRI_Admin {
 		    <?php
 			}
 	 		foreach ( $locales as $locale ) {
-				$GLOBALS['wpdb']->insert( $mixed_table_name , array( 
+				$GLOBALS['wpdb']->insert( $mixed_table_name , array(
 					'locale' => $locale->id,
 					$setting_name => $new_id,
-					'name' => $_POST["setting_name_" . $locale->id],		 				
+					'name' => $_POST["setting_name_" . $locale->id],
 				));
 			}
-		
+
 		}
-	
+
 		// If POST for deleting
 		if( isset( $_POST['type']) && $_POST['type'] == 'delete_' . $setting_name ) {
 	 		foreach ( $locales as $locale ) {
-				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 
-					"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id'] 
+				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+					"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
 				));
 			}
-			$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( 
-				"DELETE FROM " . $table_name . " WHERE id = %d", $_POST['setting_id'] 
+			$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+				"DELETE FROM " . $table_name . " WHERE id = %d", $_POST['setting_id']
 				));
 			if($result) {
 				?>
@@ -581,7 +573,7 @@ class WPRI_Admin {
 		    <?php
 			}
 		}
-	 
+
 
 		echo '<h3> Existing ' . $setting_name . ': </h3>';
 

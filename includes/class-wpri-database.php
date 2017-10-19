@@ -495,6 +495,3 @@ class WPRI_Database {
 			public static function get_wpri_agencies() {
 				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("agency"));
 			}
-
-
-}
