@@ -426,6 +426,7 @@ class WPRI_Database {
 			* Query Functions
 			*/
 
+/*
 			public static function get_wp_user( $user_id) {
 
 			}
@@ -495,4 +496,5 @@ class WPRI_Database {
 			public static function get_wpri_agencies() {
 				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("agency"));
 			}
+*/
 }
