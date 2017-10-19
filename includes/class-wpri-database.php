@@ -74,7 +74,6 @@ class WPRI_Database {
 	 	}
 
 
-/*
 
 		// Members
 		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("member")."'") != self::table_name("member") ){
@@ -117,6 +116,7 @@ class WPRI_Database {
 
 
 
+		/*
 		// Description
 		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("description")."'") != self::table_name("description")){
 					$sql = "CREATE TABLE  ".self::table_name("description")."(
