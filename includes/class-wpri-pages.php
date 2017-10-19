@@ -31,6 +31,15 @@ class WPRI_Pages {
 	 *
 	 * @since    1.0.0
 	 */
+
+	function the_slug_exists($post_name) {
+		global $wpdb;
+		if($wpdb->get_row("SELECT post_name FROM wp_posts WHERE post_name = '" . $post_name . "'", 'ARRAY_A')) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	public static function create_pages() {
 
 		$pages_list = array('People','Research','Projects','Publications','Contact');
