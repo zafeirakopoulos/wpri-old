@@ -35,7 +35,7 @@ class WPRI_Activator {
             WPRI_Database::populate_tables();
         }
 
-		WPRI_Pages::create_pagesf();
+		WPRI_Pages::create_pages();
 
 
         flush_rewrite_rules();
