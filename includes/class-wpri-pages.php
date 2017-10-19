@@ -37,6 +37,7 @@ class WPRI_Pages {
 		$pages_list = array('People','Research','Projects','Publications','Contact');
 		foreach ($pages_list as $page_name){
 			if (isset($_GET['activated']) && is_admin()){
+				echo $page_name;
 			    $page_title = $page_name;
 			    $page_check = get_page_by_title($page_title);
 			    $page = array(
