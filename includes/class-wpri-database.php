@@ -458,27 +458,27 @@ class WPRI_Database {
 					)
 				);
 
-						/*
-						 		foreach ( $locales as $locale ) {
-									$GLOBALS['wpdb']->insert( $mixed_table_name , array(
-										'locale' => $locale->id,
-										$setting_name => $new_id,
-										'name' => $_POST["setting_name_" . $locale->id],
-									));
-								}
-						*/
+
+								// 	foreach ( $locales as $locale ) {
+								// 	$GLOBALS['wpdb']->insert( $mixed_table_name , array(
+								// 		'locale' => $locale->id,
+								// 		$setting_name => $new_id,
+								// 		'name' => $_POST["setting_name_" . $locale->id],
+								// 	));
+								// }
+								//
 
 				return $GLOBALS['wpdb']->insert_id;
 			}
 
 			public static function delete_wpri_project( $project_id) {
-				/*
-				foreach ( $locales as $locale ) {
-					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
-						"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
-					));
-				}
-				*/
+
+				// foreach ( $locales as $locale ) {
+				// 	$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+				// 		"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
+				// 	));
+				// }
+				
 				return $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
 						"DELETE FROM " . self::table_name("project"). " WHERE id = %d", $project_id
