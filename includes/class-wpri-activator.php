@@ -33,9 +33,9 @@ class WPRI_Activator {
 		WPRI_Pages::create_pages();
 
         $first_install = WPRI_Database::create_tables();
-        if ($first_install == 1) {
-            WPRI_Database::populate_tables();
-        }
+        //if ($first_install == 1) {
+            //WPRI_Database::populate_tables();
+        //}
 
 
 
