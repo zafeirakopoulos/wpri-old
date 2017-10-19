@@ -35,7 +35,7 @@ class WPRI_Pages {
 
 		$pages_list = array('People','Research','Projects','Publications','Contact');
 		foreach ($pages_list as $page_name){
-			if (isset($_GET['activated']) && is_admin()){
+			//if (isset($_GET['activated']) && is_admin()){
 			    $page_title = $page_name;
 			    $page_check = get_page_by_title($page_title);
 			    $page = array(
@@ -48,7 +48,7 @@ class WPRI_Pages {
 			    //if(!isset($page_check->ID) && !the_slug_exists(strtolower($page_title))){
 			        $page_id = wp_insert_post($page);
 			    //}
-			}
+			//}
 	 	}
 
  	}
