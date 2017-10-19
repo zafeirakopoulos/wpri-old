@@ -38,7 +38,7 @@ class WPRI_Database {
 	public static function create_tables() {
 
 		// TODO remove in production!!!
-		//self::drop_tables();
+		self::drop_tables();
 
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
@@ -478,7 +478,7 @@ class WPRI_Database {
 				// 		"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
 				// 	));
 				// }
-				
+
 				return $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
 						"DELETE FROM " . self::table_name("project"). " WHERE id = %d", $project_id
