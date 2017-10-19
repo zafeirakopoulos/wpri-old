@@ -116,7 +116,7 @@ class WPRI_Database {
 
 
 
-		/*
+
 		// Description
 		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("description")."'") != self::table_name("description")){
 					$sql = "CREATE TABLE  ".self::table_name("description")."(
@@ -146,7 +146,7 @@ class WPRI_Database {
 	 	}
 
 
-
+/*
 		// Publications
 		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("pubtype")."'") != self::table_name("pubtype") ){
 			$sql = "CREATE TABLE  ".self::table_name("pubtype")." (
