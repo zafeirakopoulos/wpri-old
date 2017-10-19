@@ -33,11 +33,9 @@ class WPRI_Pages {
 	 */
 	public static function create_pages() {
 
-
 		$pages_list = array('People','Research','Projects','Publications','Contact');
 		foreach ($pages_list as $page_name){
 			if (isset($_GET['activated']) && is_admin()){
-				echo $page_name;
 			    $page_title = $page_name;
 			    $page_check = get_page_by_title($page_title);
 			    $page = array(
@@ -47,9 +45,9 @@ class WPRI_Pages {
 				    'post_author' => 1,
 				    'post_slug' => strtolower($page_title)
 			    );
-			    if(!isset($page_check->ID) && !the_slug_exists(strtolower($page_title))){
+			    //if(!isset($page_check->ID) && !the_slug_exists(strtolower($page_title))){
 			        $page_id = wp_insert_post($page);
-			    }
+			    //}
 			}
 	 	}
 
