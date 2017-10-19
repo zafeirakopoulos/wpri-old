@@ -32,7 +32,7 @@ class WPRI_Pages {
 	 * @since    1.0.0
 	 */
 
-	function the_slug_exists($post_name) {
+	public static function the_slug_exists($post_name) {
 		global $wpdb;
 		if($wpdb->get_row("SELECT post_name FROM wp_posts WHERE post_name = '" . $post_name . "'", 'ARRAY_A')) {
 			return true;
@@ -54,7 +54,7 @@ class WPRI_Pages {
 				    'post_author' => 1,
 				    'post_slug' => strtolower($page_title)
 			    );
-			    if(!isset($page_check->ID) && !the_slug_exists(strtolower($page_title))){
+			    if(!isset($page_check->ID) && !WPRI_Pages::the_slug_exists(strtolower($page_title))){
 			        $page_id = wp_insert_post($page);
 			    }
 			//}
