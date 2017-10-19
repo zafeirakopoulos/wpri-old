@@ -30,14 +30,15 @@ class WPRI_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
+		# Create the standard pages for wpri.
 		WPRI_Pages::create_pages();
 
+		# Create the tables for wpri.
         $first_install = WPRI_Database::create_tables();
         if ($first_install == 1) {
+			# If the tables are fresh, populate them with standard data.
             WPRI_Database::populate_tables();
         }
-
-
 
         flush_rewrite_rules();
 	}
