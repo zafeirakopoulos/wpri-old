@@ -32,16 +32,7 @@ class WPRI_Pages {
 	 * @since    1.0.0
 	 */
 
-/*
-	public static function the_slug_exists($post_name) {
-		global $wpdb;
-		if($wpdb->get_row("SELECT post_name FROM wp_posts WHERE post_name = '" . $post_name . "'", 'ARRAY_A')) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-*/
+
 	public static function create_pages() {
 
 		$pages_list = array('People','Research','Projects','Publications','Contact',"Positions");
@@ -56,7 +47,6 @@ class WPRI_Pages {
 				    'post_author' => 1,
 				    'post_slug' => strtolower($page_title)
 			    );
-			    //if(!isset($page_check->ID) && !WPRI_Pages::the_slug_exists(strtolower($page_title))){
 			 	if(!isset($page_check->ID) ){
        				$page_id = wp_insert_post($page);
 			    }
@@ -64,6 +54,21 @@ class WPRI_Pages {
 	 	}
 
  	}
+
+	public static function create_member_page(id,name) {
+			    $page_title = $name;
+			    $page_check = get_page_by_title($page_title);
+			    $page = array(
+				    'post_type' => 'page',
+				    'post_title' => $page_title,
+				    'post_status' => 'publish',
+				    'post_author' => 1,
+				    'post_slug' => id
+			    );
+			 	if(!isset($page_check->ID) ){
+       				$page_id = wp_insert_post($page);
+			    }
+	}
 
 
 

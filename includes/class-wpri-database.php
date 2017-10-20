@@ -426,19 +426,87 @@ class WPRI_Database {
 			* Query Functions
 			*/
 
+			/*
+				For every item we need:
+				1. get_wp_ITEM_ids()
+				2. get_wp_ITEM(id)
+				3. add_wp_ITEM
+				4. delete_wp_ITEM(id)
+				5. update_wp_ITEM(id)
 
-			public static function get_wp_user( $user_id) {
+				Items:
+				1. Member
+				2. Project
+				3. Publication
+				4. OpenPosition
+			*/
+
+
+			///////////////////////////
+			// Member
+			///////////////////////////
+
+			// This should return full information, gathered from different tables
+			public static function get_wpri_member($member_id) {
+				$member_title = $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("title") );
+				$member_website =
+				$member_email =
+				$member_avatar =
+				$member_position =
+				$member_displayname =
+				$member_wppage =
+				$member_alumni =
+				$member_office =
+				$member_phone =
+				$member_advisor =
+				// user INT,
+				// username tinytext,
+				// displayname tinytext,
+				// position INT,
+				// title INT,
+				// advisor INT,
+				// office tinytext,
+				// phone tinytext,
+				// website text,
+				// wppage BIGINT,
+				// alumni BOOLEAN,
+				// FOREIGN KEY (position) REFERENCES ".self::table_name("position")."(id),
+				// FOREIGN KEY (title) REFERENCES ".self::table_name("title")."(id)
+				$member = Array(
+					"title" = $member_title ,
+					"website" = $member_website,
+					"email" = $member_email,
+					"avatar" = $member_avatar,
+					"position" = $member_position,
+					"name" = $member_displayname,
+					"wppage" = $member_wppage,
+					"alumni" = $member_alumni,
+					"office" = $member_office,
+					"phone" = $member_phone,
+					"advisor" = $member_advisor
+					)
+				return $member
+			}
+
+			public static function get_wpri_member_ids() {
+				return $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("member") );
+			}
+
+			public static function add_wpri_member($member) {
 
 			}
-			public static function get_wp_user_metadata( $user_id) {
+
+			public static function update_wpri_member($member_id) {
 
 			}
-			public static function get_wpri_member( $member_id) {
+
+			public static function delete_wpri_member($member_id) {
 
 			}
-			public static function get_wpri_members() {
-				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
-			}
+			/////////////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////
+
+
 			public static function get_wpri_projects() {
 				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("project") );
 			}
@@ -496,5 +564,12 @@ class WPRI_Database {
 			public static function get_wpri_agencies() {
 				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("agency"));
 			}
- 
+
 }
+
+// public static function get_wp_user( $user_id) {
+//
+// }
+// public static function get_wp_user_metadata( $user_id) {
+//
+// }

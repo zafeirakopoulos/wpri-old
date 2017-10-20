@@ -331,7 +331,7 @@ class WPRI_Admin {
 			function add_member_page($member_id) {
 			 	$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
 				$member = $GLOBALS['wpdb']->get_row("SELECT * FROM " . $member_table_name . " WHERE id = ". $member_id);
-
+				//$new_post_id = $WPRI_Pages::create_member_page($member_id,member)
 
 				return $new_post_id;
 			}
@@ -364,7 +364,7 @@ class WPRI_Admin {
 				}
 
 				$new_post_id = add_member_page( $GLOBALS['wpdb']->insert_id);
- 
+
 			}
 
 			// If POST for deleting
