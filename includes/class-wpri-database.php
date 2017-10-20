@@ -533,7 +533,7 @@ class WPRI_Database {
 				foreach ( $mids as $id ) {
 					array_push($ids,$id->id);
 				}
-				return $ids
+				return $ids;
 			}
 
 			public static function add_wpri_member($member) {
