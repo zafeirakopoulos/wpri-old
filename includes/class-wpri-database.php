@@ -491,7 +491,7 @@ class WPRI_Database {
 				echo "test";
 				$member_data = $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
-						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
+						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", (string)$member_id
 					)
 				);
 
