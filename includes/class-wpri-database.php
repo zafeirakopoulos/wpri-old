@@ -527,7 +527,7 @@ class WPRI_Database {
 */
 			}
 
-			public static function get_wpri_member_ids() {
+			public static function get_member_ids() {
 
 				return $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("member") );
 			}
