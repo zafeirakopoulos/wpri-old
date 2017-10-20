@@ -11,7 +11,7 @@
  */
 
 /**
- * Functions managing the database..
+ * Functions managing the database.
  *
  * Functions managing the database.
  *
@@ -456,10 +456,10 @@ class WPRI_Database {
 
 				$title = $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
-						"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d", 
+						"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d",
 						$title, $locale
 					)
-				); 
+				);
 
 				return $title;
 			}
@@ -474,10 +474,10 @@ class WPRI_Database {
 
 				$position = $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
-						"SELECT name FROM " . self::table_name("locale_position"). " WHERE position = %d AND locale= %d", 
+						"SELECT name FROM " . self::table_name("locale_position"). " WHERE position = %d AND locale= %d",
 						$title, $locale
 					)
-				); 
+				);
 
 				return $position;
 			}
@@ -494,10 +494,10 @@ class WPRI_Database {
 					)
 				);
 
-				echo $member_data;
-				echo $member_data->user ;
+				//echo $member_data;
+				//echo $member_data->user ;
 /*
-				$member_user =  $member_data->user ;		
+				$member_user =  $member_data->user ;
 				$member_title = WPRI_Database::get_title($member_id, $locale)
 				$member_website =
 				$member_email =
@@ -509,7 +509,7 @@ class WPRI_Database {
 				$member_office =
 				$member_phone =
 				$member_advisor =
- 
+
 				$member = Array(
 					"title" = $member_title ,
 					"website" = $member_website,
