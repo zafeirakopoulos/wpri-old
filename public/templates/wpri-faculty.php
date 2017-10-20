@@ -10,7 +10,7 @@
 	    				foreach ( $member_ids as $member_id ) {
 						$member = WPRI_Database::get_member($member_id, $locale);
 
-	   					echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
+	   					//echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
 						// echo "<table>";
 						// echo "<tr><h3 class='faculty'>";
 						// echo $atitle." ".$fname." ".$lname;
@@ -24,7 +24,7 @@
 						// echo $email."<br>";
 						// echo "</p></td></tr>";
 						// echo "</table>";
-						echo "</div></a>";
+						//echo "</div></a>";
 					}
 					echo "</div>";
 				?>
