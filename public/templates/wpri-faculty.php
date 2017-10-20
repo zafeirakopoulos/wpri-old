@@ -9,7 +9,7 @@
 					echo "<div class='container' >";
 	    				foreach ( $member_ids as $member_id ) {
 							echo $member_id->id;
-						$member = WPRI_Database::get_member($member_id, $locale);
+						$member = WPRI_Database::get_member($member_id->id, $locale);
 
 	   					//echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
 						// echo "<table>";
