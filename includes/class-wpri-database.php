@@ -488,6 +488,7 @@ class WPRI_Database {
 
 			// This should return full information, gathered from different tables
 			public static function get_member($member_id, $locale) {
+				echo "test";
 				$member_data = $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
