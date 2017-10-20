@@ -528,12 +528,12 @@ class WPRI_Database {
 			}
 
 			public static function get_member_ids() {
-				mids= $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("member") );
-				ids= Array();
+				$mids = $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("member") );
+				$ids = Array();
 				foreach ( $mids as $id ) {
-					array_push(ids,id->id);
+					array_push($ids,$id->id);
 				}
-				return ids 
+				return $ids
 			}
 
 			public static function add_wpri_member($member) {
