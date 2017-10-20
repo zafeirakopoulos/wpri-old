@@ -5,10 +5,10 @@
 
 					// Start the Loop.
 					$member_ids = WPRI_Database::get_member_ids();
-					$locale = 1; // TODO: read from the session 
+					$locale = 1; // TODO: read from the session
 					echo "<div class='container' >";
 	    				foreach ( $member_ids as $member_id ) {
-						$member = WPRI_Database::get_member($member_id, $locale);
+						$member = WPRI_Database::get_member($member_id, str($locale));
 
 	   					echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
 						echo "<table>";
