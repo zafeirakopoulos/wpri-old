@@ -55,7 +55,7 @@ class WPRI_Pages {
 
  	}
 
-	public static function create_member_page(id,name) {
+	public static function create_member_page($id,$name) {
 			    $page_title = $name;
 			    $page_check = get_page_by_title($page_title);
 			    $page = array(

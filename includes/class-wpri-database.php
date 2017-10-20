@@ -443,35 +443,69 @@ class WPRI_Database {
 
 
 			///////////////////////////
+			// Helper
+			///////////////////////////
+
+			// TODO: Join instead of two calls
+			public static function get_title($member_id, $locale) {
+				$title_id = $GLOBALS['wpdb']->query(
+					$GLOBALS['wpdb']->prepare(
+						"SELECT title FROM " . self::table_name("member"). " WHERE id = %d", $member_id
+					)
+				);
+
+				$title = $GLOBALS['wpdb']->query(
+					$GLOBALS['wpdb']->prepare(
+						"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d", 
+						$title, $locale
+					)
+				); 
+
+				return $title;
+			}
+
+			// TODO: Join instead of two calls
+			public static function get_position($member_id, $locale) {
+				$position_id = $GLOBALS['wpdb']->query(
+					$GLOBALS['wpdb']->prepare(
+						"SELECT position FROM " . self::table_name("member"). " WHERE id = %d", $member_id
+					)
+				);
+
+				$position = $GLOBALS['wpdb']->query(
+					$GLOBALS['wpdb']->prepare(
+						"SELECT name FROM " . self::table_name("locale_position"). " WHERE position = %d AND locale= %d", 
+						$title, $locale
+					)
+				); 
+
+				return $position;
+			}
+
+			///////////////////////////
 			// Member
 			///////////////////////////
 
 			// This should return full information, gathered from different tables
-			public static function get_wpri_member($member_id) {
-				$member_title = $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("title") );
+			public static function get_wpri_member($member_id, $locale) {
+				$member_data = $GLOBALS['wpdb']->prepare(
+						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
+					)
+				);
+
+				$member_user =  $member_data->user ;		
+				$member_title = WPRI_Database::get_title($member_id, $locale)
 				$member_website =
 				$member_email =
 				$member_avatar =
-				$member_position =
+				$member_position = WPRI_Database::get_position($member_id, $locale)
 				$member_displayname =
 				$member_wppage =
 				$member_alumni =
 				$member_office =
 				$member_phone =
 				$member_advisor =
-				// user INT,
-				// username tinytext,
-				// displayname tinytext,
-				// position INT,
-				// title INT,
-				// advisor INT,
-				// office tinytext,
-				// phone tinytext,
-				// website text,
-				// wppage BIGINT,
-				// alumni BOOLEAN,
-				// FOREIGN KEY (position) REFERENCES ".self::table_name("position")."(id),
-				// FOREIGN KEY (title) REFERENCES ".self::table_name("title")."(id)
+ 
 				$member = Array(
 					"title" = $member_title ,
 					"website" = $member_website,
@@ -489,6 +523,7 @@ class WPRI_Database {
 			}
 
 			public static function get_wpri_member_ids() {
+
 				return $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("member") );
 			}
 
