@@ -488,11 +488,15 @@ class WPRI_Database {
 
 			// This should return full information, gathered from different tables
 			public static function get_wpri_member($member_id, $locale) {
-				$member_data = $GLOBALS['wpdb']->prepare(
+				$member_data = $GLOBALS['wpdb']->query(
+					$GLOBALS['wpdb']->prepare(
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
 					)
 				);
 
+				echo $member_data;
+				echo $member_data->user ;
+/*
 				$member_user =  $member_data->user ;		
 				$member_title = WPRI_Database::get_title($member_id, $locale)
 				$member_website =
@@ -520,6 +524,7 @@ class WPRI_Database {
 					"advisor" = $member_advisor
 					)
 				return $member
+*/
 			}
 
 			public static function get_wpri_member_ids() {
