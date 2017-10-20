@@ -35,7 +35,7 @@ class WPRI_Pages {
 
 	public static function create_pages() {
 
-		$pages_list = array('People','Research','Projects','Publications','Contact',"Positions");
+		$pages_list = array('Faculty','Research','Projects','Publications','Contact',"Positions");
 		foreach ($pages_list as $page_name){
 			//if (isset($_GET['activated']) && is_admin()){
 			    $page_title = $page_name;
