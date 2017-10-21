@@ -564,7 +564,7 @@ class WPRI_Database {
 				public static function get_member_publications($member_id) {
 					return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
-							"SELECT * FROM " . self::table_name("publication_member"). " WHERE project = %d",
+							"SELECT * FROM " . self::table_name("publication_member"). " WHERE member = %d",
 							 $member_id
 						)
 					);
