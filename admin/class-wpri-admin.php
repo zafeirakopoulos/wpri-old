@@ -108,13 +108,29 @@ class WPRI_Admin {
 	public function member_fields( $user )
 	{
 
-	    echo '<h3>Office</h3>';
+	    echo '<h3>Office and Contact</h3>';
+		echo '<table class="form-table">';
+	 	echo '<tr>';
+		echo '<th><label">Office</label></th>';
+		echo '<td><textarea id="office" name="office" cols="10" rows="1"></textarea>';
+		echo '<span class="description">Your office number.</span>';
+		echo '</td></tr>';
+	 	echo '<tr>';
+		echo '<th><label">Phone</label></th>';
+		echo '<td><textarea id="phone" name="phone" cols="10" rows="1"></textarea>';
+		echo '<span class="description">Your phone number</span>';
+		echo '</td></tr>';
+		echo '<tr>';
+		echo '<th><label">email</label></th>';
+		echo '<td><textarea id="email" name="email" cols="100" rows="1"></textarea>';
+		echo '<span class="description">Your email</span>';
+		echo '</td></tr>';
+	 	echo '<tr>';
+	    echo '</table>';
+
 
 	    echo '<h3>Academic Profile</h3>';
-
 	    echo '<table class="form-table">';
-
-
 		echo '<tr>';
 		echo '<th><label>Academic Title</label></th>';
 		echo '<td>';
@@ -125,31 +141,22 @@ class WPRI_Admin {
 		echo '</select>';
 		echo '<span class="description"></span>';
 		echo '</td></tr>';
-
-
-
-		// $member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
-		// $members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
-		$members = WPRI_Database::get_all_members();
 		echo '<tr>';
 		echo '<th><label>Advisor</label></th>';
 		echo '<td>';
 		echo '<select name="advisor">';
-			foreach ( $members as $member ) {
+			foreach ( WPRI_Database::get_all_members() as $member ) {
 				echo '<option value='.$member->id. ' ' . ( $member->id == get_usermeta($user,'advisor')? 'selected ' : ' ') .'>'.$member->name.'</option>';
 			}
+		echo '<option value=-1>Other</option>';
 		echo '</select>';
 		echo '<span class="description"> </span>';
 		echo '</td></tr>';
-
 	    echo '</table>';
 
 
 	    echo '<h3>Projects</h3>';
-
 	    echo '<table class="form-table">';
-
-
 	 	$project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
 		$projects = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $project_table_name );
 
@@ -224,6 +231,18 @@ class WPRI_Admin {
 	public function save_member_fields( $user_id )
 	{
 	    if ( !current_user_can( 'edit_user', $user_id ) ) { return false; }else{
+
+		if(isset($_POST['office']) && $_POST['office'] != ""){
+		    update_usermeta( $user_id, 'office', $_POST['office'] );
+		}
+
+		if(isset($_POST['phone']) && $_POST['phone'] != ""){
+		    update_usermeta( $user_id, 'phone', $_POST['phone'] );
+		}
+
+		if(isset($_POST['email']) && $_POST['email'] != ""){
+		    update_usermeta( $user_id, 'email', $_POST['email'] );
+		}
 
 
 		if(isset($_POST['title']) && $_POST['title'] != ""){
