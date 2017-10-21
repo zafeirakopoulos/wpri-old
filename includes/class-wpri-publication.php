@@ -95,11 +95,19 @@ class WPRI_Publication {
 					);
 					$success = WPRI_Database::add_publication($publication);
 
-					// TODO add project publication
-					// TODO Add member publication
-					// TODO Add funding publication
 					// Returns the new id. 0 on fail.
 					if($success ) {
+						foreach ($_POST["members"] as $member) {
+							WPRI_Database::add_member_publication($member,$success);
+						}
+						foreach ($_POST["projects"] as $project) {
+							WPRI_Database::add_project_publication($project,$success);
+						}
+						WPRI_Database::add_agency_publication($_POST["funding"] ,$success);
+
+						// TODO add project publication
+						// TODO Add member publication
+						// TODO Add funding publication
 						echo "<div class='updated'><p><strong>Added.</strong></p></div>";
 					} else {
 						echo "<div class='error'><p>Unable to add.</p></div>";
@@ -162,7 +170,7 @@ class WPRI_Publication {
 				echo '<th><label for="members[]">Members that are authors</label></th>';
 			    echo '<td><select size="4" multiple="multiple" name="members[]">';
 					foreach ( $members as $member ) {
-					echo '<option value='.$member->id.'>'.$member->username.'</option>';
+					echo '<option value='.$member->id.'>'.$member->name.'</option>';
 					}
 				echo '</select>';
 				echo '<span class="description">Choose (multiple) members that are authors.</span>';
