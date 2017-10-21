@@ -378,7 +378,7 @@ class WPRI_Database {
 
 				public static function get_publication_types() {
 	 		 		return  $GLOBALS['wpdb']->get_results(
-							"SELECT * FROM " . self::table_name("locale_projectrole")
+							"SELECT * FROM " . self::table_name("pubtype")
 					);
 				}
 
