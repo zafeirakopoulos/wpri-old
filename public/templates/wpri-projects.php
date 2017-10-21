@@ -11,7 +11,8 @@
 		   					echo "<a href='".site_url()."/project?id=".$project_id."'><div class='faculty-thumb col-md-5'>";
 							echo "<tr><h3 class='faculty'>";
 							echo $project['title'];
-							echo $member['locale_description']."<br>";
+							echo $project['locale_description']."<br>";
+							echo $project['status']."<br>";
 							echo "</div></a>";
 					}
 					echo "</div>";
