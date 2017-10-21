@@ -80,7 +80,7 @@ class WPRI_Database {
 			$sql = "CREATE TABLE  ".self::table_name("member")." (
 				id INT AUTO_INCREMENT PRIMARY KEY,
 				user INT,
-				name tinytext,
+				name tinytext
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 		}
