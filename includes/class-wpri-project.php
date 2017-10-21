@@ -52,7 +52,7 @@ class WPRI_Project {
 					'website' => $_POST["website"],
 					'funding' => $_POST["agency"]
 				);
-				$success = WPRI_Database::add_wpri_project($project);
+				$success = WPRI_Database::add_project($project);
 				// Returns the new id. 0 on fail.
 				if($success ) {
 			    	echo "<div class='updated'><p><strong>Added.</strong></p></div>";
@@ -63,7 +63,7 @@ class WPRI_Project {
 
 			// If POST for deleting
 			if( isset( $_POST['type']) && $_POST['type'] == 'delete_project') {
-				$success = WPRI_Database::delete_wpri_project($_POST['project_id']);
+				$success = WPRI_Database::delete_project($_POST['project_id']);
 				if($success) {
 					echo "<div class='updated'><p><strong>Deleted.</strong></p></div>";
 				} else {
