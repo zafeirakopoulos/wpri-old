@@ -55,7 +55,7 @@ class WPRI_Database {
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
 
-		$settings_list = array('locale','position','title','agency','projectrole','role');
+		$settings_list = array('locale','position','title','agency','projectrole','role','project_status');
 		foreach ($settings_list as $setting_name){
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($setting_name)."'") != self::table_name($setting_name) ){
 				$sql = "CREATE TABLE  ". self::table_name($setting_name)."(
@@ -111,8 +111,12 @@ class WPRI_Database {
 				budget INT,
 				website tinytext,
 				funding INT,
+				starting tinytext,
+				ending tinytext,
+				status INT,
 	 			FOREIGN KEY (PI) REFERENCES ".self::table_name("member")."(id),
-	 			FOREIGN KEY (funding) REFERENCES ".self::table_name("agency")."(id)
+				FOREIGN KEY (funding) REFERENCES ".self::table_name("agency")."(id),
+	 			FOREIGN KEY (status) REFERENCES ".self::table_name("project_status")."(id)
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 		}
@@ -648,7 +652,56 @@ class WPRI_Database {
 				'projectrole' => $insert_id)
 			);
 
-
+			/* Create project status*/
+			$table_name = self::table_name("project_status");
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "ongoing"));
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
+				'name' => "ongoing",
+				'locale' => 1,
+				'projectrole' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
+				'name' => "ongoing",
+				'locale' => 2,
+				'projectrole' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "ended"));
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
+				'name' => "ended",
+				'locale' => 1,
+				'projectrole' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
+				'name' => "ended",
+				'locale' => 2,
+				'projectrole' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "submitted"));
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
+				'name' => "submitted",
+				'locale' => 1,
+				'projectrole' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
+				'name' => "submitted",
+					'locale' => 2,
+					'projectrole' => $insert_id)
+				);
+				$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "in preparation"));
+				$insert_id = $GLOBALS['wpdb']->insert_id;
+				$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
+					'name' => "in preparation",
+					'locale' => 1,
+					'projectrole' => $insert_id)
+				);
+				$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
+					'name' => "in preparation",
+						'locale' => 2,
+						'projectrole' => $insert_id)
+					);
 
 			/* Create positions*/
 			$table_name = $GLOBALS['wpdb']->prefix . "wpri_position";
