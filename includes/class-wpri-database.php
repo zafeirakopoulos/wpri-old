@@ -271,53 +271,48 @@ class WPRI_Database {
 				///////////////////////////
 
 				public static function get_title($user) {
-					$locale=1;
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d",
-							get_usermeta($user,'title'), $locale
+							get_usermeta($user,'title'), $_SESSION['locale']
 						)
 					)[0]->name;
 				}
 
 				public static function get_status($status) {
-					$locale=1;
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT name FROM " . self::table_name("locale_project_status"). " WHERE project_status = %d AND locale= %d",
-							$status, $locale
+							$status, $_SESSION['locale']
 						)
 					)[0]->name;
 				}
 
 				public static function get_funding_agency($agency) {
-					$locale=1;
 					return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT name FROM " . self::table_name("locale_agency"). " WHERE agency = %d AND locale= %d",
-							$agency, $locale
+							$agency, $_SESSION['locale']
 						)
 					)[0]->name;
 				}
 
 
 				public static function get_project_role($role) {
-					$locale=$_SESSION['locale'];
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT name FROM " . self::table_name("locale_projectrole"). " WHERE projectrole = %d AND locale= %d",
-							$role, $locale
+							$role, $_SESSION['locale']
 						)
 					)[0]->name;
 				}
 
 
 				public static function get_position($user) {
-					$locale=1;
 					return $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT name FROM " . self::table_name("locale_position"). " WHERE position = %d AND locale= %d",
-							get_usermeta($user,'position'), $locale
+							get_usermeta($user,'position'), $_SESSION['locale']
 						)
 					)[0]->name;
 				}
@@ -347,51 +342,45 @@ class WPRI_Database {
 				}
 
 				public static function get_roles() {
-					$locale=1;
-
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("locale_role"). " WHERE locale= %d",
-							$locale
+							$_SESSION['locale']
 						)
 					);
 				}
 
 				public static function get_titles() {
-					$locale=1;
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("locale_title"). " WHERE locale= %d",
-							$locale
+							$_SESSION['locale']
 						)
 					);
 				}
 				public static function get_positions() {
-					$locale=1;
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("locale_position"). " WHERE locale= %d",
-							$locale
+							$_SESSION['locale']
 						)
 					);
 				}
 
 				public static function get_project_roles() {
-					$locale=1;
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("locale_projectrole"). " WHERE locale= %d",
-							$locale
+							$_SESSION['locale']
 						)
 					);
 				}
 
 				public static function get_project_statuses() {
-					$locale=$_SESSION['locale'];
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("locale_project_status"). " WHERE locale= %d",
-							$locale
+							$_SESSION['locale']
 						)
 					);
 				}
@@ -465,11 +454,10 @@ class WPRI_Database {
 				}
 
 				public static function get_locale_project_description($project_id) {
-					$locale=1;
 					return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("project_description"). " WHERE locale= %d AND project= %d",
-							$locale, $project_id
+							$_SESSION['locale'], $project_id
 						)
 					);
 				}
