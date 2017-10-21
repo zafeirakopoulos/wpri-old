@@ -118,13 +118,14 @@ class WPRI_Database {
 
 
 
-		// Description
-		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("description")."'") != self::table_name("description")){
-					$sql = "CREATE TABLE  ".self::table_name("description")."(
+		// Project Description
+		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("project_description")."'") != self::table_name("project_description")){
+					$sql = "CREATE TABLE  ".self::table_name("project_description")."(
 						id INT AUTO_INCREMENT PRIMARY KEY,
 						locale INT,
 						project INT,
 						description text,
+						title text,
 						FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),
 						FOREIGN KEY (project) REFERENCES ".self::table_name("project")."(id)
 					);";
@@ -406,14 +407,15 @@ class WPRI_Database {
 					);
 					$pid = $GLOBALS['wpdb']->insert_id;
 
-					// 	foreach ( $locales as $locale ) {
-					// 	$GLOBALS['wpdb']->insert( $mixed_table_name , array(
-					// 		'locale' => $locale->id,
-					// 		$setting_name => $new_id,
-					// 		'name' => $_POST["setting_name_" . $locale->id],
-					// 	));
-					// }
-					//
+					$locales = WPRI_Database::get_locales();
+					foreach ( $locales as $locale ) {
+						$GLOBALS['wpdb']->insert( self::table_name("project_description") , array(
+							'locale' => $locale->id,
+							'description' => $project["description"][$locale->id],
+							'title' => $project["title"][$locale->id],
+							'project' => $pid
+						));
+					}
 	 				return $pid;
 				}
 
