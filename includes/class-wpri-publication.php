@@ -197,7 +197,7 @@ class WPRI_Publication {
 
 			    echo '<tr>';
 			    echo '<td><input type="submit" name="add_button" value="Add Publication" class="button-secondary" />';
-			    echo '<input type="hidden" name="type" value="add_pub"/></td>';
+			    echo '<input type="hidden" name="type" value="add_publication"/></td>';
 			    echo '</tr>';
 				echo '</table>';
 
