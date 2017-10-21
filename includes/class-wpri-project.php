@@ -96,6 +96,9 @@ class WPRI_Project {
 					'status' => $_POST["status"]
 				);
 				$success = WPRI_Database::add_project($project);
+			    // Add PI as a member
+				WPRI_Database::add_project_member($success,WPRI_Database::get_member_from_user($_POST["pi"])->id,1);
+
 				// Returns the new id. 0 on fail.
 				if($success ) {
 					echo "<div class='updated'><p><strong>Added.</strong></p></div>";
