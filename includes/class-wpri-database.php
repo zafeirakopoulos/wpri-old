@@ -462,24 +462,21 @@ class WPRI_Database {
 
 			// This should return full information, gathered from different tables
 			public static function get_member_short($member_id) {
-				$member_data = $GLOBALS['wpdb']->query(
+				$user = $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT user FROM " . self::table_name("member"). " WHERE id = %d", $member_id
 					)
 				);
 				echo $member_id;
-				echo $member_data;
-				// foreach ($member_data as $key) {
-				// 	echo $key ;
-				// }
-				$user = $member_data->user;
+				echo $user;
+
 				return array(
 					'user' => $user ,
 					"title" => WPRI_Database::get_title($user),
 					"website" => get_usermeta($user,'website'),
 					"email" => get_usermeta($user,'email'),
 					"position" => WPRI_Database::get_position($user),
-					"name" => $member_data->name
+					"name" => "Null"
 				);
 			}
 			// This should return full information, gathered from different tables
