@@ -461,12 +461,15 @@ class WPRI_Database {
 			}
 
 			public static function get_projects_by_member($member) {
-				return $GLOBALS['wpdb']->get_results(
+				$projects =  $GLOBALS['wpdb']->get_results(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT * FROM " . self::table_name("project_member"). " WHERE member = %d",
 						$member
 					)
 				);
+				echo $projects;
+				echo $projects[0];
+				return $projects;
 			}
 
 			public static function get_publications_by_member($member) {
