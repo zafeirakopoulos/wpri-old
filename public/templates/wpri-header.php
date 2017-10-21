@@ -53,8 +53,8 @@
 			          <li><a href="<?php echo get_permalink( get_page_by_path('faculty'))?>">People</a></li>
 			          <li><a href="<?php echo get_permalink( get_page_by_path('research'))?>">Research</a></li>
 					  <li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Projects</a></li>
-					  <li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Publications</a></li>
-					  <li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Open Positions</a></li>
+					  <li><a href="<?php echo get_permalink( get_page_by_path('publications'))?>">Publications</a></li>
+					  <li><a href="<?php echo get_permalink( get_page_by_path('positions'))?>">Open Positions</a></li>
 					  <li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>">Contact</a></li>
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
