@@ -592,18 +592,18 @@ class WPRI_Database {
 								// 	));
 								// }
 								//
-				);
-				return ;
+ 				return $pid;
 			}
 
 			public static function add_project_member( $project, $member, $role) {
 
-				$GLOBALS['wpdb']->insert( self::table_name("project_member"),
+				return $GLOBALS['wpdb']->insert( self::table_name("project_member"),
 					array(
 						'project' => $project,
 						'member' => $member,
 						'role' => $role
 					)
+				);
 			}
 
 			public static function delete_project( $project_id) {
