@@ -109,7 +109,7 @@ class WPRI_Publication {
 
 				echo '<h3> Add new publication: </h3>';
 
-				$pubtypes = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $pubtype_table_name);
+				$pubtypes = WPRI_Database::get_publication_types();
 
 			 	echo '<form name="add_publication" method="post" action="">';
 				echo '<table class="form-table">';
@@ -145,8 +145,7 @@ class WPRI_Publication {
 				echo '<span class="description">The DOI identifier.</span>';
 				echo '</td></tr>';
 
-				$agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_agency" ;
-				$agencies = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $agency_table_name );
+				$agencies = WPRI_Database::get_agencies();
 
 				echo '<tr>';
 				echo '<th><label for="funding">Funding agency</label></th>';
