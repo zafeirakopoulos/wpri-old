@@ -659,48 +659,48 @@ class WPRI_Database {
 			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
 				'name' => "ongoing",
 				'locale' => 1,
-				'projectrole' => $insert_id)
+				'project_status' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
 				'name' => "ongoing",
 				'locale' => 2,
-				'projectrole' => $insert_id)
+				'project_status' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "ended"));
 			$insert_id = $GLOBALS['wpdb']->insert_id;
 			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
 				'name' => "ended",
 				'locale' => 1,
-				'projectrole' => $insert_id)
+				'project_status' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
 				'name' => "ended",
 				'locale' => 2,
-				'projectrole' => $insert_id)
+				'project_status' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "submitted"));
 			$insert_id = $GLOBALS['wpdb']->insert_id;
 			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
 				'name' => "submitted",
 				'locale' => 1,
-				'projectrole' => $insert_id)
+				'project_status' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
 				'name' => "submitted",
 					'locale' => 2,
-					'projectrole' => $insert_id)
+					'project_status' => $insert_id)
 				);
 				$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "in preparation"));
 				$insert_id = $GLOBALS['wpdb']->insert_id;
 				$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
 					'name' => "in preparation",
 					'locale' => 1,
-					'projectrole' => $insert_id)
+					'project_status' => $insert_id)
 				);
 				$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
 					'name' => "in preparation",
 						'locale' => 2,
-						'projectrole' => $insert_id)
+						'project_status' => $insert_id)
 					);
 
 			/* Create positions*/
