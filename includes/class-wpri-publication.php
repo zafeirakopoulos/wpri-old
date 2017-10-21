@@ -56,7 +56,7 @@ class WPRI_Publication {
 
 				echo '<h3> Existing Publications: </h3>';
 				echo '<table>';
-			 	foreach ( $projects as $project ) {
+			 	foreach ( $publications as $ppublication) {
 					echo '<form name="delete_publication" method="post" action="">';
 					echo '<tr>';
 					echo '<td><label>' . $publication->title . ': </label></td>';
