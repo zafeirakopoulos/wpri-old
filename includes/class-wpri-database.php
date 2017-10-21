@@ -23,10 +23,25 @@
 class WPRI_Database {
 
 
+	/**
+	 * Returns the full name of a table, adding the correct prefix.
+	 *
+	 * Returns the full name of a table, adding the correct prefix.
+	 *
+	 * @since    1.0.0
+	 */
 	public static function table_name($name){
 		$wp_prefix = $GLOBALS['wpdb']->prefix;
 		return $wp_prefix."wpri_".$name ;
 	}
+
+
+
+/******************************************************************************************
+*******************************************************************************************
+***************    Table definitions  *****************************************************
+*******************************************************************************************
+*******************************************************************************************/
 
 	/**
 	 * Short Description. (use period)
@@ -36,9 +51,6 @@ class WPRI_Database {
 	 * @since    1.0.0
 	 */
 	public static function create_tables() {
-
-		// TODO remove in production!!!
-		//self::drop_tables();
 
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
@@ -120,7 +132,7 @@ class WPRI_Database {
 	 	}
 
 
-	// Project Members
+	    // Project Members
 	 	if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("project_member")."'") != self::table_name("project_member")){
 					$sql = "CREATE TABLE  ".self::table_name("project_member")."(
 						id INT AUTO_INCREMENT PRIMARY KEY,
@@ -205,7 +217,7 @@ class WPRI_Database {
 		'description',
 	    'project_description',
 	    'project_member',
-		'locale_projectrole',				
+		'locale_projectrole',
 		'projectrole',
 	    'project',
 	    'member',
@@ -221,6 +233,232 @@ class WPRI_Database {
 
 
 
+/******************************************************************************************
+*******************************************************************************************
+***************    Query Functions  *******************************************************
+*******************************************************************************************
+*******************************************************************************************/
+
+				/*
+					For every item we need:
+					1. get_wp_ITEM_ids()
+					2. get_wp_ITEM(id)
+					3. add_wp_ITEM
+					4. delete_wp_ITEM(id)
+					5. update_wp_ITEM(id)
+
+					Items:
+					1. Member
+					2. Project
+					3. Publication
+					4. OpenPosition
+				*/
+
+
+				///////////////////////////
+				// Helper
+				///////////////////////////
+
+				public static function get_title($user) {
+					$locale=1;
+	 		 		return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d",
+							get_usermeta($user,'title'), $locale
+						)
+					)[0]->name;
+				}
+
+				public static function get_position($user) {
+					$locale=1;
+					return $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT name FROM " . self::table_name("locale_position"). " WHERE position = %d AND locale= %d",
+							get_usermeta($user,'position'), $locale
+						)
+					)[0]->name;
+				}
+
+				// TODO decide what this should return if the advisor is not a user
+				public static function get_advisor($user) {
+					return 	get_usermeta($user,'advisor');
+				}
+
+				public static function get_projects_by_member($member) {
+					$projects =  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("project_member"). " WHERE member = %d",
+							$member
+						)
+					);
+					foreach ($projects as $key => $value) {
+						echo $key;
+					}
+					return $projects;
+				}
+
+				public static function get_publications_by_member($member) {
+					return $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("publication_member"). " WHERE member = %d",
+							$member
+						)
+					);
+				}
+
+				///////////////////////////
+				// Member
+				///////////////////////////
+
+				// For the thumbs in the faculty page
+				public static function get_member_short($member_id) {
+					$member = $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
+						)
+					)[0];
+					$user = $member->user;
+					return array(
+						'user' => $user ,
+						'title' => WPRI_Database::get_title($user),
+						'website' => get_usermeta($user,'website'),
+						'email' => get_usermeta($user,'email'),
+						'position' => WPRI_Database::get_position($user),
+						'name' =>  $member->username
+					);
+				}
+				// This should return full information, gathered from different tables
+				// For the main personal page
+				public static function get_member($member_id) {
+					$member = $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
+						)
+					)[0];
+					$user = $member->user;
+
+					return array(
+						'user' => $user ,
+						'title' => WPRI_Database::get_title($user),
+						'website' => get_usermeta($user,'website'),
+						'email' => get_usermeta($user,'email'),
+						'position' => WPRI_Database::get_position($user),
+						'name' =>  $member->username,
+	 					'alumni' => get_usermeta($user,'alumni'),
+						'office' => get_usermeta($user,'office'),
+						'phone' => get_usermeta($user,'phone'),
+						'advisor' =>  WPRI_Database::get_advisor(get_usermeta($user,'advisor')),
+						'projects' => WPRI_Database::get_projects_by_member($member_id),
+						'publications'=> WPRI_Database::get_publications_by_member($member_id)
+					);
+				}
+
+				public static function get_member_ids() {
+					$mids = $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("member") );
+					$ids = Array();
+					foreach ( $mids as $id ) {
+						array_push($ids,$id->id);
+					}
+					return $ids;
+				}
+
+				public static function add_member($member) {
+					$GLOBALS['wpdb']->insert( self::table_name("member")  , $member);
+					return $GLOBALS['wpdb']->insert_id;
+				}
+
+				public static function update_member($member_id,$member) {
+					return $GLOBALS['wpdb']->update( self::table_name("member")  , $member, array('id' => $member_id) );
+				}
+
+				public static function delete_member($member_id) {
+					return $GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("member") . " WHERE id = %d", $member_id)
+						 );
+				}
+
+				public static function get_all_members() {
+					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
+				}
+
+				/////////////////////////////////////////////////////////////////////////////////
+				/////////////////////////////////////////////////////////////////////////////////
+
+
+				public static function get_all_projects() {
+					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("project") );
+				}
+
+				public static function get_project( $project_id) {
+
+				}
+
+				public static function add_project( $project) {
+					$GLOBALS['wpdb']->insert( self::table_name("project"),
+						array(
+							'title' => $project["title"],
+							'PI' => $project["PI"],
+							'budget' => $project["budget"],
+							'website' => $project["website"],
+							'funding' => $project["funding"]
+						)
+					);
+					$pid = $GLOBALS['wpdb']->insert_id;
+
+					// 	foreach ( $locales as $locale ) {
+					// 	$GLOBALS['wpdb']->insert( $mixed_table_name , array(
+					// 		'locale' => $locale->id,
+					// 		$setting_name => $new_id,
+					// 		'name' => $_POST["setting_name_" . $locale->id],
+					// 	));
+					// }
+					//
+	 				return $pid;
+				}
+
+				public static function add_project_member( $project, $member, $role) {
+
+					return $GLOBALS['wpdb']->insert( self::table_name("project_member"),
+						array(
+							'project' => $project,
+							'member' => $member,
+							'role' => $role
+						)
+					);
+				}
+
+				public static function delete_project( $project_id) {
+
+					// foreach ( $locales as $locale ) {
+					// 	$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
+					// 		"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
+					// 	));
+					// }
+
+					return $GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("project"). " WHERE id = %d", $project_id
+						)
+					);
+				}
+
+
+				public static function get_locales() {
+					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"));
+				}
+
+				public static function get_agencies() {
+					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("agency"));
+				}
+
+
+
+/******************************************************************************************
+*******************************************************************************************
+***************    Populate tables  *******************************************************
+*******************************************************************************************
+*******************************************************************************************/
 
 		/**
 		 * Short Description. (use period)
@@ -242,6 +480,47 @@ class WPRI_Database {
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "En_US"));
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "Tr_TR"));
 
+			/* Create project roles*/
+			$table_name = $GLOBALS['wpdb']->prefix . "wpri_projectrole";
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "PI"));
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+				'name' => "Principal Investigator",
+				'locale' => 1,
+				'position' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+				'name' => "Yurutuncu",
+				'locale' => 2,
+				'position' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "researcher"));
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+				'name' => "Researcher",
+				'locale' => 1,
+				'position' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+				'name' => "Arastirmaci",
+				'locale' => 2,
+				'position' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "advisor"));
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+				'name' => "Advisor",
+				'locale' => 1,
+				'position' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+				'name' => "Advisor",
+				'locale' => 2,
+				'position' => $insert_id)
+			);
+
+
+			
 			/* Create positions*/
 			$table_name = $GLOBALS['wpdb']->prefix . "wpri_position";
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "director"));
@@ -411,225 +690,6 @@ class WPRI_Database {
 			);
 
 		}
-
-
-			/*
-			* Query Functions
-			*/
-
-			/*
-				For every item we need:
-				1. get_wp_ITEM_ids()
-				2. get_wp_ITEM(id)
-				3. add_wp_ITEM
-				4. delete_wp_ITEM(id)
-				5. update_wp_ITEM(id)
-
-				Items:
-				1. Member
-				2. Project
-				3. Publication
-				4. OpenPosition
-			*/
-
-
-			///////////////////////////
-			// Helper
-			///////////////////////////
-
-			public static function get_title($user) {
-				$locale=1;
- 		 		return  $GLOBALS['wpdb']->get_results(
-					$GLOBALS['wpdb']->prepare(
-						"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d",
-						get_usermeta($user,'title'), $locale
-					)
-				)[0]->name;
-			}
-
-			public static function get_position($user) {
-				$locale=1;
-				return $GLOBALS['wpdb']->get_results(
-					$GLOBALS['wpdb']->prepare(
-						"SELECT name FROM " . self::table_name("locale_position"). " WHERE position = %d AND locale= %d",
-						get_usermeta($user,'position'), $locale
-					)
-				)[0]->name;
-			}
-
-			// TODO decide what this should return if the advisor is not a user
-			public static function get_advisor($user) {
-				return 	get_usermeta($user,'advisor');
-			}
-
-			public static function get_projects_by_member($member) {
-				$projects =  $GLOBALS['wpdb']->get_results(
-					$GLOBALS['wpdb']->prepare(
-						"SELECT * FROM " . self::table_name("project_member"). " WHERE member = %d",
-						$member
-					)
-				);
-				foreach ($projects as $key => $value) {
-					echo $key;
-				}
-				return $projects;
-			}
-
-			public static function get_publications_by_member($member) {
-				return $GLOBALS['wpdb']->get_results(
-					$GLOBALS['wpdb']->prepare(
-						"SELECT * FROM " . self::table_name("publication_member"). " WHERE member = %d",
-						$member
-					)
-				);
-			}
-
-			///////////////////////////
-			// Member
-			///////////////////////////
-
-			// For the thumbs in the faculty page
-			public static function get_member_short($member_id) {
-				$member = $GLOBALS['wpdb']->get_results(
-					$GLOBALS['wpdb']->prepare(
-						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
-					)
-				)[0];
-				$user = $member->user;
-				return array(
-					'user' => $user ,
-					'title' => WPRI_Database::get_title($user),
-					'website' => get_usermeta($user,'website'),
-					'email' => get_usermeta($user,'email'),
-					'position' => WPRI_Database::get_position($user),
-					'name' =>  $member->username
-				);
-			}
-			// This should return full information, gathered from different tables
-			// For the main personal page
-			public static function get_member($member_id) {
-				$member = $GLOBALS['wpdb']->get_results(
-					$GLOBALS['wpdb']->prepare(
-						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
-					)
-				)[0];
-				$user = $member->user;
-
-				return array(
-					'user' => $user ,
-					'title' => WPRI_Database::get_title($user),
-					'website' => get_usermeta($user,'website'),
-					'email' => get_usermeta($user,'email'),
-					'position' => WPRI_Database::get_position($user),
-					'name' =>  $member->username,
- 					'alumni' => get_usermeta($user,'alumni'),
-					'office' => get_usermeta($user,'office'),
-					'phone' => get_usermeta($user,'phone'),
-					'advisor' =>  WPRI_Database::get_advisor(get_usermeta($user,'advisor')),
-					'projects' => WPRI_Database::get_projects_by_member($member_id),
-					'publications'=> WPRI_Database::get_publications_by_member($member_id)
-				);
-			}
-
-			public static function get_member_ids() {
-				$mids = $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("member") );
-				$ids = Array();
-				foreach ( $mids as $id ) {
-					array_push($ids,$id->id);
-				}
-				return $ids;
-			}
-
-			public static function add_member($member) {
-				$GLOBALS['wpdb']->insert( self::table_name("member")  , $member);
-				return $GLOBALS['wpdb']->insert_id;
-			}
-
-			public static function update_member($member_id) {
-
-			}
-
-			public static function delete_member($member_id) {
-				$result = $GLOBALS['wpdb']->query(
-					$GLOBALS['wpdb']->prepare(
-						"DELETE FROM " . self::table_name("member") . " WHERE id = %d", $member_id)
-					 );
-				return $result;
-			}
-
-			public static function get_all_members() {
-				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
-			}
-
-			/////////////////////////////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////////////////////////////
-
-
-			public static function get_all_projects() {
-				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("project") );
-			}
-
-			public static function get_wpri_project( $project_id) {
-
-			}
-
-			public static function add_project( $project) {
-				$GLOBALS['wpdb']->insert( self::table_name("project"),
-					array(
-						'title' => $project["title"],
-						'PI' => $project["PI"],
-						'budget' => $project["budget"],
-						'website' => $project["website"],
-						'funding' => $project["funding"]
-					)
-				);
-				$pid = $GLOBALS['wpdb']->insert_id;
-
-								// 	foreach ( $locales as $locale ) {
-								// 	$GLOBALS['wpdb']->insert( $mixed_table_name , array(
-								// 		'locale' => $locale->id,
-								// 		$setting_name => $new_id,
-								// 		'name' => $_POST["setting_name_" . $locale->id],
-								// 	));
-								// }
-								//
- 				return $pid;
-			}
-
-			public static function add_project_member( $project, $member, $role) {
-
-				return $GLOBALS['wpdb']->insert( self::table_name("project_member"),
-					array(
-						'project' => $project,
-						'member' => $member,
-						'role' => $role
-					)
-				);
-			}
-
-			public static function delete_project( $project_id) {
-
-				// foreach ( $locales as $locale ) {
-				// 	$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
-				// 		"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
-				// 	));
-				// }
-
-				return $GLOBALS['wpdb']->query(
-					$GLOBALS['wpdb']->prepare(
-						"DELETE FROM " . self::table_name("project"). " WHERE id = %d", $project_id
-					)
-				);
-			}
-
-
-			public static function get_locales() {
-				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"));
-			}
-
-			public static function get_agencies() {
-				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("agency"));
-			}
 
 }
 
