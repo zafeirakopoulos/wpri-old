@@ -21,6 +21,7 @@
 					echo "</p></td></tr>";
 					echo "</table>";
 					echo "Projects:<br>";
+					echo $member['projects'];
 					foreach ($member['projects'] as $project) {
 						echo $project;
 					}
