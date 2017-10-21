@@ -399,7 +399,6 @@ class WPRI_Database {
 						'website' => get_usermeta($user,'website'),
 						'email' => get_usermeta($user,'email'),
 						'position' => WPRI_Database::get_position($user),
-						'name' =>  $member->username,
 	 					'alumni' => get_usermeta($user,'alumni'),
 						'office' => get_usermeta($user,'office'),
 						'phone' => get_usermeta($user,'phone'),
