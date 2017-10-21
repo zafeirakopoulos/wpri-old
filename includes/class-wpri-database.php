@@ -116,7 +116,7 @@ class WPRI_Database {
 				status INT,
 	 			FOREIGN KEY (PI) REFERENCES ".self::table_name("member")."(id),
 				FOREIGN KEY (funding) REFERENCES ".self::table_name("agency")."(id),
-	 			FOREIGN KEY (status) REFERENCES ".self::table_name("project_status")."(id)
+	 			FOREIGN KEY (project_status) REFERENCES ".self::table_name("project_status")."(id)
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 		}
@@ -692,18 +692,18 @@ class WPRI_Database {
 					'locale' => 2,
 					'project_status' => $insert_id)
 				);
-				$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "in preparation"));
-				$insert_id = $GLOBALS['wpdb']->insert_id;
-				$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
-					'name' => "in preparation",
-					'locale' => 1,
-					'project_status' => $insert_id)
-				);
-				$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
-					'name' => "in preparation",
-						'locale' => 2,
-						'project_status' => $insert_id)
-					);
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "in preparation"));
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
+				'name' => "in preparation",
+				'locale' => 1,
+				'project_status' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_project_status") , array(
+				'name' => "in preparation",
+				'locale' => 2,
+				'project_status' => $insert_id)
+			);
 
 			/* Create positions*/
 			$table_name = $GLOBALS['wpdb']->prefix . "wpri_position";
