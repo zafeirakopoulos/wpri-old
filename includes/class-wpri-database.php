@@ -116,7 +116,7 @@ class WPRI_Database {
 				status INT,
 	 			FOREIGN KEY (PI) REFERENCES ".self::table_name("member")."(id),
 				FOREIGN KEY (funding) REFERENCES ".self::table_name("agency")."(id),
-	 			FOREIGN KEY (project_status) REFERENCES ".self::table_name("project_status")."(id)
+	 			FOREIGN KEY (status) REFERENCES ".self::table_name("project_status")."(id)
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 		}
