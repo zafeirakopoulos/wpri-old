@@ -548,7 +548,7 @@ class WPRI_Database {
 				}
 
 				public static function get_project_members($project_id) {
-					return  $GLOBALS['wpdb']->query(
+					return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("project_member"). " WHERE project = %d",
 							 $project_id
