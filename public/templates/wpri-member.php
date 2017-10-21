@@ -5,7 +5,7 @@
 					$member = WPRI_Database::get_member($member_id);
 
 					echo "<br>";
-					echo $member['username'];
+					echo $member['name'];
 					echo "<br>";
 					echo "<table>";
 					echo "<tr><h3 class='faculty'>";
@@ -20,11 +20,10 @@
 					echo $member['email']."<br>";
 					echo "</p></td></tr>";
 					echo "</table>";
-					echo "Projects:<br>";
-					echo $member['projects'];
-					foreach ($member['projects'] as $key => $value) {
-						echo $key;
-					}
+
+					echo "Education:<br>";
+
+					echo "Projects:<br>"; 
 					echo "<table>";
 					foreach ($member['projects'] as $project) {
 						echo "<tr>";
