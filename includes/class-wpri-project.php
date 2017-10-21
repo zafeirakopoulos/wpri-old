@@ -154,6 +154,35 @@ class WPRI_Project {
 			echo '</div>';
 		}
 		add_menu_page( 'Projects', 'Projects', 'read', 'wpri-project-menu','wpri_project_management');
+
+		function wpri_project_participate_management() {
+
+
+				    echo '<h3>Projects</h3>';
+				    echo '<table class="form-table">';
+					$projectroles = WPRI_Database::get_project_roles();
+					$projects = WPRI_Database::get_all_projects();
+
+					echo '<tr>';
+					echo '<th><label">Projects</label></th>';
+
+					foreach ( $projectroles as $role ) {
+						echo '<tr>';
+						echo '<th><label">'.$role->name.' in projects:</label></th>';
+						echo '<td><select size="4" multiple="multiple" name="'.$role->name.'projects[]">';
+							foreach ( $projects as $project ) {
+							echo '<option value='.$project->id. ' ' . ( WPRI_Database::member_participates_in_project_as(WPRI_Database::get_member_from_user($user)->id, $project->id,$role->role)? 'selected ' : ' ') .'>'.$project->title.'</option>';
+							}
+						echo '</select>';
+						echo '<span class="description">Choose projects you participate as '.$role->name.'.</span>';
+						echo '</td></tr>';
+
+					}
+					echo '</td></tr>';
+				    echo '</table>';
+		}
+		add_submenu_page( 'wpri-project-menu','Project Participation','Participation' ,  'manage_options', 'wpri-project-participate' , 'wpri_project_participate_management');
+
 	}
 
 }
