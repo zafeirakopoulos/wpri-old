@@ -331,6 +331,15 @@ class WPRI_Database {
 						)
 					);
 				}
+				public static function get_positions() {
+					$locale=1;
+	 		 		return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("locale_position"). " WHERE locale= %d",
+							$locale
+						)
+					);
+				}
 				///////////////////////////
 				// Member
 				///////////////////////////
