@@ -483,12 +483,12 @@ class WPRI_Database {
 					)
 				);
 				$member_user =  $member_data->user ;
-				$member_title = WPRI_Database::get_title($member_id, $locale)
+				$member_title = WPRI_Database::get_title($member_id, $locale);
 				$member_website = "Null";
 				$member_email ="Null";
-				$member_position = WPRI_Database::get_position($member_id, $locale)
+				$member_position = WPRI_Database::get_position($member_id, $locale);
 				$member_name ="Null";
-				return 
+				return
 			}
 			// This should return full information, gathered from different tables
 			public static function get_member($member_id) {
