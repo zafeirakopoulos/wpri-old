@@ -168,7 +168,7 @@ class WPRI_Project {
 			echo '<td>';
 			echo '<select name="status">';
 				foreach ( WPRI_Database::get_project_statuses() as $status ) {
-					echo '<option value='.$status->id.'>'.$status->name.'</option>';
+					echo '<option value='.$status->project_status.'>'.$status->name.'</option>';
 				}
 			echo '</select>';
 			echo '<span class="description">Current status.</span>';
