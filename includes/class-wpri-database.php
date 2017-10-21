@@ -43,7 +43,7 @@ class WPRI_Database {
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
 
-		$settings_list = array('locale','position','title','agency');
+		$settings_list = array('locale','position','title','agency','projectrole');
 		foreach ($settings_list as $setting_name){
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($setting_name)."'") != self::table_name($setting_name) ){
 				$sql = "CREATE TABLE  ". self::table_name($setting_name)."(
@@ -126,10 +126,10 @@ class WPRI_Database {
 						id INT AUTO_INCREMENT PRIMARY KEY,
 						member INT,
 						project INT,
-						position INT,
+						role INT,
 						FOREIGN KEY (member) REFERENCES ".self::table_name("member")."(id),
 						FOREIGN KEY (project) REFERENCES ".self::table_name("project")."(id),
-						FOREIGN KEY (position) REFERENCES ".self::table_name("position")."(id)
+						FOREIGN KEY (role) REFERENCES ".self::table_name("projectrole")."(id)
 					);";
 					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 	 	}
@@ -205,6 +205,7 @@ class WPRI_Database {
 		'description',
 	    'project_description',
 	    'project_member',
+		'projectrole',
 	    'project',
 	    'member',
 	    'title',
@@ -591,15 +592,18 @@ class WPRI_Database {
 								// 	));
 								// }
 								//
+				);
+				return ;
+			}
+
+			public static function add_project_member( $project, $member, $role) {
 
 				$GLOBALS['wpdb']->insert( self::table_name("project_member"),
 					array(
-						'project' => $pid,
-						'member' => $project["PI"],
-						'position' => "PI" //TODO make new table fro project roles
+						'project' => $project,
+						'member' => $member,
+						'role' => $role
 					)
-				);
-				return ;
 			}
 
 			public static function delete_project( $project_id) {
