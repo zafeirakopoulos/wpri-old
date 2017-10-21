@@ -181,8 +181,7 @@ class WPRI_Project {
 					$listname = trim($role->name).'projects';
 					if (!empty($_POST[$listname])){
 						foreach ( $_POST[$listname] as $project ) {
-							echo $project;
-							echo "user:"+ get_user();
+							echo "user:"+ get_current_user_id();
 							$success = WPRI_Database::add_project_member($project,WPRI_Database::get_member_from_user(get_user()),$role);
 							// Returns the new id. 0 on fail.
 							if($success ) {
