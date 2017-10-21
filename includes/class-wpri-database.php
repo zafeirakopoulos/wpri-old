@@ -464,7 +464,7 @@ class WPRI_Database {
 			public static function get_member_short($member_id) {
 				$user = $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
-						"SELECT user FROM " . self::table_name("member"). " WHERE id = %d", $member_id
+						"SELECT id FROM " . self::table_name("member"). " WHERE id = %d", $member_id
 					)
 				);
 				echo $member_id;
