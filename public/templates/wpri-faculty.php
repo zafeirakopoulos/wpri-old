@@ -8,7 +8,7 @@
 					$locale = 1; // TODO: read from the session
 					echo "<div class='container' >";
 	    				foreach ( $member_ids as $member_id ) {
-							$member = WPRI_Database::get_memberr_short($member_id);
+							$member = WPRI_Database::get_member_short($member_id);
 
 		   					echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
 							echo "<table>";
