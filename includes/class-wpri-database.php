@@ -80,18 +80,7 @@ class WPRI_Database {
 			$sql = "CREATE TABLE  ".self::table_name("member")." (
 				id INT AUTO_INCREMENT PRIMARY KEY,
 				user INT,
-				username tinytext,
-				displayname tinytext,
-				position INT,
-				title INT,
-				advisor INT,
-				office tinytext,
-				phone tinytext,
-				website text,
-				wppage BIGINT,
-				alumni BOOLEAN,
-	  			FOREIGN KEY (position) REFERENCES ".self::table_name("position")."(id),
-	  			FOREIGN KEY (title) REFERENCES ".self::table_name("title")."(id)
+				name tinytext,
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 		}
@@ -487,7 +476,35 @@ class WPRI_Database {
 			///////////////////////////
 
 			// This should return full information, gathered from different tables
-			public static function get_member($member_id, $locale) {
+			public static function get_member_short($member_id) {
+				$member_data = $GLOBALS['wpdb']->query(
+					$GLOBALS['wpdb']->prepare(
+						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
+					)
+				);
+				$member_user =  $member_data->user ;
+				$member_title = WPRI_Database::get_title($member_id, $locale)
+				$member_website =
+				$member_email =
+				$member_position = WPRI_Database::get_position($member_id, $locale)
+				$member_displayname =
+
+
+						   					echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
+											echo "<table>";
+											echo "<tr><h3 class='faculty'>";
+											echo $atitle." ".$fname." ".$lname;
+											echo "</h3></tr>";
+											echo "<tr><td>";
+											echo get_avatar( $member->user );
+											echo "</td>";
+											echo "<td><p>";
+											echo $position."<br>";
+											echo $member->website."<br>";
+											echo $email."<br>";
+			}
+			// This should return full information, gathered from different tables
+			public static function get_member($member_id) {
  				$member_data = $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
