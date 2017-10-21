@@ -309,7 +309,7 @@ class WPRI_Admin {
 		 	foreach ( $all_members as $member ) {
 				echo '<form name="delete_member" method="post" action="">';
 				echo '<tr>';
-				echo '<td><label>' . $member->username . ': </label></td>';
+				echo '<td><label>' . $member->name . ': </label></td>';
 				echo '<td> <input type="submit" name="delete_button' . $member->id  . '" value="Delete" class="button" />';
 		    	echo '<input type="hidden" name="type" value="delete_member" />';
 		   		echo '<input type="hidden" name="member_id" value=' . $member->id . '/></td>';
