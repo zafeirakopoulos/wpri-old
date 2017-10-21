@@ -535,9 +535,6 @@ class WPRI_Database {
 					return $GLOBALS['wpdb']->insert_id;
 				}
 
-				public static function update_member($member_id,$member) {
-					return $GLOBALS['wpdb']->update( self::table_name("member")  , $member, array('id' => $member_id) );
-				}
 
 				public static function delete_member($member_id) {
 					return $GLOBALS['wpdb']->query(
@@ -549,6 +546,15 @@ class WPRI_Database {
 				public static function get_all_members() {
 					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
 				}
+
+				public static function get_project_members($project_id) {
+					return  $GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("project_member"). " WHERE project = %d",
+							 $project_id
+						))
+					);
+ 				}
 
 				public static function member_participates_in_project_as($member,$project,$role) {
 
