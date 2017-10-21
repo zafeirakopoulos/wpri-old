@@ -176,16 +176,18 @@ class WPRI_Project {
 
 			if( isset( $_POST['type']) && $_POST['type'] == 'add_member') {
 				foreach ( $projectroles as $role ) {
-					echo trim($role->name).'projects';
-					foreach ( $_POST[trim($role->name).'projects'] as $project ) {
-						echo $project;
-						echo "user:"+ get_user();
-						$success = WPRI_Database::add_project_member($project,WPRI_Database::get_member_from_user(get_user()),$role);
-						// Returns the new id. 0 on fail.
-						if($success ) {
-							echo "<div class='updated'><p><strong>Added as ".$role->name.".</strong></p></div>";
-						} else {
-							echo "<div class='error'><p>Unable to add.</p></div>";
+					$listname = trim($role->name).'projects';
+					if (!empty($_POST[$listname])){
+						foreach ( $_POST[$listname] as $project ) {
+							echo $project;
+							echo "user:"+ get_user();
+							$success = WPRI_Database::add_project_member($project,WPRI_Database::get_member_from_user(get_user()),$role);
+							// Returns the new id. 0 on fail.
+							if($success ) {
+								echo "<div class='updated'><p><strong>Added as ".$role->name.".</strong></p></div>";
+							} else {
+								echo "<div class='error'><p>Unable to add.</p></div>";
+							}
 						}
 					}
 				}
