@@ -561,6 +561,15 @@ class WPRI_Database {
 					);
  				}
 
+				public static function get_member_publications($member_id) {
+					return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("publication_member"). " WHERE project = %d",
+							 $member_id
+						)
+					);
+ 				}
+
 				public static function get_project_publications($project_id) {
 					return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
