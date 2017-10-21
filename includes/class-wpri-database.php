@@ -296,9 +296,6 @@ class WPRI_Database {
 							$member
 						)
 					);
-					foreach ($projects as $key => $value) {
-						echo $key;
-					}
 					return $projects;
 				}
 
@@ -495,11 +492,6 @@ class WPRI_Database {
 
 				public static function delete_project( $project_id) {
 
-					// foreach ( $locales as $locale ) {
-					// 	$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
-					// 		"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
-					// 	));
-					// }
 					$GLOBALS['wpdb']->query(
 						$GLOBALS['wpdb']->prepare(
 							"DELETE FROM " . self::table_name("project_description"). " WHERE project = %d", $project_id
@@ -517,7 +509,6 @@ class WPRI_Database {
 							"DELETE FROM " . self::table_name("publication_project"). " WHERE project = %d", $project_id
 						)
 					);
-
 
 					return $GLOBALS['wpdb']->query(
 						$GLOBALS['wpdb']->prepare(
