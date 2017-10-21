@@ -436,7 +436,8 @@ class WPRI_Database {
 			///////////////////////////
 
 			// TODO: Join instead of two calls
-			public static function get_title($member_id, $locale) {
+			public static function get_title($member_id) {
+				$locale=1;
 				$title_id = $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT title FROM " . self::table_name("member"). " WHERE id = %d", $member_id
@@ -454,7 +455,8 @@ class WPRI_Database {
 			}
 
 			// TODO: Join instead of two calls
-			public static function get_position($member_id, $locale) {
+			public static function get_position($member_id) {
+				$locale=1;
 				$position_id = $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT position FROM " . self::table_name("member"). " WHERE id = %d", $member_id
@@ -482,13 +484,14 @@ class WPRI_Database {
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
 					)
 				);
-				$member_user =  $member_data->user ;
-				$member_title = WPRI_Database::get_title($member_id, $locale);
-				$member_website = "Null";
-				$member_email ="Null";
-				$member_position = WPRI_Database::get_position($member_id, $locale);
-				$member_name ="Null";
-				return
+				return array(
+					"user" =  $member_data->user,
+					"title" = WPRI_Database::get_title($member_id),
+					"website" = "Null",
+					"email" ="Null",
+					"position" = WPRI_Database::get_position($member_id),
+					"name" ="Null"
+				);
 			}
 			// This should return full information, gathered from different tables
 			public static function get_member($member_id) {
