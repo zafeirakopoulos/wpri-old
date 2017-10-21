@@ -496,7 +496,7 @@ class WPRI_Database {
 						'PI' => WPRI_Database::get_project_pi($project->pi, $project_id),
 						'budget' => $project->budget,
 						'website' => $project->website,
-						'startdate' => g$project->startdate,
+						'startdate' => $project->startdate,
 						'enddate' => $project->enddate,
 						'status' => WPRI_Database::get_status($project->status),
 						'funding' =>  WPRI_Database::get_funding_agency($project->funding)
