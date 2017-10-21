@@ -468,7 +468,7 @@ class WPRI_Database {
 					)
 				);
 				echo $projects;
-				echo $projects[0];
+				echo $projects[0]->id;
 				return $projects;
 			}
 
