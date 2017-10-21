@@ -90,7 +90,10 @@ class WPRI_Project {
 					'PI' => $_POST["pi"],
 					'budget' => $_POST["budget"],
 					'website' => $_POST["website"],
-					'funding' => $_POST["agency"]
+					'funding' => $_POST["agency"],
+					'starting' => $_POST["startdate"],
+					'ending' => $_POST["enddate"],
+					'status' => $_POST["status"]
 				);
 				$success = WPRI_Database::add_project($project);
 				// Returns the new id. 0 on fail.
