@@ -283,14 +283,13 @@ class WPRI_Admin {
 				$new_member_id = WPRI_Database::add_member(array(
 					'user' => $_POST["user"],
 					'name' => $user[0]->display_name,
-					'position' => $_POST["position"]
+					'role' => $_POST["role"]
 				));
 				if($new_member_id) {
 					echo "<div class='updated'><p><strong>Added.</strong></p></div>";
 				} else {
 			    	echo "<div class='error'><p>Unable to add.</p></div>";
 				}
-				// $new_post_id = add_member_page($new_member_id);
 			}
 
 			// If POST for deleting
@@ -305,8 +304,6 @@ class WPRI_Admin {
 
 
 			echo '<h3> Existing members: </h3>';
-
-
 			$all_members = WPRI_Database::get_all_members();
 			echo '<table>';
 		 	foreach ( $all_members as $member ) {
@@ -339,18 +336,17 @@ class WPRI_Admin {
 			echo '</td></tr>';
 
 			// Change this to access rights (instead of position)
-			$position_table_name = $GLOBALS['wpdb']->prefix . "wpri_position" ;
-			$positions = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $position_table_name );
+			$roles = WPRI_Database::get_roles();
 
 			echo '<tr>';
-			echo '<th><label>Position</label></th>';
+			echo '<th><label>Role</label></th>';
 			echo '<td>';
-			echo '<select name="position">';
-			foreach ( $positions as $position ) {
-					echo '<option value='.$position->id.'>'.$position->name.'</option>';
+			echo '<select name="role">';
+			foreach ( $roles as $role ) {
+					echo '<option value='.$role->role.'>'.$role->name.'</option>';
 				}
 			echo '</select>';
-			echo '<span class="description">Choose a position.</span>';
+			echo '<span class="description">Choose a role.</span>';
 			echo '</td></tr>';
 
 		    echo '<td><input type="submit" name="add_button" value="Add" class="button-secondary" />';
