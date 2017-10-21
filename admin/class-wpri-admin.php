@@ -146,7 +146,7 @@ class WPRI_Admin {
 		echo '<td>';
 		echo '<select name="position">';
 			foreach ( WPRI_Database::get_positions() as $position ) {
-				echo '<option value='.$position->$position. ' ' . ( $position->$position == get_usermeta($user,'position')? 'selected ' : ' ') .'>'.$position->name.'</option>';
+				echo '<option value='.$position->position. ' ' . ( $position->position == get_usermeta($user,'position')? 'selected ' : ' ') .'>'.$position->name.'</option>';
 			}
 		echo '</select>';
 		echo '<span class="description"></span>';
