@@ -312,6 +312,8 @@ class WPRI_Database {
 				}
 
 				public static function get_roles() {
+					$locale=1;
+					
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("locale_role"). " WHERE locale= %d",
