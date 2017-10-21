@@ -120,12 +120,7 @@ class WPRI_Admin {
 		echo '<td><textarea id="phone" name="phone" cols="10" rows="1"></textarea>';
 		echo '<span class="description">Your phone number</span>';
 		echo '</td></tr>';
-		echo '<tr>';
-		echo '<th><label">email</label></th>';
-		echo '<td><textarea id="email" name="email" cols="100" rows="1"></textarea>';
-		echo '<span class="description">Your email</span>';
-		echo '</td></tr>';
-	 	echo '<tr>';
+ 
 	    echo '</table>';
 
 
