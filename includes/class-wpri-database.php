@@ -484,43 +484,43 @@ class WPRI_Database {
 			$table_name = $GLOBALS['wpdb']->prefix . "wpri_projectrole";
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "PI"));
 			$insert_id = $GLOBALS['wpdb']->insert_id;
-			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Principal Investigator",
 				'locale' => 1,
-				'position' => $insert_id)
+				'role' => $insert_id)
 			);
-			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Yurutuncu",
 				'locale' => 2,
-				'position' => $insert_id)
+				'role' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "researcher"));
 			$insert_id = $GLOBALS['wpdb']->insert_id;
-			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Researcher",
 				'locale' => 1,
-				'position' => $insert_id)
+				'role' => $insert_id)
 			);
-			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Arastirmaci",
 				'locale' => 2,
-				'position' => $insert_id)
+				'role' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "advisor"));
 			$insert_id = $GLOBALS['wpdb']->insert_id;
-			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Advisor",
 				'locale' => 1,
-				'position' => $insert_id)
+				'role' => $insert_id)
 			);
-			$GLOBALS['wpdb']->insert( self::table_name("locale_position") , array(
+			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Advisor",
 				'locale' => 2,
-				'position' => $insert_id)
+				'role' => $insert_id)
 			);
 
 
-			
+
 			/* Create positions*/
 			$table_name = $GLOBALS['wpdb']->prefix . "wpri_position";
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "director"));
