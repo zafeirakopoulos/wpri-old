@@ -120,6 +120,11 @@ class WPRI_Admin {
 		echo '<td><textarea id="phone" name="phone" cols="10" rows="1">'.get_usermeta($user,'phone').'</textarea>';
 		echo '<span class="description">Your phone number</span>';
 		echo '</td></tr>';
+		echo '<tr>';
+		echo '<th><label">Website</label></th>';
+		echo '<td><textarea id="website" name="website" cols="10" rows="1">'.get_usermeta($user,'website').'</textarea>';
+		echo '<span class="description">Your website</span>';
+		echo '</td></tr>';
 
 	    echo '</table>';
 
@@ -162,19 +167,24 @@ class WPRI_Admin {
 
 	    echo '<h3>Projects</h3>';
 	    echo '<table class="form-table">';
-	 	$project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
-		$projects = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $project_table_name );
+		$projectroles = WPRI_Database::get_project_roles();
+		$projects = WPRI_Database::get_all_projects();
 
 		echo '<tr>';
 		echo '<th><label">Projects</label></th>';
-		echo '<td><select size="4" multiple="multiple" name="projects[]">';
-			foreach ( $projects as $project ) {
-			echo '<option value='.$project->id. ' ' . ( $project->id == get_usermeta($user,'project')? 'selected ' : ' ') .'>'.$project->title.'</option>';
-			}
-		echo '</select>';
-		echo '<span class="description">Choose projects you participate.</span>';
-		echo '</td></tr>';
 
+		foreach ( $projectroles as $role ) {
+			echo '<th><label">'.$role->name.' in projects:</label></th>';
+			echo '<td><select size="4" multiple="multiple" name="'.$role->name.'projects[]">';
+				foreach ( $projects as $project ) {
+				echo '<option value='.$project->id. ' ' . ( WPRI_Database::member_participates_in_project_as(WPRI_Database::get_member_from_user($user)->id, $project->id,$role->role)? 'selected ' : ' ') .'>'.$project->title.'</option>';
+				}
+			echo '</select>';
+			echo '<span class="description">Choose projects you participate as '.$role->name.'.</span>';
+			echo '</td></tr>';
+
+		}
+		echo '</td></tr>';
 	    echo '</table>';
 
 
