@@ -468,8 +468,9 @@ class WPRI_Database {
 					)
 				);
 				$user = $member_data->user;
+				echo "t-->"+ $user; 
 				return array(
-					"user" => $user ,
+					'user' => $user ,
 					"title" => WPRI_Database::get_title($user),
 					"website" => get_usermeta($user,'website'),
 					"email" => get_usermeta($user,'email'),
