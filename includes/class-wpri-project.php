@@ -42,7 +42,7 @@ class WPRI_Project {
 			echo '<div class="wrap">';
 			echo '<h2>Manage Projects</h2>';
 			echo '<div class="wrap wpa">';
- 
+
 
 			// If POST for deleting
 			if( isset( $_POST['type']) && $_POST['type'] == 'delete_project') {
@@ -131,7 +131,7 @@ class WPRI_Project {
 			echo '<td>';
 			echo '<select name="pi">';
 				foreach ( $members as $member ) {
-					echo '<option value='.$member->id.'>'.$member->username.'</option>';
+					echo '<option value='.$member->id.'>'.$member->name.'</option>';
 				}
 			echo '</select>';
 			echo '<span class="description">As appears for funding agency.</span>';
@@ -174,29 +174,41 @@ class WPRI_Project {
 
 		function wpri_project_participate_management() {
 
-
-				    echo '<h3>Projects</h3>';
-				    echo '<table class="form-table">';
-					$projectroles = WPRI_Database::get_project_roles();
-					$projects = WPRI_Database::get_all_projects();
-
-					echo '<tr>';
-					echo '<th><label">Projects</label></th>';
-
-					foreach ( $projectroles as $role ) {
-						echo '<tr>';
-						echo '<th><label">'.$role->name.' in projects:</label></th>';
-						echo '<td><select size="4" multiple="multiple" name="'.$role->name.'projects[]">';
-							foreach ( $projects as $project ) {
-							echo '<option value='.$project->id. ' ' . ( WPRI_Database::member_participates_in_project_as(WPRI_Database::get_member_from_user($user)->id, $project->id,$role->role)? 'selected ' : ' ') .'>'.$project->title.'</option>';
-							}
-						echo '</select>';
-						echo '<span class="description">Choose projects you participate as '.$role->name.'.</span>';
-						echo '</td></tr>';
-
+			if( isset( $_POST['type']) && $_POST['type'] == 'add_member') {
+				foreach ( $projectroles as $role ) {
+					foreach ( $_POST[ $role->name.'projects[]'] as $project ) {
+						echo $project;
+						echo "user:"+ get_user();
+						$success = WPRI_Database::add_project_member($project,WPRI_Database::get_member_from_user(get_user()),$role);
+						// Returns the new id. 0 on fail.
+						if($success ) {
+							echo "<div class='updated'><p><strong>Added as ".$role->name.".</strong></p></div>";
+						} else {
+							echo "<div class='error'><p>Unable to add.</p></div>";
+						}
 					}
-					echo '</td></tr>';
-				    echo '</table>';
+				}
+			}
+		    echo '<h2>Project Participation</h2>';
+		    echo '<table class="form-table">';
+			$projectroles = WPRI_Database::get_project_roles();
+			$projects = WPRI_Database::get_all_projects();
+			foreach ( $projectroles as $role ) {
+				echo '<tr>';
+				echo '<th><label">'.$role->name.' in:</label></th>';
+				echo '<td><select size="4" multiple="multiple" name="'.$role->name.'projects[]">';
+					foreach ( $projects as $project ) {
+					echo '<option value='.$project->id. ' ' . ( WPRI_Database::member_participates_in_project_as(WPRI_Database::get_member_from_user($user)->id, $project->id,$role->role)? 'selected ' : ' ') .'>'.$project->title.'</option>';
+					}
+				echo '</select>';
+				echo '<span class="description">Choose projects you participate as '.$role->name.'.</span>';
+				echo '</td></tr>';
+			}
+			echo '<tr>';
+			echo '<td><input type="submit" name="add_button" value="Add me as member in these projects" class="button-secondary" />';
+			echo '<input type="hidden" name="type" value="add_member"/></td>';
+			echo '</tr>';
+	  		echo '</table>';
 		}
 		add_submenu_page( 'wpri-project-menu','Project Participation','Participation' ,  'manage_options', 'wpri-project-participate' , 'wpri_project_participate_management');
 
