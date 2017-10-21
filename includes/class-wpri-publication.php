@@ -107,92 +107,93 @@ class WPRI_Publication {
 					}
 				}
 
-				echo '</table>';
-				echo '<form name="add_project" method="post" action="">';
+				echo '<h3> Add new publication: </h3>';
+
+				$pubtypes = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $pubtype_table_name);
+
+			 	echo '<form name="add_publication" method="post" action="">';
 				echo '<table class="form-table">';
 				echo '<tr>';
-				echo '<th><label>Official Title</label></th>';
-				echo '<td><textarea id="title_' . $locale->id . '" name="title" cols="60" rows="1"></textarea>';
-				echo '<span class="description">As appears for funding agency.</span>';
-				echo '</td></tr>';
-
-				foreach ( $locales as $locale ) {
-					echo '<tr>';
-					echo '<th><label>' . $locale->name . '</label></th>';
-					echo '<td><textarea id="title_' . $locale->id . '" name="title_' . $locale->id . '" cols="60" rows="1"></textarea>';
-					echo '<span class="description">other locales</span>';
-					echo '</td></tr>';
-				}
-
-				foreach ( $locales as $locale ) {
-					echo '<tr>';
-					echo '<th><label>Description (' . $locale->name . ')</label></th>';
-					echo '<td><textarea id="description_' . $locale->id . '" name="description_' . $locale->id . '" cols="70" rows="6"></textarea>';
-					echo '<span class="description">other locales</span>';
-					echo '</td></tr>';
-				}
-
-				echo '<tr>';
-				echo '<th><label>Principal Investigator</label></th>';
-				echo '<td>';
-				echo '<select name="pi">';
-					foreach ( $members as $member ) {
-						echo '<option value='.$member->id.'>'.$member->name.'</option>';
+				echo '<th><label for="pubtype">Type</label></th>';
+				echo '<td><select name="pubtype">';
+					foreach ( $pubtypes  as $pubtype ) {
+						echo '<option value='.$pubtype->id.'>'.$pubtype->name.'</option>';
 					}
 				echo '</select>';
-				echo '<span class="description">As appears for funding agency.</span>';
+				echo '<span class="description">Please enter publication type.</span>';
+				echo '</td></tr>';
+				echo '<tr>';
+				echo '<th><label for="international">International</label></th>';
+				echo '<td><input type="checkbox" name="international" value=1>';
+				echo '<span class="description">Check if publication appeared in international venue.</span>';
+				echo '</td></tr>';
+				echo '<tr>';
+				echo '<th><label for="refereed">Refereed</label></th>';
+				echo '<td><input type="checkbox" name="refereed" value=1>';
+				echo '<span class="description">Check if publication was refereed.</span>';
 				echo '</td></tr>';
 
+				echo '</td></tr>';
 				echo '<tr>';
-				echo '<th><label>Budget</label></th>';
-				echo '<td><textarea id="budget" name="budget" cols="15" rows="1"></textarea>';
-				echo '<span class="description">As appears for funding agency.</span>';
+				echo '<th><label for="title">Title</label></th>';
+				echo '<td><textarea id="title" name="title" cols="70" rows="2"></textarea>';
+				echo '<span class="description">140 characters.</span>';
+				echo '</td></tr>';
+				echo '<tr>';
+				echo '<th><label for="doi">DOI</label></th>';
+				echo '<td><textarea id="doi" name="doi" cols="70" rows="1"></textarea>';
+				echo '<span class="description">The DOI identifier.</span>';
 				echo '</td></tr>';
 
-				echo '<tr>';
-				echo '<th><label>Website</label></th>';
-				echo '<td><textarea id="website" name="website" cols="70" rows="1"></textarea>';
-				echo '<span class="description">A URL</span>';
-				echo '</td></tr>';
+				$agency_table_name = $GLOBALS['wpdb']->prefix . "wpri_agency" ;
+				$agencies = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $agency_table_name );
 
 				echo '<tr>';
-				echo '<th><label>Funding agency</label></th>';
-				echo '<td>';
-				echo '<select name="funding">';
+				echo '<th><label for="funding">Funding agency</label></th>';
+				echo '<td><select name="funding">';
 					foreach ( $agencies as $agency ) {
 						echo '<option value='.$agency->id.'>'.$agency->name.'</option>';
 					}
 				echo '</select>';
-				echo '<span class="description">Choose funding agency.</span>';
+				echo '<span class="description">Choose funding agency if any.</span>';
 				echo '</td></tr>';
 
+				$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
+
 				echo '<tr>';
-				echo '<th><label>Status</label></th>';
-				echo '<td>';
-				echo '<select name="status">';
-					foreach ( WPRI_Database::get_project_statuses() as $status ) {
-						echo '<option value='.$status->project_status.'>'.$status->name.'</option>';
+				echo '<th><label for="members[]">Members that are authors</label></th>';
+			    echo '<td><select size="4" multiple="multiple" name="members[]">';
+					foreach ( $members as $member ) {
+					echo '<option value='.$member->id.'>'.$member->username.'</option>';
 					}
 				echo '</select>';
-				echo '<span class="description">Current status.</span>';
+				echo '<span class="description">Choose (multiple) members that are authors.</span>';
 				echo '</td></tr>';
 
-				echo '<tr>';
-				echo '<th><label>Start date</label></th>';
-				echo '<td><textarea id="startdate" name="startdate" cols="25" rows="1"></textarea>';
-				echo '<span class="description">Starting date.</span>';
-				echo '</td></tr>';
+			 	$project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
+				$projects = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $project_table_name );
 
 				echo '<tr>';
-				echo '<th><label>End date</label></th>';
-				echo '<td><textarea id="enddate" name="enddate" cols="25" rows="1"></textarea>';
-				echo '<span class="description">Ending date.</span>';
+				echo '<th><label for="projects[]">Projects related to the publication</label></th>';
+				echo '<td><select size="4" multiple="multiple" name="projects[]">';
+					foreach ( $projects as $project ) {
+					echo '<option value='.$project->id.'>'.$project->title.'</option>';
+					}
+				echo '</select>';
+				echo '<span class="description">Choose related projects.</span>';
 				echo '</td></tr>';
 
+
 				echo '<tr>';
-				echo '<td><input type="submit" name="add_button" value="Add Project" class="button-secondary" />';
-				echo '<input type="hidden" name="type" value="add_project"/></td>';
-				echo '</tr>';
+				echo '<th><label for="bibentry">bibentry</label></th>';
+				echo '<td><textarea id="bibentry" name="bibentry" cols="70" rows="10"></textarea>';
+				echo '<span class="description">Make sure it parses correctly</span>';
+				echo '</td></tr>';
+
+			    echo '<tr>';
+			    echo '<td><input type="submit" name="add_button" value="Add Publication" class="button-secondary" />';
+			    echo '<input type="hidden" name="type" value="add_pub"/></td>';
+			    echo '</tr>';
 				echo '</table>';
 
 				echo '</form>';
