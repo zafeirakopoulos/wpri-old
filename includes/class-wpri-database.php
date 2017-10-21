@@ -469,7 +469,7 @@ class WPRI_Database {
 					)
 				);
 				foreach ($member_data as $key => $value) {
-					echo $key + ":" + $value + "<br>"";
+					echo $key + ":" + $value + "<br>";
 				}
 				$user = $member_data[0]->user;
 				echo "t-->"+ $user;
