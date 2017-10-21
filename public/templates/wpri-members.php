@@ -1,33 +1,28 @@
 
-			<div id="projects" >
-				<h1> <?php echo 'Projects' ?> </h1>
+			<div id="members" >
+				<h1> <?php echo 'Members' ?> </h1>
 				<?php
-					$current_language = "en";
-					// This has to be done using js. Cannot be written in DB for example.
-					// Have a hidden element in the DOM to keep track of language.
 
 					// Start the Loop.
-					$projects = get_wpri_projects();
-					echo "<div class='container' >";
-
-    				foreach ( $projects as $project) {
-
+					$members = $WPRI_Database::get_wp_member_ids() ;
+    				foreach ( $members as $member_id ) {
+    					$member = $WPRI_Database::get_wp_member($member_id);
 						echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
                         echo "<table>";
                         echo "<tr><h3 class='faculty'>";
-                        echo $atitle." ".$fname." ".$lname;
+                        echo $member->title." ".$member->fname." ".$member->lname;
                         echo "</h3></tr>";
                         echo "<tr><td>";
                         echo get_avatar( $member->user );
                         echo "</td>";
                         echo "<td><p>";
-                        echo $position."<br>";
+                        echo $member->position."<br>";
                         echo $member->website."<br>";
-                        echo $email."<br>";
+                        echo $member->email."<br>";
                         echo "</p></td></tr>";
                         echo "</table>";
                         echo "</div></a>";
 					}
 					echo "</div>";
 				?>
-			</div><!-- #projects -->
+			</div><!-- #faculty -->

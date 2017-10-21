@@ -536,15 +536,16 @@ class WPRI_Database {
 				return $ids;
 			}
 
-			public static function add_wpri_member($member) {
+			public static function add_member($member) {
+				$GLOBALS['wpdb']->insert( $table_name , $member);
+				return $GLOBALS['wpdb']->insert_id;
+			}
+
+			public static function update_member($member_id) {
 
 			}
 
-			public static function update_wpri_member($member_id) {
-
-			}
-
-			public static function delete_wpri_member($member_id) {
+			public static function delete_member($member_id) {
 
 			}
 			/////////////////////////////////////////////////////////////////////////////////

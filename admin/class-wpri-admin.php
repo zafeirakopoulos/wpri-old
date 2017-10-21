@@ -347,16 +347,20 @@ class WPRI_Admin {
 
 				$u_query = new WP_User_Query( array('include' => array($_POST["user"])));
 				$user = $u_query->results;
-
-				$new_member_id = $GLOBALS['wpdb']->insert( $table_name , array(
+				$new_member_id = WPRI_Database::add_member(array(
 					'user' => $_POST["user"],
 					'username' => $user[0]->display_name,
 					'position' => $_POST["position"]
 				));
-				if($GLOBALS['wpdb']->insert_id) {
+				// $new_member_id = $GLOBALS['wpdb']->insert( $table_name , array(
+				// 	'user' => $_POST["user"],
+				// 	'username' => $user[0]->display_name,
+				// 	'position' => $_POST["position"]
+				// ));
+				if($new_member_id) {
 					?>
-			    <div class="updated"><p><strong>Added.</strong></p></div>
-				<?php
+			    // <div class="updated"><p><strong>Added.</strong></p></div>
+				// <?php
 				} else {
 					?>
 			    <div class="error"><p>Unable to add.</p></div>
