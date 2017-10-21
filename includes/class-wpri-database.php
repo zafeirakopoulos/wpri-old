@@ -462,7 +462,6 @@ class WPRI_Database {
 
 			// This should return full information, gathered from different tables
 			public static function get_member_short($member_id) {
-				echo "member id"+ $member_id;
 				$member_data = $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
@@ -472,8 +471,7 @@ class WPRI_Database {
 				foreach ($member_data as $key => $value) {
 					echo $key + ":" + $value + "<br>";
 				}
-				$user = $member_data[0]->user;
-				echo "t-->"+ $user;
+				$user = $member_data->user;
 				return array(
 					'user' => $user ,
 					"title" => WPRI_Database::get_title($user),
