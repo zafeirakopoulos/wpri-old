@@ -605,36 +605,36 @@ class WPRI_Database {
 			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Principal Investigator",
 				'locale' => 1,
-				'role' => $insert_id)
+				'projectrole' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Yurutuncu",
 				'locale' => 2,
-				'role' => $insert_id)
+				'projectrole' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "researcher"));
 			$insert_id = $GLOBALS['wpdb']->insert_id;
 			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Researcher",
 				'locale' => 1,
-				'role' => $insert_id)
+				'projectrole' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Arastirmaci",
 				'locale' => 2,
-				'role' => $insert_id)
+				'projectrole' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "advisor"));
 			$insert_id = $GLOBALS['wpdb']->insert_id;
 			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Advisor",
 				'locale' => 1,
-				'role' => $insert_id)
+				'projectrole' => $insert_id)
 			);
 			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
 				'name' => "Advisor",
 				'locale' => 2,
-				'role' => $insert_id)
+				'projectrole' => $insert_id)
 			);
 
 
