@@ -365,7 +365,17 @@ class WPRI_Database {
 					);
 				}
 
- 
+				public static function get_project_statuses() {
+					$locale=1;
+	 		 		return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("locale_project_status"). " WHERE locale= %d",
+							$locale
+						)
+					);
+				}
+
+
 
  				public static function get_member_from_user($user) {
 					$member = $GLOBALS['wpdb']->get_results(
