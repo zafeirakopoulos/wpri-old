@@ -114,15 +114,13 @@ class WPRI_Admin {
 
 	    echo '<table class="form-table">';
 
-		$title_table_name = $GLOBALS['wpdb']->prefix . "wpri_title" ;
-		$titles = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $title_table_name );
 
 		echo '<tr>';
 		echo '<th><label>Academic Title</label></th>';
 		echo '<td>';
 		echo '<select name="title">';
-			foreach ( $titles as $title ) {
-				echo '<option value='.$title->id. ' ' . ( $title->id == get_usermeta($user,'title')? 'selected ' : ' ') .'>'.$title->name.'</option>';
+			foreach ( WPRI_Database::get_titles() as $title ) {
+				echo '<option value='.$title->title. ' ' . ( $title->title == get_usermeta($user,'title')? 'selected ' : ' ') .'>'.$title->name.'</option>';
 			}
 		echo '</select>';
 		echo '<span class="description"></span>';
@@ -302,14 +300,13 @@ class WPRI_Admin {
 				}
 			}
 
-
 			echo '<h3> Existing members: </h3>';
 			$all_members = WPRI_Database::get_all_members();
 			echo '<table>';
 		 	foreach ( $all_members as $member ) {
 				echo '<form name="delete_member" method="post" action="">';
 				echo '<tr>';
-				echo '<td><label>' . $member->name . ': </label></td>';
+				echo '<td><label>' . $member->name . '</label></td>';
 				echo '<td> <input type="submit" name="delete_button' . $member->id  . '" value="Delete" class="button" />';
 		    	echo '<input type="hidden" name="type" value="delete_member" />';
 		   		echo '<input type="hidden" name="member_id" value=' . $member->id . '/></td>';
