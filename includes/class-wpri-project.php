@@ -173,6 +173,8 @@ class WPRI_Project {
 		add_submenu_page( 'wpri-project-menu','Project Add','Add' ,  'manage_options', 'wpri-project-add' , 'wpri_project_add_management');
 
 		function wpri_project_participate_management() {
+			$projectroles = WPRI_Database::get_project_roles();
+			$projects = WPRI_Database::get_all_projects();
 
 			if( isset( $_POST['type']) && $_POST['type'] == 'add_member') {
 				foreach ( $projectroles as $role ) {
@@ -193,9 +195,6 @@ class WPRI_Project {
 				}
 			}
 		    echo '<h2>Project Participation</h2>';
- 			$projectroles = WPRI_Database::get_project_roles();
-			$projects = WPRI_Database::get_all_projects();
-
 			echo '<form name="add_project" method="post" action="">';
 			echo '<table class="form-table">';
 			foreach ( $projectroles as $role ) {
