@@ -112,12 +112,12 @@ class WPRI_Admin {
 		echo '<table class="form-table">';
 	 	echo '<tr>';
 		echo '<th><label">Office</label></th>';
-		echo '<td><textarea id="office" name="office" cols="10" rows="1"></textarea>';
+		echo '<td><textarea id="office" name="office" cols="10" rows="1">'.get_usermeta($user,'office').'</textarea>';
 		echo '<span class="description">Your office number.</span>';
 		echo '</td></tr>';
 	 	echo '<tr>';
 		echo '<th><label">Phone</label></th>';
-		echo '<td><textarea id="phone" name="phone" cols="10" rows="1"></textarea>';
+		echo '<td><textarea id="phone" name="phone" cols="10" rows="1">'.get_usermeta($user,'phone').'</textarea>';
 		echo '<span class="description">Your phone number</span>';
 		echo '</td></tr>';
 
