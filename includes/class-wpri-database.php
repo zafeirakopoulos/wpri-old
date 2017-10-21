@@ -442,18 +442,18 @@ class WPRI_Database {
 						"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d",
 						get_usermeta($user,'title'), $locale
 					)
-				);
+				)[0]->name;
 			}
 
 			public static function get_position($user) {
 				$locale=1;
 
-				return $GLOBALS['wpdb']->query(
+				return $GLOBALS['wpdb']->get_results(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT name FROM " . self::table_name("locale_position"). " WHERE position = %d AND locale= %d",
 						get_usermeta($user,'position'), $locale
 					)
-				);
+				)[0]->name;
 			}
 
 			///////////////////////////
