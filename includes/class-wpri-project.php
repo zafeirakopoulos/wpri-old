@@ -176,7 +176,7 @@ class WPRI_Project {
 
 			if( isset( $_POST['type']) && $_POST['type'] == 'add_member') {
 				foreach ( $projectroles as $role ) {
-					echo $_POST[trim($role->name).'projects'];
+					echo trim($role->name).'projects';
 					foreach ( $_POST[trim($role->name).'projects'] as $project ) {
 						echo $project;
 						echo "user:"+ get_user();
