@@ -203,6 +203,17 @@ class WPRI_Database {
 					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 	 	}
 
+	 	if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("publication_agency")."'") != self::table_name("publication_agency") ){
+					$sql = "CREATE TABLE  ".self::table_name("publication_agency")."(
+						id INT AUTO_INCREMENT PRIMARY KEY,
+						agency INT,
+						pub INT,
+						FOREIGN KEY (agency) REFERENCES ".self::table_name("agency")."(id),
+						FOREIGN KEY (pub) REFERENCES ".self::table_name("publication")." (id)
+					);";
+					$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
+	 	}
+
 	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         return $first_install;
 	}
@@ -578,35 +589,50 @@ class WPRI_Database {
 					)[0];
  				}
 
-					public static function add_project( $project) {
-					$GLOBALS['wpdb']->insert( self::table_name("project"),
-						array(
-							'title' => $project["title"],
-							'PI' => $project["PI"],
-							'budget' => $project["budget"],
-							'website' => $project["website"],
-							'funding' => $project["funding"],
-							'startdate' => $project["startdate"],
-							'enddate' => $project["enddate"],
-							'status' => $project["status"]
-						)
-					);
-					$pid = $GLOBALS['wpdb']->insert_id;
+				public static function add_publication($publication) {
+				$GLOBALS['wpdb']->insert( self::table_name("publication"),
+					array(
+						'title' => $publication["title"],
+						'type' => $publication["type"],
+						'doi' => $publication["doi"],
+						'international' => $publication["international"],
+						'refereed' => $publication["refereed"],
+						'bibentry' => $publication["bibentry"],
+					)
+				);
+				$pid = $GLOBALS['wpdb']->insert_id;
 
-					$locales = WPRI_Database::get_locales();
-					foreach ( $locales as $locale ) {
-						$GLOBALS['wpdb']->insert( self::table_name("project_description") , array(
-							'locale' => $locale->id,
-							'description' => $project["description"][$locale->id],
-							'title' => $project["title"][$locale->id],
-							'project' => $pid
-						));
-					}
-	 				return $pid;
+				return $pid;
+				}
+
+				public static function add_project( $project) {
+				$GLOBALS['wpdb']->insert( self::table_name("project"),
+					array(
+						'title' => $project["title"],
+						'PI' => $project["PI"],
+						'budget' => $project["budget"],
+						'website' => $project["website"],
+						'funding' => $project["funding"],
+						'startdate' => $project["startdate"],
+						'enddate' => $project["enddate"],
+						'status' => $project["status"]
+					)
+				);
+				$pid = $GLOBALS['wpdb']->insert_id;
+
+				$locales = WPRI_Database::get_locales();
+				foreach ( $locales as $locale ) {
+					$GLOBALS['wpdb']->insert( self::table_name("project_description") , array(
+						'locale' => $locale->id,
+						'description' => $project["description"][$locale->id],
+						'title' => $project["title"][$locale->id],
+						'project' => $pid
+					));
+				}
+					return $pid;
 				}
 
 				public static function add_project_member( $project, $member, $role) {
-
 					return $GLOBALS['wpdb']->insert( self::table_name("project_member"),
 						array(
 							'project' => $project,
@@ -615,6 +641,37 @@ class WPRI_Database {
 						)
 					);
 				}
+
+
+				public static function add_project_publication( $project, $publication) {
+					return $GLOBALS['wpdb']->insert( self::table_name("publication_project"),
+						array(
+							'project' => $project,
+							'pub' => $publication,
+						)
+					);
+				}
+
+
+				public static function add_member_publication( $member, $publication) {
+					return $GLOBALS['wpdb']->insert( self::table_name("publication_member"),
+						array(
+							'member' => $member,
+							'pub' => $publication,
+						)
+					);
+				}
+
+
+				public static function add_agency_publication( $agency, $publication) {
+					return $GLOBALS['wpdb']->insert( self::table_name("publication_agency"),
+						array(
+							'agency' => $agency,
+							'pub' => $publication,
+						)
+					);
+				}
+
 
 				public static function delete_project( $project_id) {
 
