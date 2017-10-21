@@ -27,6 +27,7 @@
 						$project = WPRI_Database::get_project( $project_id->project);
 						echo "<tr>";
 		 				echo "<td>" . $project->title . "<td>";
+						echo "<td>" . $project->role . "<td>";
 		 				echo "<td>" . $project->PI . "<td>";
 		 				echo "<td>" . $project->funding . "<td>";
 						echo "</tr>";
