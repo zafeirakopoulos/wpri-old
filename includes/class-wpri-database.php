@@ -436,7 +436,7 @@ class WPRI_Database {
 			///////////////////////////
 
 			public static function get_title($user) {
-				$locale=2;
+				$locale=1;
  		 		return  $GLOBALS['wpdb']->get_results(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d",
@@ -447,7 +447,6 @@ class WPRI_Database {
 
 			public static function get_position($user) {
 				$locale=1;
-
 				return $GLOBALS['wpdb']->get_results(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT name FROM " . self::table_name("locale_position"). " WHERE position = %d AND locale= %d",
@@ -456,11 +455,34 @@ class WPRI_Database {
 				)[0]->name;
 			}
 
+			// TODO decide what this should return if the advisor is not a user
+			public static function get_advisor($user) {
+				return 	get_usermeta($user,'advisor');
+			}
+
+			public static function get_projects_by_member($member) {
+				return $GLOBALS['wpdb']->get_results(
+					$GLOBALS['wpdb']->prepare(
+						"SELECT * FROM " . self::table_name("project_member"). " WHERE member = %d",
+						$member
+					)
+				);
+			}
+
+			public static function get_publications_by_member($member) {
+				return $GLOBALS['wpdb']->get_results(
+					$GLOBALS['wpdb']->prepare(
+						"SELECT * FROM " . self::table_name("publication_member"). " WHERE member = %d",
+						$member
+					)
+				);
+			}
+
 			///////////////////////////
 			// Member
 			///////////////////////////
 
-			// This should return full information, gathered from different tables
+			// For the thumbs in the faculty page
 			public static function get_member_short($member_id) {
 				$member = $GLOBALS['wpdb']->get_results(
 					$GLOBALS['wpdb']->prepare(
@@ -478,44 +500,29 @@ class WPRI_Database {
 				);
 			}
 			// This should return full information, gathered from different tables
+			// For the main personal page
 			public static function get_member($member_id) {
- 				$member_data = $GLOBALS['wpdb']->get_results(
+				$member = $GLOBALS['wpdb']->get_results(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
 					)
+				)[0];
+				$user = $member->user;
+
+				return array(
+					'user' => $user ,
+					'title' => WPRI_Database::get_title($user),
+					'website' => get_usermeta($user,'website'),
+					'email' => get_usermeta($user,'email'),
+					'position' => WPRI_Database::get_position($user),
+					'name' =>  $member->username,
+ 					'alumni' => get_usermeta($user,'alumni'),
+					'office' => get_usermeta($user,'office'),
+					'phone' => get_usermeta($user,'phone'),
+					'advisor' =>  WPRI_Database::get_advisor(get_usermeta($user,'advisor')),
+					'projects' => WPRI_Database::get_projects_by_member($member_id),
+					'publications'=> WPRI_Database::get_publications_by_member($member_id)
 				);
-
-				//echo $member_data;
-				//echo $member_data->user ;
-/*
-				$member_user =  $member_data->user ;
-				$member_title = WPRI_Database::get_title($member_id, $locale)
-				$member_website =
-				$member_email =
-				$member_avatar =
-				$member_position = WPRI_Database::get_position($member_id, $locale)
-				$member_displayname =
-				$member_wppage =
-				$member_alumni =
-				$member_office =
-				$member_phone =
-				$member_advisor =
-
-				$member = Array(
-					"title" = $member_title ,
-					"website" = $member_website,
-					"email" = $member_email,
-					"avatar" = $member_avatar,
-					"position" = $member_position,
-					"name" = $member_displayname,
-					"wppage" = $member_wppage,
-					"alumni" = $member_alumni,
-					"office" = $member_office,
-					"phone" = $member_phone,
-					"advisor" = $member_advisor
-					)
-				return $member
-*/
 			}
 
 			public static function get_member_ids() {
