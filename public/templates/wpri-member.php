@@ -19,7 +19,7 @@
 					echo $member['website']."<br>";
 					echo $member['email']."<br>";
 					echo "</p></td></tr>";
-					echo "</table>cdsvsdcd";
+					echo "</table>";
 					echo "Projects:<br>";
 					echo $member['projects'];
 					foreach ($member['projects'] as $key => $value) {
