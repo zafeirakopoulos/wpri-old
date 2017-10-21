@@ -120,7 +120,7 @@ class WPRI_Admin {
 		echo '<td><textarea id="phone" name="phone" cols="10" rows="1"></textarea>';
 		echo '<span class="description">Your phone number</span>';
 		echo '</td></tr>';
- 
+
 	    echo '</table>';
 
 
@@ -245,13 +245,13 @@ class WPRI_Admin {
 		    update_usermeta( $user_id, 'phone', $_POST['phone'] );
 		}
 
-		if(isset($_POST['email']) && $_POST['email'] != ""){
-		    update_usermeta( $user_id, 'email', $_POST['email'] );
-		}
-
 
 		if(isset($_POST['title']) && $_POST['title'] != ""){
 		    update_usermeta( $user_id, 'title', $_POST['title'] );
+		}
+
+		if(isset($_POST['position']) && $_POST['position'] != ""){
+		    update_usermeta( $user_id, 'position', $_POST['position'] );
 		}
 
 		if(isset($_POST['advisor']) && $_POST['advisor'] != ""){
