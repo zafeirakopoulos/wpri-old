@@ -414,6 +414,18 @@ class WPRI_Database {
 
 				}
 
+				// For the thumbs in the publications page
+				public static function get_publication_short($publication_id) {
+					$publication = $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("publication"). " WHERE id = %d", $publication_id
+						)
+					)[0];
+					return array(
+						'title' => $publication->title,
+					);
+				}
+
 				///////////////////////////
 				// Member
 				///////////////////////////
