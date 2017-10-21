@@ -582,7 +582,7 @@ class WPRI_Database {
 							'PI' => $project["PI"],
 							'budget' => $project["budget"],
 							'website' => $project["website"],
-							'funding' => $project["funding"]
+							'funding' => $project["funding"],
 							'startdate' => $project["startdate"],
 							'enddate' => $project["enddate"],
 							'status' => $project["status"]
