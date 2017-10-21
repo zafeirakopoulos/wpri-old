@@ -274,6 +274,17 @@ class WPRI_Database {
 					)[0]->name;
 				}
 
+				public static function get_project_role($role) {
+					$locale=1;
+	 		 		return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT name FROM " . self::table_name("locale_projectrole"). " WHERE projectrole = %d AND locale= %d",
+							$role, $locale
+						)
+					)[0]->name;
+				}
+
+
 				public static function get_position($user) {
 					$locale=1;
 					return $GLOBALS['wpdb']->get_results(
