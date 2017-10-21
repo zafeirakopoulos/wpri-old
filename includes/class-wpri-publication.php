@@ -85,20 +85,19 @@ class WPRI_Publication {
 
 				// If POST for adding
 				if( isset( $_POST['type']) && $_POST['type'] == 'add_publication') {
-					$project = array(
+					$publication = array(
 						'title' => $_POST["title"],
-						'PI' => $_POST["pi"],
-						'budget' => $_POST["budget"],
-						'website' => $_POST["website"],
-						'funding' => $_POST["agency"],
-						'startdate' => $_POST["startdate"],
-						'enddate' => $_POST["enddate"],
-						'status' => $_POST["status"]
+						'type' => $_POST["pubtype"],
+						'doi' => $_POST["doi"],
+						'international' => $_POST["international"],
+						'refereed' => $_POST["refereed"],
+						'bibentry' => $_POST["bibentry"],
 					);
-					$success = WPRI_Database::add_project($project);
-				    // Add PI as a member
-					WPRI_Database::add_project_member($success,WPRI_Database::get_member_from_user($_POST["pi"])->id,1);
+					$success = WPRI_Database::add_publication($publication);
 
+					// TODO add project publication
+					// TODO Add member publication
+					// TODO Add funding publication
 					// Returns the new id. 0 on fail.
 					if($success ) {
 						echo "<div class='updated'><p><strong>Added.</strong></p></div>";
