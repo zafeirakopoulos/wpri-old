@@ -443,7 +443,7 @@ class WPRI_Database {
 						get_usermeta($user,'title'), $locale
 					)
 				)[0]->name;
-				
+
 				echo $title;
 				return $title;
 			}
@@ -473,11 +473,11 @@ class WPRI_Database {
 				$user = $member->user;
 				return array(
 					'user' => $user ,
-					"title" => WPRI_Database::get_title($user),
-					"website" => get_usermeta($user,'website'),
-					"email" => get_usermeta($user,'email'),
-					"position" => WPRI_Database::get_position($user),
-					"name" =>  $member->username
+					'title' => WPRI_Database::get_title($user),
+					'website' => get_usermeta($user,'website'),
+					'email' => get_usermeta($user,'email'),
+					'position' => WPRI_Database::get_position($user),
+					'name' =>  $member->username
 				);
 			}
 			// This should return full information, gathered from different tables
