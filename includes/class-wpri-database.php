@@ -599,7 +599,7 @@ class WPRI_Database {
 			);
 
 			/* Create project roles*/
-			$table_name = $GLOBALS['wpdb']->prefix . "wpri_projectrole";
+			$table_name = self::table_name("projectrole");
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "PI"));
 			$insert_id = $GLOBALS['wpdb']->insert_id;
 			$GLOBALS['wpdb']->insert( self::table_name("locale_projectrole") , array(
