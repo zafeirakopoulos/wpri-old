@@ -445,7 +445,7 @@ class WPRI_Database {
 							"SELECT * FROM " . self::table_name("project_member"). " WHERE member = %d AND project = %d AND role = %d",
 							 $member, $project, $role
 						))
-					)
+					);
 				}
 				/////////////////////////////////////////////////////////////////////////////////
 				/////////////////////////////////////////////////////////////////////////////////
