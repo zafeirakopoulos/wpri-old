@@ -575,7 +575,7 @@ class WPRI_Database {
 					)[0];
  				}
 
-				public static function add_project( $project) {
+					public static function add_project( $project) {
 					$GLOBALS['wpdb']->insert( self::table_name("project"),
 						array(
 							'title' => $project["title"],
@@ -583,6 +583,9 @@ class WPRI_Database {
 							'budget' => $project["budget"],
 							'website' => $project["website"],
 							'funding' => $project["funding"]
+							'startdate' => $project["startdate"],
+							'enddate' => $project["enddate"],
+							'status' => $project["status"]
 						)
 					);
 					$pid = $GLOBALS['wpdb']->insert_id;
