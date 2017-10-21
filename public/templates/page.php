@@ -30,9 +30,9 @@ $template_loader->get_template_part( 'wpri', 'header' );
             if ( is_page( 'publication' ) ) {
                 $template_loader->get_template_part( 'wpri', 'publication' );
             }
-            if ( is_page( 'session' ) ) {
-                $template_loader->get_template_part( 'wpri', 'session' );
-            }
+            // if ( is_page( 'session' ) ) {
+            //     $template_loader->get_template_part( 'wpri', 'session' );
+            // }
             /* For the blogs
                 if ( have_posts() ) : while ( have_posts() ) : the_post();
 
