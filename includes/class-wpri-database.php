@@ -55,7 +55,7 @@ class WPRI_Database {
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
 
-		$settings_list = array('locale','position','title','agency','projectrole');
+		$settings_list = array('locale','position','title','agency','projectrole','role');
 		foreach ($settings_list as $setting_name){
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($setting_name)."'") != self::table_name($setting_name) ){
 				$sql = "CREATE TABLE  ". self::table_name($setting_name)."(
@@ -92,7 +92,9 @@ class WPRI_Database {
 			$sql = "CREATE TABLE  ".self::table_name("member")." (
 				id INT AUTO_INCREMENT PRIMARY KEY,
 				user INT,
+				role INT,
 				name tinytext
+				FOREIGN KEY (role) REFERENCES ".self::table_name("role")."(id)
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 		}
@@ -219,7 +221,9 @@ class WPRI_Database {
 	    'project_description',
 	    'project_member',
 		'locale_projectrole',
+		'locale_role',
 		'projectrole',
+		'role',
 	    'project',
 	    'member',
 	    'title',
@@ -303,6 +307,15 @@ class WPRI_Database {
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("publication_member"). " WHERE member = %d",
 							$member
+						)
+					);
+				}
+
+				public static function get_roles() {
+	 		 		return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("locale_role"). " WHERE locale= %d",
+							$locale
 						)
 					);
 				}
