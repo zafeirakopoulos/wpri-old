@@ -394,7 +394,7 @@ class WPRI_Database {
 
 					return array(
 						'user' => $user ,
-						'name' =>  $member->name
+						'name' =>  $member->name,
 						'title' => WPRI_Database::get_title($user),
 						'website' => get_usermeta($user,'website'),
 						'email' => get_usermeta($user,'email'),
