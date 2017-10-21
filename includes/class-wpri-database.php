@@ -302,7 +302,7 @@ class WPRI_Database {
 
 
 				public static function get_project_role($role) {
-					$locale=1;
+					$locale=$_SESSION['locale'];
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT name FROM " . self::table_name("locale_projectrole"). " WHERE projectrole = %d AND locale= %d",
@@ -387,7 +387,7 @@ class WPRI_Database {
 				}
 
 				public static function get_project_statuses() {
-					$locale=1;
+					$locale=$_SESSION['locale'];
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("locale_project_status"). " WHERE locale= %d",
