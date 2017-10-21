@@ -157,7 +157,7 @@ class WPRI_Publication {
 				echo '<span class="description">Choose funding agency if any.</span>';
 				echo '</td></tr>';
 
-				$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
+				$members = WPRI_Database::get_all_members();
 
 				echo '<tr>';
 				echo '<th><label for="members[]">Members that are authors</label></th>';
@@ -169,8 +169,7 @@ class WPRI_Publication {
 				echo '<span class="description">Choose (multiple) members that are authors.</span>';
 				echo '</td></tr>';
 
-			 	$project_table_name = $GLOBALS['wpdb']->prefix . "wpri_project" ;
-				$projects = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $project_table_name );
+				$projects = WPRI_Database::get_all_projects();
 
 				echo '<tr>';
 				echo '<th><label for="projects[]">Projects related to the publication</label></th>';
