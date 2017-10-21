@@ -182,7 +182,7 @@ class WPRI_Project {
 					if (!empty($_POST[$listname])){
 						foreach ( $_POST[$listname] as $project ) {
 							echo "user:"+ get_current_user_id();
-							$success = WPRI_Database::add_project_member($project,WPRI_Database::get_member_from_user(get_user()),$role);
+							$success = WPRI_Database::add_project_member($project,WPRI_Database::get_member_from_user(get_current_user_id()),$role);
 							// Returns the new id. 0 on fail.
 							if($success ) {
 								echo "<div class='updated'><p><strong>Added as ".$role->name.".</strong></p></div>";
