@@ -272,97 +272,95 @@ class WPRI_Admin {
 	 */
 	public function settings_menu() {
 		function wpri_settings_management() {
+			echo '<div class="wrap">';
+			echo '<h2>Manage Research Institute</h2>';
+			echo '<div class="wrap wpa">';
+
+			// If POST for adding
+			if( isset( $_POST['type']) && $_POST['type'] == 'add_member') {
+				$u_query = new WP_User_Query( array('include' => array($_POST["user"])));
+				$user = $u_query->results;
+				$new_member_id = WPRI_Database::add_member(array(
+					'user' => $_POST["user"],
+					'name' => $user[0]->display_name,
+					'position' => $_POST["position"]
+				));
+				if($new_member_id) {
+					echo "<div class='updated'><p><strong>Added.</strong></p></div>";
+				} else {
+			    	echo "<div class='error'><p>Unable to add.</p></div>";
+				}
+				// $new_post_id = add_member_page($new_member_id);
+			}
+
+			// If POST for deleting
+			if( isset( $_POST['type']) && $_POST['type'] == 'delete_member' ) {
+				$result = WPRI_Database::delete_member($_POST['member_id']);
+				if($result) {
+					echo "<div class='updated'><p><strong>Deleted.</strong></p></div>";
+				} else {
+			    	echo "<div class='error'><p>Unable to delete.</p></div>";
+				}
+			}
 
 
-						echo '<div class="wrap">';
-						echo '<h2>Manage Research Institute</h2>';
-						echo '<div class="wrap wpa">';
-
-						// If POST for adding
-						if( isset( $_POST['type']) && $_POST['type'] == 'add_member') {
-							$u_query = new WP_User_Query( array('include' => array($_POST["user"])));
-							$user = $u_query->results;
-							$new_member_id = WPRI_Database::add_member(array(
-								'user' => $_POST["user"],
-								'username' => $user[0]->display_name,
-								'position' => $_POST["position"]
-							));
-							if($new_member_id) {
-								echo "<div class='updated'><p><strong>Added.</strong></p></div>";
-							} else {
-						    	echo "<div class='error'><p>Unable to add.</p></div>";
-							}
-							// $new_post_id = add_member_page($new_member_id);
-						}
-
-						// If POST for deleting
-						if( isset( $_POST['type']) && $_POST['type'] == 'delete_member' ) {
-							$result = WPRI_Database::delete_member($_POST['member_id']);
-							if($result) {
-								echo "<div class='updated'><p><strong>Deleted.</strong></p></div>";
-							} else {
-						    	echo "<div class='error'><p>Unable to delete.</p></div>";
-							}
-						}
+			echo '<h3> Existing members: </h3>';
 
 
-						echo '<h3> Existing members: </h3>';
+			$all_members = WPRI_Database::get_all_members();
+			echo '<table>';
+		 	foreach ( $all_members as $member ) {
+				echo '<form name="delete_member" method="post" action="">';
+				echo '<tr>';
+				echo '<td><label>' . $member->username . ': </label></td>';
+				echo '<td> <input type="submit" name="delete_button' . $member->id  . '" value="Delete" class="button" />';
+		    	echo '<input type="hidden" name="type" value="delete_member" />';
+		   		echo '<input type="hidden" name="member_id" value=' . $member->id . '/></td>';
+				echo '</tr>';
+				echo '</form>';
+		    }
+			echo '</table>';
 
 
-						$all_members = WPRI_Database::get_all_members();
-						echo '<table>';
-					 	foreach ( $all_members as $member ) {
-							echo '<form name="delete_member" method="post" action="">';
-							echo '<tr>';
-							echo '<td><label>' . $member->username . ': </label></td>';
-							echo '<td> <input type="submit" name="delete_button' . $member->id  . '" value="Delete" class="button" />';
-					    	echo '<input type="hidden" name="type" value="delete_member" />';
-					   		echo '<input type="hidden" name="member_id" value=' . $member->id . '/></td>';
-							echo '</tr>';
-							echo '</form>';
-					    }
-						echo '</table>';
+			echo '<h3> Add member </h3>';
+			echo '<form name="add_member" method="post" action="">';
+			echo '<table class="form-table">';
+			$user_query = new WP_User_Query(array( 'role__not_in' => '' ) );
+			$users = $user_query->results;
+			echo '<tr>';
+			echo '<th><label>User</label></th>';
+			echo '<td>';
+			echo '<select name="user">';
+				foreach ( $users as $user ) {
+					echo '<option value='.$user->ID.'>'.$user->display_name.'</option>';
+				}
+			echo '</select>';
+			echo '<span class="description">Choose a user.</span>';
+			echo '</td></tr>';
 
+			// Change this to access rights (instead of position)
+			$position_table_name = $GLOBALS['wpdb']->prefix . "wpri_position" ;
+			$positions = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $position_table_name );
 
-						echo '<h3> Add member </h3>';
-						echo '<form name="add_member" method="post" action="">';
-						echo '<table class="form-table">';
-						$user_query = new WP_User_Query(array( 'role__not_in' => '' ) );
-						$users = $user_query->results;
-						echo '<tr>';
-						echo '<th><label>User</label></th>';
-						echo '<td>';
-						echo '<select name="user">';
-							foreach ( $users as $user ) {
-								echo '<option value='.$user->ID.'>'.$user->display_name.'</option>';
-							}
-						echo '</select>';
-						echo '<span class="description">Choose a user.</span>';
-						echo '</td></tr>';
+			echo '<tr>';
+			echo '<th><label>Position</label></th>';
+			echo '<td>';
+			echo '<select name="position">';
+			foreach ( $positions as $position ) {
+					echo '<option value='.$position->id.'>'.$position->name.'</option>';
+				}
+			echo '</select>';
+			echo '<span class="description">Choose a position.</span>';
+			echo '</td></tr>';
 
-						// Change this to access rights (instead of position)
-						$position_table_name = $GLOBALS['wpdb']->prefix . "wpri_position" ;
-						$positions = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $position_table_name );
+		    echo '<td><input type="submit" name="add_button" value="Add" class="button-secondary" />';
+		    echo '<input type="hidden" name="type" value="add_member" /></td>';
+		    echo '</tr>';
+			echo '</table>';
+			echo '</form>';
 
-						echo '<tr>';
-						echo '<th><label>Position</label></th>';
-						echo '<td>';
-						echo '<select name="position">';
-						foreach ( $positions as $position ) {
-								echo '<option value='.$position->id.'>'.$position->name.'</option>';
-							}
-						echo '</select>';
-						echo '<span class="description">Choose a position.</span>';
-						echo '</td></tr>';
-
-					    echo '<td><input type="submit" name="add_button" value="Add" class="button-secondary" />';
-					    echo '<input type="hidden" name="type" value="add_member" /></td>';
-					    echo '</tr>';
-						echo '</table>';
-						echo '</form>';
-
-						echo '</div>';
-						echo '</div>';
+			echo '</div>';
+			echo '</div>';
 		}
 
 		add_menu_page( 'Research Institute Management', 'Research Institute', 'manage_options', 'wpri-settings-menu','wpri_settings_management');
