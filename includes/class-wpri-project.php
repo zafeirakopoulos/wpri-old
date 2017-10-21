@@ -176,8 +176,8 @@ class WPRI_Project {
 
 			if( isset( $_POST['type']) && $_POST['type'] == 'add_member') {
 				foreach ( $projectroles as $role ) {
-					echo $_POST[ $role->name.'projects'];
-					foreach ( $_POST[ trim($role->name).'projects'] as $project ) {
+					echo $_POST[trim($role->name).'projects'];
+					foreach ( $_POST[trim($role->name).'projects'] as $project ) {
 						echo $project;
 						echo "user:"+ get_user();
 						$success = WPRI_Database::add_project_member($project,WPRI_Database::get_member_from_user(get_user()),$role);
