@@ -581,7 +581,7 @@ class WPRI_Database {
 						'funding' => $project["funding"]
 					)
 				);
-
+				$pid = $GLOBALS['wpdb']->insert_id;
 
 								// 	foreach ( $locales as $locale ) {
 								// 	$GLOBALS['wpdb']->insert( $mixed_table_name , array(
@@ -592,7 +592,14 @@ class WPRI_Database {
 								// }
 								//
 
-				return $GLOBALS['wpdb']->insert_id;
+				$GLOBALS['wpdb']->insert( self::table_name("project_member"),
+					array(
+						'project' => $pid,
+						'member' => $project["PI"],
+						'position' => "PI" //TODO make new table fro project roles
+					)
+				);
+				return ;
 			}
 
 			public static function delete_project( $project_id) {
