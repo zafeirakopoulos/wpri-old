@@ -340,6 +340,27 @@ class WPRI_Database {
 						)
 					);
 				}
+
+				public static function get_project_roles() {
+					$locale=1;
+	 		 		return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("locale_projectrole"). " WHERE locale= %d",
+							$locale
+						)
+					);
+				}
+
+ 				public static function get_member_from_user($user) {
+					$member = $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT id FROM " . self::table_name("member"). " WHERE user = %d", $user
+						)
+					)[0];
+					return $member;
+
+				}
+
 				///////////////////////////
 				// Member
 				///////////////////////////
@@ -373,6 +394,7 @@ class WPRI_Database {
 
 					return array(
 						'user' => $user ,
+						'name' =>  $member->name
 						'title' => WPRI_Database::get_title($user),
 						'website' => get_usermeta($user,'website'),
 						'email' => get_usermeta($user,'email'),
@@ -416,6 +438,15 @@ class WPRI_Database {
 					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
 				}
 
+				public static function member_participates_in_project_as($member,$project,$role) {
+
+					return (0!=  $GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("project_member"). " WHERE member = %d AND project = %d AND role = %d",
+							 $member, $project, $role
+						))
+					)
+				}
 				/////////////////////////////////////////////////////////////////////////////////
 				/////////////////////////////////////////////////////////////////////////////////
 
