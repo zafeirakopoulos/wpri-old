@@ -552,7 +552,7 @@ class WPRI_Database {
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("project_member"). " WHERE project = %d",
 							 $project_id
-						))
+						)
 					);
  				}
 
