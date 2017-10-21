@@ -467,6 +467,9 @@ class WPRI_Database {
 						$member
 					)
 				);
+				foreach ($projects as $key => $value) {
+					echo $key;
+				}
 				return $projects;
 			}
 
