@@ -193,6 +193,7 @@ class WPRI_Database {
     public static function drop_tables() {
 
 	    $tables_to_drop = array(
+		'projectrole',				
 	    'publication_member',
 	    'publication_project',
 		'publication',
@@ -204,7 +205,6 @@ class WPRI_Database {
 	    'locale_agency',
 		'description',
 	    'project_description',
-		'projectrole',				
 	    'project_member',
 	    'project',
 	    'member',
