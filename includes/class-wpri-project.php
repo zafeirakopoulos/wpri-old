@@ -177,7 +177,7 @@ class WPRI_Project {
 			if( isset( $_POST['type']) && $_POST['type'] == 'add_member') {
 				foreach ( $projectroles as $role ) {
 					echo $_POST[ $role->name.'projects'];
-					foreach ( $_POST[ $role->name.'projects'] as $project ) {
+					foreach ( $_POST[ trim($role->name).'projects'] as $project ) {
 						echo $project;
 						echo "user:"+ get_user();
 						$success = WPRI_Database::add_project_member($project,WPRI_Database::get_member_from_user(get_user()),$role);
@@ -199,7 +199,7 @@ class WPRI_Project {
 			foreach ( $projectroles as $role ) {
 				echo '<tr>';
 				echo '<th><label">'.$role->name.' in:</label></th>';
-				echo '<td><select size="4" multiple="multiple" name="'.$role->name.'projects[]">';
+				echo '<td><select size="4" multiple="multiple" name="'.trim($role->name).'projects[]">';
 					foreach ( $projects as $project ) {
 					echo '<option value='.$project->id. ' ' . ( WPRI_Database::member_participates_in_project_as(WPRI_Database::get_member_from_user($user)->id, $project->id,$role->role)? 'selected ' : ' ') .'>'.$project->title.'</option>';
 					}
