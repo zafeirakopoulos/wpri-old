@@ -365,6 +365,8 @@ class WPRI_Database {
 					);
 				}
 
+ 
+
  				public static function get_member_from_user($user) {
 					$member = $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
