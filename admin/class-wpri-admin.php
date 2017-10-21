@@ -130,15 +130,15 @@ class WPRI_Admin {
 
 
 
-		$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
-		$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
-
+		// $member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
+		// $members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
+		$members = WPRI_Database::get_all_members();
 		echo '<tr>';
 		echo '<th><label>Advisor</label></th>';
 		echo '<td>';
 		echo '<select name="advisor">';
 			foreach ( $members as $member ) {
-				echo '<option value='.$member->id. ' ' . ( $member->id == get_usermeta($user,'advisor')? 'selected ' : ' ') .'>'.$member->username.'</option>';
+				echo '<option value='.$member->id. ' ' . ( $member->id == get_usermeta($user,'advisor')? 'selected ' : ' ') .'>'.$member->name.'</option>';
 			}
 		echo '</select>';
 		echo '<span class="description"> </span>';
