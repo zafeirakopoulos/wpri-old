@@ -537,7 +537,7 @@ class WPRI_Database {
 			}
 
 			public static function add_member($member) {
-				$GLOBALS['wpdb']->insert( $table_name , $member);
+				$GLOBALS['wpdb']->insert( self::table_name("member")  , $member);
 				return $GLOBALS['wpdb']->insert_id;
 			}
 
