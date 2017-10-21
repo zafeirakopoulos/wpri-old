@@ -42,24 +42,7 @@ class WPRI_Project {
 			echo '<div class="wrap">';
 			echo '<h2>Manage Projects</h2>';
 			echo '<div class="wrap wpa">';
-
-			// If POST for adding
-			if( isset( $_POST['type']) && $_POST['type'] == 'add_project') {
-				$project = array(
-					'title' => $_POST["title"],
-					'PI' => $_POST["pi"],
-					'budget' => $_POST["budget"],
-					'website' => $_POST["website"],
-					'funding' => $_POST["agency"]
-				);
-				$success = WPRI_Database::add_project($project);
-				// Returns the new id. 0 on fail.
-				if($success ) {
-			    	echo "<div class='updated'><p><strong>Added.</strong></p></div>";
-				} else {
-			    	echo "<div class='error'><p>Unable to add.</p></div>";
-				}
-			}
+ 
 
 			// If POST for deleting
 			if( isset( $_POST['type']) && $_POST['type'] == 'delete_project') {
@@ -84,7 +67,41 @@ class WPRI_Project {
 				echo '</form>';
 		    }
 			echo '</table>';
-			echo '<h3> Add new project: </h3>';
+			echo '</div>';
+			echo '</div>';
+		}
+		add_menu_page( 'Projects', 'Projects', 'read', 'wpri-project-menu','wpri_project_management');
+
+		function wpri_project_add_management() {
+			$locales  = WPRI_Database::get_locales();
+			$projects = WPRI_Database::get_all_projects();
+			$members  = WPRI_Database::get_all_members();
+			$agencies = WPRI_Database::get_agencies();
+
+
+			echo '<div class="wrap">';
+			echo '<h2>Add new project</h2>';
+			echo '<div class="wrap wpa">';
+
+			// If POST for adding
+			if( isset( $_POST['type']) && $_POST['type'] == 'add_project') {
+				$project = array(
+					'title' => $_POST["title"],
+					'PI' => $_POST["pi"],
+					'budget' => $_POST["budget"],
+					'website' => $_POST["website"],
+					'funding' => $_POST["agency"]
+				);
+				$success = WPRI_Database::add_project($project);
+				// Returns the new id. 0 on fail.
+				if($success ) {
+					echo "<div class='updated'><p><strong>Added.</strong></p></div>";
+				} else {
+					echo "<div class='error'><p>Unable to add.</p></div>";
+				}
+			}
+
+			echo '</table>';
 			echo '<form name="add_project" method="post" action="">';
 			echo '<table class="form-table">';
 			echo '<tr>';
@@ -93,7 +110,7 @@ class WPRI_Project {
 			echo '<span class="description">As appears for funding agency.</span>';
 			echo '</td></tr>';
 
-		 	foreach ( $locales as $locale ) {
+			foreach ( $locales as $locale ) {
 				echo '<tr>';
 				echo '<th><label>' . $locale->name . '</label></th>';
 				echo '<td><textarea id="title_' . $locale->id . '" name="title_' . $locale->id . '" cols="60" rows="1"></textarea>';
@@ -101,7 +118,7 @@ class WPRI_Project {
 				echo '</td></tr>';
 			}
 
-		 	foreach ( $locales as $locale ) {
+			foreach ( $locales as $locale ) {
 				echo '<tr>';
 				echo '<th><label>Description (' . $locale->name . ')</label></th>';
 				echo '<td><textarea id="description_' . $locale->id . '" name="description_' . $locale->id . '" cols="70" rows="6"></textarea>';
@@ -126,7 +143,7 @@ class WPRI_Project {
 			echo '<span class="description">As appears for funding agency.</span>';
 			echo '</td></tr>';
 
-		 	echo '<tr>';
+			echo '<tr>';
 			echo '<th><label>Website</label></th>';
 			echo '<td><textarea id="website" name="website" cols="70" rows="1"></textarea>';
 			echo '<span class="description">A URL</span>';
@@ -143,17 +160,17 @@ class WPRI_Project {
 			echo '<span class="description">Choose funding agency.</span>';
 			echo '</td></tr>';
 
-		    echo '<tr>';
-		    echo '<td><input type="submit" name="add_button" value="Add Project" class="button-secondary" />';
-		    echo '<input type="hidden" name="type" value="add_project"/></td>';
-		    echo '</tr>';
+			echo '<tr>';
+			echo '<td><input type="submit" name="add_button" value="Add Project" class="button-secondary" />';
+			echo '<input type="hidden" name="type" value="add_project"/></td>';
+			echo '</tr>';
 			echo '</table>';
 
 			echo '</form>';
 			echo '</div>';
 			echo '</div>';
 		}
-		add_menu_page( 'Projects', 'Projects', 'read', 'wpri-project-menu','wpri_project_management');
+		add_submenu_page( 'wpri-project-menu','Project Add','Add' ,  'manage_options', 'wpri-project-add' , 'wpri_project_add_management');
 
 		function wpri_project_participate_management() {
 
