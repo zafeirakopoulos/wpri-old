@@ -351,9 +351,9 @@ class WPRI_Admin {
 					'position' => $_POST["position"]
 				));
 				if($new_member_id) {
-					echo "<div class="updated"><p><strong>Added.</strong></p></div>";
+					echo "<div class='updated'><p><strong>Added.</strong></p></div>";
 				} else {
-			    	echo "<div class="error"><p>Unable to add.</p></div>";
+			    	echo "<div class='error'><p>Unable to add.</p></div>";
 				}
 				$new_post_id = add_member_page($new_member_id);
 			}
@@ -362,9 +362,9 @@ class WPRI_Admin {
 			if( isset( $_POST['type']) && $_POST['type'] == 'delete_member' ) {
 				$results = WPRI_Database::delete_member($_POST['member_id']);
 				if($result) {
-					echo "<div class="updated"><p><strong>Deleted.</strong></p></div>";
+					echo "<div class='updated'><p><strong>Deleted.</strong></p></div>";
 				} else {
-			    	echo "<div class="error"><p>Unable to delete.</p></div>";
+			    	echo "<div class='error'><p>Unable to delete.</p></div>";
 				}
 			}
 
