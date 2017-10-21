@@ -561,6 +561,14 @@ class WPRI_Database {
 					);
  				}
 
+				public static function get_project_publications($project_id) {
+					return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("project_publication"). " WHERE project = %d",
+							 $project_id
+						)
+					);
+ 				}
 				public static function member_participates_in_project_as($member,$project,$role) {
 
 					return (0!=  $GLOBALS['wpdb']->query(
@@ -585,6 +593,14 @@ class WPRI_Database {
 					return $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("project"). " WHERE id = %d", $project_id
+						)
+					)[0];
+ 				}
+
+				public static function get_publication( $publication_id) {
+					return $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("publication"). " WHERE id = %d", $publication_id
 						)
 					)[0];
  				}
