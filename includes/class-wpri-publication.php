@@ -200,7 +200,7 @@ class WPRI_Publication {
 				echo '</div>';
 			}
 			add_submenu_page( 'wpri-publication-menu','Publication Add','Add' ,  'manage_options', 'wpri-publication-add' , 'wpri_publication_add_management');
- 
+ 		}
 
 
 
