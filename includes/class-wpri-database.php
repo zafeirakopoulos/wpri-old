@@ -467,8 +467,8 @@ class WPRI_Database {
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
 					)
 				);
-				$user = $member_data->user;
-				echo "t-->"+ $user; 
+				$user = $member_data[0]->user;
+				echo "t-->"+ $user;
 				return array(
 					'user' => $user ,
 					"title" => WPRI_Database::get_title($user),
