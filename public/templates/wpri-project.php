@@ -5,7 +5,7 @@
 					$project = WPRI_Database::get_project_full($project_id);
 
 					echo "<br>";
-					echo $_SESSION['locale'];
+					echo "locale:".$_SESSION['locale'];
 					echo "<tr><h3 class='project'>";
 					echo $project['title'];
 					echo $project['position']."<br>";
