@@ -292,7 +292,7 @@ class WPRI_Database {
 				public static function get_projects_by_member($member) {
 					$projects =  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
-							"SELECT * FROM " . self::table_name("project_member"). " WHERE member = %d",
+							"SELECT project FROM " . self::table_name("project_member"). " WHERE member = %d",
 							$member
 						)
 					);
@@ -452,8 +452,12 @@ class WPRI_Database {
 				}
 
 				public static function get_project( $project_id) {
-
-				}
+					return $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("project"). " WHERE id = %d", $project_id
+						)
+					)[0];
+ 				}
 
 				public static function add_project( $project) {
 					$GLOBALS['wpdb']->insert( self::table_name("project"),
