@@ -24,7 +24,7 @@
 					echo "Projects:<br>";
 					echo "<table>";
 					foreach ($member['projects'] as $project_id) {
-						$project = WPRI_Database::get_project( $project_id);
+						$project = WPRI_Database::get_project( $project_id->project);
 						echo "<tr>";
 		 				echo "<td>" . $project->title . "<td>";
 		 				echo "<td>" . $project->PI . "<td>";
