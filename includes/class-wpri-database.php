@@ -500,6 +500,24 @@ class WPRI_Database {
 					// 		"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
 					// 	));
 					// }
+					$GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("project_description"). " WHERE project = %d", $project_id
+						)
+					);
+
+					$GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("member_project"). " WHERE project = %d", $project_id
+						)
+					);
+
+					$GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("publication_project"). " WHERE project = %d", $project_id
+						)
+					);
+
 
 					return $GLOBALS['wpdb']->query(
 						$GLOBALS['wpdb']->prepare(
