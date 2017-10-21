@@ -205,12 +205,12 @@ class WPRI_Database {
 		'description',
 	    'project_description',
 	    'project_member',
-		'projectrole',
 	    'project',
 	    'member',
 	    'title',
 	    'position',
 	    'agency',
+		'projectrole',		
 	    'locale'
 	    );
 	    foreach($tables_to_drop as $table_name){
