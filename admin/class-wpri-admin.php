@@ -165,28 +165,6 @@ class WPRI_Admin {
 	    echo '</table>';
 
 
-	    echo '<h3>Projects</h3>';
-	    echo '<table class="form-table">';
-		$projectroles = WPRI_Database::get_project_roles();
-		$projects = WPRI_Database::get_all_projects();
-
-		echo '<tr>';
-		echo '<th><label">Projects</label></th>';
-
-		foreach ( $projectroles as $role ) {
-			echo '<th><label">'.$role->name.' in projects:</label></th>';
-			echo '<td><select size="4" multiple="multiple" name="'.$role->name.'projects[]">';
-				foreach ( $projects as $project ) {
-				echo '<option value='.$project->id. ' ' . ( WPRI_Database::member_participates_in_project_as(WPRI_Database::get_member_from_user($user)->id, $project->id,$role->role)? 'selected ' : ' ') .'>'.$project->title.'</option>';
-				}
-			echo '</select>';
-			echo '<span class="description">Choose projects you participate as '.$role->name.'.</span>';
-			echo '</td></tr>';
-
-		}
-		echo '</td></tr>';
-	    echo '</table>';
-
 
 	    echo '<h3>Education</h3>';
 
