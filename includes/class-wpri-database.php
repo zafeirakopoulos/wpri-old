@@ -468,6 +468,9 @@ class WPRI_Database {
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
 					)
 				);
+				foreach ($variable as $key => $value) {
+					echo $key + ":" + $value;
+				}
 				$user = $member_data[0]->user;
 				echo "t-->"+ $user;
 				return array(
