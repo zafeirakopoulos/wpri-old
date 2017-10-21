@@ -467,11 +467,8 @@ class WPRI_Database {
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
 					)
 				);
-				echo $member;
-				echo $member_id;
 				$user = $member->user;
 				echo $user;
-				echo $member->username;
 
 				return array(
 					'user' => $user ,
