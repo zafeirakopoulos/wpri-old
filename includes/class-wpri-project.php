@@ -33,10 +33,10 @@ class WPRI_Project {
 	public function project_menu() {
 
 		function wpri_project_management() {
-			$locales  = WPRI_Database::get_wpri_locales();
-			$projects = WPRI_Database::get_wpri_projects();
-			$members  = WPRI_Database::get_wpri_members();
-			$agencies = WPRI_Database::get_wpri_agencies();
+			$locales  = WPRI_Database::get_locales();
+			$projects = WPRI_Database::get_all_projects();
+			$members  = WPRI_Database::get_all_members();
+			$agencies = WPRI_Database::get_agencies();
 
 
 			echo '<div class="wrap">';
@@ -119,7 +119,7 @@ class WPRI_Project {
 			echo '</select>';
 			echo '<span class="description">As appears for funding agency.</span>';
 			echo '</td></tr>';
-			
+
 			echo '<tr>';
 			echo '<th><label>Budget</label></th>';
 			echo '<td><textarea id="budget" name="budget" cols="15" rows="1"></textarea>';

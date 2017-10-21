@@ -559,7 +559,7 @@ class WPRI_Database {
 			/////////////////////////////////////////////////////////////////////////////////
 
 
-			public static function get_wpri_projects() {
+			public static function get_all_projects() {
 				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("project") );
 			}
 
@@ -567,7 +567,7 @@ class WPRI_Database {
 
 			}
 
-			public static function add_wpri_project( $project) {
+			public static function add_project( $project) {
 				$GLOBALS['wpdb']->insert( self::table_name("project"),
 					array(
 						'title' => $project["title"],
@@ -591,7 +591,7 @@ class WPRI_Database {
 				return $GLOBALS['wpdb']->insert_id;
 			}
 
-			public static function delete_wpri_project( $project_id) {
+			public static function delete_project( $project_id) {
 
 				// foreach ( $locales as $locale ) {
 				// 	$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
@@ -606,14 +606,12 @@ class WPRI_Database {
 				);
 			}
 
-			public static function get_wpri_projects_by_member( $member_id) {
 
-			}
-			public static function get_wpri_locales() {
+			public static function get_locales() {
 				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"));
 			}
 
-			public static function get_wpri_agencies() {
+			public static function get_agencies() {
 				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("agency"));
 			}
 
