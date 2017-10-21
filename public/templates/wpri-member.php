@@ -30,7 +30,6 @@
 					}
 					echo "</table>";
 
-					echo "Education:<br>";
 
 					echo "Projects:<br>";
 					echo "<table>";
@@ -44,5 +43,8 @@
 						echo "</tr>";
 					}
 					echo "</table>";
+
+					echo "Education:<br>";
+
 				?>
 			</div><!-- #member -->
