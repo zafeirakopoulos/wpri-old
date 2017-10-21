@@ -546,8 +546,17 @@ class WPRI_Database {
 			}
 
 			public static function delete_member($member_id) {
-
+				$result = $GLOBALS['wpdb']->query(
+					$GLOBALS['wpdb']->prepare(
+						"DELETE FROM " . self::table_name("member") . " WHERE id = %d", $member_id)
+					 );
+				return $result;
 			}
+
+			public static function get_all_members() {
+				return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
+			}
+
 			/////////////////////////////////////////////////////////////////////////////////
 			/////////////////////////////////////////////////////////////////////////////////
 
