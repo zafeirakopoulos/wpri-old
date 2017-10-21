@@ -466,7 +466,7 @@ class WPRI_Database {
 					$GLOBALS['wpdb']->prepare(
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
 					)
-				);
+				)[0];
 				$user = $member->user;
 				echo $user;
 
