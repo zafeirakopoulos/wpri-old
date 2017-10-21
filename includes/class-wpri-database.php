@@ -435,42 +435,25 @@ class WPRI_Database {
 			// Helper
 			///////////////////////////
 
-			// TODO: Join instead of two calls
-			public static function get_title($member_id) {
+			public static function get_title($user) {
 				$locale=1;
-				$title_id = $GLOBALS['wpdb']->query(
-					$GLOBALS['wpdb']->prepare(
-						"SELECT title FROM " . self::table_name("member"). " WHERE id = %d", $member_id
-					)
-				);
-
-				$title = $GLOBALS['wpdb']->query(
+ 		 		return $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d",
-						$title, $locale
+						get_usermeta($user,'title'), $locale
 					)
 				);
-
-				return $title;
 			}
 
-			// TODO: Join instead of two calls
-			public static function get_position($member_id) {
+			public static function get_position($user) {
 				$locale=1;
-				$position_id = $GLOBALS['wpdb']->query(
-					$GLOBALS['wpdb']->prepare(
-						"SELECT position FROM " . self::table_name("member"). " WHERE id = %d", $member_id
-					)
-				);
 
-				$position = $GLOBALS['wpdb']->query(
+				return $GLOBALS['wpdb']->query(
 					$GLOBALS['wpdb']->prepare(
 						"SELECT name FROM " . self::table_name("locale_position"). " WHERE position = %d AND locale= %d",
-						$title, $locale
+						get_usermeta($user,'position'), $locale
 					)
 				);
-
-				return $position;
 			}
 
 			///////////////////////////
@@ -484,12 +467,13 @@ class WPRI_Database {
 						"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
 					)
 				);
+				$user = $member_data->user;
 				return array(
-					"user" =>  $member_data->user,
-					"title" => WPRI_Database::get_title($member_id),
-					"website" => "Null",
-					"email" => "Null",
-					"position" => WPRI_Database::get_position($member_id),
+					"user" => $user ,
+					"title" => WPRI_Database::get_title($user),
+					"website" => get_usermeta($user,'website'),
+					"email" => get_usermeta($user,'email'),
+					"position" => WPRI_Database::get_position($user),
 					"name" => "Null"
 				);
 			}
