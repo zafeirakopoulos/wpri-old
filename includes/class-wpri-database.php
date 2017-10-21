@@ -494,39 +494,30 @@ class WPRI_Database {
 						'locale_title' => $project_locale_data->title,
 						'locale_description' => $project_locale_data->description,
 						'PI' => WPRI_Database::get_project_pi($project->pi, $project_id),
+						'status' => WPRI_Database::get_status($project->status),
+					);
+				}
+
+				// This should return full information, gathered from different tables
+				// For the main project page
+				public static function get_project_full($project_id) {
+					$project = $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("project"). " WHERE id = %d", $project_id
+						)
+					)[0];
+					$project_locale_data = WPRI_Database::get_locale_project_description($project_id);
+					return array(
+						'title' => $project->title,
+						'locale_title' => $project_locale_data->title,
+						'locale_description' => $project_locale_data->description,
+						'PI' => WPRI_Database::get_project_pi($project->pi, $project_id),
 						'budget' => $project->budget,
 						'website' => $project->website,
 						'startdate' => $project->startdate,
 						'enddate' => $project->enddate,
 						'status' => WPRI_Database::get_status($project->status),
 						'funding' =>  WPRI_Database::get_funding_agency($project->funding)
-					);
-				}
-
-				// This should return full information, gathered from different tables
-				// For the main project page
-				// TODO
-				public static function get_project_full($member_id) {
-					$member = $GLOBALS['wpdb']->get_results(
-						$GLOBALS['wpdb']->prepare(
-							"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
-						)
-					)[0];
-					$user = $member->user;
-
-					return array(
-						'user' => $user ,
-						'name' =>  $member->name,
-						'title' => WPRI_Database::get_title($user),
-						'website' => get_usermeta($user,'website'),
-						'email' => get_usermeta($user,'email'),
-						'position' => WPRI_Database::get_position($user),
-	 					'alumni' => get_usermeta($user,'alumni'),
-						'office' => get_usermeta($user,'office'),
-						'phone' => get_usermeta($user,'phone'),
-						'advisor' =>  WPRI_Database::get_advisor(get_usermeta($user,'advisor')),
-						'projects' => WPRI_Database::get_projects_by_member($member_id),
-						'publications'=> WPRI_Database::get_publications_by_member($member_id)
 					);
 				}
 
