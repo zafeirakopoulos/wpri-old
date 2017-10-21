@@ -93,7 +93,7 @@ class WPRI_Database {
 				id INT AUTO_INCREMENT PRIMARY KEY,
 				user INT,
 				role INT,
-				name tinytext
+				name tinytext,
 				FOREIGN KEY (role) REFERENCES ".self::table_name("role")."(id)
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
