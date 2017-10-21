@@ -547,6 +547,14 @@ class WPRI_Database {
 					return $ids;
 				}
 
+				public static function get_publication_ids() {
+					$pids = $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("publication") );
+					$ids = Array();
+					foreach ( $pids as $id ) {
+						array_push($ids,$id->id);
+					}
+					return $ids;
+				}
 				public static function add_member($member) {
 					$GLOBALS['wpdb']->insert( self::table_name("member")  , $member);
 					return $GLOBALS['wpdb']->insert_id;
