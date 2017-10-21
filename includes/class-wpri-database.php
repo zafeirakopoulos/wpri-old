@@ -495,6 +495,46 @@ class WPRI_Database {
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "En_US"));
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "Tr_TR"));
 
+
+			/* Create  roles*/
+			$table_name = $GLOBALS['wpdb']->prefix . "wpri_role";
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "admin"));
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_role") , array(
+				'name' => "admin",
+				'locale' => 1,
+				'role' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_role") , array(
+				'name' => "admin",
+				'locale' => 2,
+				'role' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "manager"));
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_role") , array(
+				'name' => "manager",
+				'locale' => 1,
+				'role' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_role") , array(
+				'name' => "manager",
+				'locale' => 2,
+				'role' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "member"));
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_role") , array(
+				'name' => "member",
+				'locale' => 1,
+				'role' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_role") , array(
+				'name' => "member",
+				'locale' => 2,
+				'role' => $insert_id)
+			);
+
 			/* Create project roles*/
 			$table_name = $GLOBALS['wpdb']->prefix . "wpri_projectrole";
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "PI"));
