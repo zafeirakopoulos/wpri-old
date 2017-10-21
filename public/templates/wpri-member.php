@@ -23,11 +23,11 @@
 
 					echo "Projects:<br>";
 					echo "<table>";
-					foreach ($member['projects'] as $project_id) {
-						$project = WPRI_Database::get_project( $project_id->project);
+					foreach ($member['projects'] as $project_member) {
+						$project = WPRI_Database::get_project( $project_member->project);
 						echo "<tr>";
 		 				echo "<td>" . $project->title . "<td>";
-						echo "<td>" . $project->role . "<td>";
+						echo "<td>" . $project_member->role . "<td>";
 		 				echo "<td>" . $project->PI . "<td>";
 		 				echo "<td>" . $project->funding . "<td>";
 						echo "</tr>";
