@@ -506,7 +506,7 @@ class WPRI_Database {
 				// This should return full information, gathered from different tables
 				// For the main project page
 				// TODO
-				public static function get_project($member_id) {
+				public static function get_project_full($member_id) {
 					$member = $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
