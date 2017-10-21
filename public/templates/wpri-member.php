@@ -19,6 +19,17 @@
 					echo "</p></td></tr>";
 					echo "</table>";
 
+					echo "Publications:<br>";
+					echo "<table>";
+					$member_publications = WPRI_Database::get_member_publications($member_id);
+					foreach ($member_publications as $publication) {
+						echo "<tr>";
+						$pub = WPRI_Database::get_publication($publication->pub);
+						echo "<td><a href='".site_url()."/publication?id=".$pub->id."'>" . $pub->title."</a><td>";
+						echo "</tr>";
+					}
+					echo "</table>";
+
 					echo "Education:<br>";
 
 					echo "Projects:<br>";
