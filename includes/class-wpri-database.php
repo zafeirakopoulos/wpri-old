@@ -556,6 +556,9 @@ class WPRI_Database {
 				/////////////////////////////////////////////////////////////////////////////////
 				/////////////////////////////////////////////////////////////////////////////////
 
+				public static function get_all_publications() {
+					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("publication") );
+				}
 
 				public static function get_all_projects() {
 					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("project") );
