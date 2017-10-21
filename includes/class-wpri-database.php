@@ -468,15 +468,13 @@ class WPRI_Database {
 					)
 				)[0];
 				$user = $member->user;
-				echo $user;
-
 				return array(
 					'user' => $user ,
 					"title" => WPRI_Database::get_title($user),
 					"website" => get_usermeta($user,'website'),
 					"email" => get_usermeta($user,'email'),
 					"position" => WPRI_Database::get_position($user),
-					"name" => "Null"
+					"name" =>  $member->username
 				);
 			}
 			// This should return full information, gathered from different tables
