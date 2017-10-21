@@ -485,12 +485,12 @@ class WPRI_Database {
 					)
 				);
 				return array(
-					"user" =  $member_data->user,
-					"title" = WPRI_Database::get_title($member_id),
-					"website" = "Null",
-					"email" ="Null",
-					"position" = WPRI_Database::get_position($member_id),
-					"name" ="Null"
+					"user" =>  $member_data->user,
+					"title" => WPRI_Database::get_title($member_id),
+					"website" => "Null",
+					"email" => "Null",
+					"position" => WPRI_Database::get_position($member_id),
+					"name" => "Null"
 				);
 			}
 			// This should return full information, gathered from different tables
