@@ -91,8 +91,8 @@ class WPRI_Project {
 					'budget' => $_POST["budget"],
 					'website' => $_POST["website"],
 					'funding' => $_POST["agency"],
-					'starting' => $_POST["startdate"],
-					'ending' => $_POST["enddate"],
+					'startdate' => $_POST["startdate"],
+					'enddate' => $_POST["enddate"],
 					'status' => $_POST["status"]
 				);
 				$success = WPRI_Database::add_project($project);
@@ -161,6 +161,29 @@ class WPRI_Project {
 				}
 			echo '</select>';
 			echo '<span class="description">Choose funding agency.</span>';
+			echo '</td></tr>';
+
+			echo '<tr>';
+			echo '<th><label>Status</label></th>';
+			echo '<td>';
+			echo '<select name="status">';
+				foreach ( WPRI_Database::get_project_statuses() as $status ) {
+					echo '<option value='.$status->id.'>'.$status->name.'</option>';
+				}
+			echo '</select>';
+			echo '<span class="description">Current status.</span>';
+			echo '</td></tr>';
+
+			echo '<tr>';
+			echo '<th><label>Start date</label></th>';
+			echo '<td><textarea id="startdate" name="startdate" cols="25" rows="1"></textarea>';
+			echo '<span class="description">Starting date.</span>';
+			echo '</td></tr>';
+
+			echo '<tr>';
+			echo '<th><label>End date</label></th>';
+			echo '<td><textarea id="enddate" name="enddate" cols="25" rows="1"></textarea>';
+			echo '<span class="description">Ending date.</span>';
 			echo '</td></tr>';
 
 			echo '<tr>';
