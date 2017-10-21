@@ -484,24 +484,11 @@ class WPRI_Database {
 				);
 				$member_user =  $member_data->user ;
 				$member_title = WPRI_Database::get_title($member_id, $locale)
-				$member_website =
-				$member_email =
+				$member_website = "Null";
+				$member_email ="Null";
 				$member_position = WPRI_Database::get_position($member_id, $locale)
-				$member_displayname =
-
-
-						   					echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
-											echo "<table>";
-											echo "<tr><h3 class='faculty'>";
-											echo $atitle." ".$fname." ".$lname;
-											echo "</h3></tr>";
-											echo "<tr><td>";
-											echo get_avatar( $member->user );
-											echo "</td>";
-											echo "<td><p>";
-											echo $position."<br>";
-											echo $member->website."<br>";
-											echo $email."<br>";
+				$member_name ="Null";
+				return 
 			}
 			// This should return full information, gathered from different tables
 			public static function get_member($member_id) {
