@@ -35,7 +35,7 @@ class WPRI_Pages {
 
 	public static function create_pages() {
 
-		$pages_list = array('Faculty','Research','Projects','Publications','Contact',"Positions");
+		$pages_list = array('Faculty','Research','Projects','Publications','Contact',"Positions","member");
 		foreach ($pages_list as $page_name){
 			//if (isset($_GET['activated']) && is_admin()){
 			    $page_title = $page_name;
@@ -55,20 +55,20 @@ class WPRI_Pages {
 
  	}
 
-	public static function create_member_page($id,$name) {
-			    $page_title = $name;
-			    $page_check = get_page_by_title($page_title);
-			    $page = array(
-				    'post_type' => 'page',
-				    'post_title' => $page_title,
-				    'post_status' => 'publish',
-				    'post_author' => 1,
-				    'post_slug' => id
-			    );
-			 	if(!isset($page_check->ID) ){
-       				$page_id = wp_insert_post($page);
-			    }
-	}
+	// public static function create_member_page($id,$name) {
+	// 		    $page_title = $name;
+	// 		    $page_check = get_page_by_title($page_title);
+	// 		    $page = array(
+	// 			    'post_type' => 'page',
+	// 			    'post_title' => $page_title,
+	// 			    'post_status' => 'publish',
+	// 			    'post_author' => 1,
+	// 			    'post_slug' => id
+	// 		    );
+	// 		 	if(!isset($page_check->ID) ){
+    //    				$page_id = wp_insert_post($page);
+	// 		    }
+	// }
 
 
 

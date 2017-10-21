@@ -227,6 +227,7 @@ class WPRI_Admin {
 	{
 	    if ( !current_user_can( 'edit_user', $user_id ) ) { return false; }else{
 
+
 		if(isset($_POST['title']) && $_POST['title'] != ""){
 		    update_usermeta( $user_id, 'title', $_POST['title'] );
 		}
@@ -328,13 +329,13 @@ class WPRI_Admin {
 	public function settings_member_menu() {
 		function wpri_settings_member_management() {
 
-			# TODO
-			function add_member_page($member_id) {
-			 	$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
-				$member = $GLOBALS['wpdb']->get_row("SELECT * FROM " . $member_table_name . " WHERE id = ". $member_id);
-				//$new_post_id = $WPRI_Pages::create_member_page($member_id,member)
-				return $new_post_id;
-			}
+			// # TODO
+			// function add_member_page($member_id) {
+			//  	$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
+			// 	$member = $GLOBALS['wpdb']->get_row("SELECT * FROM " . $member_table_name . " WHERE id = ". $member_id);
+			// 	//$new_post_id = $WPRI_Pages::create_member_page($member_id,member)
+			// 	return $new_post_id;
+			// }
 
 
 			echo '<div class="wrap">';
@@ -355,7 +356,7 @@ class WPRI_Admin {
 				} else {
 			    	echo "<div class='error'><p>Unable to add.</p></div>";
 				}
-				$new_post_id = add_member_page($new_member_id);
+				// $new_post_id = add_member_page($new_member_id);
 			}
 
 			// If POST for deleting
