@@ -190,9 +190,11 @@ class WPRI_Project {
 				}
 			}
 		    echo '<h2>Project Participation</h2>';
-		    echo '<table class="form-table">';
-			$projectroles = WPRI_Database::get_project_roles();
+ 			$projectroles = WPRI_Database::get_project_roles();
 			$projects = WPRI_Database::get_all_projects();
+
+			echo '<form name="add_project" method="post" action="">';
+			echo '<table class="form-table">';
 			foreach ( $projectroles as $role ) {
 				echo '<tr>';
 				echo '<th><label">'.$role->name.' in:</label></th>';
@@ -208,7 +210,9 @@ class WPRI_Project {
 			echo '<td><input type="submit" name="add_button" value="Add me as member in these projects" class="button-secondary" />';
 			echo '<input type="hidden" name="type" value="add_member"/></td>';
 			echo '</tr>';
+
 	  		echo '</table>';
+			echo '</form>';
 		}
 		add_submenu_page( 'wpri-project-menu','Project Participation','Participation' ,  'manage_options', 'wpri-project-participate' , 'wpri_project_participate_management');
 
