@@ -280,6 +280,27 @@ class WPRI_Database {
 					)[0]->name;
 				}
 
+				public static function get_status($status) {
+					$locale=1;
+	 		 		return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT name FROM " . self::table_name("locale_project_status"). " WHERE project_status = %d AND locale= %d",
+							$status, $locale
+						)
+					)[0]->name;
+				}
+
+				public static function get_funding_agency($agency) {
+					$locale=1;
+					return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT name FROM " . self::table_name("locale_agency"). " WHERE agency = %d AND locale= %d",
+							$agency, $locale
+						)
+					)[0]->name;
+				}
+
+
 				public static function get_project_role($role) {
 					$locale=1;
 	 		 		return  $GLOBALS['wpdb']->get_results(
@@ -438,6 +459,81 @@ class WPRI_Database {
 					$mids = $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("member") );
 					$ids = Array();
 					foreach ( $mids as $id ) {
+						array_push($ids,$id->id);
+					}
+					return $ids;
+				}
+
+				public static function get_locale_project_description($project_id) {
+					$locale=1;
+					return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("project_description"). " WHERE locale= %d AND project= %d",
+							$locale, $project_id
+						)
+					);
+				}
+
+
+ 				public static function get_project_pi($project_id) {
+					// Choose from users or collaborators
+					return "TODO";
+
+				}
+
+				// For the thumbs in the projects page
+				public static function get_project_short($project_id) {
+					$project = $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("project"). " WHERE id = %d", $project_id
+						)
+					)[0];
+					$project_locale_data = WPRI_Database::get_locale_project_description($project_id);
+					return array(
+						'title' => $project->title,
+						'locale_title' => $project_locale_data->title,
+						'locale_description' => $project_locale_data->description,
+						'PI' => WPRI_Database::get_project_pi($project->pi, $project_id),
+						'budget' => $project->budget,
+						'website' => $project->website,
+						'startdate' => g$project->startdate,
+						'enddate' => $project->enddate,
+						'status' => WPRI_Database::get_status($project->status),
+						'funding' =>  WPRI_Database::get_funding_agency($project->funding)
+					);
+				}
+
+				// This should return full information, gathered from different tables
+				// For the main project page
+				// TODO
+				public static function get_project($member_id) {
+					$member = $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $member_id
+						)
+					)[0];
+					$user = $member->user;
+
+					return array(
+						'user' => $user ,
+						'name' =>  $member->name,
+						'title' => WPRI_Database::get_title($user),
+						'website' => get_usermeta($user,'website'),
+						'email' => get_usermeta($user,'email'),
+						'position' => WPRI_Database::get_position($user),
+	 					'alumni' => get_usermeta($user,'alumni'),
+						'office' => get_usermeta($user,'office'),
+						'phone' => get_usermeta($user,'phone'),
+						'advisor' =>  WPRI_Database::get_advisor(get_usermeta($user,'advisor')),
+						'projects' => WPRI_Database::get_projects_by_member($member_id),
+						'publications'=> WPRI_Database::get_publications_by_member($member_id)
+					);
+				}
+
+				public static function get_project_ids() {
+					$pids = $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("project") );
+					$ids = Array();
+					foreach ( $pids as $id ) {
 						array_push($ids,$id->id);
 					}
 					return $ids;
