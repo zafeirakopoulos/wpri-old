@@ -8,12 +8,10 @@
 					echo "<div class='container' >";
 	    				foreach ( $project_ids as $project_id ) {
 							$project = WPRI_Database::get_project_short($project_id);
-		   					echo "<a href='".site_url()."project?id=".$project_id."'><div class='faculty-thumb col-md-5'>";
+		   					echo "<a href='".site_url()."/project?id=".$project_id."'><div class='faculty-thumb col-md-5'>";
 							echo "<tr><h3 class='faculty'>";
 							echo $project['title'];
-							echo $member['position']."<br>";
-							echo $member['website']."<br>";
-							echo $member['email']."<br>";
+							echo $member['locale_description']."<br>";
 							echo "</div></a>";
 					}
 					echo "</div>";
