@@ -56,7 +56,7 @@ class WPRI_Publication {
 
 				echo '<h3> Existing Publications: </h3>';
 				echo '<table>';
-			 	foreach ( $publications as $ppublication) {
+			 	foreach ( $publications as $publication) {
 					echo '<form name="delete_publication" method="post" action="">';
 					echo '<tr>';
 					echo '<td><label>' . $publication->title . ': </label></td>';
@@ -105,9 +105,6 @@ class WPRI_Publication {
 						}
 						WPRI_Database::add_agency_publication($_POST["funding"] ,$success);
 
-						// TODO add project publication
-						// TODO Add member publication
-						// TODO Add funding publication
 						echo "<div class='updated'><p><strong>Added.</strong></p></div>";
 					} else {
 						echo "<div class='error'><p>Unable to add.</p></div>";
