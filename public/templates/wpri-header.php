@@ -24,13 +24,9 @@
 
 <body>
 	<?php
-	/*
-		if(isset($_SESSION['locale'])) {
-		    $current_locale = $_SESSION['locale'];
-		} else {
-		    $current_locale = 'not set';
+		if(!isset($_SESSION['locale'])) {
+		    $_SESSION['locale']=1;
 		}
-	*/
 	?>
 
  		<div class="bte-masthead container" style="background-image: url('http://bte.gtu.edu.tr/wp-content/uploads/2016/03/bg2.jpg'); ">
