@@ -96,7 +96,7 @@ class WPRI_Position {
 
 					// Returns the new id. 0 on fail.
 					if($success ) {
-						if (!empty($_POST["projects"])){
+						if (!empty($_POST["members"])){
 							foreach ($_POST["members"] as $member) {
 								WPRI_Database::add_open_position_contact($member,$success);
 							}
