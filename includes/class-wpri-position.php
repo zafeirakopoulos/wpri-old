@@ -146,11 +146,7 @@ class WPRI_Position {
 				echo '<td><textarea id="title" name="title" cols="70" rows="2"></textarea>';
 				echo '<span class="description">140 characters.</span>';
 				echo '</td></tr>';
-				echo '<tr>';
-				echo '<th><label for="doi">DOI</label></th>';
-				echo '<td><textarea id="doi" name="doi" cols="70" rows="1"></textarea>';
-				echo '<span class="description">The DOI identifier.</span>';
-				echo '</td></tr>';
+
 
 				$agencies = WPRI_Database::get_agencies();
 
