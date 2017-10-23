@@ -83,7 +83,7 @@ class WPRI_Position {
 
 				// If POST for adding
 				if( isset( $_POST['type']) && $_POST['type'] == 'add_position') {
-					$publication = array(
+					$position = array(
 						'title' => $_POST["title"],
 						'type' => $_POST["position_type"],
 						'startdate' => $_POST["startdate"],
