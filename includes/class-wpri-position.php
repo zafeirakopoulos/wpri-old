@@ -36,7 +36,7 @@ class WPRI_Position {
 				$locales  = WPRI_Database::get_locales();
 				$members  = WPRI_Database::get_all_members();
 				$agencies = WPRI_Database::get_agencies();
-
+				$positions  = WPRI_Database::get_all_open_positions();
 
 				echo '<div class="wrap">';
 				echo '<h2>Manage Open Positions</h2>';
@@ -85,22 +85,22 @@ class WPRI_Position {
 				if( isset( $_POST['type']) && $_POST['type'] == 'add_position') {
 					$publication = array(
 						'title' => $_POST["title"],
-						'type' => $_POST["pubtype"],
+						'type' => $_POST["position_type"],
 						'startdate' => $_POST["startdate"],
 						'enddate' => $_POST["enddate"],
 						'agency' => $_POST["agency"],
 						'description' => $_POST["description"],
 						'deadline' => $_POST["deadline"]
 					);
-					$success = WPRI_Database::add_position($position);
+					$success = WPRI_Database::add_open_position($position);
 
 					// Returns the new id. 0 on fail.
 					if($success ) {
 						foreach ($_POST["members"] as $member) {
-							WPRI_Database::add_member_publication($member,$success);
+							WPRI_Database::add_open_position_contact($member,$success);
 						}
 						foreach ($_POST["projects"] as $project) {
-							WPRI_Database::add_project_publication($project,$success);
+							WPRI_Database::add_open_position_project($project,$success);
 						}
 						foreach ($_POST["requirements"] as $requirement) {
 							WPRI_Database::add_open_position_requirement($requirement,$success);
@@ -119,8 +119,8 @@ class WPRI_Position {
 			 	echo '<form name="add_position" method="post" action="">';
 				echo '<table class="form-table">';
 				echo '<tr>';
-				echo '<th><label for="positiontype">Type</label></th>';
-				echo '<td><select name="positiontype">';
+				echo '<th><label for="position_type">Type</label></th>';
+				echo '<td><select name="position_type">';
 					foreach ( $positiontypes  as $positiontype ) {
 						echo '<option value='.$positiontype->id.'>'.$positiontype->name.'</option>';
 					}
