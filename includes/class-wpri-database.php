@@ -158,13 +158,13 @@ class WPRI_Database {
 			$sql = "CREATE TABLE ".self::table_name("open_position")." (
 				id INT AUTO_INCREMENT PRIMARY KEY,
 				title tinytext,
-				type INT,
+				postype INT,
 				agency INT,
 				startdate tinytext,
 				enddate tinytext,
 				deadline tinytext,
 				description text,
-				FOREIGN KEY (type) REFERENCES ".self::table_name("position")."(id),
+				FOREIGN KEY (postype) REFERENCES ".self::table_name("position")."(id),
 				FOREIGN KEY (agency) REFERENCES ".self::table_name("agency")."(id)
 
 				);";
@@ -217,13 +217,13 @@ class WPRI_Database {
 		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("publication")."'") != self::table_name("publication")){
 			$sql = "CREATE TABLE ".self::table_name("publication")."(
 				id INT AUTO_INCREMENT PRIMARY KEY,
-				type INT,
+				pubtype INT,
 				title text,
 				doi tinytext,
 				international boolean,
 				refereed boolean,
 				bibentry text,
-	 			FOREIGN KEY (type) REFERENCES ".self::table_name("pubtype")."(id)
+	 			FOREIGN KEY (pubtype) REFERENCES ".self::table_name("pubtype")."(id)
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 		}
@@ -698,7 +698,7 @@ class WPRI_Database {
 				$GLOBALS['wpdb']->insert( self::table_name("publication"),
 					array(
 						'title' => $publication["title"],
-						'type' => $publication["type"],
+						'pubtype' => $publication["type"],
 						'doi' => $publication["doi"],
 						'international' => $publication["international"],
 						'refereed' => $publication["refereed"],
@@ -714,7 +714,7 @@ class WPRI_Database {
 					$GLOBALS['wpdb']->insert( self::table_name("open_position"),
 						array(
 							'title' => $position["title"],
-							'type' => $position["type"],
+							'postype' => $position["type"],
 							'startdate' => $position["startdate"],
 							'enddate' => $position["enddate"],
 							'agency' => $position["agency"],
