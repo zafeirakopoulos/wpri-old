@@ -659,6 +659,11 @@ class WPRI_Database {
 						))
 					);
 				}
+
+				public static function get_all_open_positions() {
+					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("open_position") );
+				}
+
 				/////////////////////////////////////////////////////////////////////////////////
 				/////////////////////////////////////////////////////////////////////////////////
 
@@ -702,30 +707,76 @@ class WPRI_Database {
 				return $pid;
 				}
 
-				public static function add_project( $project) {
-				$GLOBALS['wpdb']->insert( self::table_name("project"),
-					array(
-						'title' => $project["title"],
-						'PI' => $project["PI"],
-						'budget' => $project["budget"],
-						'website' => $project["website"],
-						'funding' => $project["funding"],
-						'startdate' => $project["startdate"],
-						'enddate' => $project["enddate"],
-						'status' => $project["status"]
-					)
-				);
-				$pid = $GLOBALS['wpdb']->insert_id;
+				public static function add_open_position($position) {
+					$GLOBALS['wpdb']->insert( self::table_name("project"),
+						array(
+							'title' => $position["title"],
+							'type' => $position["type"],
+							'startdate' => $position["startdate"],
+							'enddate' => $position["enddate"],
+							'agency' => $position["agency"],
+							'description' => $position["description"],
+							'deadline' => $position["deadline"]
+						)
+					);
+					$pid = $GLOBALS['wpdb']->insert_id;
 
-				$locales = WPRI_Database::get_locales();
-				foreach ( $locales as $locale ) {
-					$GLOBALS['wpdb']->insert( self::table_name("project_description") , array(
-						'locale' => $locale->id,
-						'description' => $project["description"][$locale->id],
-						'title' => $project["title"][$locale->id],
-						'project' => $pid
-					));
+					return $pid;
 				}
+
+
+				public static function add_open_position_contact( $member, $position) {
+					return $GLOBALS['wpdb']->insert( self::table_name("open_position_contact"),
+						array(
+							'position' => $position,
+							'member' => $member,
+						)
+					);
+				}
+
+				public static function add_open_position_requirement( $requirement, $position) {
+					return $GLOBALS['wpdb']->insert( self::table_name("open_position_requirement"),
+						array(
+							'position' => $position,
+							'requirement' => $requirement,
+						)
+					);
+				}
+
+				public static function add_open_position_project( $project, $position) {
+					return $GLOBALS['wpdb']->insert( self::table_name("open_position_project"),
+						array(
+							'position' => $position,
+							'project' => $project,
+						)
+					);
+				}
+
+
+				public static function add_project( $project) {
+					$GLOBALS['wpdb']->insert( self::table_name("project"),
+						array(
+							'title' => $project["title"],
+							'PI' => $project["PI"],
+							'budget' => $project["budget"],
+							'website' => $project["website"],
+							'funding' => $project["funding"],
+							'startdate' => $project["startdate"],
+							'enddate' => $project["enddate"],
+							'status' => $project["status"]
+						)
+					);
+					$pid = $GLOBALS['wpdb']->insert_id;
+
+					$locales = WPRI_Database::get_locales();
+					foreach ( $locales as $locale ) {
+						$GLOBALS['wpdb']->insert( self::table_name("project_description") , array(
+							'locale' => $locale->id,
+							'description' => $project["description"][$locale->id],
+							'title' => $project["title"][$locale->id],
+							'project' => $pid
+						));
+					}
 					return $pid;
 				}
 
@@ -797,6 +848,33 @@ class WPRI_Database {
 					);
 				}
 
+
+				public static function delete_open_position($position_id) {
+
+					$GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("open_position_project"). " WHERE position = %d", $position_id
+						)
+					);
+
+					$GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("open_position_contact"). " WHERE position = %d", $position_id
+						)
+					);
+
+					$GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("open_position_requirement"). " WHERE position = %d", $position_id
+						)
+					);
+
+					return $GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("open_position"). " WHERE id = %d", $position_id
+						)
+					);
+				}
 
 				public static function get_locales() {
 					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"));
