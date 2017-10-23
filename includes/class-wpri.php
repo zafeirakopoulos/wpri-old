@@ -202,6 +202,7 @@ class WPRI {
 		$plugin_admin = new WPRI_Admin( $this->get_plugin_name(), $this->get_version() );
 		$plugin_project = new WPRI_Project( $this->get_plugin_name(), $this->get_version() );
 		$plugin_publication = new WPRI_Publication( $this->get_plugin_name(), $this->get_version() );
+		$plugin_position = new WPRI_Position( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -214,7 +215,7 @@ class WPRI {
 
 		$this->loader->	add_action( 'admin_menu', $plugin_project, 'project_menu' );
 		$this->loader->	add_action( 'admin_menu', $plugin_publication, 'publication_menu' );
-		$this->loader->	add_action( 'admin_menu', $plugin_publication, 'position_menu' );
+		$this->loader->	add_action( 'admin_menu', $plugin_position, 'position_menu' );
 
 
 
