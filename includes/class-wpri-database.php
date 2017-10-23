@@ -55,7 +55,7 @@ class WPRI_Database {
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
 
-		$settings_list = array('locale','position','title','agency','projectrole','role','project_status');
+		$settings_list = array('locale','position','title','agency','projectrole','role','project_status','position_requirement');
 		foreach ($settings_list as $setting_name){
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($setting_name)."'") != self::table_name($setting_name) ){
 				$sql = "CREATE TABLE  ". self::table_name($setting_name)."(
@@ -122,8 +122,6 @@ class WPRI_Database {
 		}
 
 
-
-
 		// Project Description
 		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("project_description")."'") != self::table_name("project_description")){
 					$sql = "CREATE TABLE  ".self::table_name("project_description")."(
@@ -154,6 +152,54 @@ class WPRI_Database {
 	 	}
 
 
+
+		// Open positions
+		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("open_position")."'") != self::table_name("open_position") ){
+			$sql = "CREATE TABLE ".self::table_name("open_position")." (
+				id INT AUTO_INCREMENT PRIMARY KEY,
+				title tinytext,
+				agency INT,
+				startdate tinytext,
+				enddate tinytext,
+				deadline tinytext,
+				description text,
+				FOREIGN KEY (agency) REFERENCES ".self::table_name("agency")."(id)
+				);";
+			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
+		}
+
+		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("open_position_contact")."'") != self::table_name("open_position_contact") ){
+ 			$sql = "CREATE TABLE ".self::table_name("open_position_contact")." (
+ 				id INT AUTO_INCREMENT PRIMARY KEY,
+ 				position INT,
+ 				member INT,
+ 				FOREIGN KEY (position) REFERENCES ".self::table_name("open_position")."(id),
+				FOREIGN KEY (member) REFERENCES ".self::table_name("member")."(id)
+ 				);";
+ 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
+ 		}
+
+		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("open_position_project")."'") != self::table_name("open_position_project") ){
+ 			$sql = "CREATE TABLE ".self::table_name("open_position_project")." (
+ 				id INT AUTO_INCREMENT PRIMARY KEY,
+ 				position INT,
+ 				project INT,
+ 				FOREIGN KEY (position) REFERENCES ".self::table_name("open_position")."(id),
+				FOREIGN KEY (project) REFERENCES ".self::table_name("project")."(id)
+ 				);";
+ 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
+ 		}
+
+		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("open_position_requirement")."'") != self::table_name("open_position_requirement") ){
+ 			$sql = "CREATE TABLE ".self::table_name("open_position_requirement")." (
+ 				id INT AUTO_INCREMENT PRIMARY KEY,
+ 				position INT,
+ 				requirement INT,
+ 				FOREIGN KEY (position) REFERENCES ".self::table_name("open_position")."(id),
+				FOREIGN KEY (requirement) REFERENCES ".self::table_name("position_requirement")."(id)
+ 				);";
+ 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
+ 		}
 
 		// Publications
 		if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("pubtype")."'") != self::table_name("pubtype") ){
@@ -232,6 +278,7 @@ class WPRI_Database {
 	    'locale_title',
 	    'locale_project_description',
 	    'locale_agency',
+		'locale_position_requirement',
 		'description',
 	    'project_description',
 	    'project_member',
@@ -240,6 +287,11 @@ class WPRI_Database {
 		'locale_role',
 		'projectrole',
 		'project_status',
+		'open_position',
+		'open_position_contact',
+		'open_position_project',
+		'open_position_requirement',
+		'position_requirement',
 	    'project',
 	    'member',
 		'role',
