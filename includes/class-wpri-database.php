@@ -158,12 +158,15 @@ class WPRI_Database {
 			$sql = "CREATE TABLE ".self::table_name("open_position")." (
 				id INT AUTO_INCREMENT PRIMARY KEY,
 				title tinytext,
+				type INT,
 				agency INT,
 				startdate tinytext,
 				enddate tinytext,
 				deadline tinytext,
 				description text,
+				FOREIGN KEY (type) REFERENCES ".self::table_name("position")."(id),
 				FOREIGN KEY (agency) REFERENCES ".self::table_name("agency")."(id)
+
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 		}
