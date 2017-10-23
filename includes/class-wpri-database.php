@@ -166,7 +166,6 @@ class WPRI_Database {
 				description text,
 				FOREIGN KEY (postype) REFERENCES ".self::table_name("position")."(id),
 				FOREIGN KEY (agency) REFERENCES ".self::table_name("agency")."(id)
-
 				);";
 			$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 		}
@@ -274,8 +273,8 @@ class WPRI_Database {
 	    $tables_to_drop = array(
 	    'publication_member',
 	    'publication_project',
-		'pubtype',
 		'publication',
+		'pubtype',
 	    'locale_agency',
 	    'locale_position',
 	    'locale_title',
