@@ -96,16 +96,23 @@ class WPRI_Position {
 
 					// Returns the new id. 0 on fail.
 					if($success ) {
-						foreach ($_POST["members"] as $member) {
-							WPRI_Database::add_open_position_contact($member,$success);
+						if (!empty($_POST["projects"])){
+							foreach ($_POST["members"] as $member) {
+								WPRI_Database::add_open_position_contact($member,$success);
+							}
+						}else{
+							echo "<div class='error'><p>No contact person set.</p></div>";
 						}
-						foreach ($_POST["projects"] as $project) {
-							WPRI_Database::add_open_position_project($project,$success);
+						if (!empty($_POST["projects"])){
+							foreach ($_POST["projects"] as $project) {
+								WPRI_Database::add_open_position_project($project,$success);
+							}
 						}
-						foreach ($_POST["requirements"] as $requirement) {
-							WPRI_Database::add_open_position_requirement($requirement,$success);
+						if (!empty($_POST["requirements"])){
+							foreach ($_POST["requirements"] as $requirement) {
+								WPRI_Database::add_open_position_requirement($requirement,$success);
+							}
 						}
-
 						echo "<div class='updated'><p><strong>Added.</strong></p></div>";
 					} else {
 						echo "<div class='error'><p>Unable to add.</p></div>";
