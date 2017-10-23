@@ -214,6 +214,7 @@ class WPRI {
 
 		$this->loader->	add_action( 'admin_menu', $plugin_project, 'project_menu' );
 		$this->loader->	add_action( 'admin_menu', $plugin_publication, 'publication_menu' );
+		$this->loader->	add_action( 'admin_menu', $plugin_publication, 'position_menu' );
 
 
 
