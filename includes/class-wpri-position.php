@@ -180,21 +180,21 @@ class WPRI_Position {
 
 				echo '</td></tr>';
 				echo '<tr>';
-				echo '<th><label for="startdate">Title</label></th>';
+				echo '<th><label for="startdate">Start date</label></th>';
 				echo '<td><textarea id="startdate" name="startdate" cols="70" rows="2"></textarea>';
 				echo '<span class="description">When the position starts.</span>';
 				echo '</td></tr>';
 
 				echo '</td></tr>';
 				echo '<tr>';
-				echo '<th><label for="enddate">Title</label></th>';
+				echo '<th><label for="enddate">End date</label></th>';
 				echo '<td><textarea id="enddate" name="enddate" cols="70" rows="2"></textarea>';
 				echo '<span class="description">When the position ends.</span>';
 				echo '</td></tr>';
 
 				echo '</td></tr>';
 				echo '<tr>';
-				echo '<th><label for="deadline">Title</label></th>';
+				echo '<th><label for="deadline">Application Deadline</label></th>';
 				echo '<td><textarea id="deadline" name="deadline" cols="70" rows="2"></textarea>';
 				echo '<span class="description">Application deadline.</span>';
 				echo '</td></tr>';
