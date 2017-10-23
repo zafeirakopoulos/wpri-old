@@ -88,7 +88,7 @@ class WPRI_Position {
 						'type' => $_POST["position_type"],
 						'startdate' => $_POST["startdate"],
 						'enddate' => $_POST["enddate"],
-						'agency' => $_POST["agency"],
+						'agency' => $_POST["funding"],
 						'description' => $_POST["description"],
 						'deadline' => $_POST["deadline"]
 					);
@@ -174,11 +174,30 @@ class WPRI_Position {
 
 				echo '<tr>';
 				echo '<th><label for="description">Job description</label></th>';
-				echo '<td><textarea id="description" name="bibentry" cols="70" rows="10"></textarea>';
+				echo '<td><textarea id="description" name="description" cols="70" rows="10"></textarea>';
 				echo '<span class="description">In the language of the main audience.</span>';
 				echo '</td></tr>';
 
+				echo '</td></tr>';
+				echo '<tr>';
+				echo '<th><label for="startdate">Title</label></th>';
+				echo '<td><textarea id="startdate" name="startdate" cols="70" rows="2"></textarea>';
+				echo '<span class="description">When the position starts.</span>';
+				echo '</td></tr>';
 
+				echo '</td></tr>';
+				echo '<tr>';
+				echo '<th><label for="enddate">Title</label></th>';
+				echo '<td><textarea id="enddate" name="enddate" cols="70" rows="2"></textarea>';
+				echo '<span class="description">When the position ends.</span>';
+				echo '</td></tr>';
+
+				echo '</td></tr>';
+				echo '<tr>';
+				echo '<th><label for="deadline">Title</label></th>';
+				echo '<td><textarea id="deadline" name="deadline" cols="70" rows="2"></textarea>';
+				echo '<span class="description">Application deadline.</span>';
+				echo '</td></tr>';
 
 			    echo '<tr>';
 			    echo '<td><input type="submit" name="add_button" value="Add Open Position" class="button-secondary" />';
