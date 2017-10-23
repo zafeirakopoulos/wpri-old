@@ -148,6 +148,12 @@ class WPRI {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-publication.php';
 
+		/**
+		 * The class responsible for defining the open positions functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-position.php';
+
 
 		/**
 		 * The class responsible for defining the shortcodes functionality
