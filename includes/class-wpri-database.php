@@ -274,8 +274,8 @@ class WPRI_Database {
 	    $tables_to_drop = array(
 	    'publication_member',
 	    'publication_project',
-		'publication',
 		'pubtype',
+		'publication',
 	    'locale_agency',
 	    'locale_position',
 	    'locale_title',
