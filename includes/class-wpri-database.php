@@ -708,7 +708,7 @@ class WPRI_Database {
 				}
 
 				public static function add_open_position($position) {
-					$GLOBALS['wpdb']->insert( self::table_name("project"),
+					$GLOBALS['wpdb']->insert( self::table_name("open_position"),
 						array(
 							'title' => $position["title"],
 							'type' => $position["type"],
