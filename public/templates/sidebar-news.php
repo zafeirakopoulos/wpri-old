@@ -1,4 +1,4 @@
-<div class="col-sm-3 col-sm-offset-1">
+<div class="col-sm-2">
 	<div class="sidebar-module">
 		<h4>News</h4>
 		hhheye
