@@ -52,6 +52,9 @@ class WPRI_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		// TODO definitely not the right place
+		load_template ( dirname( __FILE__ ) . '/templates/sidebar-news.php' ) ;
+
 	}
 
 	/**
@@ -128,7 +131,7 @@ class WPRI_Public {
 	    return $template;
 	}
 
-	// 
+	//
 	// public function sidebar_template( $template ) {
 	//
 	// 	if ( is_page("sidebar-news") ) {
