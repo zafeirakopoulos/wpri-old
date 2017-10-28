@@ -8,7 +8,7 @@
 						$loop = new WP_Query( $args );
 						while ( $loop->have_posts() ) : $loop->the_post();
 						  the_title();
-						  echo '<div class="entry-content">';
+						  echo '<div>';
 						  the_content();
 						  echo '</div>';
 						endwhile;
