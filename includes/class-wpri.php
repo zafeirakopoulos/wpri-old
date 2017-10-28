@@ -256,7 +256,6 @@ class WPRI {
 		$this->loader->add_filter( 'template_include',$plugin_public, 'session_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'single_template', 99 );
 
-	    // $this->loader->add_filter( 'template_include',$plugin_public, 'sidebar_template', 99 );
 
 		$this->loader->add_action('init', new WPRI_News(),'create_news_posttype' , 1);
 
