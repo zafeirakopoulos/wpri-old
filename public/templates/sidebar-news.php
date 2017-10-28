@@ -1,7 +1,7 @@
 	<div class="sidebar">
-		<h4>News</h4>
+		<h4 class="sidebar">News</h4>
 		hhheye
-		<ol >
+		<ol class="sidebar">
 
 			<?php
 				$args = array( 'post_type' => 'wpri_news', 'posts_per_page' => 10 );
