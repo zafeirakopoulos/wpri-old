@@ -5,15 +5,15 @@
 
 
  :root {
-        --single-item-background-color: lightgreen;
+         --single-item-background-color: lightgreen;
          --single-item-forground-color: lightblue;
-         --single-item-border: 1px solid red;
+         --single-item-border: 0px solid ;
          --single-item-padding:20px;
          --single-item-margin-right:5px;
          --single-item-margin-left:5px;
          --single-item-margin-bottom:10px;
-         --single-item-margin-top:10px;
 
+         --single-item-margin-top:10px;
          --faculty-background-color: blue;
          --faculty-forground-color: lightblue;
          --faculty-border: 1px solid red;
