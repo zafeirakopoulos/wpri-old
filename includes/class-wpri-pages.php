@@ -56,21 +56,4 @@ class WPRI_Pages {
 
  	}
 
-	// public static function create_member_page($id,$name) {
-	// 		    $page_title = $name;
-	// 		    $page_check = get_page_by_title($page_title);
-	// 		    $page = array(
-	// 			    'post_type' => 'page',
-	// 			    'post_title' => $page_title,
-	// 			    'post_status' => 'publish',
-	// 			    'post_author' => 1,
-	// 			    'post_slug' => id
-	// 		    );
-	// 		 	if(!isset($page_check->ID) ){
-    //    				$page_id = wp_insert_post($page);
-	// 		    }
-	// }
-
-
-
 }
