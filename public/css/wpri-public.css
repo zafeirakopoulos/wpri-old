@@ -14,7 +14,8 @@
          --single-item-margin-left:5px;
          --single-item-margin-bottom:10px;
          --single-item-margin-top:10px;
-         --single-item-h3-font-size:15px;
+         --single-item-h3-font-size:20px;
+         --single-item-p-font-size:15px;
 
          --faculty-background-color: blue;
          --faculty-forground-color: lightblue;
@@ -287,5 +288,9 @@ h1.faculty{
   }
 h3.faculty-thumb{
     font-size: var(--single-item-h3-font-size,15px);
+    color: var(--single-item-color);
+}
+p.faculty-thumb{
+    font-size: var(--single-item-p-font-size,15px);
     color: var(--single-item-color);
 }
