@@ -47,5 +47,17 @@ class WPRI_News {
 		  );
 	  }
 
-
+	  public static function create_member_blog_posttype() {
+  		  register_post_type( 'wpri_member_blog',
+  		    array(
+  		      'labels' => array(
+  		        'name' => __( 'Blog' ),
+  		        'singular_name' => __( 'Blog' )
+  		      ),
+  		      'public' => true,
+  		      'has_archive' => true,
+  		      'rewrite' => array('slug' => 'blogs'),
+  		    )
+  		  );
+  	  }
 }
