@@ -4,10 +4,9 @@
         <div class="row">
 
         	<div class="col-sm-2 col-sm-offset-4">
-                <img height="50%" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png">
+                <img height="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png">
             </div>
     		<div class="col-sm-2">
-                <br>
                 <p class="bte-footer">
                     Gebze Technical University <br>
                     Computer Engineering Building <br>
