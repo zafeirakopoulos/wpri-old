@@ -5,8 +5,13 @@
 
 
  :root {
-         --single-item-background-color: gray;
-         --single-item-forground-color: white;
+         --main-background-color : red;
+         --secondary-background-color : green;
+         --main-color : yellow;
+         --secondary-color : white;
+
+         --single-item-background-color: var(--secondary-background-color);
+         --single-item-forground-color: var(--secondary-color);
          --single-item-border: 1px solid black ;
          --single-item-font-size: 15px;
          --single-item-padding:20px;
@@ -18,7 +23,7 @@
          --single-item-h3-font-size-large:20px;
          --single-item-p-font-size:15px;
 
-         --faculty-color: gray;
+         --faculty-color: var(--main-color);
          --faculty-font-size: 25px;
          --faculty-border: 0px;
          --faculty-padding:20px;
