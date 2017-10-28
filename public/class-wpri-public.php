@@ -129,7 +129,7 @@ class WPRI_Public {
 	    return $template;
 	}
 
-	public function is_single_template( $template ) {
+	public function single_template( $template ) {
 
 		if ( is_single() ) {
 			$template = dirname( __FILE__ ) . '/templates/wpri-single.php';
