@@ -180,12 +180,14 @@
    text-align: center;
    background-color: var(--main-background-color);
    border-top: 1px solid #e5e5e5;
-   font-size:15px;
  }
  .bte-footer p:last-child {
    margin-bottom: 0;
  }
-
+ p.bte-footer {
+   color: var(--main-color);
+   font-size:15px;
+ }
  /*
   * Menu
   */
