@@ -65,4 +65,5 @@
 			</nav>
 		</div>
 
-	<div class="container" style="background-image: url('http://bte.gtu.edu.tr/wp-content/uploads/2016/03/bg2.jpg'); ">
+	<!-- <div class="container" style="background-image: url('http://bte.gtu.edu.tr/wp-content/uploads/2016/03/bg2.jpg'); "> -->
+	<div class="container">
