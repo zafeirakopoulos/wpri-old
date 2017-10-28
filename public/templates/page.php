@@ -5,7 +5,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
 <!-- <div class="container" style="background-image: url('http://bte.gtu.edu.tr/wp-content/uploads/2016/03/bg2.jpg'); "> -->
 <div class="container">
     <div class="row">
-        <div class="col-sm-10 col-lg-10">
+        <div class="col-sm-10 col-lg-12">
             <?php
             if ( is_page( 'faculty' ) ) {
                 $template_loader->get_template_part( 'wpri', 'faculty' );
