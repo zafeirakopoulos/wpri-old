@@ -8,8 +8,6 @@
 				echo "<a class='faculty-thumb-link' href='".site_url()."/news/".$post->post_name."'>";
 					echo '<div>';
 					the_title();
-
-					the_content();
 	  				echo '</div>';
 				echo "</a>";
 			endwhile;
