@@ -1,6 +1,6 @@
 	<div class="sidebar">
 		<h4 class="sidebar">News</h4>
-		hhheye
+		
 		<ol class="sidebar">
 
 			<?php
