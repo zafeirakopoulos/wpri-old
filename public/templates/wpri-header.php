@@ -29,7 +29,7 @@
 		}
 	?>
 
- 		<div class="bte-masthead container" style="background-image: url('http://bte.gtu.edu.tr/wp-content/uploads/2016/03/bg2.jpg'); ">
+ 		<div class="bte-masthead container">
 			<h1 class="bte-title"><?php echo get_bloginfo( 'name' ); ?></h1>
 			<nav class="navbar navbar-default">
 			  <div class="container-fluid">
@@ -54,12 +54,12 @@
 					  <li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>">Contact</a></li>
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
-					  <li><button class="navbar-btn" onclick="wpri_change_locale('1')"> English</button></li>
-					  <li><button class="navbar-btn" onclick="wpri_change_locale('2')"> Turkish</button></li>
+					  <li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('1')"> English</button></li>
+					  <li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('2')"> Turkish</button></li>
 			      </ul>
 			    </div><!--/.nav-collapse -->
 			  </div><!--/.container-fluid -->
 			</nav>
 		</div>
 
-	<div class="container">
+	<div class="container" style="background-image: url('http://bte.gtu.edu.tr/wp-content/uploads/2016/03/bg2.jpg'); ">
