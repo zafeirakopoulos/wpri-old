@@ -617,6 +617,11 @@ class WPRI_Database {
 
 
 				public static function delete_member($member_id) {
+					$projects = WPRI_Database::get_projects_by_member($member_id);
+					foreach ($projects as $project){
+						WPRI_Database::delete_project_member($project->id,$member_id);	
+					}
+
 					return $GLOBALS['wpdb']->query(
 						$GLOBALS['wpdb']->prepare(
 							"DELETE FROM " . self::table_name("member") . " WHERE id = %d", $member_id)
@@ -793,6 +798,14 @@ class WPRI_Database {
 					);
 				}
 
+				public static function delete_project_member($project, $member) {
+					return $GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("project_member"). " WHERE project = %d AND member= %d",
+							$project_id, $member
+						)
+					);
+				}
 
 				public static function add_project_publication( $project, $publication) {
 					return $GLOBALS['wpdb']->insert( self::table_name("publication_project"),
