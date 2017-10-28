@@ -30,9 +30,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
             if ( is_page( 'publication' ) ) {
                 $template_loader->get_template_part( 'wpri', 'publication' );
             }
-            if ( is_page( 'sidebar-news' ) ) {
-                $template_loader->get_template_part( 'wpri', 'sidebar-news' );
-            }
+
             /* For the blogs
                 if ( have_posts() ) : while ( have_posts() ) : the_post();
 
