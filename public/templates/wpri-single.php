@@ -1,8 +1,7 @@
 
 			<div class='single'  >
-  dd rebre 
+  dd rebre
 				<?php
-				the_content();
-
+$loop->the_post()				
 				?>
 			</div>
