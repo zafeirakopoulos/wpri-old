@@ -1,4 +1,3 @@
-<?php get_sidebar("news");?>
 </div> <!-- /.container -->
 
     <footer class="bte-footer">
