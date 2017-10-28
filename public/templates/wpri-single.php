@@ -16,7 +16,8 @@
 				Links:
 				<div class="previous-post-link">
                 <?php
- 					<?php previous_post_link( '%link', '%title', TRUE, ' ', 'wpri_news' ); ?> 		
+ 					 previous_post_link( '%link', '%title', TRUE, ' ', 'wpri_news' );
+				 ?>
 	            </div>
 
 	            <div class="next-post-link">
