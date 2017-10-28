@@ -15,6 +15,7 @@
          --single-item-margin-bottom:10px;
          --single-item-margin-top:10px;
          --single-item-h3-font-size:17px;
+         --single-item-h3-font-size-large:20px;
          --single-item-p-font-size:15px;
 
          --faculty-color: gray;
@@ -311,7 +312,7 @@ div.project-thumb{
   border: var(--single-item-border);
 }
 h3.project-thumb{
-    font-size: var(--single-item-h3-font-size,15px);
+    font-size: var(--single-item-h3-font-size-large,20px);
     color: var(--single-item-color);
 }
 p.project-thumb{
