@@ -3,7 +3,7 @@
 				<?php
 				$post = get_post(get_the_ID());
 				echo $post->post_type;
-				if ($post->post_type=="wpri-news"){
+				if ($post->post_type=="wpri_news"){
 
 				}
 				else {
