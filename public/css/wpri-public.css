@@ -42,7 +42,6 @@
  body {
    font-family: Georgia, "Times New Roman", Times, serif;
    color: var(--main-color);
-   background-color: var(--main-background-color);
  }
 
  h1, .h1,
@@ -324,4 +323,9 @@ h3.project-thumb{
 p.project-thumb{
     font-size: var(--single-item-p-font-size,15px);
     color: var(--single-item-color);
+}
+
+.locale-picker {
+    background-color: var(--secondary-background-color)
+    color: var(--secondary-color)
 }
