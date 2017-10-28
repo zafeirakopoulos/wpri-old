@@ -237,7 +237,7 @@
   * Faculty
   */
 
-  .faculty-thumb {
+  .faculty {
     background-color: var(--single-item-background-color);
     border: 1px solid red;
     font-size: 30px;
