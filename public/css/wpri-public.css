@@ -42,6 +42,7 @@
  body {
    font-family: Georgia, "Times New Roman", Times, serif;
    color: var(--main-color);
+   background-color: var(--main-background-color);
  }
 
  h1, .h1,
@@ -53,7 +54,7 @@
    margin-top: 0;
    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-weight: normal;
-   color: #fff;
+   color: var(--main-color);
  }
 
 
@@ -176,7 +177,7 @@
 
  .bte-footer {
    padding: 40px 0;
-   color: #999;
+   color: var(--main-color);
    text-align: center;
    background-color: var(--main-background-color);
    border-top: 1px solid #e5e5e5;
@@ -189,7 +190,7 @@
   * Menu
   */
   .navbar-default {
-    background-color: var(--main-background-color);
+    background-color: var(--secondary-background-color);
     border: 0;
   }
   .navbar-default .navbar-brand {
@@ -214,20 +215,20 @@
   .navbar-default .navbar-nav > .active > a:hover,
   .navbar-default .navbar-nav > .active > a:focus {
     color: var(--main-color);
-    background-color: var(--secondary-background-color);
+    background-color: var(--main-background-color);
   }
   .navbar-default .navbar-nav > .open > a,
   .navbar-default .navbar-nav > .open > a:hover,
   .navbar-default .navbar-nav > .open > a:focus {
     color: var(--main-color);
-    background-color: var(--secondary-background-color);
+    background-color: var(--main-background-color);
 
   }
   .navbar-default .navbar-toggle {
   }
   .navbar-default .navbar-toggle:hover,
   .navbar-default .navbar-toggle:focus {
-    background-color: var(--secondary-background-color);
+    background-color: var(--main-background-color);
   }
   .navbar-default .navbar-toggle .icon-bar {
     background-color: var(--main-color);
@@ -254,7 +255,7 @@
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
       color: var(--main-color);
-      background-color: var(--secondary-background-color);
+      background-color: var(--main-background-color);
     }
   }
 
