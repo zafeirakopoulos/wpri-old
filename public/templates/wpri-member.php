@@ -46,8 +46,7 @@
 
 					echo "Education:<br>";
 
-					<?php
-						$args = array(
+ 						$args = array(
 						  'author__in'     => array($member['user']),
 						  'posts_per_page' => 20,
 						);
@@ -60,6 +59,5 @@
 				  				echo '</div>';
 							echo "</a>";
 						endwhile;
-					?>
-				?>
+ 				?>
 			</div><!-- #member -->
