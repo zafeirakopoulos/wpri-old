@@ -6,7 +6,7 @@
 
  :root {
          --single-item-background-color: gray;
-         --single-item-forground-color: black;
+         --single-item-forground-color: white;
          --single-item-border: 1px solid black ;
          --single-item-font-size: 15px;
          --single-item-padding:20px;
