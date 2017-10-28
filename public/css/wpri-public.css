@@ -4,7 +4,8 @@
  */
 
 
- :root { --single-item-background-color: lightgreen;
+ :root {
+        --single-item-background-color: lightgreen;
          --single-item-forground-color: lightblue;
          --single-item-border: 1px solid red;
          --single-item-padding:20px;
@@ -12,6 +13,15 @@
          --single-item-margin-left:5px;
          --single-item-margin-bottom:10px;
          --single-item-margin-top:10px;
+
+         --faculty-background-color: blue;
+         --faculty-forground-color: lightblue;
+         --faculty-border: 1px solid red;
+         --faculty-padding:20px;
+         --faculty-margin-right:5px;
+         --faculty-margin-left:5px;
+         --faculty-margin-bottom:10px;
+         --faculty-margin-top:10px;
        }
 
  /*
@@ -244,6 +254,17 @@
   */
 
   .faculty {
+    background-color: var(--faculty-background-color);
+    color: var(--faculty-color);
+    border: var(--faculty-border);
+    font-size: var(--faculty-font-size,15px);
+	padding: var(--faculty-padding,20px);
+	margin-right: var(--faculty-margin-right,5px);
+	margin-left: var(--faculty-margin-left,5px);
+	margin-bottom:var(--faculty-margin-bottom,10px);
+	margin-top:var(--faculty-margin-top,10px);
+  }
+  .faculty-thumb {
     background-color: var(--single-item-background-color);
     color: var(--single-item-color);
     border: var(--single-item-border);
