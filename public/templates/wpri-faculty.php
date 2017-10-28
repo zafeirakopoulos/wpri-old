@@ -5,11 +5,11 @@
 
 					// Start the Loop.
 					$member_ids = WPRI_Database::get_member_ids();
-					echo "<div class='container' >";
+					echo "<div class='container faculty-thumb>";
 	    				foreach ( $member_ids as $member_id ) {
 							$member = WPRI_Database::get_member_short($member_id);
 		   					echo "<a href='".site_url()."/member?id=".$member_id."'>";
-							echo "<div class='faculty-thumb col-md-5'>";
+							echo "<div col-md-5'>";
 							echo "<table>";
 							echo "<tr><h3 class='faculty-thumb'>";
 							echo $member['title']." ".$member['name'];
