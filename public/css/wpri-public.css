@@ -7,7 +7,7 @@
  :root {
          --single-item-background-color: lightgreen;
          --single-item-forground-color: lightblue;
-         --single-item-border: 0px solid ;
+         --single-item-border: 1px solid black ;
          --single-item-font-size: 15px;
          --single-item-padding:20px;
          --single-item-margin-right:5px;
@@ -17,10 +17,9 @@
          --single-item-h3-font-size:20px;
          --single-item-p-font-size:15px;
 
-         --faculty-background-color: blue;
-         --faculty-forground-color: lightblue;
+         --faculty-forground-color: gray;
          --faculty-font-size: 25px;
-         --faculty-border: 1px solid red;
+         --faculty-border: 0px;
          --faculty-padding:20px;
          --faculty-margin-right:5px;
          --faculty-margin-left:5px;
@@ -260,7 +259,6 @@
   */
 
   .faculty {
-    background-color: var(--faculty-background-color);
     color: var(--faculty-color);
     border: var(--faculty-border);
     font-size: var(--faculty-font-size,15px);
