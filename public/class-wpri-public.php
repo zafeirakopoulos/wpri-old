@@ -129,14 +129,13 @@ class WPRI_Public {
 	    return $template;
 	}
 
-	//
-	// public function sidebar_template( $template ) {
-	//
-	// 	if ( is_page("sidebar-news") ) {
-	// 		$template = dirname( __FILE__ ) . '/templates/sidebar-news.php';
-	// 	}
-	//     return $template;
-	// }
+	public function is_single_template( $template ) {
+
+		if ( is_single() ) {
+			$template = dirname( __FILE__ ) . '/templates/wpri-single.php';
+		}
+	    return $template;
+	}
 
 	public function session_page_template( $template ) {
 
