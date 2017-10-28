@@ -8,12 +8,13 @@
          --single-item-background-color: lightgreen;
          --single-item-forground-color: lightblue;
          --single-item-border: 0px solid ;
-         --single-item-font-size: 25px;
+         --single-item-font-size: 15px;
          --single-item-padding:20px;
          --single-item-margin-right:5px;
          --single-item-margin-left:5px;
          --single-item-margin-bottom:10px;
          --single-item-margin-top:10px;
+         --single-item-h3-font-size:15px;
 
          --faculty-background-color: blue;
          --faculty-forground-color: lightblue;
@@ -24,6 +25,8 @@
          --faculty-margin-left:5px;
          --faculty-margin-bottom:10px;
          --faculty-margin-top:10px;
+
+         --h1-page-title-font-size:25px;
        }
 
  /*
@@ -266,6 +269,7 @@
 	margin-bottom:var(--faculty-margin-bottom,10px);
 	margin-top:var(--faculty-margin-top,10px);
   }
+
   .faculty-thumb {
     background-color: var(--single-item-background-color);
     color: var(--single-item-color);
@@ -277,3 +281,11 @@
 	margin-bottom:var(--single-item-margin-bottom,10px);
 	margin-top:var(--single-item-margin-top,10px);
   }
+
+h1.faculty{
+      font-size: var(--h1-page-title-font-size,25px);
+  }
+h3.faculty-thumb{
+    font-size: var(--single-item-h3-font-size,15px);
+    color: var(--single-item-color);
+}
