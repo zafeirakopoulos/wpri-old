@@ -1,5 +1,5 @@
 
-			<div id="project" >
+			<div class='project' id="project" >
 				<?php
 					$project_id=$_GET['id'];
 					$project = WPRI_Database::get_project_full($project_id);
