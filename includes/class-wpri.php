@@ -129,6 +129,12 @@ class WPRI {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-pages.php';
 
 		/**
+		 * The class responsible for nes posts
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-news.php';
+
+		/**
 		 * The class responsible for database functionality
 		 * of the plugin.
 		 */
@@ -249,11 +255,11 @@ class WPRI {
 		$this->loader->add_filter( 'template_include',$plugin_public, 'front_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'session_page_template', 99 );
 
+		$this->loader->add_action('init', new WPRI_News(),'create_news_posttype' , 1);
+
 		$this->loader->add_action('init', $plugin_public,'WPRIStartSession', 1);
 		$this->loader->add_action('wp_logout', $plugin_public,'WPRIEndSession');
 		$this->loader->add_action('wp_login',$plugin_public, 'WPRIEndSession');
-
-
 
 
 
