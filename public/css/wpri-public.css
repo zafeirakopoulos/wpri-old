@@ -285,10 +285,10 @@ footer.bte-footer{
 * Sidebar
 */
 
-.sidebar {
+.wpri-sidebar {
   background-color: var(--sidebar-background-color);
   color: var(--sidebar-color);
-  font-size: var(--sidebar-font-size,15px);
+  font-size: var(--sidebar-font-size,20px);
   padding: var(--sidebar-padding,20px);
   margin-right: var(--sidebar-margin-right,5px);
   margin-left: var(--sidebar-margin-left,5px);
