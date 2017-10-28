@@ -40,10 +40,11 @@ $template_loader->get_template_part( 'wpri', 'header' );
             */
             ?>
         </div> <!-- /.col -->
+        <?php
+            $template_loader->get_template_part( 'sidebar', 'news' );
+        ?>
     </div> <!-- /.row -->
 
 <?php
-$template_loader->get_template_part( 'sidebar', 'news' );
-
 $template_loader->get_template_part( 'wpri', 'footer' );
 ?>
