@@ -4,6 +4,10 @@
  */
 
 
+ :root { --single-item-background-color: lightgreen;
+         --single-item-forground-color: lightblue;
+       }
+
  /*
   * Globals
   */
@@ -234,7 +238,7 @@
   */
 
   .faculty-thumb {
-    background-color: #808080;
+    background-color:  var(--single-item-background-color);
     border: 1px solid red;
     font-size: 15px;
 	padding: 20px;
