@@ -14,11 +14,11 @@
 
          --sidebar-border: 1px solid black ;
          --sidebar-font-size: 15px;
-         --sidebar-padding:20px;
-         --sidebar-margin-right:5px;
-         --sidebar-margin-left:5px;
-         --sidebar-margin-bottom:10px;
-         --sidebar-margin-top:10px;
+         --sidebar-padding:2px;
+         --sidebar-margin-right:2px;
+         --sidebar-margin-left:2px;
+         --sidebar-margin-bottom:2px;
+         --sidebar-margin-top:2px;
          --sidebar-h3-font-size:17px;
          --sidebar-h3-font-size-large:20px;
          --sidebar-p-font-size:15px;
