@@ -1,8 +1,8 @@
 
 			<div class='single'  >
 				<?php
-
 				$post = get_post(get_the_ID());
+				echo $post->post_type;
 				if ($post->post_type=="wpri-news"){
 
 				}
@@ -13,6 +13,7 @@
 				}
 
 				?>
+				Links:
 				<div class="previous-post-link">
                 <?php previous_post_link('%link', '<< Previous Post', $in_same_term = true, $excluded_terms = '', $taxonomy = 'wpri-news'); ?>
 	            </div>
