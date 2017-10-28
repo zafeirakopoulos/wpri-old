@@ -1,44 +1,50 @@
 
-			<div id="faculty" >
-				<h1> <?php echo 'Faculty' ?> </h1>
+			<div id="member" >
 				<?php
-					$current_language = "en";
-					// This has to be done using js. Cannot be written in DB for example.
-					// Have a hidden element in the DOM to keep track of language.
+					$member_id=$_GET['id'];
+					$member = WPRI_Database::get_member($member_id);
 
-					// Start the Loop.
-					$member_table_name = $GLOBALS['wpdb']->prefix . "wpri_member" ;
-					$members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $member_table_name );
-					echo "<div class='container' >";
-                    $usermeta_table = $GLOBALS['wpdb']->prefix . "usermeta";
-                    $user_table = $GLOBALS['wpdb']->prefix . "users";
-                    $position_table = $GLOBALS['wpdb']->prefix . "wpri_position";
-                    $title_table = $GLOBALS['wpdb']->prefix . "wpri_title";
+					echo "<br>";
+					echo "<table>";
+					echo "<tr><h3 class='faculty'>";
+					echo $member['title']." ".$member['name'];
+					echo "</h3></tr>";
+					echo "<tr><td>";
+					echo get_avatar( $member['user'] );
+					echo "</td>";
+					echo "<td><p>";
+					echo $member['position']."<br>";
+					echo $member['website']."<br>";
+					echo $member['email']."<br>";
+					echo "</p></td></tr>";
+					echo "</table>";
 
-    				foreach ( $members as $member ) {
-                        $fname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='first_name' AND user_id = %d", $member->user));
-                        $lname = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='last_name' AND user_id = %d", $member->user));
-                        $email = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT user_email FROM " . $user_table . " WHERE ID = %d", $member->user));
-                        $position = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $position_table ." WHERE id = %d", $member->position));
-                        $titlen= $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT meta_value FROM " . $usermeta_table . " WHERE meta_key='title' AND user_id = %d", $member->user));
-                        $atitle = $GLOBALS['wpdb']->get_var($GLOBALS['wpdb']->prepare("SELECT name FROM " . $title_table ." WHERE id = %d", $titlen));
-
-						echo "<a href='".site_url()."/member?id=".$member->user."'><div class='faculty-thumb col-md-5'>";
-                        echo "<table>";
-                        echo "<tr><h3 class='faculty'>";
-                        echo $atitle." ".$fname." ".$lname;
-                        echo "</h3></tr>";
-                        echo "<tr><td>";
-                        echo get_avatar( $member->user );
-                        echo "</td>";
-                        echo "<td><p>";
-                        echo $position."<br>";
-                        echo $member->website."<br>";
-                        echo $email."<br>";
-                        echo "</p></td></tr>";
-                        echo "</table>";
-                        echo "</div></a>";
+					echo "Publications:<br>";
+					echo "<table>";
+					$member_publications = WPRI_Database::get_member_publications($member_id);
+					foreach ($member_publications as $publication) {
+						echo "<tr>";
+						$pub = WPRI_Database::get_publication($publication->pub);
+						echo "<td><a href='".site_url()."/publication?id=".$pub->id."'>" . $pub->title."</a><td>";
+						echo "</tr>";
 					}
-					echo "</div>";
+					echo "</table>";
+
+
+					echo "Projects:<br>";
+					echo "<table>";
+					foreach ($member['projects'] as $project_member) {
+						$project = WPRI_Database::get_project( $project_member->project);
+						echo "<tr>";
+		 				echo "<td>" . $project->title . "<td>";
+						echo "<td>" . WPRI_Database::get_project_role($project_member->role) . "<td>";
+		 				echo "<td>" . $project->PI . "<td>";
+		 				echo "<td>" . $project->funding . "<td>";
+						echo "</tr>";
+					}
+					echo "</table>";
+
+					echo "Education:<br>";
+
 				?>
-			</div><!-- #faculty -->
+			</div><!-- #member -->
