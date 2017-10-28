@@ -5,7 +5,7 @@
 
 				$post = get_post(get_the_ID());
 				foreach ($post as $key => $value) {
-					echo $key." = ".$value
+					echo $key." = ".$value;
 				}
 				?>
 			</div>
