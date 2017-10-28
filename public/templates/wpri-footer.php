@@ -1,4 +1,3 @@
-</div> <!-- /.container -->
 
     <footer class="bte-footer">
         <div class="row">
