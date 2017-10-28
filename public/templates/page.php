@@ -41,6 +41,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
             ?>
         </div> <!-- /.col -->
     </div> <!-- /.row -->
+    <?php get_sidebar("news");?>
 <?php
 $template_loader->get_template_part( 'wpri', 'footer' );
 ?>
