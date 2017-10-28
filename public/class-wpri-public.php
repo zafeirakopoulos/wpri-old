@@ -128,6 +128,11 @@ class WPRI_Public {
 	    return $template;
 	}
 
+	public function sidebar_template( $template ) {
+		$template = dirname( __FILE__ ) . '/templates/sidebar-news.php';
+	    return $template;
+	}
+
 	public function session_page_template( $template ) {
 
 		if ( is_page("session") ) {
