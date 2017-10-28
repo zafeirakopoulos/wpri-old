@@ -49,6 +49,7 @@
  						$args = array(
 						  'author__in'     => array($member['user']),
 						  'posts_per_page' => 20,
+						  'post_type' => 'wpri_news'
 						);
 
 						$loop = new WP_Query( $args );
