@@ -1,6 +1,6 @@
 
 			<div class='faculty' id="faculty" >
-				<h1> Faculty </h1>
+				<h1 class='faculty'> Faculty </h1>
 				<?php
 
 					// Start the Loop.
