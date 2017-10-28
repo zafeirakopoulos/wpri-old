@@ -8,7 +8,7 @@
             </div>
     		<div class="col-sm-2">
                 <br>
-                <p>
+                <p class="bte-footer">
                     Gebze Technical University <br>
                     Computer Engineering Building <br>
                     Gebze – Kocaeli – Turkey <br>
@@ -16,7 +16,6 @@
                     bte {at} gtu.edu.tr
                 </p>
             </div>
-
        </div>
 
 </footer>
