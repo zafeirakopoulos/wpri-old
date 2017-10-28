@@ -11,7 +11,8 @@
          --secondary-color : white;
 
          --single-item-background-color: var(--secondary-background-color);
-         --single-item-forground-color: var(--secondary-color);
+         --single-item-color: var(--secondary-color);
+         --single-item-secondary-color: var(--main-color);
          --single-item-border: 1px solid black ;
          --single-item-font-size: 15px;
          --single-item-padding:20px;
@@ -310,6 +311,10 @@ p.faculty-thumb{
 a.faculty-thumb{
     font-size: var(--single-item-p-font-size,15px);
     color: var(--single-item-color);
+}
+a:hover.faculty-thumb{
+    font-size: var(--single-item-p-font-size,15px);
+    color: var(--single-item-secondary-color);
 }
 /* Projects */
 
