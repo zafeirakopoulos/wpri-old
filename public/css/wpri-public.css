@@ -312,7 +312,7 @@ a.faculty-thumb{
     font-size: var(--single-item-p-font-size,15px);
     color: var(--single-item-color);
 }
-a:hover.faculty-thumb{
+a.faculty-thumb:hover{
     font-size: var(--single-item-p-font-size,15px);
     color: var(--single-item-secondary-color);
 }
