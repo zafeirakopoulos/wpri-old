@@ -46,5 +46,20 @@
 
 					echo "Education:<br>";
 
+					<?php
+						$args = array(
+						  'author__in'     => array($member['user']),
+						  'posts_per_page' => 20,
+						);
+
+						$loop = new WP_Query( $args );
+						while ( $loop->have_posts() ) : $loop->the_post();
+							echo "<a class='faculty-thumb-link' href='".site_url()."/news/".$post->post_name."'>";
+								echo '<div>';
+								the_title();
+				  				echo '</div>';
+							echo "</a>";
+						endwhile;
+					?>
 				?>
 			</div><!-- #member -->
