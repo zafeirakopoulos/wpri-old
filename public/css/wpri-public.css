@@ -5,8 +5,8 @@
 
 
  :root {
-         --single-item-background-color: lightgreen;
-         --single-item-forground-color: lightblue;
+         --single-item-background-color: gray;
+         --single-item-forground-color: black;
          --single-item-border: 1px solid black ;
          --single-item-font-size: 15px;
          --single-item-padding:20px;
@@ -14,7 +14,7 @@
          --single-item-margin-left:5px;
          --single-item-margin-bottom:10px;
          --single-item-margin-top:10px;
-         --single-item-h3-font-size:20px;
+         --single-item-h3-font-size:17px;
          --single-item-p-font-size:15px;
 
          --faculty-forground-color: black;
