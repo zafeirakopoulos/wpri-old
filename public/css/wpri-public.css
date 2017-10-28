@@ -326,6 +326,6 @@ p.project-thumb{
 }
 
 .locale-picker {
-    background-color: var(--secondary-background-color)
-    color: var(--secondary-color)
+    background-color: var(--secondary-background-color);
+    color: var(--secondary-color);
 }
