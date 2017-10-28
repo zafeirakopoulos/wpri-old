@@ -8,14 +8,16 @@
          --single-item-background-color: lightgreen;
          --single-item-forground-color: lightblue;
          --single-item-border: 0px solid ;
+         --single-item-font-size: 15px;
          --single-item-padding:20px;
          --single-item-margin-right:5px;
          --single-item-margin-left:5px;
          --single-item-margin-bottom:10px;
-
          --single-item-margin-top:10px;
+
          --faculty-background-color: blue;
          --faculty-forground-color: lightblue;
+         --faculty-font-size: 25px;
          --faculty-border: 1px solid red;
          --faculty-padding:20px;
          --faculty-margin-right:5px;
