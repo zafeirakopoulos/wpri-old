@@ -7,6 +7,8 @@
 					$member_ids = WPRI_Database::get_member_ids();
 					foreach ( $member_ids as $member_id ) {
 						echo $member_id;
+						$member = WPRI_Database::get_member_short($member_id);
+						echo $member['name']."<br>";
 					}
 					echo "<div class='container>";
 	    				foreach ( $member_ids as $member_id ) {
