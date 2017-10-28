@@ -4,7 +4,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
 ?>
 
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-10">
             <?php
             if ( is_page( 'faculty' ) ) {
                 $template_loader->get_template_part( 'wpri', 'faculty' );
