@@ -16,13 +16,13 @@
 				Links:
 				<div class="previous-post-link">
                 <?php
-					echo previous_post_link('%link', '<< Previous Post', $in_same_term = true, $excluded_terms = '', $taxonomy = 'wpri-news');
+					echo previous_post_link('%link', '<< Previous Post', $in_same_term = true, $excluded_terms = '', $taxonomy = 'wpri_news');
 				?>
 	            </div>
 
 	            <div class="next-post-link">
 	                <?php
-						echo next_post_link('%link', 'Next Post >>', $in_same_term = true, $excluded_terms = '', $taxonomy = 'wpri-news'); 
+						echo next_post_link('%link', 'Next Post >>', $in_same_term = true, $excluded_terms = '', $taxonomy = 'wpri_news'); 
 					?>
 	            </div>
 			</div>
