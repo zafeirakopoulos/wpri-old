@@ -5,6 +5,7 @@
 
 					// Start the Loop.
 					$member_ids = WPRI_Database::get_member_ids();
+					echo "<div class='container>";
 
 					foreach ( $member_ids as $member_id ) {
 						$member = WPRI_Database::get_member_short($member_id);
@@ -32,7 +33,6 @@
 							echo "</div>";
 						echo "</a>";
 					}
-					echo "<div class='container>";
 
 					echo "</div>";
 				?>
