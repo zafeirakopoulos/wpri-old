@@ -179,8 +179,12 @@
    color: var(--main-color);
    text-align: center;
    background-color: var(--main-background-color);
-   border-top: 1px solid #e5e5e5;
  }
+
+div.bte-footer{
+    border-top: 1px solid #e5e5e5;
+}
+
  .bte-footer p:last-child {
    margin-bottom: 0;
  }
