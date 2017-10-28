@@ -1,3 +1,4 @@
+get_sidebar();
 </div> <!-- /.container -->
 
     <footer class="bte-footer">
