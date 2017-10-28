@@ -32,6 +32,9 @@ $template_loader->get_template_part( 'wpri', 'header' );
                 $template_loader->get_template_part( 'wpri', 'publication' );
             }
 
+            if ( is_single() ) {
+                $template_loader->get_template_part( 'wpri', 'single' );
+            }
             /* For the blogs
                 if ( have_posts() ) : while ( have_posts() ) : the_post();
 
