@@ -52,8 +52,6 @@ class WPRI_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		// TODO definitely not the right place
-		load_template ( dirname( __FILE__ ) . '/templates/sidebar-news.php' ) ;
 
 	}
 
