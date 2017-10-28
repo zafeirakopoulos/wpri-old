@@ -14,10 +14,10 @@
 
 				?>
 				<div class="previous-post-link">
-                <?php previous_post_link('%link', '<< Previous Post', $in_same_term = true, $excluded_terms = '', $taxonomy = 'the-custom-taxonomy-associated-with-your-custom-post-type'); ?>
+                <?php previous_post_link('%link', '<< Previous Post', $in_same_term = true, $excluded_terms = '', $taxonomy = 'wpri-news'); ?>
 	            </div>
 
 	            <div class="next-post-link">
-	                <?php next_post_link('%link', 'Next Post >>', $in_same_term = true, $excluded_terms = '', $taxonomy = 'the-custom-taxonomy-associated-with-your-custom-post-type'); ?>
+	                <?php next_post_link('%link', 'Next Post >>', $in_same_term = true, $excluded_terms = '', $taxonomy = 'wpri-news'); ?>
 	            </div>
 			</div>
