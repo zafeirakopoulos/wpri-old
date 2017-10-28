@@ -14,15 +14,11 @@
 
 				?>
 				Links:
-				<div class="previous-post-link">
-                <?php
- 					 previous_post_link( '%link', '%title', TRUE, ' ', 'wpri_news' );
+                 <?php
+ 					 previous_post_link( '%link', '%title', TRUE );
 				 ?>
-	            </div>
 
-	            <div class="next-post-link">
-	                <?php
+ 	                <?php
 						echo next_post_link('%link', 'Next Post >>', $in_same_term = true, $excluded_terms = '', $taxonomy = 'wpri_news');
 					?>
-	            </div>
-			</div>
+ 			</div>
