@@ -30,10 +30,11 @@
 	?>
 
  		<div class="bte-masthead container">
-			<img width="50px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png">
-			<h1 class="bte-title"><?php echo get_bloginfo( 'name' ); ?></h1>
-			<img width="50px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png">
-
+			<table>
+			<td><img width="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png"></td>
+			<td><h1 class="bte-title"><?php echo get_bloginfo( 'name' ); ?></h1></td>
+			<td><img width="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png"></td>
+			</table>
 			<nav class="navbar navbar-default">
 			  <div class="container-fluid">
 			    <div class="navbar-header">
