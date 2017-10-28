@@ -8,8 +8,8 @@
 
 					foreach ( $member_ids as $member_id ) {
 						$member = WPRI_Database::get_member_short($member_id);
-						echo "<a class='faculty-thumb' href='".site_url()."/member?id=".$member_id."'>";
-							echo "<div class='col-md-5  faculty-thumb'>";
+						echo "<a class='faculty-thumb-link' href='".site_url()."/member?id=".$member_id."'>";
+							echo "<div class='col-md-5 faculty-thumb'>";
 								echo "<table>";
 									echo "<tr>";
 										echo "<h3 class='faculty-thumb'>";
@@ -32,6 +32,5 @@
 							echo "</div>";
 						echo "</a>";
 					}
-
 				?>
 			</div><!-- #faculty -->
