@@ -1,4 +1,4 @@
-	<div class="sidebar-module sidebar">
+	<div class="sidebar">
 		<h4>News</h4>
 		hhheye
 		<ol >
