@@ -17,7 +17,7 @@
          --single-item-h3-font-size:20px;
          --single-item-p-font-size:15px;
 
-         --faculty-forground-color: gray;
+         --faculty-forground-color: black;
          --faculty-font-size: 25px;
          --faculty-border: 0px;
          --faculty-padding:20px;
@@ -272,7 +272,6 @@
   .faculty-thumb {
     background-color: var(--single-item-background-color);
     color: var(--single-item-color);
-    border: var(--single-item-border);
     font-size: var(--single-item-font-size,15px);
 	padding: var(--single-item-padding,20px);
 	margin-right: var(--single-item-margin-right,5px);
@@ -284,6 +283,9 @@
 h1.faculty{
       font-size: var(--h1-page-title-font-size,25px);
   }
+div.faculty-thumb{
+  border: var(--single-item-border);
+}
 h3.faculty-thumb{
     font-size: var(--single-item-h3-font-size,15px);
     color: var(--single-item-color);
