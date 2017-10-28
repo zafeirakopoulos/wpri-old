@@ -12,8 +12,6 @@
          --sidebar-background-color : blue;
          --sidebar-color : orange;
 
-         --sidebar-background-color: var(--sidebar-background-color);
-         --sidebar-color: var(--sidebar-color);
          --sidebar-border: 1px solid black ;
          --sidebar-font-size: 15px;
          --sidebar-padding:20px;
