@@ -4,7 +4,6 @@
 		<?php
 		$position_id=$_GET['id'];
 		$position = WPRI_Database::get_open_position($position_id);
-		echo $position['title'];
 		?>
 		<div class='row'>
 			<div class='col-sm-12 col-md-12 col-lg-12'><h1> <?php echo $position['title'];?></h1> </div>
@@ -21,6 +20,7 @@
 			<div class='col-sm-2 col-md-2 col-lg-2'>Ending date: </div>
 			<div class='col-sm-2 col-md-2 col-lg-2'> <?php echo $position['enddate'];?> </div>
 		</div>
+		<h2>Job description</h2>
 		<div class='row'>
 			<div class='col-sm-12 col-md-12 col-lg-12'> <?php echo $position['description'];?> </div>
 		</div>
@@ -29,14 +29,10 @@
  	<h2 class="member">Requirements:</h2>
 	<div class="container">
 		<?php
-		$member_publications = WPRI_Database::get_member_publications($member_id);
-		foreach ($member_publications as $publication) {
-			$pub = WPRI_Database::get_publication($publication->pub);
-			echo "<a class='member' href='".site_url()."/publication?id=".$pub->id."'>";
+		foreach ($position['requirements'] as $requirement) {
 			echo "<div class='row'>";
-				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".$pub->title."</div>";
+				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".WPRI_Database::get_position_requirement($requirement->requirement)."</div>";
 			echo "</div>";
-			echo "</a>";
 		}?>
 	</div>
 
@@ -55,14 +51,11 @@
 
 	<h2 class="member">Projects:</h2>
 	<div class="container">
-		<?php foreach ($member['projects'] as $project_member) {
-			$project = WPRI_Database::get_project( $project_member->project);
-			echo "<a class='member' href='".site_url()."/project?id=".$project->id."'>";
+		<?php
+		foreach ($position['projects'] as $project) {
+			echo "<a class='member' href='".site_url()."/project?id=".$project->project."'>";
 			echo "<div class='row'>";
-				echo "<div class='col-sm-4 col-md-4 col-lg-4'>".$project->title."</div>";
-				echo "<div class='col-sm-2 col-md-2 col-lg-2'>". WPRI_Database::get_project_role($project_member->role)."</div>";
-				echo "<div class='col-sm-2 col-md-2 col-lg-2'>".$project->PI."</div>";
-				echo "<div class='col-sm-2 col-md-2 col-lg-2'>".$project->funding."</div>";
+				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".WPRI_Database::get_project_short($project->project)['title']."</div>";
 			echo "</div>";
 			echo "</a>";
 		}?>
