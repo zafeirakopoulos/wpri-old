@@ -14,7 +14,7 @@
 					echo "<div class='col-sm-12 col-md-5 col-lg-5 faculty-thumb-frame'>";
 						echo "<div class='container'>";
 						echo "jhjkhhjk";
-							// echo "<div class='row'>";
+							echo "<div class='row'>";
 							// 	echo "<div class='col-sm-12 col-md-12 col-lg-12 faculty-thumb'><h1>".$member['title']." ".$member['name']."</h1> </div>";
 							// echo "</div>";
 							// echo "<div class='row'>";
@@ -23,8 +23,8 @@
 							// echo "</div>";
 							// echo "<div class='row'>";
 							// 	echo "<div class='col-sm-6 col-md-6 col-lg-6 faculty-thumb'>".$member['website']."</div>";
-							// 	echo "<div class='col-sm-6 col-md-6 col-lg-6 faculty-thumb'>".$member['email']."</div>";
-							// echo "</div>";
+								// echo "<div class='col-sm-6 col-md-6 col-lg-6 faculty-thumb'>".$member['email']."</div>";
+							echo "</div>";
 						echo "</div>";
 					echo "</div>";
 				echo "</a>";
