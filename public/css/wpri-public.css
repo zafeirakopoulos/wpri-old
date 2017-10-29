@@ -353,7 +353,6 @@ a.faculty-thumb-link:hover{
 .member {
   background-color: var(--secondary-background-color);
   color: var(--main-color);
-  font-size: var(--single-item-font-size,15px);
   padding: var(--single-item-padding,20px);
   margin-right: var(--single-item-margin-right,5px);
   margin-left: var(--single-item-margin-left,5px);
