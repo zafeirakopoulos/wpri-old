@@ -57,11 +57,15 @@
 						);
 
 						$loop = new WP_Query( $args );
+						echo "<table>";
 						while ( $loop->have_posts() ) : $loop->the_post();
-							echo "<br>";
+							echo "<tr><td>"
 							echo "<a class='member' href='".site_url()."/news/".$post->post_name."'>";
 							the_title();
 							echo "</a>";
+							echo "</td></tr>"
 						endwhile;
+						echo "</table>";
+
  				?>
 			</div><!-- #member -->
