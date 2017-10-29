@@ -20,7 +20,7 @@
 				</p></td></tr>
 				</table>
 
-				<h2 class="member">Publications:</h2><br>
+				<h2 class="member">Publications:</h2>
 					<table>
 					<?php $member_publications = WPRI_Database::get_member_publications($member_id);
 					foreach ($member_publications as $publication) {
@@ -33,7 +33,7 @@
 					</table>
 
 
-				<h2 class="member">Projects:</h2><br>
+				<h2 class="member">Projects:</h2>
 				<table>
 				<?php foreach ($member['projects'] as $project_member) {
 						$project = WPRI_Database::get_project( $project_member->project);
@@ -46,9 +46,9 @@
 					}?>
 				</table>
 
-				<h2 class="member">Education:</h2><br>
+				<h2 class="member">Education:</h2>
 
-				<h2 class="member">News:</h2> 
+				<h2 class="member">News:</h2>
 
 				<?php $args = array(
 						  'author__in'     => array($member['user']),
@@ -60,7 +60,7 @@
 						while ( $loop->have_posts() ) : $loop->the_post();
 							echo "<a class='member' href='".site_url()."/news/".$post->post_name."'>";
 							the_title();
-							echo "</a>";
+							echo "</a><br>";
 						endwhile;
 
  				?>
