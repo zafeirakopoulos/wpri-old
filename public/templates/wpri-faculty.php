@@ -13,7 +13,7 @@
 				echo "<a class='faculty-thumb' href='".site_url()."/member?id=".$member_id."'>";
 					echo "<div class='col-sm-12 col-md-5 col-lg-5 faculty-thumb-frame'>";
 						echo "<div class='container'>";
-						
+						echo "jhjkhhjk";
 							// echo "<div class='row'>";
 							// 	echo "<div class='col-sm-12 col-md-12 col-lg-12 faculty-thumb'><h1>".$member['title']." ".$member['name']."</h1> </div>";
 							// echo "</div>";
