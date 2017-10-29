@@ -365,7 +365,6 @@ a.member{
     color: var(--main-color);
 }
 h2,h3,h4.member{
-    font-size: var(--single-item-font-size,17px);
     color: var(--main-color);
 }
 /* Projects */
