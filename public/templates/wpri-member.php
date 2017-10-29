@@ -1,37 +1,37 @@
 
 			<div class="member">
-				<table>
-				<tr><h3>
+				<div class="container">
 					<?php
-						$member_id=$_GET['id'];
-						$member = WPRI_Database::get_member($member_id);
-						$member['title']." ".$member['name'];?>
-				</h3></tr>
-				<tr><td>
-					<?php echo get_avatar( $member['user'] );?>
-				</td>
-				<td><p>
-					<?php echo $member['position'];?>
-				<br>
-					<?php echo $member['website'];?>
-				<br>
-					<?php echo $member['email'];?>
-				<br>
-				</p></td></tr>
-				</table>
+					$member_id=$_GET['id'];
+					$member = WPRI_Database::get_member($member_id);
+					?>
+					<div class='row'>";
+						<div class='col-sm-12 col-md-12 col-lg-12'> <?php $member['title']." ".$member['name'];?> </div>";
+					</div>
+					<div class='row'>";
+						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo get_avatar( $member['user'] );?> </div>";
+						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $member['position'];?> </div>";
+					</div>
+					<div class='row'>";
+						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $member['website'];?> </div>";
+						<div class='col-sm-3 col-md-3 col-lg-3'> 	<?php echo $member['email'];?> </div>";
+					</div>
+				</div>
+				
 
 				<h2 class="member">Publications:</h2>
-					<table>
-					<?php $member_publications = WPRI_Database::get_member_publications($member_id);
+				<div class="container">
+					<?php
+					$member_publications = WPRI_Database::get_member_publications($member_id);
 					foreach ($member_publications as $publication) {
-						echo "<tr>";
 						$pub = WPRI_Database::get_publication($publication->pub);
-						echo "<td><a href='".site_url()."/publication?id=".$pub->id."'>" . $pub->title."</a><td>";
-						echo "</tr>";
-					}
-					?>
-					</table>
-
+						echo "<a class='member' href='".site_url()."/publication?id=".$pub->id."'>";
+						echo "<div class='row'>";
+							echo "<div class='col-sm-12 col-md-12 col-lg-12'>".$pub->title."</div>";
+						echo "</div>";
+						echo "</a>";
+					}?>
+				</div>
 
 				<h2 class="member">Projects:</h2>
 				<div class="container">
