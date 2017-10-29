@@ -9,6 +9,8 @@
 				echo $member_id;
 			}
 			foreach ( $member_ids as $member_id ) {
+				echo $member_id;
+
 				$member = WPRI_Database::get_member_short($member_id);
 				$member_id=$_GET['id'];
 				$member = WPRI_Database::get_member($member_id);
