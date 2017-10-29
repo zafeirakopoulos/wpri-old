@@ -29,5 +29,6 @@
 							echo "</div></a>";
 						echo "</div>";
 					}
+					echo "</div>";
 				?>
 			</div><!-- #faculty -->
