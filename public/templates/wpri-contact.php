@@ -2,9 +2,9 @@
 	<div class="container">
 		Address:
 		<div class='row'>
-			<div class='col-sm-3 col-md-3 col-lg-3'>Gebze Technical University Computer Engineering Building </div>
-			<div class='col-sm-3 col-md-3 col-lg-3'>Gebze – Kocaeli – Turkey </div>
-			<div class='col-sm-3 col-md-3 col-lg-3'>ZIP Code : 41400 </div>
+			<div class='col-sm-12 col-md-12 col-lg-12'>Gebze Technical University Computer Engineering Building </div>
+			<div class='col-sm-12 col-md-12 col-lg-12'>Gebze – Kocaeli – Turkey </div>
+			<div class='col-sm-12 col-md-12 col-lg-12'>ZIP Code : 41400 </div>
 		</div>
 		Other:
 		<div class='row'>
