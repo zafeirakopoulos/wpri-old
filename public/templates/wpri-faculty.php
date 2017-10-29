@@ -15,7 +15,7 @@
 						echo "<div class='container'>";
 						echo "jhjkhhjk";
 							echo "<div class='row'>";
-							// 	echo "<div class='col-sm-12 col-md-12 col-lg-12 faculty-thumb'><h1>".$member['title']." ".$member['name']."</h1> </div>";
+								echo "<div class='col-sm-12 col-md-12 col-lg-12 faculty-thumb'><h1>".$member['title']." ".$member['name']."</h1> </div>";
 							// echo "</div>";
 							// echo "<div class='row'>";
 							// 	echo "<div class='col-sm-3 col-md-3 col-lg-3 faculty-thumb'>".get_avatar( $member['user'] )."</div>";
