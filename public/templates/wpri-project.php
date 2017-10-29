@@ -19,18 +19,18 @@
 	</div>
 
 
-		<h2 class="member">Participants:</h2>
-		<div class="container">
-		<?php
-			$project_members = WPRI_Database::get_project_members($project_id);
-			foreach ($project_members as $member) {
-				echo "<a class='member' href='".site_url()."/member?id=".$member->id."'>";
-				echo "<div class='row'>";
-					echo "<div class='col-sm-12 col-md-12 col-lg-12'>".WPRI_Database::get_member($member->member)["name"]. "(". WPRI_Database::get_project_role($member->role).")</div>";
-				echo "</div>";
-				echo "</a>";
-			}?>
-		</div>
+	<h2 class="member">Participants:</h2>
+	<div class="container">
+	<?php
+		$project_members = WPRI_Database::get_project_members($project_id);
+		foreach ($project_members as $member) {
+			echo "<a class='member' href='".site_url()."/member?id=".$member->id."'>";
+			echo "<div class='row'>";
+				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".WPRI_Database::get_member($member->member)["name"]. "(". WPRI_Database::get_project_role($member->role).")</div>";
+			echo "</div>";
+			echo "</a>";
+		}?>
+	</div>
 
 	<h2 class="member">Publications:</h2>
 	<div class="container">
@@ -38,7 +38,6 @@
 		$project_publications = WPRI_Database::get_project_publications($project_id);
 		foreach ($project_publications as $publication) {
 			$pub = WPRI_Database::get_publication($publication->pub);
-
 			echo "<a class='member' href='".site_url()."/publication?id=".$pub->id."'>";
 			echo "<div class='row'>";
 				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".$pub->title."</div>";
@@ -47,10 +46,8 @@
 		}?>
 	</div>
 
-
-
-<!--
-<h2 class="member">News:</h2>
-Needs work. From project management connect a wpri_news post with the project to query from here.
--->
+	<!--
+	<h2 class="member">News:</h2>
+	Needs work. From project management connect a wpri_news post with the project to query from here.
+	-->
 </div><!-- #project -->
