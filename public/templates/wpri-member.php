@@ -6,7 +6,7 @@
 
 					echo "<br>";
 					echo "<table>";
-					echo "<tr><h3 class='faculty'>";
+					echo "<tr><h3>";
 					echo $member['title']." ".$member['name'];
 					echo "</h3></tr>";
 					echo "<tr><td>";
@@ -56,7 +56,7 @@
 
 						$loop = new WP_Query( $args );
 						while ( $loop->have_posts() ) : $loop->the_post();
-							echo "<a class='faculty-thumb-link' href='".site_url()."/news/".$post->post_name."'>";
+							echo "<a href='".site_url()."/news/".$post->post_name."'>";
 								echo '<div>';
 								the_title();
 				  				echo '</div>';
