@@ -316,8 +316,8 @@ footer.bte-footer{
     color: var(--single-item-color);
   }
 
-
   div.faculty-thumb{
+    background-color: var(--single-item-background-color);
     padding: var(--single-item-padding,20px);
   }
   div.faculty-thumb-frame{
