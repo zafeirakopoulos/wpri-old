@@ -48,7 +48,7 @@
 
 				<h2 class="member">Education:</h2><br>
 
-				<h2 class="member">News:</h2><br>
+				<h2 class="member">News:</h2> 
 
 				<?php $args = array(
 						  'author__in'     => array($member['user']),
@@ -57,15 +57,11 @@
 						);
 
 						$loop = new WP_Query( $args );
-						echo "<table>";
 						while ( $loop->have_posts() ) : $loop->the_post();
-							echo "<tr><td>";
 							echo "<a class='member' href='".site_url()."/news/".$post->post_name."'>";
 							the_title();
 							echo "</a>";
-							echo "</td></tr>";
 						endwhile;
-						echo "</table>";
 
  				?>
 			</div><!-- #member -->
