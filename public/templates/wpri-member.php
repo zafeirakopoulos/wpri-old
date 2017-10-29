@@ -19,7 +19,7 @@
 					echo "</p></td></tr>";
 					echo "</table>";
 
-					echo "Publications:<br>";
+					echo "<h2>Publications:</h2><br>";
 					echo "<table>";
 					$member_publications = WPRI_Database::get_member_publications($member_id);
 					foreach ($member_publications as $publication) {
@@ -31,7 +31,7 @@
 					echo "</table>";
 
 
-					echo "Projects:<br>";
+					echo "<h2>Projects:</h2><br>";
 					echo "<table>";
 					foreach ($member['projects'] as $project_member) {
 						$project = WPRI_Database::get_project( $project_member->project);
@@ -44,13 +44,15 @@
 					}
 					echo "</table>";
 
-					echo "Education:<br>";
+					echo "<h2>Education:</h2><br>";
 
  						$args = array(
 						  'author__in'     => array($member['user']),
 						  'posts_per_page' => 20,
 						  'post_type' => 'wpri_news'
 						);
+
+					echo "<h2> Projects:</h2><br>";
 
 						$loop = new WP_Query( $args );
 						while ( $loop->have_posts() ) : $loop->the_post();
