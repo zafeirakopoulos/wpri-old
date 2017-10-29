@@ -60,8 +60,8 @@
 						while ( $loop->have_posts() ) : $loop->the_post();
 							echo "<a class='member' href='".site_url()."/news/".$post->post_name."'>";
 							the_title();
-							echo "</a>";
 							echo "<br>";
+							echo "</a>";
 						endwhile;
  				?>
 			</div><!-- #member -->
