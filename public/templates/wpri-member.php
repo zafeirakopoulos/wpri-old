@@ -43,7 +43,7 @@
 							echo "<div class='col-sm-2 col-md-2 col-lg-2'>". WPRI_Database::get_project_role($project_member->role)."</div>";
 							echo "<div class='col-sm-2 col-md-2 col-lg-2'>".$project->PI."</div>";
 							echo "<div class='col-sm-2 col-md-2 col-lg-2'>".$project->funding."</div>";
-						echo "</div";
+						echo "</div>";
 						echo "</a>";
 					}?>
 				</div>
