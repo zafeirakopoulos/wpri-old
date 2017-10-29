@@ -4,8 +4,7 @@
 			<?php
 			// Start the Loop.
 			$member_ids = WPRI_Database::get_member_ids();
-			echo "<div class='row'>";
-			foreach ( $member_ids as $member_id ) {
+ 			foreach ( $member_ids as $member_id ) {
 				$member = WPRI_Database::get_member_short($member_id);
 				$member_id=$_GET['id'];
 				$member = WPRI_Database::get_member($member_id);
@@ -19,7 +18,6 @@
 						echo "</div>";
 				echo "</a>";
 				}
-			echo "</div>";
-			?>
+ 			?>
 		</div>
  </div><!-- #faculty -->
