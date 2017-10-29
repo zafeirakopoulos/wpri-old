@@ -360,6 +360,11 @@ a.faculty-thumb-link:hover{
   margin-bottom:var(--single-item-margin-bottom,10px);
   margin-top:var(--single-item-margin-top,10px);
 }
+
+h2.member{
+    font-size: var(--single-item-font-size,17px);
+    color: var(--single-item-color);
+}
 /* Projects */
 
 .project-thumb {
