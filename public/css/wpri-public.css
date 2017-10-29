@@ -323,6 +323,8 @@ footer.bte-footer{
   div.faculty-thumb-frame{
     border: 5px solid white;
     padding: var(--single-item-padding,20px);
+    background-color: var(--single-item-background-color);
+
   }
 h3.faculty-thumb{
     font-size: var(--single-item-h3-font-size,15px);
