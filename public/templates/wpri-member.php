@@ -5,16 +5,16 @@
 					$member_id=$_GET['id'];
 					$member = WPRI_Database::get_member($member_id);
 					?>
-					<div class='row'>";
-						<div class='col-sm-12 col-md-12 col-lg-12'> <?php $member['title']." ".$member['name'];?> </div>;
+					<div class='row'>
+						<div class='col-sm-12 col-md-12 col-lg-12'> <?php $member['title']." ".$member['name'];?> </div>
 					</div>
-					<div class='row'>";
-						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo get_avatar( $member['user'] );?> </div>;
-						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $member['position'];?> </div>;
+					<div class='row'>
+						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo get_avatar( $member['user'] );?> </div>
+						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $member['position'];?> </div>
 					</div>
-					<div class='row'>";
-						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $member['website'];?> </div>;
-						<div class='col-sm-3 col-md-3 col-lg-3'> 	<?php echo $member['email'];?> </div>;
+					<div class='row'>
+						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $member['website'];?> </div>
+						<div class='col-sm-3 col-md-3 col-lg-3'> 	<?php echo $member['email'];?> </div>
 					</div>
 				</div>
 
