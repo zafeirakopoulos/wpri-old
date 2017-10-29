@@ -317,10 +317,13 @@ footer.bte-footer{
   }
 
 
-div.faculty-thumb{
-  border: 5px solid white;
-  padding: var(--single-item-padding,20px);
-}
+  div.faculty-thumb{
+    padding: var(--single-item-padding,20px);
+  }
+  div.faculty-thumb-frame{
+    border: 5px solid white;
+    padding: var(--single-item-padding,20px);
+  }
 h3.faculty-thumb{
     font-size: var(--single-item-h3-font-size,15px);
  }
