@@ -34,6 +34,7 @@
 
 
 				<h2 class="member">Projects:</h2>
+				<div class='container'>
 					<?php foreach ($member['projects'] as $project_member) {
 						$project = WPRI_Database::get_project( $project_member->project);
 						echo "<a class='member' href='".site_url()."/project?id=".$project->id."'>";
@@ -45,7 +46,7 @@
 						echo "</div";
 						echo "</a>";
 					}?>
-				</ul>
+				</div>
 
 				<h2 class="member">Education:</h2>
 
