@@ -10,15 +10,14 @@
 				<tr><td>
 
 					<?php
-					echo "user:".$member['user'];
-					get_avatar( $member['user'] );?>
+					echo get_avatar( $member['user'] );?>
 				</td>
 				<td><p>
-					<?php $member['position'];?>
+					<?php echo $member['position'];?>
 				<br>
-					<?php $member['website'];?>
+					<?php echo $member['website'];?>
 				<br>
-					<?php $member['email'];?>
+					<?php echo $member['email'];?>
 				<br>
 				</p></td></tr>
 				</table>
