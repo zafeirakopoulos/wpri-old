@@ -24,7 +24,7 @@
 			<div class='col-sm-12 col-md-12 col-lg-12'> <?php echo $position['description'];?> </div>
 		</div>
 	</div>
-
+<!--
 	<h2 class="member">Requirements:</h2>
 	<div class="container">
 		<?php
@@ -65,7 +65,7 @@
 			echo "</div>";
 			echo "</a>";
 		}?>
-	</div>
+	</div> -->
 
 
 </div><!-- #position -->
