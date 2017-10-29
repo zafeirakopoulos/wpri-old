@@ -135,6 +135,26 @@ class WPRI_Position {
 				echo '<span class="description">Please enter position type.</span>';
 				echo '</td></tr>';
 
+				echo '</td></tr>';
+				echo '<tr>';
+				echo '<th><label for="title">Title</label></th>';
+				echo '<td><textarea id="title" name="title" cols="70" rows="2"></textarea>';
+				echo '<span class="description">140 characters.</span>';
+				echo '</td></tr>';
+
+
+				$requirements = WPRI_Database::get_requirements();
+
+				echo '<tr>';
+				echo '<th><label for="requirements[]">Requiremets for the position</label></th>';
+				echo '<td><select size="8" multiple="multiple" name="requirements[]">';
+					foreach ( $requirements as $requirement ) {
+					echo '<option value='.$requirement->id.'>'.WPRI_Database::get_requirement($requirement->id).'</option>';
+					}
+				echo '</select>';
+				echo '<span class="description">Choose requirements.</span>';
+				echo '</td></tr>';
+
 				$projects = WPRI_Database::get_all_projects();
 
 				echo '<tr>';
@@ -147,12 +167,6 @@ class WPRI_Position {
 				echo '<span class="description">Choose related projects.</span>';
 				echo '</td></tr>';
 
-				echo '</td></tr>';
-				echo '<tr>';
-				echo '<th><label for="title">Title</label></th>';
-				echo '<td><textarea id="title" name="title" cols="70" rows="2"></textarea>';
-				echo '<span class="description">140 characters.</span>';
-				echo '</td></tr>';
 
 
 				$agencies = WPRI_Database::get_agencies();
