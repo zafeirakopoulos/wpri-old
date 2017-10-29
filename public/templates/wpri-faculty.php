@@ -1,5 +1,4 @@
 <div class='faculty container' id="faculty" >
-	<h1 class='faculty'> Faculty </h1>
  		<div class='row'>
 			<?php
 			// Start the Loop.
