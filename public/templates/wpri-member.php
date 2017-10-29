@@ -8,7 +8,10 @@
 						$member['title']." ".$member['name'];?>
 				</h3></tr>
 				<tr><td>
-					<?php get_avatar( $member['user'] );?>
+
+					<?php
+					echo "user:".$member['user'];
+					get_avatar( $member['user'] );?>
 				</td>
 				<td><p>
 					<?php $member['position'];?>
