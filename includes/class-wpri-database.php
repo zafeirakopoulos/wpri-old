@@ -398,6 +398,21 @@ class WPRI_Database {
 					return $projects;
 				}
 
+				public static function get_open_position_ids_by_member($member) {
+					$pids =  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT position FROM " . self::table_name("open_position_contact"). " WHERE member = %d",
+							$member
+						)
+					);
+					$ids = Array();
+					foreach ( $pids as $id ) {
+						array_push($ids,$id->id);
+					}
+					return $ids;
+				}
+
+
 				public static function get_publications_by_member($member) {
 					return $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
@@ -637,10 +652,19 @@ class WPRI_Database {
 				}
 
 
+
+
 				public static function delete_member($member_id) {
 					$projects = WPRI_Database::get_projects_by_member($member_id);
 					foreach ($projects as $project){
 						WPRI_Database::delete_project_member($project->id,$member_id);
+					}
+
+
+
+					$open_positions = WPRI_Database::get_open_position_ids_by_member($member_id);
+					foreach ($open_positions as $position){
+						WPRI_Database::delete_position_contact($position,$member_id);
 					}
 
 					return $GLOBALS['wpdb']->query(
@@ -909,6 +933,16 @@ class WPRI_Database {
 					);
 				}
 
+				
+
+				public static function delete_position_contact($position,$member) {
+					return $GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("open_position_contact"). " WHERE position = %d AND member= %d",
+							$position, $member
+						)
+					);
+				}
 				public static function add_project_publication( $project, $publication) {
 					return $GLOBALS['wpdb']->insert( self::table_name("publication_project"),
 						array(
