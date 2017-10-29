@@ -481,6 +481,27 @@ class WPRI_Database {
 					);
 				}
 
+
+				public static function get_publication_full($publication_id) {
+					$publication = $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("publication"). " WHERE id = %d", $publication_id
+						)
+					)[0];
+
+					$authors = WPRI_Database::get_publication_authors($publication_id);
+					$projects = WPRI_Database::get_publication_projects($publication_id);
+					return array(
+						'title' => $publication->title,
+						'pubtype' => $publication->pubtype,
+						'doi' => $publication->doi,
+						'international' => $publication->international,
+						'refereed' => $publication->refereed,
+						'bibentry' => $publication->bibentry,
+						'authors' => $authors,
+						'projects' => $projects,
+					);
+				}
 				///////////////////////////
 				// Member
 				///////////////////////////
@@ -619,7 +640,7 @@ class WPRI_Database {
 				public static function delete_member($member_id) {
 					$projects = WPRI_Database::get_projects_by_member($member_id);
 					foreach ($projects as $project){
-						WPRI_Database::delete_project_member($project->id,$member_id);	
+						WPRI_Database::delete_project_member($project->id,$member_id);
 					}
 
 					return $GLOBALS['wpdb']->query(
@@ -650,6 +671,15 @@ class WPRI_Database {
 					);
  				}
 
+				public static function get_publication_authors($pub_id) {
+					return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("publication_member"). " WHERE pub = %d",
+							 $pub_id
+						)
+					);
+ 				}
+
 				public static function get_project_publications($project_id) {
 					return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
@@ -658,6 +688,16 @@ class WPRI_Database {
 						)
 					);
  				}
+
+				public static function get_publication_projects($pub_id) {
+					return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("publication_project"). " WHERE pub = %d",
+							 $pub_id
+						)
+					);
+				}
+
 				public static function member_participates_in_project_as($member,$project,$role) {
 
 					return (0!=  $GLOBALS['wpdb']->query(
