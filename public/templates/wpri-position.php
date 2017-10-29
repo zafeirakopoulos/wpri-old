@@ -31,7 +31,7 @@
 		<?php
 		foreach ($position['requirements'] as $requirement) {
 			echo "<div class='row'>";
-				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".WPRI_Database::get_position_requirement($requirement->requirement)."</div>";
+				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".WPRI_Database::get_requirement($requirement->requirement)."</div>";
 			echo "</div>";
 		}?>
 	</div>
