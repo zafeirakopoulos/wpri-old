@@ -1,13 +1,11 @@
 
 			<div class="member">
-				<?php
-					$member_id=$_GET['id'];
-					$member = WPRI_Database::get_member($member_id);
-				?>
-				<br>
 				<table>
 				<tr><h3>
-				<?php $member['title']." ".$member['name'];?>
+					<?php
+						$member_id=$_GET['id'];
+						$member = WPRI_Database::get_member($member_id);
+						$member['title']." ".$member['name'];?>
 				</h3></tr>
 				<tr><td>
 					<?php get_avatar( $member['user'] );?>
