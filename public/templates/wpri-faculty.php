@@ -1,4 +1,5 @@
-<div class='faculty container' id="faculty" >
+<div class='faculty' id="faculty" >
+	<div class='container'>
  		<div class='row'>
 			<?php
 			// Start the Loop.
@@ -17,4 +18,5 @@
 			}
  			?>
 		</div>
+	</div>
  </div><!-- #faculty -->
