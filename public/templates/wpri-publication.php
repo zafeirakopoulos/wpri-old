@@ -14,7 +14,7 @@
 			<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $publication["pubtype"];?> </div>
 		</div>
 		<div class='row'>
-			<div class='col-sm-12 col-md-12 col-lg-12' display='table-cell'> <?php echo $publication['bibentry'];?> </div>
+			<div class='col-sm-12 col-md-12 col-lg-12'> <?php echo $publication['bibentry'];?> </div>
 		</div>
 	</div>
 
