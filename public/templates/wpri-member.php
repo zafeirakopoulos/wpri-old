@@ -57,13 +57,14 @@
 						);
 
 						$loop = new WP_Query( $args );
+						echo "<ol>";
 						while ( $loop->have_posts() ) : $loop->the_post();
-							echo "<a class='member' href='".site_url()."/news/".$post->post_name."'>";
-								echo "<div class='member'>";
+							echo "<li><a class='member' href='".site_url()."/news/".$post->post_name."'>";
 									the_title();
-								echo "</div>";
-							echo "</a>";
+							echo "</a></li>";
 						endwhile;
+						echo "</ol>";
+
 
  				?>
 			</div><!-- #member -->
