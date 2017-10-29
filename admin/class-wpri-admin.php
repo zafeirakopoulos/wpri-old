@@ -419,7 +419,7 @@ class WPRI_Admin {
 		function wpri_settings_position_requirements_management() {
 			echo '<div class="wrap">';
 			echo '<h2>Manage Positions Requirements</h2>';
-			WPRI_Admin::setting_form('position_requirements');
+			WPRI_Admin::setting_form('position_requirement');
 			echo '</div>';
 		}
 		add_submenu_page( 'wpri-settings-menu', 'Positions Requirements Management','Position Requirements' , 'manage_options', 'wpri-settings-position-requirements' , 'wpri_settings_position_requirements_management');
