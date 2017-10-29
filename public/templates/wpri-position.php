@@ -43,7 +43,7 @@
 	<h2 class="member">Contacts:</h2>
 	<div class="container">
 		<?php
-		foreach ($position['contacts']] as $contact) {
+		foreach ($position['contacts'] as $contact) {
 			$member = WPRI_Database::get_member_short($contact->member);
 			echo "<a class='member' href='".site_url()."/publication?id=".$contact->member."'>";
 			echo "<div class='row'>";
