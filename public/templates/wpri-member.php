@@ -8,9 +8,7 @@
 						$member['title']." ".$member['name'];?>
 				</h3></tr>
 				<tr><td>
-
-					<?php
-					echo get_avatar( $member['user'] );?>
+					<?php echo get_avatar( $member['user'] );?>
 				</td>
 				<td><p>
 					<?php echo $member['position'];?>
@@ -60,8 +58,8 @@
 
 						$loop = new WP_Query( $args );
 						while ( $loop->have_posts() ) : $loop->the_post();
-							echo "<a href='".site_url()."/news/".$post->post_name."'>";
-								echo '<div>';
+							echo "<a class="member" href='".site_url()."/news/".$post->post_name."'>";
+								echo '<class="member" div>';
 								the_title();
 				  				echo '</div>';
 							echo "</a>";
