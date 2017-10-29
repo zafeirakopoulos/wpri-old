@@ -10,16 +10,16 @@
 			<div class='col-sm-12 col-md-12 col-lg-12'><h1> <?php echo $position['title'];?></h1> </div>
 		</div>
 		<div class='row'>
-			<div class='col-sm-3 col-md-3 col-lg-3'>Position:</div>
-			<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $position['postype'];?> </div>
-			<div class='col-sm-3 col-md-3 col-lg-3'>Application deadline: </div>
-			<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $position['deadline'];?> </div>
+			<div class='col-sm-2 col-md-2 col-lg-2'>Position:</div>
+			<div class='col-sm-2 col-md-2 col-lg-2'> <?php echo $position['postype'];?> </div>
+			<div class='col-sm-2 col-md-2 col-lg-2'>Application deadline: </div>
+			<div class='col-sm-2 col-md-2 col-lg-2'> <?php echo $position['deadline'];?> </div>
 		</div>
 		<div class='row'>
-			<div class='col-sm-3 col-md-3 col-lg-3'>Starting date:</div>
-			<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $position['startdate'];?> </div>
-			<div class='col-sm-3 col-md-3 col-lg-3'>Ending date: </div>
-			<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $position['enddate'];?> </div>
+			<div class='col-sm-2 col-md-2 col-lg-2'>Starting date:</div>
+			<div class='col-sm-2 col-md-2 col-lg-2'> <?php echo $position['startdate'];?> </div>
+			<div class='col-sm-2 col-md-2 col-lg-2'>Ending date: </div>
+			<div class='col-sm-2 col-md-2 col-lg-2'> <?php echo $position['enddate'];?> </div>
 		</div>
 		<div class='row'>
 			<div class='col-sm-12 col-md-12 col-lg-12'> <?php echo $position['description'];?> </div>
