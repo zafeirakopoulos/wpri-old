@@ -12,7 +12,7 @@
          --sidebar-background-color : blue;
          --sidebar-color : orange;
 
-         --sidebar-border: 1px solid black ;
+         --sidebar-border: 5px solid white ;
          --sidebar-font-size: 15px;
          --sidebar-padding:3px;
          --sidebar-margin-right:0px;
@@ -294,6 +294,7 @@ footer.bte-footer{
   margin-left: var(--sidebar-margin-left,2px);
   margin-bottom:var(--sidebar-margin-bottom,2px);
   margin-top:var(--sidebar-margin-top,2px);
+  border :var(--sidebar-border);
 }
 
  /*
