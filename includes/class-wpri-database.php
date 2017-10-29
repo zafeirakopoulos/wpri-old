@@ -789,7 +789,7 @@ class WPRI_Database {
 						'startdate' => $position->startdate,
 						'enddate' => $position->enddate,
 						'agency' => $position->agency,
-						'description' => $position->description->,
+						'description' => $position->description,
 						'deadline' => $position->deadline,
 						'projects' => WPRI_Database::get_open_position_projects($position_id),
 						'contacts' => WPRI_Database::get_open_position_contacts($position_id),
