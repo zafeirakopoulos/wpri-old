@@ -24,9 +24,10 @@
 	<div class="container">
 	<?php
 		foreach ($publication['authors'] as $author) {
-			echo "<a class='member' href='".site_url()."/member?id=".$author->id."'>";
+			$member = WPRI_Database::get_member($author->member);
+			echo "<a class='member' href='".site_url()."/member?id=".$author->member."'>";
 			echo "<div class='row'>";
-				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".$author->name."</div>";
+				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".$member['name']."</div>";
 			echo "</div>";
 			echo "</a>";
 		}?>
