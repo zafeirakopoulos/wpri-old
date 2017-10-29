@@ -3,7 +3,8 @@ $template_loader = new WPRI_Template_Loader;
 $template_loader->get_template_part( 'wpri', 'header' );
 ?>
 <!-- <div class="container" style="background-image: url('http://bte.gtu.edu.tr/wp-content/uploads/2016/03/bg2.jpg'); "> -->
-<div class="container main-content-container">
+<div class="main-content-container">
+<div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-10 col-lg-10">
             <?php
@@ -54,6 +55,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
         </div> <!-- /.col -->
 
     </div> <!-- /.row -->
+</div> <!-- /.container -->
 </div> <!-- /.container -->
 
 <?php
