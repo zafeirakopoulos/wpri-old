@@ -17,7 +17,7 @@
 						<div class='col-sm-3 col-md-3 col-lg-3'> 	<?php echo $member['email'];?> </div>";
 					</div>
 				</div>
-				
+
 
 				<h2 class="member">Publications:</h2>
 				<div class="container">
@@ -59,13 +59,15 @@
 						);
 
 						$loop = new WP_Query( $args );
-						echo "<ul>";
+						echo "<dev class=çontainer'>";
 						while ( $loop->have_posts() ) : $loop->the_post();
-							echo "<li><a class='member' href='".site_url()."/news/".$post->post_name."'>";
-									the_title();
-							echo "</a></li>";
+							echo "<a class='member' href='".site_url()."/news/".$post->post_name."'>";
+								echo "<div class='row'>";
+									echo "<div class='col-sm-12 col-md-12 col-lg-12'>".the_title();."</div>";
+								echo "</div>";
+							echo "</a>";
 						endwhile;
-						echo "</ul>";
+						echo "</div>";
 
 
  				?>
