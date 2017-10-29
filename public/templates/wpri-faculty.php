@@ -1,7 +1,6 @@
-<div class='faculty' id="faculty" >
+<div class='faculty container' id="faculty" >
 	<h1 class='faculty'> Faculty </h1>
-	<div class='container'>
-		<div class='row'>
+ 		<div class='row'>
 			<?php
 			// Start the Loop.
 			$member_ids = WPRI_Database::get_member_ids();
@@ -23,5 +22,4 @@
 			echo "</div>";
 			?>
 		</div>
-	</div>
-</div><!-- #faculty -->
+ </div><!-- #faculty -->
