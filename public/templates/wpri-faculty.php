@@ -18,7 +18,7 @@
 							echo "<div class='col-sm-6 col-md-6 col-lg-6 faculty-thumb'>".$member['email']."</div>";
 						echo "</div>";
 				echo "</a>";
-				}
+			}
  			?>
 		</div>
  </div><!-- #faculty -->
