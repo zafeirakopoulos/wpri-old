@@ -400,3 +400,7 @@ p.project-thumb{
    white-space: -o-pre-wrap;   /* Opera 7 */
    word-wrap: break-word;      /* IE */
 }
+
+.main-content-container{
+    width: 100%;
+}
