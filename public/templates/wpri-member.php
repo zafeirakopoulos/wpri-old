@@ -1,5 +1,5 @@
 
-			<div id="member" >
+			<div id="member" class="member">
 				<?php
 					$member_id=$_GET['id'];
 					$member = WPRI_Database::get_member($member_id);
