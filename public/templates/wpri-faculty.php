@@ -2,7 +2,6 @@
 	<h1 class='faculty'> Faculty </h1>
 	<div class='container'>
 		<div class='row'>
-
 			<?php
 			// Start the Loop.
 			$member_ids = WPRI_Database::get_member_ids();
@@ -12,10 +11,7 @@
 				$member = WPRI_Database::get_member($member_id);
 				echo "<a class='faculty-thumb' href='".site_url()."/member?id=".$member_id."'>";
 					echo "<div class='col-sm-12 col-md-5 col-lg-5 faculty-thumb-frame'>";
-						echo "<div class='container'>";
-							echo "<div class='row'>";
-								echo "<div class='col-sm-12 col-md-5 col-lg-5 faculty-thumb'><h1 class='faculty'>".$member['title']." ".$member['name']."</h1> </div>";
-						    echo "</div>";
+						echo "<div class='col-sm-12 col-md-5 col-lg-5 faculty-thumb'><h1 class='faculty'>".$member['title']." ".$member['name']."</h1> </div>";
 							// echo "<div class='row'>";
 							// 	echo "<div class='col-sm-3 col-md-3 col-lg-3 faculty-thumb'>".get_avatar( $member['user'] )."</div>";
 							// 	echo "<div class='col-sm-9 col-md-9 col-lg-9 faculty-thumb'>".$member['position']."</div>";
