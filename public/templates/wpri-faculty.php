@@ -11,7 +11,7 @@
 				$member = WPRI_Database::get_member($member_id);
 				echo "<a class='faculty-thumb' href='".site_url()."/member?id=".$member_id."'>";
 				echo "<div class='container'>";
-					<div class='row'>;
+					echo "<div class='row'>";
 					echo "<div class='col-sm-12 col-md-5 col-lg-5 faculty-thumb'>";
 						echo "<div class='col-sm-12 col-md-12 col-lg-12 faculty-thumb'><h1 class='faculty'>".$member['title']." ".$member['name']."</h1> </div>";
 						echo "<div class='col-sm-3 col-md-3 col-lg-3 faculty-thumb'>".get_avatar( $member['user'])."</div>";
