@@ -361,7 +361,7 @@ a.faculty-thumb-link:hover{
   margin-top:var(--single-item-margin-top,10px);
 }
 
-h2.member{
+h2,h3,h4.member{
     font-size: var(--single-item-font-size,17px);
     color: var(--single-item-color);
 }
