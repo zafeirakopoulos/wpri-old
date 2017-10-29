@@ -772,7 +772,12 @@ class WPRI_Database {
 					return $pid;
 				}
 				public static function get_open_position_ids() {
-					return $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("open_position") );
+					$mids = $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("open_position") );
+					$ids = Array();
+					foreach ( $mids as $id ) {
+						array_push($ids,$id->id);
+					}
+					return $ids;
 				}
 
 
