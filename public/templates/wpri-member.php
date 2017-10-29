@@ -1,5 +1,5 @@
 
-			<div id="member" class="member">
+			<div class="member">
 				<?php
 					$member_id=$_GET['id'];
 					$member = WPRI_Database::get_member($member_id);
@@ -22,7 +22,7 @@
 				</p></td></tr>
 				</table>
 
-				<h2>Publications:</h2><br>
+				<h2 class="member">Publications:</h2><br>
 					<table>
 					<?php $member_publications = WPRI_Database::get_member_publications($member_id);
 					foreach ($member_publications as $publication) {
@@ -35,7 +35,7 @@
 					</table>
 
 
-				<h2>Projects:</h2><br>
+				<h2 class="member">Projects:</h2><br>
 				<table>
 				<?php foreach ($member['projects'] as $project_member) {
 						$project = WPRI_Database::get_project( $project_member->project);
@@ -48,9 +48,9 @@
 					}?>
 				</table>
 
-				<h2>Education:</h2><br>
+				<h2 class="member">Education:</h2><br>
 
-				<h2>News:</h2><br>
+				<h2 class="member">News:</h2><br>
 
 				<?php $args = array(
 						  'author__in'     => array($member['user']),
