@@ -31,9 +31,9 @@
 
  		<div class="bte-masthead container">
 			<div class="row">
-				<div class="col-md-4"><img width="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png"></div>
-				<div class="col-md-8"><?php echo get_bloginfo( 'name' ); ?></div>
-				<div class="col-md-4"><img width="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png"></div>
+				<div class="col-sd-2 col-md-2 col-ld-2"><img width="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png"></div>
+				<div class="col-sd-8 col-md-8 col-ld-8"><h1><?php echo get_bloginfo( 'name' ); ?></h1></div>
+				<div class="col-sd-2 col-md-2 col-ld-2"><img width="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/favicon.png"></div>
 			</div>
 			<nav class="navbar navbar-default">
 			  <div class="container-fluid">
