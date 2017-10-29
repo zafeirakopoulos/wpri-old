@@ -361,12 +361,17 @@ a.faculty-thumb-link:hover{
 }
 
 a.member{
-    color: var(--main-color);
-    margin-bottom:var(--single-item-margin-bottom,10px);
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom:0;
+  margin-top:0;
 }
 
 h2,h3,h4.member{
-    color: var(--main-color);
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom:0;
+    margin-top:0;
 }
 /* Projects */
 
