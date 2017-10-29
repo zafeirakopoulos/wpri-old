@@ -58,8 +58,8 @@
 
 						$loop = new WP_Query( $args );
 						while ( $loop->have_posts() ) : $loop->the_post();
-							echo "<a class="member" href='".site_url()."/news/".$post->post_name."'>";
-								echo '<class="member" div>';
+							echo "<a class='member' href='".site_url()."/news/".$post->post_name."'>";
+								echo "<class='member' div>";
 								the_title();
 				  				echo '</div>';
 							echo "</a>";
