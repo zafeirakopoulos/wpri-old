@@ -9,7 +9,7 @@
 					foreach ( $member_ids as $member_id ) {
 						$member = WPRI_Database::get_member_short($member_id);
 						echo "<a class='faculty-thumb-link' href='".site_url()."/member?id=".$member_id."'>";
-							echo "<div class='col-sd-12 col-md-5 col-ld-5 faculty-thumb'>";
+							echo "<div class='col-sd-12 col-md-6 col-ld-6 faculty-thumb'>";
 								echo "<table>";
 									echo "<tr>";
 										echo "<h3 class='faculty-thumb'>";
