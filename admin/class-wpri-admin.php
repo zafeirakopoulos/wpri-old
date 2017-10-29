@@ -415,6 +415,15 @@ class WPRI_Admin {
 		add_submenu_page( 'wpri-settings-menu', 'Funding Agencies Management','Funding Agencies' , 'manage_options', 'wpri-settings-agency' , 'wpri_settings_agency_management');
 	}
 
+	public function settings_position_requirements_menu() {
+		function wpri_settings_position_requirements_management() {
+			echo '<div class="wrap">';
+			echo '<h2>Manage Positions Requirements</h2>';
+			WPRI_Admin::setting_form('position_requirements');
+			echo '</div>';
+		}
+		add_submenu_page( 'wpri-settings-menu', 'Positions Requirements Management','Position Requirements' , 'manage_options', 'wpri-settings-position-requirements' , 'wpri_settings_position_requirements_management');
+	}
 
 
 /**********************************************************
