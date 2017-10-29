@@ -7,7 +7,7 @@
 				<br>
 				<table>
 				<tr><h3>
-				<?php$member['title']." ".$member['name'];?>
+				<?php $member['title']." ".$member['name'];?>
 				</h3></tr>
 				<tr><td>
 					<?php get_avatar( $member['user'] );?>
