@@ -771,6 +771,31 @@ class WPRI_Database {
 
 					return $pid;
 				}
+				public static function get_open_position_ids() {
+					return $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name("open_position") );
+				}
+
+
+				public static function get_open_position($position_id) {
+					$position= $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("open_position"). " WHERE id = %d", $position_id
+						)
+					)[0];
+
+					return array(
+						'title' => $position->title,
+						'postype' => $position->type,
+						'startdate' => $position->startdate,
+						'enddate' => $position->enddate,
+						'agency' => $position->agency,
+						'description' => $position->description->,
+						'deadline' => $position->deadline,
+						'projects' => WPRI_Database::get_open_position_projects($position_id),
+						'contacts' => WPRI_Database::get_open_position_contacts($position_id),
+						'requirements' => WPRI_Database::get_open_position_requirements($position_id)
+					);
+				}
 
 
 				public static function add_open_position_contact( $member, $position) {
@@ -778,6 +803,14 @@ class WPRI_Database {
 						array(
 							'position' => $position,
 							'member' => $member,
+						)
+					);
+				}
+
+				public static function get_open_position_contacts($position_id) {
+					return $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("open_position_contact"). " WHERE position = %d", $position_id
 						)
 					);
 				}
@@ -791,11 +824,27 @@ class WPRI_Database {
 					);
 				}
 
+				public static function get_open_position_requirements($position_id) {
+					return $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("open_position_requirement"). " WHERE position = %d", $position_id
+						)
+					);
+				}
+
 				public static function add_open_position_project( $project, $position) {
 					return $GLOBALS['wpdb']->insert( self::table_name("open_position_project"),
 						array(
 							'position' => $position,
 							'project' => $project,
+						)
+					);
+				}
+
+				public static function get_open_position_projects($position_id) {
+					return $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("open_position_project"). " WHERE position = %d", $position_id
 						)
 					);
 				}
