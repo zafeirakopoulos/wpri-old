@@ -360,13 +360,7 @@ a.faculty-thumb-link:hover{
   margin-top:var(--single-item-margin-top,10px);
 }
 
-a.member{
-    padding: 5;
-  margin-right: 0;
-  margin-left: 0;
-  margin-bottom:0;
-  margin-top:0;
-}
+
 
 h2,h3,h4.member{
     margin-right: 0;
