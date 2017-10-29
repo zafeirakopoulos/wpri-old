@@ -837,6 +837,14 @@ class WPRI_Database {
 					);
 				}
 
+				public static function get_position_requirement($requirement_id) {
+					return $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT name FROM " . self::table_name("position_requirement"). " WHERE position = %d", $requirement_id
+						)
+					)[0];
+				}
+
 				public static function add_open_position_project( $project, $position) {
 					return $GLOBALS['wpdb']->insert( self::table_name("open_position_project"),
 						array(
