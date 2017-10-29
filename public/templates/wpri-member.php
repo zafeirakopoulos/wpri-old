@@ -34,17 +34,17 @@
 
 
 				<h2 class="member">Projects:</h2>
-				<table>
+				<ul>
 				<?php foreach ($member['projects'] as $project_member) {
 						$project = WPRI_Database::get_project( $project_member->project);
-						echo "<tr>";
-		 				echo "<td>" . $project->title . "<td>";
-						echo "<td>" . WPRI_Database::get_project_role($project_member->role) . "<td>";
-		 				echo "<td>" . $project->PI . "<td>";
-		 				echo "<td>" . $project->funding . "<td>";
-						echo "</tr>";
+						echo "<li><a class='member' href='".site_url()."/project?id=/".$project->id."'>";
+							echo "<td>" . $project->title . "<td>";
+							echo "<td>" . WPRI_Database::get_project_role($project_member->role) . "<td>";
+							echo "<td>" . $project->PI . "<td>";
+							echo "<td>" . $project->funding . "<td>";
+						echo "</a></li>";
 					}?>
-				</table>
+				</ul>
 
 				<h2 class="member">Education:</h2>
 
