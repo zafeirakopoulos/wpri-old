@@ -407,7 +407,7 @@ class WPRI_Database {
 					);
 					$ids = Array();
 					foreach ( $pids as $id ) {
-						array_push($ids,$id->id);
+						array_push($ids,$id->position);
 					}
 					return $ids;
 				}
@@ -659,8 +659,6 @@ class WPRI_Database {
 					foreach ($projects as $project){
 						WPRI_Database::delete_project_member($project->id,$member_id);
 					}
-
-
 
 					$open_positions = WPRI_Database::get_open_position_ids_by_member($member_id);
 					foreach ($open_positions as $position){
@@ -933,7 +931,7 @@ class WPRI_Database {
 					);
 				}
 
-				
+
 
 				public static function delete_position_contact($position,$member) {
 					return $GLOBALS['wpdb']->query(
