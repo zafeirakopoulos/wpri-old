@@ -354,6 +354,16 @@ class WPRI_Database {
 					)[0]->name;
 				}
 
+
+				public static function get_requirement($requirement) {
+	 		 		return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT name FROM " . self::table_name("locale_position_requirement"). " WHERE position_requirement = %d AND locale= %d",
+							$requirement, $_SESSION['locale']
+						)
+					)[0]->name;
+				}
+
 				public static function get_funding_agency($agency) {
 					return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
@@ -1032,6 +1042,10 @@ class WPRI_Database {
 
 				public static function get_agencies() {
 					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("agency"));
+				}
+
+				public static function get_requirements() {
+					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("position_requirement"));
 				}
 
 
