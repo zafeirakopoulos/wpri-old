@@ -36,8 +36,9 @@
 	<h2 class="member">Projects:</h2>
 	<div class="container">
 		<?php
-		foreach ($publication['projects'] as $project) {
-			echo "<a class='member' href='".site_url()."/project?id=".$project->id."'>";
+		foreach ($publication['projects'] as $project_row) {
+			$project = WPRI_Database::get_project($project_row->project);
+			echo "<a class='member' href='".site_url()."/project?id=".$project_row->project."'>";
 			echo "<div class='row'>";
 				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".$project->title."</div>";
 			echo "</div>";
