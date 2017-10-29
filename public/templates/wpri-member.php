@@ -63,7 +63,7 @@
 						while ( $loop->have_posts() ) : $loop->the_post();
 							echo "<a class='member' href='".site_url()."/news/".$post->post_name."'>";
 								echo "<div class='row'>";
-									echo "<div class='col-sm-12 col-md-12 col-lg-12'>".the_title();."</div>";
+									echo "<div class='col-sm-12 col-md-12 col-lg-12'>".the_title()."</div>";
 								echo "</div>";
 							echo "</a>";
 						endwhile;
