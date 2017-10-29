@@ -19,7 +19,6 @@
 							// echo "<div class='row'>";
 							// 	echo "<div class='col-sm-6 col-md-6 col-lg-6 faculty-thumb'>".$member['website']."</div>";
 								// echo "<div class='col-sm-6 col-md-6 col-lg-6 faculty-thumb'>".$member['email']."</div>";
-						echo "</div>";
 					echo "</div>";
 				echo "</a>";
 				}
