@@ -25,9 +25,9 @@
 		$member_publications = WPRI_Database::get_member_publications($member_id);
 		foreach ($member_publications as $publication) {
 			$pub = WPRI_Database::get_publication($publication->pub);
-			echo "<a class='member' href='".site_url()."/publication?id=".$pub->id."'>";
+			echo "<a class='single' href='".site_url()."/publication?id=".$pub->id."'>";
 			echo "<div class='row'>";
-				echo "<div class='col-sm-12 col-md-12 col-lg-12'>".$pub->title."</div>";
+				echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$pub->title."</div>";
 			echo "</div>";
 			echo "</a>";
 		}?>
