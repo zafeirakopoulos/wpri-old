@@ -10,7 +10,7 @@
          --secondary-background-color : white;
          --main-color : blue;
          --secondary-color : yellow;
-         --standard-border: 1px solid black ;
+         --standard-border: 5px solid black ;
 
 
          --single-item-background-color: var(--secondary-background-color);
@@ -323,7 +323,7 @@ footer.bte-footer{
     padding: var(--single-item-padding,20px);
   }
   div.faculty-thumb-frame{
-     border : 5px solid black;
+     border : var(--sidebar-border;
     padding: var(--single-item-padding,20px);
     background-color: var(--single-item-background-color);
 	margin-right: var(--faculty-margin-right,5px);
