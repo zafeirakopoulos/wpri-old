@@ -290,6 +290,8 @@ h1.wpri-sidebar{
   margin-top:var(--listing-margin-top,10px);
   border : var(--sidebar-border);
   border-radius: var(--standard-round-corners);
+  right: 0;
+top: 50%; 
 }
 
  /*
