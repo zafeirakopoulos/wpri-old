@@ -30,7 +30,7 @@
          --sidebar-background-color : var(--main-background-color,blue);
          --sidebar-color : var(--main-color);
          --sidebar-border: var(--standard-border);
-         --sidebar-font-size: 15px;
+         --sidebar-font-size: 20px;
          --sidebar-padding:3px;
          --sidebar-margin-right:0px;
          --sidebar-margin-left:0px;
@@ -141,12 +141,15 @@
   * Main column and sidebar layout
   */
 
+/*
  .bte-main {
    font-size: 18px;
    line-height: 1.5;
  }
+*/
 
  /* Sidebar modules for boxing content */
+ /*
  .sidebar-module {
    padding: 15px;
    margin: 0 -15px 15px;
@@ -162,7 +165,7 @@
    margin-bottom: 0;
  }
 
-
+*/
  /* Pagination */
  .pager {
    margin-bottom: 60px;
