@@ -356,12 +356,12 @@ a.listing-thumb:hover{
 * Member
 */
 
-.member {
+.single {
   background-color: var(--secondary-background-color);
   color: var(--main-color);
 }
 
-div.member {
+div.single {
   padding: var(--listing-thumb-padding,20px);
   margin-right: var(--listing-thumb-margin-right,5px);
   margin-left: var(--listing-thumb-margin-left,5px);
@@ -369,35 +369,28 @@ div.member {
   margin-top:var(--listing-thumb-margin-top,10px);
 }
 
-h2,h3,h4.member{
+div.single-frame{
+  border : var(--listing-thumb-border);
+  padding: var(--listing-thumb-padding,20px);
+  background-color: var(--listing-thumb-background-color);
+  margin-right: var(--listing-margin-right,5px);
+  margin-left: var(--listing-margin-left,5px);
+  margin-bottom:var(--listing-margin-bottom,10px);
+  margin-top:var(--listing-margin-top,10px);
+  border-radius: var(--standard-round-corners);
+}
+
+h2,h3,h4.single{
     margin-right: 0;
     margin-left: 0;
     margin-bottom:0;
     margin-top:0;
 }
-/* Projects */
 
-.project-thumb {
-  background-color: var(--listing-thumb-background-color);
-  color: var(--listing-thumb-color);
-  font-size: var(--listing-thumb-font-size,15px);
-  padding: var(--listing-thumb-padding,20px);
-  margin-right: var(--listing-thumb-margin-right,5px);
-  margin-left: var(--listing-thumb-margin-left,5px);
-  margin-bottom:var(--listing-thumb-margin-bottom,10px);
-  margin-top:var(--listing-thumb-margin-top,10px);
-}
-div.project-thumb{
-  border: var(--listing-thumb-border);
-}
-h3.project-thumb{
-    font-size: var(--listing-thumb-h3-font-size-large,20px);
-    color: var(--listing-thumb-color);
-}
-p.project-thumb{
-    font-size: var(--listing-thumb-p-font-size,15px);
-    color: var(--listing-thumb-color);
-}
+
+
+
+
 
 .locale-picker {
     background-color: var(--main-background-color);
