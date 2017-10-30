@@ -1,5 +1,5 @@
 
-<div class="single">
+<div class="single-frame">
 	<div class="container">
 		<?php
 		$project_id=$_GET['id'];
@@ -19,7 +19,7 @@
 	</div>
 
 
-	<h2 class="member">Participants:</h2>
+	<h2 class=" single">Participants:</h2>
 	<div class="container">
 	<?php
 		$project_members = WPRI_Database::get_project_members($project_id);
