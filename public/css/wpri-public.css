@@ -8,7 +8,7 @@
 	 --site-title-font-size : 30px;
          --main-background-color : darkorange;
          --secondary-background-color : white;
-         --main-color : blue;
+         --main-color : black;
          --secondary-color : yellow;
          --standard-border: 5px solid black ;
 
@@ -214,8 +214,8 @@ footer.bte-footer{
   * Menu
   */
   .navbar-default {
-    background-color: var(--secondary-background-color);
-    border: 0;
+    background-color: var(--main-background-color);
+    border: 0px;
   }
   .navbar-default .navbar-brand {
     color: var(--main-color);
