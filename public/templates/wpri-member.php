@@ -9,7 +9,7 @@
 						<div class='col-sm-12 col-md-12 col-lg-12'><h1> <?php echo $member['title']." ".$member['name'];?></h1> </div>
 					</div>
 					<div class='row'>
-						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo get_wp_user_avatar( $member['user'] , 96, 'left'); ?> </div>
+						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo get_avatar( $member['user'] , 96, 'left'); ?> </div>
 						<div class='col-sm-3 col-md-3 col-lg-3'> <?php echo $member['position'];?> </div>
 					</div>
 					<div class='row'>
