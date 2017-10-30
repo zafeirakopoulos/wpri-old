@@ -26,7 +26,8 @@
          --listing-thumb-margin-top:10px;
          --listing-thumb-h3-font-size:17px;
          --listing-thumb-h3-font-size-large:20px;
-         --listing-thumb-p-font-size:15px;
+         --listing-thumb-font-size:15px;
+         --listing-thumb-increased-font-size:17px;
 
          --sidebar-background-color : var(--main-background-color,blue);
          --sidebar-color : var(--main-color);
@@ -332,16 +333,16 @@ h3.listing-thumb{
     font-size: var(--listing-thumb-h3-font-size,15px);
  }
 p.listing-thumb{
-    font-size: var(--listing-thumb-p-font-size,15px);
+    font-size: var(--listing-thumb-font-size,15px);
  }
 
 a.listing-thumb{
     color: var(--listing-thumb-color);
-    font-size: var(--listing-thumb-p-font-size,15px);
+    font-size: var(--listing-thumb-font-size,15px);
  }
 a.listing-thumb:hover{
     color: var(--listing-thumb-color);
-    font-size: var(--listing-thumb-p-font-size,20px);
+    font-size: var(--listing-thumb-increased-font-size,17px);
 }
 
 /*
