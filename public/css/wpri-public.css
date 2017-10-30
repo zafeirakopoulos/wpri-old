@@ -411,7 +411,7 @@ p.project-thumb{
     width: 100%;
 }
 
-.site-title{
+h1.site-title{
     font-size: var(--site-title-font-size,30px);
     margin-top: 30px;
 }
