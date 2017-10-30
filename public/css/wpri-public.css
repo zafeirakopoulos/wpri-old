@@ -415,6 +415,10 @@ p.project-thumb{
 }
 
 a.locale-picker:hover{
+    background-color: var(--main-background-color);
+    color: var(--main-color);
+    border : 0px;
+    font-size: 15px;
 }
 
 
