@@ -289,12 +289,16 @@ footer.bte-footer{
 */
 
 .wpri-sidebar {
-  background-color: var(--sidebar-background-color);
   color: var(--sidebar-color);
   font-size: var(--sidebar-font-size,15px);
-  /* padding: var(--sidebar-padding,2px);*/
+  padding: var(--sidebar-padding,2px);
 }
 .wpri-sidebar-frame {
+  background-color: var(--sidebar-background-color);
+  margin-right: var(--faculty-margin-right,5px);
+  margin-left: var(--faculty-margin-left,5px);
+  margin-bottom:var(--faculty-margin-bottom,10px);
+  margin-top:var(--faculty-margin-top,10px);
   border : var(--sidebar-border);
 }
 
