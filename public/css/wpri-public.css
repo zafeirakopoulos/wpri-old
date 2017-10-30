@@ -404,6 +404,9 @@ h2,h3,h4.single{
     margin-top:0;
 }
 
+h2.single{
+    font-size: 27px;    
+}
 a.single{
     color: var(--single-color);
     font-size: var(--single-font-size,20px);
