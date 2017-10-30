@@ -343,7 +343,6 @@ class WPRI_Database {
 							get_usermeta($user,'title'), $_SESSION['locale']
 						)
 					);
-					die(var_dump($titles));
 					return $titles[0]->name;
 				}
 
@@ -354,7 +353,6 @@ class WPRI_Database {
 							$status, $_SESSION['locale']
 						)
 					);
-					die(var_dump($statuses));
 					return $statuses[0]->name;
 				}
 
