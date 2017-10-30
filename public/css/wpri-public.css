@@ -41,21 +41,21 @@
          --sidebar-p-font-size:15px;
 
 
-         --faculty-color: var(--main-color);
-         --faculty-font-size: 25px;
-         --faculty-border: 0px;
-         --faculty-padding:20px;
-         --faculty-margin-right:5px;
-         --faculty-margin-left:5px;
-         --faculty-margin-bottom:10px;
-         --faculty-margin-top:10px;
+         --listing-color: var(--main-color);
+         --listing-font-size: 25px;
+         --listing-border: 0px;
+         --listing-padding:20px;
+         --listing-margin-right:5px;
+         --listing-margin-left:5px;
+         --listing-margin-bottom:10px;
+         --listing-margin-top:10px;
 
          --h1-page-title-font-size:25px;
 
-         --faculty-margin-right:5px;
-         --faculty-margin-left:5px;
-         --faculty-margin-bottom:5px;
-         --faculty-margin-top:5px;
+         --listing-margin-right:5px;
+         --listing-margin-left:5px;
+         --listing-margin-bottom:5px;
+         --listing-margin-top:5px;
       }
 
  /*
@@ -304,59 +304,59 @@ footer.bte-footer{
 }
 .wpri-sidebar-frame {
   background-color: var(--sidebar-background-color);
-  margin-right: var(--faculty-margin-right,5px);
-  margin-left: var(--faculty-margin-left,5px);
-  margin-bottom:var(--faculty-margin-bottom,10px);
-  margin-top:var(--faculty-margin-top,10px);
+  margin-right: var(--listing-margin-right,5px);
+  margin-left: var(--listing-margin-left,5px);
+  margin-bottom:var(--listing-margin-bottom,10px);
+  margin-top:var(--listing-margin-top,10px);
   border : var(--sidebar-border);
   border-radius: var(--standard-round-corners);
 }
 
  /*
-  * Faculty
+  * listing
   */
 
-  .faculty {
-    color: var(--faculty-color);
-    border: var(--faculty-border);
-    font-size: var(--faculty-font-size,15px);
-	padding: var(--faculty-padding,20px);
-	margin-right: var(--faculty-margin-right,5px);
-	margin-left: var(--faculty-margin-left,5px);
-	margin-bottom:var(--faculty-margin-bottom,10px);
-	margin-top:var(--faculty-margin-top,10px);
+  .listing {
+    color: var(--listing-color);
+    border: var(--listing-border);
+    font-size: var(--listing-font-size,15px);
+	padding: var(--listing-padding,20px);
+	margin-right: var(--listing-margin-right,5px);
+	margin-left: var(--listing-margin-left,5px);
+	margin-bottom:var(--listing-margin-bottom,10px);
+	margin-top:var(--listing-margin-top,10px);
   }
 
-  .faculty-thumb {
+  .listing-thumb {
     background-color: var(--single-item-background-color);
     color: var(--single-item-color);
   }
 
-  div.faculty-thumb{
+  div.listing-thumb{
     background-color: var(--single-item-background-color);
     padding: var(--single-item-padding,20px);
   }
-  div.faculty-thumb-frame{
+  div.listing-thumb-frame{
     border : var(--single-item-border);
     padding: var(--single-item-padding,20px);
     background-color: var(--single-item-background-color);
-	margin-right: var(--faculty-margin-right,5px);
-	margin-left: var(--faculty-margin-left,5px);
-	margin-bottom:var(--faculty-margin-bottom,10px);
-	margin-top:var(--faculty-margin-top,10px);
+	margin-right: var(--listing-margin-right,5px);
+	margin-left: var(--listing-margin-left,5px);
+	margin-bottom:var(--listing-margin-bottom,10px);
+	margin-top:var(--listing-margin-top,10px);
     border-radius: var(--standard-round-corners);
   }
-h3.faculty-thumb{
+h3.listing-thumb{
     font-size: var(--single-item-h3-font-size,15px);
  }
-p.faculty-thumb{
+p.listing-thumb{
     font-size: var(--single-item-p-font-size,15px);
  }
 
-a.faculty-thumb-link{
+a.listing-thumb-link{
     font-size: var(--single-item-p-font-size,15px);
  }
-a.faculty-thumb-link:hover{
+a.listing-thumb-link:hover{
     font-size: var(--single-item-p-font-size,20px);
 }
 
