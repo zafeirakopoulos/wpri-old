@@ -15,7 +15,7 @@
 					echo "</div>";
 					echo "<div class='row'>";
 						echo "<div class='col-xs-12 col-md-6 col-ld-12 faculty-thumb'>".$member['position']."</div>";
-						if (isset($member['website'])){
+						if (isset($member['website']) AND $member['website']!=""){
 							echo "<div class='col-xs-12 col-md-6 col-ld-12 faculty-thumb'>".$member['website']."</div>";
 						}
 						else{
