@@ -48,9 +48,9 @@
 		}?>
 	</div>
 
-	<h2 class="member">Education:</h2>
+	<h2 class="single">Education:</h2>
 
-	<h2 class="member">News:</h2>
+	<h2 class="single">News:</h2>
 
 	<?php $args = array(
 			  'author__in'     => array($member['user']),
