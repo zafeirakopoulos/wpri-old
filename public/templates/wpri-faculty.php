@@ -15,7 +15,14 @@
 					echo "</div>";
 					echo "<div class='row'>";
 						echo "<div class='col-xs-12 col-md-6 col-ld-12 faculty-thumb'>".$member['position']."</div>";
-						echo "<div class='col-xs-12 col-md-6 col-ld-12 faculty-thumb'>".$member['website']."</div>";
+						if (isset($member['website'])){
+							echo "<div class='col-xs-12 col-md-6 col-ld-12 faculty-thumb'>".$member['website']."</div>";
+						}
+						else{
+							echo "<div class='col-xs-12 col-md-6 col-ld-12 faculty-thumb'>";
+							echo "<a class='faculty-thumb' href='".site_url()."/member?id=".$member_id."'>".site_url()."/member?id=".$member_id."</a>";
+							echo "</div>";
+						}
 						echo "<div class='col-xs-12 col-md-6 col-ld-12 faculty-thumb'>".$member['email']."</div>";
 					echo "</div>";
 
