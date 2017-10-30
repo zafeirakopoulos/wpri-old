@@ -342,7 +342,7 @@ class WPRI_Database {
 							"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d",
 							get_usermeta($user,'title'), $_SESSION['locale']
 						)
-					)
+					);
 					die(var_dump($titles));
 					return $titles[0]->name;
 				}
