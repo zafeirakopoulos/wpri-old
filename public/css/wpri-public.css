@@ -291,8 +291,6 @@ h1.wpri-sidebar{
   margin-top:var(--listing-margin-top,10px);
   border : var(--sidebar-border);
   border-radius: var(--standard-round-corners);
-  position:fixed;
-  width :22%;
 }
 
 @media only screen and (min-device-width: 480px) {
