@@ -6,7 +6,7 @@
 		$position = WPRI_Database::get_open_position($position_id);
 		?>
 		<div class='row'>
-			<div class='col-sm-12 col-md-12 col-lg-12 single'><h1> <?php echo $position['title'];?></h1> </div>
+			<div class='col-sm-12 col-md-12 col-lg-12 single'><h1 class=" single"> <?php echo $position['title'];?></h1> </div>
 		</div>
 		<div class='row'>
 			<div class='col-sm-2 col-md-2 col-lg-2 single'>Position:</div>
