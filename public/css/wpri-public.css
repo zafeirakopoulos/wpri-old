@@ -318,6 +318,7 @@ h1.wpri-sidebar{
   div.listing-thumb{
     background-color: var(--listing-thumb-background-color);
     padding: var(--listing-thumb-padding,20px);
+    font-size: var(--listing-thumb-font-size,15px);    
   }
   div.listing-thumb-frame{
     border : var(--listing-thumb-border);
