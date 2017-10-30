@@ -5,10 +5,10 @@
 
 
  :root {
-         --main-background-color : orange;
-         --secondary-background-color : grey;
-         --main-color : magenta;
-         --secondary-color : blue;
+         --main-background-color : darkorange;
+         --secondary-background-color : cyan;
+         --main-color : black;
+         --secondary-color : yellow;
          --sidebar-background-color : blue;
          --sidebar-color : orange;
 
