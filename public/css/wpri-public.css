@@ -13,19 +13,19 @@
          --standard-border: 5px solid black ;
          --standard-round-corners :  25px;
 
-         --single-item-background-color: var(--secondary-background-color);
-         --single-item-color: var(--secondary-color);
-         --single-item-secondary-color: var(--main-color);
-         --single-item-border: var(--standard-border) ;
-         --single-item-font-size: 15px;
-         --single-item-padding:20px;
-         --single-item-margin-right:5px;
-         --single-item-margin-left:5px;
-         --single-item-margin-bottom:10px;
-         --single-item-margin-top:10px;
-         --single-item-h3-font-size:17px;
-         --single-item-h3-font-size-large:20px;
-         --single-item-p-font-size:15px;
+         --listing-thumb-background-color: var(--secondary-background-color);
+         --listing-thumb-color: var(--secondary-color);
+         --listing-thumb-secondary-color: var(--main-color);
+         --listing-thumb-border: var(--standard-border) ;
+         --listing-thumb-font-size: 15px;
+         --listing-thumb-padding:20px;
+         --listing-thumb-margin-right:5px;
+         --listing-thumb-margin-left:5px;
+         --listing-thumb-margin-bottom:10px;
+         --listing-thumb-margin-top:10px;
+         --listing-thumb-h3-font-size:17px;
+         --listing-thumb-h3-font-size-large:20px;
+         --listing-thumb-p-font-size:15px;
 
          --sidebar-background-color : var(--main-background-color,blue);
          --sidebar-color : var(--main-color);
@@ -328,18 +328,18 @@ footer.bte-footer{
   }
 
   .listing-thumb {
-    background-color: var(--single-item-background-color);
-    color: var(--single-item-color);
+    background-color: var(--listing-thumb-background-color);
+    color: var(--listing-thumb-color);
   }
 
   div.listing-thumb{
-    background-color: var(--single-item-background-color);
-    padding: var(--single-item-padding,20px);
+    background-color: var(--listing-thumb-background-color);
+    padding: var(--listing-thumb-padding,20px);
   }
   div.listing-thumb-frame{
-    border : var(--single-item-border);
-    padding: var(--single-item-padding,20px);
-    background-color: var(--single-item-background-color);
+    border : var(--listing-thumb-border);
+    padding: var(--listing-thumb-padding,20px);
+    background-color: var(--listing-thumb-background-color);
 	margin-right: var(--listing-margin-right,5px);
 	margin-left: var(--listing-margin-left,5px);
 	margin-bottom:var(--listing-margin-bottom,10px);
@@ -347,17 +347,17 @@ footer.bte-footer{
     border-radius: var(--standard-round-corners);
   }
 h3.listing-thumb{
-    font-size: var(--single-item-h3-font-size,15px);
+    font-size: var(--listing-thumb-h3-font-size,15px);
  }
 p.listing-thumb{
-    font-size: var(--single-item-p-font-size,15px);
+    font-size: var(--listing-thumb-p-font-size,15px);
  }
 
 a.listing-thumb-link{
-    font-size: var(--single-item-p-font-size,15px);
+    font-size: var(--listing-thumb-p-font-size,15px);
  }
 a.listing-thumb-link:hover{
-    font-size: var(--single-item-p-font-size,20px);
+    font-size: var(--listing-thumb-p-font-size,20px);
 }
 
 /*
@@ -370,11 +370,11 @@ a.listing-thumb-link:hover{
 }
 
 div.member {
-  padding: var(--single-item-padding,20px);
-  margin-right: var(--single-item-margin-right,5px);
-  margin-left: var(--single-item-margin-left,5px);
-  margin-bottom:var(--single-item-margin-bottom,10px);
-  margin-top:var(--single-item-margin-top,10px);
+  padding: var(--listing-thumb-padding,20px);
+  margin-right: var(--listing-thumb-margin-right,5px);
+  margin-left: var(--listing-thumb-margin-left,5px);
+  margin-bottom:var(--listing-thumb-margin-bottom,10px);
+  margin-top:var(--listing-thumb-margin-top,10px);
 }
 
 h2,h3,h4.member{
@@ -386,25 +386,25 @@ h2,h3,h4.member{
 /* Projects */
 
 .project-thumb {
-  background-color: var(--single-item-background-color);
-  color: var(--single-item-color);
-  font-size: var(--single-item-font-size,15px);
-  padding: var(--single-item-padding,20px);
-  margin-right: var(--single-item-margin-right,5px);
-  margin-left: var(--single-item-margin-left,5px);
-  margin-bottom:var(--single-item-margin-bottom,10px);
-  margin-top:var(--single-item-margin-top,10px);
+  background-color: var(--listing-thumb-background-color);
+  color: var(--listing-thumb-color);
+  font-size: var(--listing-thumb-font-size,15px);
+  padding: var(--listing-thumb-padding,20px);
+  margin-right: var(--listing-thumb-margin-right,5px);
+  margin-left: var(--listing-thumb-margin-left,5px);
+  margin-bottom:var(--listing-thumb-margin-bottom,10px);
+  margin-top:var(--listing-thumb-margin-top,10px);
 }
 div.project-thumb{
-  border: var(--single-item-border);
+  border: var(--listing-thumb-border);
 }
 h3.project-thumb{
-    font-size: var(--single-item-h3-font-size-large,20px);
-    color: var(--single-item-color);
+    font-size: var(--listing-thumb-h3-font-size-large,20px);
+    color: var(--listing-thumb-color);
 }
 p.project-thumb{
-    font-size: var(--single-item-p-font-size,15px);
-    color: var(--single-item-color);
+    font-size: var(--listing-thumb-p-font-size,15px);
+    color: var(--listing-thumb-color);
 }
 
 .locale-picker {
