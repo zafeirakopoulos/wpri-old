@@ -51,7 +51,12 @@
          --faculty-margin-top:10px;
 
          --h1-page-title-font-size:25px;
-       }
+
+         --faculty-margin-right:5px;
+         --faculty-margin-left:5px;
+         --faculty-margin-bottom:5px;
+         --faculty-margin-top:5px;
+      }
 
  /*
   * Globals
@@ -291,7 +296,11 @@ footer.bte-footer{
 .wpri-sidebar {
   color: var(--sidebar-color);
   font-size: var(--sidebar-font-size,15px);
-  padding: var(--sidebar-padding,2px);
+  padding: var(--sidebar-padding,5px);
+  margin-right: var(--small-margin-right,5px);
+  margin-left: var(--small-margin-left,5px);
+  margin-bottom:var(--small-margin-bottom,10px);
+  margin-top:var(--small-margin-top,10px);
 }
 .wpri-sidebar-frame {
   background-color: var(--sidebar-background-color);
