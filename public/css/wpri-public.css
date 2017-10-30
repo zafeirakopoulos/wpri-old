@@ -12,6 +12,7 @@
          --secondary-color : yellow;
          --standard-border: 5px solid black ;
          --standard-round-corners :  25px;
+         --large-font-size:  25px;
 
          --listing-thumb-background-color: var(--secondary-background-color);
          --listing-thumb-color: var(--secondary-color);
@@ -276,6 +277,10 @@ footer.bte-footer{
   margin-bottom:var(--small-margin-bottom,10px);
   margin-top:var(--small-margin-top,10px);
   height : 100%;
+}
+
+h1.wpri-sidebar{
+    font-size: var(--large-font-size,25px);
 }
 .wpri-sidebar-frame {
   background-color: var(--sidebar-background-color);
