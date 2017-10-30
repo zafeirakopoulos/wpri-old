@@ -295,11 +295,6 @@ footer.bte-footer{
   padding: var(--sidebar-padding,2px);
 }
 .wpri-sidebar-frame {
-  padding: var(--sidebar-padding,2px);
-  margin-right: var(--sidebar-margin-right,10px);
-  margin-left: var(--sidebar-margin-left,10px);
-  margin-bottom:var(--sidebar-margin-bottom,10px);
-  margin-top:var(--sidebar-margin-top,10px);
   border : var(--sidebar-border);
 }
 
