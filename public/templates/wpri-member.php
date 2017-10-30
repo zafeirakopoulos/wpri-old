@@ -20,7 +20,7 @@
 
 
 	<h2 class="member">Publications:</h2>
-	<div class="container">
+	<div class="container alt-background">
 		<?php
 		$member_publications = WPRI_Database::get_member_publications($member_id);
 		foreach ($member_publications as $publication) {
