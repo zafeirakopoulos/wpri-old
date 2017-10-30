@@ -414,7 +414,7 @@ p.project-thumb{
     font-size: 15px;
 }
 
-a.locale-picker:hover{
+button.locale-picker:hover{
     background-color: var(--main-background-color);
     color: var(--main-color);
     border : 0px;
