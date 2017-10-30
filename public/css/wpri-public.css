@@ -292,7 +292,7 @@ footer.bte-footer{
   background-color: var(--sidebar-background-color);
   color: var(--sidebar-color);
   font-size: var(--sidebar-font-size,15px);
-  padding: var(--sidebar-padding,2px);
+  /* padding: var(--sidebar-padding,2px);*/
 }
 .wpri-sidebar-frame {
   border : var(--sidebar-border);
