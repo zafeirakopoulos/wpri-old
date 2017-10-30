@@ -322,9 +322,13 @@ footer.bte-footer{
     padding: var(--single-item-padding,20px);
   }
   div.faculty-thumb-frame{
-    border: 5px solid white;
+
     padding: var(--single-item-padding,20px);
     background-color: var(--single-item-background-color);
+	margin-right: var(--faculty-margin-right,5px);
+	margin-left: var(--faculty-margin-left,5px);
+	margin-bottom:var(--faculty-margin-bottom,10px);
+	margin-top:var(--faculty-margin-top,10px);
 
   }
 h3.faculty-thumb{
