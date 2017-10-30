@@ -414,6 +414,9 @@ p.project-thumb{
     font-size: 15px;
 }
 
+a.locale-picker:hover{
+}
+
 
 .wordwrap {
    white-space: pre-wrap;      /* Webkit */
