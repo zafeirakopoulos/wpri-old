@@ -291,7 +291,7 @@ h1.wpri-sidebar{
   border : var(--sidebar-border);
   border-radius: var(--standard-round-corners);
   position:fixed;
-  width :25%;
+  width :20%;
 }
 
  /*
