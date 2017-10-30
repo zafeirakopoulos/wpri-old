@@ -6,8 +6,8 @@
 
  :root {
          --main-background-color : darkorange;
-         --secondary-background-color : cyan;
-         --main-color : black;
+         --secondary-background-color : gray;
+         --main-color : blue;
          --secondary-color : yellow;
          --sidebar-background-color : blue;
          --sidebar-color : orange;
