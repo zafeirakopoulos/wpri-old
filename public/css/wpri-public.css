@@ -5,6 +5,7 @@
 
 
  :root {
+	 --site-title-font-size : 30px;
          --main-background-color : darkorange;
          --secondary-background-color : gray;
          --main-color : blue;
@@ -12,7 +13,7 @@
          --sidebar-background-color : blue;
          --sidebar-color : orange;
 
-         --sidebar-border: 5px solid white ;
+         --sidebar-border: 0px ;
          --sidebar-font-size: 15px;
          --sidebar-padding:3px;
          --sidebar-margin-right:0px;
@@ -403,4 +404,8 @@ p.project-thumb{
 
 .main-content-container{
     width: 100%;
+}
+
+.site-title{
+    font-size: var(--site-title-font-size,30px);
 }
