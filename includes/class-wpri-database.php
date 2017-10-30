@@ -337,12 +337,14 @@ class WPRI_Database {
 				///////////////////////////
 
 				public static function get_title($user) {
-	 		 		return  $GLOBALS['wpdb']->get_results(
+	 		 		$titles=  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT name FROM " . self::table_name("locale_title"). " WHERE title = %d AND locale= %d",
 							get_usermeta($user,'title'), $_SESSION['locale']
 						)
-					)[0]->name;
+					)
+					die(var_dump($titles));
+					return $titles[0]->name;
 				}
 
 				public static function get_status($status) {
