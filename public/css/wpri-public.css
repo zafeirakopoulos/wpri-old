@@ -293,7 +293,7 @@ h1.wpri-sidebar{
   border-radius: var(--standard-round-corners);
 }
 
-@media only screen and (min-device-width: 1024px) {
+@media only screen and (min-width: 1024px) {
   /* define mobile specific styles come here */
   .wpri-sidebar-frame {
     position:fixed;
