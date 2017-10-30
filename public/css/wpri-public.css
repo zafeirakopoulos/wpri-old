@@ -295,6 +295,14 @@ h1.wpri-sidebar{
   width :22%;
 }
 
+@media only screen and (min-device-width: 480px) {
+  /* define mobile specific styles come here */
+  .wpri-sidebar-frame {
+    position:fixed;
+    width :22%;
+  }
+}
+
  /*
   * listing
   */
