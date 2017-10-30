@@ -394,7 +394,8 @@ p.project-thumb{
 
 .locale-picker {
     background-color: var(--secondary-background-color);
-    color: var(--secondary-color);
+    color: var(--main-color);
+    border : 0px;
 }
 
 
