@@ -335,10 +335,12 @@ p.listing-thumb{
     font-size: var(--listing-thumb-p-font-size,15px);
  }
 
-a.listing-thumb-link{
+a.listing-thumb{
+    color: var(--listing-thumb-color);
     font-size: var(--listing-thumb-p-font-size,15px);
  }
-a.listing-thumb-link:hover{
+a.listing-thumb:hover{
+    color: var(--listing-thumb-color);
     font-size: var(--listing-thumb-p-font-size,20px);
 }
 
