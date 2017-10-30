@@ -408,4 +408,5 @@ p.project-thumb{
 
 .site-title{
     font-size: var(--site-title-font-size,30px);
+    margin-top: 10px;
 }
