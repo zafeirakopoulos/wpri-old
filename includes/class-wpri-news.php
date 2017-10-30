@@ -47,6 +47,21 @@ class WPRI_News {
 		  );
 	  }
 
+
+	  	public static function create_highlights_posttype() {
+	  		  register_post_type( 'wpri_highlights',
+	  		    array(
+	  		      'labels' => array(
+	  		        'name' => __( 'Highlights' ),
+	  		        'singular_name' => __( 'Highlight' )
+	  		      ),
+	  		      'public' => true,
+	  		      'has_archive' => true,
+	  		      'rewrite' => array('slug' => 'highlights'),
+	  		    )
+	  		  );
+	  	  }
+
 	  public static function create_member_blog_posttype() {
   		  register_post_type( 'wpri_member_blog',
   		    array(
