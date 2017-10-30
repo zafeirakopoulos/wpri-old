@@ -5,6 +5,7 @@
 
 
  :root {
+	 --site-title-font-size : 30px;
          --main-background-color : darkorange;
          --secondary-background-color : gray;
          --main-color : blue;
@@ -12,7 +13,7 @@
          --sidebar-background-color : blue;
          --sidebar-color : orange;
 
-         --sidebar-border: 5px solid white ;
+         --sidebar-border: 0px ;
          --sidebar-font-size: 15px;
          --sidebar-padding:3px;
          --sidebar-margin-right:0px;
@@ -321,9 +322,13 @@ footer.bte-footer{
     padding: var(--single-item-padding,20px);
   }
   div.faculty-thumb-frame{
-    border: 5px solid white;
+
     padding: var(--single-item-padding,20px);
     background-color: var(--single-item-background-color);
+	margin-right: var(--faculty-margin-right,5px);
+	margin-left: var(--faculty-margin-left,5px);
+	margin-bottom:var(--faculty-margin-bottom,10px);
+	margin-top:var(--faculty-margin-top,10px);
 
   }
 h3.faculty-thumb{
@@ -389,7 +394,8 @@ p.project-thumb{
 
 .locale-picker {
     background-color: var(--secondary-background-color);
-    color: var(--secondary-color);
+    color: var(--main-color);
+    border : 0px;
 }
 
 
@@ -403,4 +409,9 @@ p.project-thumb{
 
 .main-content-container{
     width: 100%;
+}
+
+.site-title{
+    font-size: var(--site-title-font-size,30px);
+    margin-top: 10px;
 }

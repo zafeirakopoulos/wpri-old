@@ -55,7 +55,7 @@ class WPRI_Database {
 		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '$table_name'") != $table_name );
 
 
-		$settings_list = array('locale','position','title','agency','projectrole','role','project_status','position_requirement');
+		$settings_list = array('locale','position','title','agency','projectrole','role','project_status','position_requirement','institute_info');
 		foreach ($settings_list as $setting_name){
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($setting_name)."'") != self::table_name($setting_name) ){
 				$sql = "CREATE TABLE  ". self::table_name($setting_name)."(
@@ -1298,6 +1298,20 @@ class WPRI_Database {
 
 			/* Create titles*/
 			$table_name = $GLOBALS['wpdb']->prefix . "wpri_title";
+			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => " "));
+			$GLOBALS['wpdb']->insert_id;
+			$insert_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( self::table_name("locale_title") , array(
+				'name' => " ",
+				'locale' => 1,
+				'title' => $insert_id)
+			);
+			$GLOBALS['wpdb']->insert( self::table_name("locale_title") , array(
+				'name' => " ",
+				'locale' => 2,
+				'title' => $insert_id)
+			);
+
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "professor"));
 			$GLOBALS['wpdb']->insert_id;
 			$insert_id = $GLOBALS['wpdb']->insert_id;
@@ -1311,6 +1325,7 @@ class WPRI_Database {
 				'locale' => 2,
 				'title' => $insert_id)
 			);
+
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "associate-professor"));
 			$insert_id = $GLOBALS['wpdb']->insert_id;
 			$GLOBALS['wpdb']->insert( self::table_name("locale_title") , array(

@@ -6,7 +6,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
 <div class="main-content-container">
 <div class="container main-content-container">
     <div class="row">
-        <div class="col-sm-12 col-md-10 col-lg-10">
+        <div class="col-xs-12 col-md-10">
             <?php
             if ( is_page( 'faculty' ) ) {
                 $template_loader->get_template_part( 'wpri', 'faculty' );
@@ -48,7 +48,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
             */
             ?>
         </div> <!-- /.col -->
-        <div class="col-sm-12 col-md-2 col-lg-2 wpri-sidebar">
+        <div class="col-xs-12 col-md-2 wpri-sidebar">
             <?php
                 $template_loader->get_template_part( 'sidebar', 'news' );
             ?>

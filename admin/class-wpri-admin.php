@@ -382,6 +382,17 @@ class WPRI_Admin {
 		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
 	}
 
+	public function settings_institute_info_menu() {
+		function wpri_settings_institute_info_management() {
+			echo '<div class="wrap">';
+			echo '<h2>Manage Academic Titles</h2>';
+			WPRI_Admin::setting_form('title');
+			echo '</div>';
+		}
+
+		add_submenu_page( 'wpri-settings-menu', 'Institute Info Management','Institute Info' , 'manage_options', 'wpri-settings-institute-info' , 'wpri_settings_institute_info_management');
+	}
+
 	public function settings_title_menu() {
 		function wpri_settings_title_management() {
 			echo '<div class="wrap">';
