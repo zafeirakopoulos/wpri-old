@@ -1,4 +1,4 @@
-<div id="wpri-sidebar-frame" >
+<div class="wpri-sidebar-frame" >
 	<h1 class='wpri-sidebar'> News </h1>
 	<div class="wpri-sidebar">
 		<ol class="wpri-sidebar">
