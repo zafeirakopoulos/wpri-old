@@ -374,8 +374,6 @@ a.listing-thumb:hover{
 .single {
   background-color: var(--secondary-background-color);
   color: var(--main-color);
-  font-size: var(--single-font-size,15px);
-
 }
 
 div.single {
@@ -384,6 +382,8 @@ div.single {
   margin-left: var(--single-margin-left,5px);
   margin-bottom:var(--single-margin-bottom,10px);
   margin-top:var(--single-margin-top,10px);
+  font-size: var(--single-font-size,15px);
+
 }
 
 div.single-frame{
@@ -406,11 +406,11 @@ h2,h3,h4.single{
 
 a.single{
     color: var(--single-color);
-    font-size: var(--single-font-size,15px);
+    font-size: var(--single-font-size,20px);
  }
 a.single:hover{
     color: var(--single-color);
-    font-size: var(--single-increased-font-size,17px);
+    font-size: var(--single-increased-font-size,21px);
 }
 
 
