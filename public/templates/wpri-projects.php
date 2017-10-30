@@ -1,20 +1,33 @@
-<div class='faculty' id="faculty" >
-	<div class='container'>
+<div class='listing' id="projects" >
  		<div class='row'>
 			<?php
 			// Start the Loop.
 			$project_ids= WPRI_Database::get_project_ids();
 			foreach ( $project_ids as $project_id ) {
 				$project = WPRI_Database::get_project_short($project_id);
-				echo "<a class='project-thumb' href='".site_url()."/project?id=".$project_id."'>";
-					echo "<div class='col-sm-12 col-md-5 col-lg-5 faculty-thumb-frame'>";
-						echo "<div class='col-sm-12 col-md-12 col-lg-12 faculty-thumb'><h1 class='faculty-thumb'>".$project['title']."</h1> </div>";
-						echo "<div class='col-sm-3 col-md-3 col-lg-3 faculty-thumb'>".$project['status']."</div>";
-						echo "<div class='col-sm-9 col-md-9 col-lg-9 faculty-thumb'>".$project['PI']."</div>";
+				echo "<div class='col-sm-12 listing-thumb-frame'>";
+					echo "<a class='listing-thumb' href='".site_url()."/project?id=".$project_id."'>";
+						echo "<div class='col-xs-12 col-md-6 col-ld-12  listing-thumb'>"."picture"."</div>";
+					echo "<div class='row'>";
+						echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'><h1 class='listing'>".$project['title']."</h1> </div>";
 					echo "</div>";
-				echo "</a>";
+					echo "</a>";
+
+					echo "<div class='row'>";
+						echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$project['status']."</div>";
+						if (isset($project['website']) AND $project['website']!=""){
+							echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$project['website']."</div>";
+						}
+						else{
+							echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>";
+							echo "<a class='listing-thumb' href='".site_url()."/project?id=".$project_id."'>".site_url()."/project?id=".$project_id."</a>";
+							echo "</div>";
+						}
+						echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>PI: ".$project['PI']."</div>";
+					echo "</div>";
+
+				echo "</div>";
 			}
  			?>
 		</div>
-	</div>
-</div><!-- #projects-->
+ </div><!-- #projects -->
