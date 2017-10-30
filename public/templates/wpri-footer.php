@@ -2,7 +2,7 @@
     <footer class="bte-footer">
         <div class="row">
 
-        	<div class="col-sm-2 col-sm-offset-1">
+        	<div class="col-sm-2 col-sm-offset-3">
                 <img height="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png">
             </div>
     		<div class="col-sm-4">
