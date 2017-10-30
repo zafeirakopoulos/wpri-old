@@ -352,7 +352,7 @@ class WPRI_Database {
 							$status, $_SESSION['locale']
 						)
 					);
-					echo $statuses;
+					die(var_dump($statuses));
 					return $statuses[0]->name;
 				}
 
