@@ -19,8 +19,8 @@
 	</div>
 
 
-	<h2 class="member">Publications:</h2>
-	<div class="container alt-background">
+	<h2 class="single">Publications:</h2>
+	<div class="container ">
 		<?php
 		$member_publications = WPRI_Database::get_member_publications($member_id);
 		foreach ($member_publications as $publication) {
@@ -33,16 +33,16 @@
 		}?>
 	</div>
 
-	<h2 class="member">Projects:</h2>
+	<h2 class="single">Projects:</h2>
 	<div class="container">
 		<?php foreach ($member['projects'] as $project_member) {
 			$project = WPRI_Database::get_project( $project_member->project);
-			echo "<a class='member' href='".site_url()."/project?id=".$project->id."'>";
+			echo "<a class='single' href='".site_url()."/project?id=".$project->id."'>";
 			echo "<div class='row'>";
-				echo "<div class='col-sm-4 col-md-4 col-lg-4'>".$project->title."</div>";
-				echo "<div class='col-sm-2 col-md-2 col-lg-2'>". WPRI_Database::get_project_role($project_member->role)."</div>";
-				echo "<div class='col-sm-2 col-md-2 col-lg-2'>".$project->PI."</div>";
-				echo "<div class='col-sm-2 col-md-2 col-lg-2'>".$project->funding."</div>";
+				echo "<div class='col-sm-4 col-md-4 col-lg-4 single'>".$project->title."</div>";
+				echo "<div class='col-sm-2 col-md-2 col-lg-2 single'>". WPRI_Database::get_project_role($project_member->role)."</div>";
+				echo "<div class='col-sm-2 col-md-2 col-lg-2 single'>".$project->PI."</div>";
+				echo "<div class='col-sm-2 col-md-2 col-lg-2 single'>".$project->funding."</div>";
 			echo "</div>";
 			echo "</a>";
 		}?>
@@ -61,9 +61,9 @@
 			$loop = new WP_Query( $args );
 			echo "<div class='container'>";
 			while ( $loop->have_posts() ) : $loop->the_post();
-				echo "<a class='member' href='".site_url()."/news/".$post->post_name."'>";
+				echo "<a class='single' href='".site_url()."/news/".$post->post_name."'>";
 					echo "<div class='row'>";
-						echo "<div class='col-sm-12 col-md-12 col-lg-12'>".the_title()."</div>";
+						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".the_title()."</div>";
 					echo "</div>";
 				echo "</a>";
 			endwhile;
