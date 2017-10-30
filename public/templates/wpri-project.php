@@ -6,7 +6,7 @@
 		$project = WPRI_Database::get_project_full($project_id);
 		?>
 		<div class='row'>
-			<div class='col-sm-12 col-md-12 col-lg-12 single'><h1> <?php echo $project['title'];?></h1> </div>
+			<div class='col-sm-12 col-md-12 col-lg-12 single'><h1 class=" single"> <?php echo $project['title'];?></h1> </div>
 		</div>
 		<div class='row'>
 			<div class='col-sm-3 col-md-3 col-lg-3 single'> <?php echo "project picture"?> </div>
