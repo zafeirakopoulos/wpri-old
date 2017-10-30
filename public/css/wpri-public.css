@@ -15,7 +15,7 @@
          --large-font-size:  25px;
 
          --listing-thumb-background-color: var(--secondary-background-color);
-         --listing-thumb-color: var(--secondary-color);
+         --listing-thumb-color: var(--main-color);
          --listing-thumb-secondary-color: var(--main-color);
          --listing-thumb-border: var(--standard-border) ;
          --listing-thumb-font-size: 15px;
