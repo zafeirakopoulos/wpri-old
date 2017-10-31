@@ -385,8 +385,8 @@ class WPRI_Admin {
 	public function settings_institute_info_menu() {
 		function wpri_settings_institute_info_management() {
 			echo '<div class="wrap">';
-			echo '<h2>Manage Academic Titles</h2>';
-			WPRI_Admin::setting_form('title');
+			echo '<h2>Institute Info Management</h2>';
+			WPRI_Admin::setting_form('institute_info');
 			echo '</div>';
 		}
 
