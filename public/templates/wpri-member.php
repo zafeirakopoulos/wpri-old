@@ -64,6 +64,19 @@
 	    <hr class="left"/>Education<hr class="right" />
 	</div>
 
+		<div class='row'>
+			<div class='col-sm-12 col-md-12 col-lg-12 single'><h1 class="single"> <?php echo $member['title']." ".$member['name'];?></h1> </div>
+		</div>
+		<div class='row'>
+			<!-- <div class='col-sm-3 col-md-3 col-lg-3 single'> <?php echo get_avatar( $member['user'] , 96, 'left'); ?> </div> -->
+			<div class='col-sm-3 col-md-3 col-lg-3 single'> <?php echo get_avatar($member['user']); ?> </div>
+			<div class='col-sm-3 col-md-3 col-lg-3 single'> <?php echo $member['position'];?> </div>
+		</div>
+		<div class='row'>
+			<div class='col-sm-3 col-md-3 col-lg-3 single'> <?php echo $member['website'];?> </div>
+			<div class='col-sm-3 col-md-3 col-lg-3 single'> <?php echo $member['email'];?> </div>
+		</div>
+
 
 	<div class="divider">
 	    <hr class="left"/>News<hr class="right" />
