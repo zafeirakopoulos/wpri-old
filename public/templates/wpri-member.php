@@ -18,9 +18,9 @@
 		</div>
 
 
-	<div class="divider">
-	    <hr class="left"/>Publications<hr class="right" />
-	</div>
+	    <hr/>
+	    <h2 class="single">Publications</h2>
+	    <hr/>
 	
 
 		<?php
@@ -34,11 +34,13 @@
 			echo "</a>";
 		}?>
 
-	<br>
-	<div class="divider">
-	    <hr class="left"/>Projects<hr class="right" />
-	</div>
 
+ 
+	    <hr/>
+	    <h2 class="single">Projects</h2>
+	    <hr/>
+	
+ 
  
 
 		<?php foreach ($member['projects'] as $project_member) {
