@@ -32,7 +32,9 @@
 				echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$pub->title."</div>";
 			echo "</div>";
 			echo "</a>";
-			echo "<hr />";
+			if !($publication === end($member_publications)){
+				echo "<hr />";
+			}
 		}?>
 
 
@@ -44,7 +46,9 @@
  
  
 
-		<?php foreach ($member['projects'] as $project_member) {
+		<?php 
+		$projects = $member['projects']
+		foreach ($projects as $project_member) {
 			$project = WPRI_Database::get_project( $project_member->project);
 			echo "<a class='single' href='".site_url()."/project?id=".$project->id."'>";
 			echo "<div class='row'>";
@@ -58,7 +62,9 @@
 
 			echo "</div>";
 			echo "</a>";
-			echo "<hr />";
+			if !($project_member === end($projects)){
+				echo "<hr />";
+			}
 
 		}?>
 
