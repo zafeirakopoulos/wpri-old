@@ -34,7 +34,7 @@
 			echo "</a>";
 		}?>
 
-
+	<br>
 	<div class="divider">
 	    <hr class="left"/>Projects<hr class="right" />
 	</div>
