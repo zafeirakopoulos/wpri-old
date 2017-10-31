@@ -383,6 +383,10 @@ a.listing-thumb:hover{
 div.single {
   padding: var(--single-padding,20px);
   font-size: var(--single-font-size,15px);
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom:0;
+  margin-top:0;
 
 }
 
