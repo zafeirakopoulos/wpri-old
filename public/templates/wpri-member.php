@@ -49,6 +49,8 @@
 
 			echo "</div>";
 			echo "</a>";
+			echo "<hr />";
+
 		}?>
 
 
