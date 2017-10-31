@@ -412,7 +412,8 @@ h2,h3,h4.single{
     margin-top:0;
 }
 h1.single{
-    font-size: 32px;
+	color: var(--hr-color);
+	font-size: 32px;
 }
 h2.single{
 
