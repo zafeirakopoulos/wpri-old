@@ -11,8 +11,12 @@
          --alt-background-color : lightgray;
          --main-color : black;
          --secondary-color : yellow;
+	 --hr-color:gray;
+	 --hr-font-size: 25px;
+
          --standard-border: 5px solid black ;
          --standard-round-corners :  25px;
+
          --large-font-size:  25px;
 
          --listing-thumb-background-color: var(--secondary-background-color);
