@@ -47,7 +47,7 @@
  
 
 		<?php 
-		$projects = $member['projects']
+		$projects = $member['projects'];
 		foreach ($projects as $project_member) {
 			$project = WPRI_Database::get_project( $project_member->project);
 			echo "<a class='single' href='".site_url()."/project?id=".$project->id."'>";
