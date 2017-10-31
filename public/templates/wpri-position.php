@@ -1,5 +1,5 @@
 
-<div class="row single-frame">
+<div class="single-frame">
 	<div class="row">
 		<?php
 		$position_id=$_GET['id'];
