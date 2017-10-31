@@ -82,8 +82,6 @@
 	    <hr class="left"/>News<hr class="right" />
 	</div>
 
-
-
 	<?php $args = array(
 			  'author__in'     => array($member['user']),
 			  'posts_per_page' => 20,
@@ -93,11 +91,13 @@
 			$loop = new WP_Query( $args );
 
 			while ( $loop->have_posts() ) : $loop->the_post();
-				echo "<a class='single' href='".site_url()."/news/".$post->post_name."'>";
-					echo "<div class='row'>";
+				echo "<div class='row'>";
+					echo "<a class='single' href='".site_url()."/news/".$post->post_name."'>";
+
 						echo "<div class='col-sm-11 col-md-11 col-lg-11  single'>".the_title()."</div>";
-					echo "</div>";
-				echo "</a>";
+					echo "</a>";
+				echo "</div>";
+
 			endwhile;
 
 		?>
