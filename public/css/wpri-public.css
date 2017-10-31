@@ -64,11 +64,11 @@
          --listing-margin-bottom:5px;
          --listing-margin-top:5px;
 
-         --single-padding:20px;
+         --single-padding:5px;
          --single-margin-right:5px;
          --single-margin-left:5px;
-         --single-margin-bottom:10px);
-         --single-margin-top:10px;
+         --single-margin-bottom:5px;
+         --single-margin-top:5px;
          --single-border: var(--standard-border);
          --single-background-color:var(--secondary-background-color);
          --single-font-size:20px;
