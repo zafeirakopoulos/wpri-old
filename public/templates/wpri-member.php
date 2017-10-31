@@ -1,5 +1,5 @@
 <div class="single-frame">
-	<div class="container ">
+	<div class="row ">
 		<?php
 		$member_id=$_GET['id'];
 		$member = WPRI_Database::get_member($member_id);
