@@ -63,7 +63,7 @@
 			);
 
 			$loop = new WP_Query( $args );
-			echo "<div class='container'>";
+
 			while ( $loop->have_posts() ) : $loop->the_post();
 				echo "<a class='single' href='".site_url()."/news/".$post->post_name."'>";
 					echo "<div class='row'>";
@@ -71,8 +71,6 @@
 					echo "</div>";
 				echo "</a>";
 			endwhile;
-			echo "</div>";
-
 
 		?>
 </div><!-- #member -->
