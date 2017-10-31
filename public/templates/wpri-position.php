@@ -27,7 +27,7 @@
 	</div>
 
  	<h2 class=" single">Requirements:</h2>
-	<div class="container">
+	<div class="row">
 		<?php
 		foreach ($position['requirements'] as $requirement) {
 			echo "<div class='row'>";
@@ -37,7 +37,7 @@
 	</div>
 
 	<h2 class=" single">Contacts:</h2>
-	<div class="container">
+	<div class="row">
 		<?php
 		foreach ($position['contacts'] as $contact) {
 			$member = WPRI_Database::get_member_short($contact->member);
@@ -50,7 +50,7 @@
 	</div>
 
 	<h2 class=" single">Projects:</h2>
-	<div class="container">
+	<div class="row">
 		<?php
 		foreach ($position['projects'] as $project) {
 			echo "<a class=' single' href='".site_url()."/project?id=".$project->project."'>";
