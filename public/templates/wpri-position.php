@@ -1,6 +1,6 @@
 
 <div class=" single-frame">
-	<div class="container">
+
 		<?php
 		$position_id=$_GET['id'];
 		$position = WPRI_Database::get_open_position($position_id);
@@ -24,20 +24,20 @@
 		<div class='row'>
 			<div class='col-sm-12 col-md-12 col-lg-12 single'> <?php echo $position['description'];?> </div>
 		</div>
-	</div>
+
 
  	<h2 class=" single">Requirements:</h2>
-	<div class="container">
+
 		<?php
 		foreach ($position['requirements'] as $requirement) {
 			echo "<div class='row'>";
 				echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".WPRI_Database::get_requirement($requirement->requirement)."</div>";
 			echo "</div>";
 		}?>
-	</div>
+
 
 	<h2 class=" single">Contacts:</h2>
-	<div class="container">
+
 		<?php
 		foreach ($position['contacts'] as $contact) {
 			$member = WPRI_Database::get_member_short($contact->member);
@@ -47,10 +47,10 @@
 			echo "</div>";
 			echo "</a>";
 		}?>
-	</div>
+
 
 	<h2 class=" single">Projects:</h2>
-	<div class="container">
+
 		<?php
 		foreach ($position['projects'] as $project) {
 			echo "<a class=' single' href='".site_url()."/project?id=".$project->project."'>";
@@ -59,7 +59,7 @@
 			echo "</div>";
 			echo "</a>";
 		}?>
-	</div>
+
 
 
 </div><!-- #position -->
