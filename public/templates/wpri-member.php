@@ -61,11 +61,11 @@
 
 		}?>
 
-
-	<div class="divider">
-	    <hr class="left"/>Education<hr class="right" />
-	</div>
-
+ 
+	    <hr/>
+	    <h2 class="single">Education</h2>
+	    <hr/>
+	
 		<div class='row'>
 			<div class='col-sm-12 col-md-12 col-lg-12 single'><h1 class="single"> <?php echo $member['title']." ".$member['name'];?></h1> </div>
 		</div>
@@ -80,10 +80,10 @@
 		</div>
 
 
-	<div class="divider">
-	    <hr class="left"/>News<hr class="right" />
-	</div>
-
+ 
+	    <hr/>
+	    <h2 class="single">News</h2>
+	    <hr/>
 	<?php $args = array(
 			  'author__in'     => array($member['user']),
 			  'posts_per_page' => 20,
