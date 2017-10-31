@@ -1,5 +1,5 @@
 <div class="single-frame">
-	<div class="row ">
+
 		<?php
 		$member_id=$_GET['id'];
 		$member = WPRI_Database::get_member($member_id);
@@ -16,7 +16,7 @@
 			<div class='col-sm-3 col-md-3 col-lg-3 single'> <?php echo $member['website'];?> </div>
 			<div class='col-sm-3 col-md-3 col-lg-3 single'> <?php echo $member['email'];?> </div>
 		</div>
-	</div>
+
 
 
 	<h2 class="single">Publications:</h2>
