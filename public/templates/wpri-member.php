@@ -93,8 +93,7 @@
 			while ( $loop->have_posts() ) : $loop->the_post();
 				echo "<div class='row'>";
 					echo "<a class='single' href='".site_url()."/news/".$post->post_name."'>";
-
-						echo "<div class='col-sm-11 col-md-11 col-lg-11  single'>".the_title()."</div>";
+						echo "<div class='col-sm-12 col-md-12 col-lg-12  single'>".the_title()."</div>";
 					echo "</a>";
 				echo "</div>";
 
