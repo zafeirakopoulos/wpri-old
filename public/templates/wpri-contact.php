@@ -1,5 +1,5 @@
 <div class=" single">
-	<div class="container">
+	<div class="row">
 		<h2 class=" single">Address:</h2>
 		<div class='row'>
 			<div class='col-sm-12 col-md-12 col-lg-12 single'>Gebze Technical University Computer Engineering Building </div>
