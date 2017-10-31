@@ -32,7 +32,7 @@
 				echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$pub->title."</div>";
 			echo "</div>";
 			echo "</a>";
-			if ($publication === end($member_publications)){
+			if NOT($publication === end($member_publications)){
 				echo "<hr />";
 			}
 		}?>
@@ -62,7 +62,7 @@
 
 			echo "</div>";
 			echo "</a>";
-			if ($project_member === end($projects)){
+			if NOT($project_member === end($projects)){
 				echo "<hr />";
 			}
 
