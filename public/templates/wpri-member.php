@@ -35,7 +35,11 @@
 		}?>
 
 
-	<h2 class="single">Projects:</h2>
+	<div class="divider">
+	    <hr class="left"/>Projects<hr class="right" />
+	</div>
+
+ 
 
 		<?php foreach ($member['projects'] as $project_member) {
 			$project = WPRI_Database::get_project( $project_member->project);
@@ -56,9 +60,16 @@
 		}?>
 
 
-	<h2 class="single">Education:</h2>
+	<div class="divider">
+	    <hr class="left"/>Education<hr class="right" />
+	</div>
 
-	<h2 class="single">News:</h2>
+
+	<div class="divider">
+	    <hr class="left"/>News<hr class="right" />
+	</div>
+
+
 
 	<?php $args = array(
 			  'author__in'     => array($member['user']),
