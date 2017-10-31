@@ -1,6 +1,6 @@
 
 <div class="single-frame">
-	<div class="container">
+
 		<?php
 		$project_id=$_GET['id'];
 		$project = WPRI_Database::get_project_full($project_id);
@@ -16,11 +16,11 @@
 			<div class='col-sm-3 col-md-3 col-lg-3 single'> <?php echo $project["funding"];?> </div>
 			<div class='col-sm-3 col-md-3 col-lg-3 single'> 	<?php echo $member['email'];?> </div>
 		</div>
-	</div>
+
 
 
 	<h2 class=" single">Participants:</h2>
-	<div class="container">
+
 	<?php
 		$project_members = WPRI_Database::get_project_members($project_id);
 		foreach ($project_members as $member) {
@@ -30,10 +30,10 @@
 			echo "</div>";
 			echo "</a>";
 		}?>
-	</div>
+
 
 	<h2 class=" single">Publications:</h2>
-	<div class="container">
+
 		<?php
 		$project_publications = WPRI_Database::get_project_publications($project_id);
 		foreach ($project_publications as $publication) {
@@ -44,7 +44,7 @@
 			echo "</div>";
 			echo "</a>";
 		}?>
-	</div>
+
 
 	<!--
 	<h2 class="member">News:</h2>
