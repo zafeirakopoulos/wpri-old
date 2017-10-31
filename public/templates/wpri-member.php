@@ -19,7 +19,7 @@
 
 
 	<div class="divider">
-	    <hr class="left"/><h2 class="single">Publications:</h2><hr class="right" />
+	    <hr class="left"/><h2>Publications</h2><hr class="right" />
 	</div>
 	
 
