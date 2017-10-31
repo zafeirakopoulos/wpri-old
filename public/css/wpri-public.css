@@ -374,6 +374,10 @@ a.listing-thumb:hover{
 .single {
   background-color: var(--secondary-background-color);
   color: var(--main-color);
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom:0;
+  margin-top:0;
 }
 
 div.single {
