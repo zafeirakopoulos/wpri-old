@@ -467,8 +467,8 @@ h1.site-title{
 */
 
 .divider {
-	font-size: var(--hr-font-sizey);
-	color: var(--hr-color:gray);
+	font-size: var(--hr-font-size);
+	color: var(--hr-color);
 	text-align:center;
 }
 
