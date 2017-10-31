@@ -39,10 +39,13 @@
 			$project = WPRI_Database::get_project( $project_member->project);
 			echo "<a class='single' href='".site_url()."/project?id=".$project->id."'>";
 			echo "<div class='row'>";
-				echo "<div class='col-sm-4 col-md-4 col-lg-4 single'>".$project->title."</div>";
-				echo "<div class='col-sm-2 col-md-2 col-lg-2 single'>". WPRI_Database::get_project_role($project_member->role)."</div>";
-				echo "<div class='col-sm-2 col-md-2 col-lg-2 single'>".$project->PI."</div>";
-				echo "<div class='col-sm-2 col-md-2 col-lg-2 single'>".$project->funding."</div>";
+				echo "<div class='col-sm-12 col-md-9 col-lg-9 single'>".$project->title."</div>";
+				echo "<div class='col-sm-12 col-md-3 col-lg-3 single'>".$project->funding."</div>";
+			echo "<div class='row'>";
+			echo "</div>";
+				echo "<div class='col-sm-12 col-md-5 col-lg-5 single'>".$project->PI."</div>";
+				echo "<div class='col-sm-12 col-md-3 col-lg-3 single'>". WPRI_Database::get_project_role($project_member->role)."</div>";
+
 			echo "</div>";
 			echo "</a>";
 		}?>
