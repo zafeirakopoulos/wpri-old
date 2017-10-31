@@ -6,9 +6,7 @@
 			<div class='col-sm-12 col-md-12 col-lg-12 single'>Gebze – Kocaeli – Turkey </div>
 			<div class='col-sm-12 col-md-12 col-lg-12 single'>ZIP Code : 41400 </div>
 		</div>
-		<br><br>
-
-		<div class='row'>
+ 		<div class='row'>
 			<div class='col-sm-3 col-md-3 col-lg-3 single'>Phone:</div>
 			<div class='col-sm-9 col-md-9 col-lg-9 single'>+90 (262) 605 2203</div>
 			<div class='col-sm-3 col-md-3 col-lg-3 single'>E-mail</div>
