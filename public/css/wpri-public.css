@@ -412,12 +412,13 @@ h2,h3,h4.single{
     margin-top:0;
 }
 h1.single{
+    font-size: 32px;
+}
+h2.single{
+
 	font-size: var(--hr-font-size);
 	color: var(--hr-color);
 	text-align:center;
-}
-h2.single{
-    font-size: 27px;
 }
 a.single{
     color: var(--single-color);
