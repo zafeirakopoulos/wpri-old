@@ -18,8 +18,10 @@
 		</div>
 
 
-
-	<h2 class="single">Publications:</h2>
+	<div class="divider">
+	    <hr class="left"/><h2 class="single">Publications:</h2><hr class="right" />
+	</div>
+	
 
 		<?php
 		$member_publications = WPRI_Database::get_member_publications($member_id);
