@@ -1,6 +1,6 @@
 
 <div class=" single-frame">
-	<div class="container">
+	<div class="row">
 		<?php
 		$position_id=$_GET['id'];
 		$position = WPRI_Database::get_open_position($position_id);
