@@ -20,7 +20,7 @@
 
 
 	<h2 class="single">Publications:</h2>
-	<div class="container ">
+
 		<?php
 		$member_publications = WPRI_Database::get_member_publications($member_id);
 		foreach ($member_publications as $publication) {
@@ -31,10 +31,10 @@
 			echo "</div>";
 			echo "</a>";
 		}?>
-	</div>
+
 
 	<h2 class="single">Projects:</h2>
-	<div class="container">
+
 		<?php foreach ($member['projects'] as $project_member) {
 			$project = WPRI_Database::get_project( $project_member->project);
 			echo "<a class='single' href='".site_url()."/project?id=".$project->id."'>";
@@ -46,7 +46,7 @@
 			echo "</div>";
 			echo "</a>";
 		}?>
-	</div>
+
 
 	<h2 class="single">Education:</h2>
 
