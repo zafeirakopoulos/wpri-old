@@ -165,7 +165,7 @@ class WPRI_Publication {
 
 				echo '<tr>';
 				echo '<th><label for="members[]">Members that are authors</label></th>';
-			    echo '<td><select size="4" multiple="multiple" name="members[]">';
+	  		        echo '<td><select id="authors" size="4" multiple="multiple" name="members[]">';
 					foreach ( $members as $member ) {
 					echo '<option value='.$member->id.'>'.$member->name.'</option>';
 					}
@@ -208,3 +208,19 @@ class WPRI_Publication {
 
 
 }
+?>
+
+  <script>
+  $( function() {
+    $( "#authors" ).sortable({
+      revert: true
+    });
+    $( "#authors" ).draggable({
+      connectToSortable: "#sortable",
+      helper: "clone",
+      revert: "invalid"
+    });
+    $( "ul, li" ).disableSelection();
+  } );
+  </script>
+
