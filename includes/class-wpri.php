@@ -248,6 +248,10 @@ class WPRI {
 		//$this->loader->	add_action( 'wp_ajax_change_locale', $plugin_public, 'wpri_ajax_change_locale' );
 		//$this->loader->	add_action( 'wp_ajax_nopriv_change_locale', $plugin_public, 'wpri_ajax_change_locale' );
 
+		$this->loader->add_action('init', $plugin_public,'WPRIStartSession', 1);
+		$this->loader->add_action('wp_logout', $plugin_public,'WPRIEndSession');
+		$this->loader->add_action('wp_login',$plugin_public, 'WPRIEndSession');
+
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -259,10 +263,6 @@ class WPRI {
 
 
 		$this->loader->add_action('init', new WPRI_News(),'create_news_posttype' , 1);
-
-		$this->loader->add_action('init', $plugin_public,'WPRIStartSession', 1);
-		$this->loader->add_action('wp_logout', $plugin_public,'WPRIEndSession');
-		$this->loader->add_action('wp_login',$plugin_public, 'WPRIEndSession');
 
 
 
