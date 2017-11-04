@@ -93,6 +93,14 @@ class WPRI_Form {
 				<button type="submit" name="action" value="add">Add</button>
 			</form>
 			</div>
+			<?php $all_entries = WPRI_Database::get_all($form["table_name"]);
+			echo "<ul class='list-group'>";
+			foreach ( $all_entries as $item ) {
+				echo "<li class='list-group-item'>".$item->name."</li>";
+
+			 }
+		  	 echo "</ul>";
+			  ?>
 		</div>
 	<?php }
 
