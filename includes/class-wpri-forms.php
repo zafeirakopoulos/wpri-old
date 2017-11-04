@@ -141,12 +141,12 @@ class WPRI_Form {
 							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
-							$all_entries = WPRI_Database::get_all($form["source_table"]);
+							$all_entries = WPRI_Database::get_all($element["source_table"]);
 							foreach ( $all_entries as $item ) {
 								echo "<div class='form-check'>";
 								echo "<label class='form-check-label'>";
 								echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item->id."'>  ";
-								echo $item->$form["display_column"];
+								echo $item->$element["display_column"];
 								echo "</label>";
 								echo "</div>";
 							}
