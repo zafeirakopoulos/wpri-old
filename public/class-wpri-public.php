@@ -101,7 +101,9 @@ class WPRI_Public {
 
 
  		 wp_enqueue_script( 'jquery');
- 		 wp_enqueue_script( 'jquery-ui-datepicker');
+		 wp_enqueue_script( 'jquery-ui-core');
+		 wp_enqueue_script( 'jquery-ui-datepicker');
+
  		 wp_register_style( 'jquery-ui', 'http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css' );
  	     wp_enqueue_style( 'jquery-ui' );
 
