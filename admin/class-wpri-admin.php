@@ -383,6 +383,7 @@ class WPRI_Admin {
 				'elements' => array(
 					array(
 						'caption' => "caption" ,
+						'value'=> "5",
 						'type'=> "text"
 					)
 				),
