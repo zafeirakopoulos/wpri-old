@@ -164,7 +164,7 @@ class WPRI_Form {
 						elseif ($element["type"]=="multiple-select"){
 							echo "<h3>".$element["caption"]."/</h3>";
 							$all_entries = array();
-							foreach ($element["source_table"] as $table) {
+							foreach ($element["source_tables"] as $table) {
 								 $all_entries = $all_entries + WPRI_Database::get_all($table);
 							}
 							foreach ( $all_entries as $item ) {
