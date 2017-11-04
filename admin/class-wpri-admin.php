@@ -412,9 +412,7 @@ class WPRI_Admin {
 					)
 				)
 			);
-			echo "<div class='container'>";
 		   	WPRI_Form::wpri_create_form("tetsing", $form);
-			echo "</div>";
 		}
 		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
 	}
