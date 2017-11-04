@@ -50,44 +50,27 @@ class WPRI_Form {
 	// // 	'actions' => array("add","remove","update")
 	// // );
 
-	public function wpri_form_group($group) {
+	public function wpri_form($group) {
 		?>
 		<div class='row'>
-			<div class='col-sm-3 form-group-title'> <?php echo $group["title"] ?> </div>
+			<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
+			<?php
+			foreach ($group["elements"] as $element) {
+				if ($element["type"]=="text"){?>
+				<div class='row'>";
+					<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
+					<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
+				</div>
+				<?php }
+				elseif ($element["type"]=="radio"){?>
+					<div class='row'>";
+						<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
+						<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
+					</div>
+				<?php }	?>
+			<?php } ?>
 		</div>
-		<?php foreach ($group["elements"] as $element) {
-			if ($element["type"]=="text"){
-				echo "<div class='row'>";
-					echo "<div class='col-sm-3 form-element-caption'>".$element["caption"]."</div>";
-					echo "<div class='col-sm-3 form-element-value'>".$element["value"]."</div>";
-				echo "</div>";
-			}
-			elseif ($element["type"]=="radio"){
-				echo "<div class='row'>";
-					echo "<div class='col-sm-3 form-element-caption'>".$element["caption"]."</div>";
-					echo "<div class='col-sm-3 form-element-value'>".$element["value"]."</div>";
-				echo "</div>";
-			}
-		}
-	}
+	<?php } ?>
 
-	public function wpri_text_field($field) {
-	?>
-			<h2>Undergraduate</h2>
-			<table class="form-table">
-			<tr>
-			<th><label>Institution</label></th>
-			<td><textarea id="bs_inst" name="bs_inst" cols="70" rows="1"></textarea>
-			<span class="description">Write uni/dept name.</span>
-			</td></tr>
-			<tr>
-			<th><label>Year</label></th>
-			<td><textarea id="bs_year" name="bs_year" cols="4" rows="1"></textarea>
-			<span class="description">Graduation year</span>
-			</td></tr>
-			<tr>
-			</table>
-	<?php
-	 }
 
 }
