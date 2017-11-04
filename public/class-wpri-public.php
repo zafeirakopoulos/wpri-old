@@ -103,10 +103,6 @@ class WPRI_Public {
 		 */
 
 
- 		 wp_enqueue_script( 'jquery');
-		 wp_enqueue_script( 'jquery-ui-core');
-		 wp_enqueue_script( 'jquery-ui-datepicker');
-
 
 		 wp_register_script( 'bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ));
 		 wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wpri-public.js', array( 'jquery' ));
@@ -119,6 +115,12 @@ class WPRI_Public {
 			'session_url' => site_url()."/session"
 			)
 		);
+
+		wp_enqueue_script( 'jquery');
+		wp_enqueue_script( 'jquery-ui-core');
+		wp_enqueue_script( 'jquery-ui-datepicker');
+
+
 	}
 
 
