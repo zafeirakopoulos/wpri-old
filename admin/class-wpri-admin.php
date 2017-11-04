@@ -383,6 +383,9 @@ class WPRI_Admin {
 			echo '</div>';
 			$form = array(
 				'title' => "Form title",
+				'name' => "form_name",
+				'id' => '0',
+				'actions' => array("add","remove","update")
 				'groups'=> array(
 					array(
 						'title' => "title",
@@ -396,8 +399,7 @@ class WPRI_Admin {
 								'cols' => "10",
 								'rows'=> "2"
 							)
-						),
-						'actions' => array("add","remove","update")
+						)
 					),
 					array(
 						'title' => "title",
@@ -407,8 +409,7 @@ class WPRI_Admin {
 								'value'=> "other val",
 								'type'=> "text"
 							)
-						),
-						'actions' => array("add","remove","update")
+						)
 					)
 				)
 			);
