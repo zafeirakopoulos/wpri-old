@@ -70,7 +70,7 @@ class WPRI_Form {
 				<?php }	?>
 			<?php } ?>
 		</div>
-	<?php } ?>
+	<?php } 
 
 
 }
