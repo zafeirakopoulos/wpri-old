@@ -104,7 +104,7 @@ class WPRI_Form {
 				<?php
 				$all_entries = WPRI_Database::get_all($form["table_name"]);
 				?>
-				<form name='id' method="post" action="#confirm-delete">
+				<form name='id' method="post" action="#confirm-delete" data-toggle="tab">
 					<div class="list-group">
 						<?php foreach ( $all_entries as $item ) {?>
 					  	   <input type="submit" name="add_button" value="<?php $item->id ?>" class="button-secondary"/>
