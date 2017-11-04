@@ -116,6 +116,8 @@ class WPRI_Form {
 					<!-- <form name='id' method="post" action=""> -->
 						<div class="list-group">
 							<?php foreach ( $all_entries as $item ) {?>
+								<a class="btn btn-primary btn-lg" onclick="$('#confirm_delete_tab').trigger('click')">Second</a>
+
 						  	   <button type="submit"
 		   						onclick="$('#confirm_delete_tab').trigger('click')" value="<?php $item->name ?>" class="button-secondary"/>
 							<?php } ?>
