@@ -96,16 +96,14 @@ class WPRI_Project {
 								'name'=> "agency",
 								'value'=> "",
 								'type'=> "multiple-select",
-								'source_tables' => array("member","collaborator"),
+								'source_tables' => array("agency"),
 								'display_column' => "name"
 							),
 							array(
 								'caption' => "Budget" ,
 								'name'=> "budget",
 								'value'=> "",
-								'type'=> "select",
-								'source_tables' => array("member","collaborator"),
-								'display_column' => "name"
+								'type'=> "text"
 							)
 						)
 					),
@@ -151,7 +149,7 @@ class WPRI_Project {
 
 			WPRI_Form::wpri_create_form("Projects", $project);
 
-	 
+
 			echo '<div class="wrap">';
 			echo '<h2>Manage Projects</h2>';
 			echo '<div class="wrap wpa">';
