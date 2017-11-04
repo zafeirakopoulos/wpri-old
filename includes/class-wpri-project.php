@@ -150,7 +150,15 @@ class WPRI_Project {
 
 
 			WPRI_Form::wpri_create_form("Projects", $project);
-
+			?>
+			<script>
+			$(function() {
+				$( ".datepicker" ).datepicker({
+					dateFormat : "dd-mm-yy"
+				});
+			});
+			</script>
+			<?php
 			echo '<div class="wrap">';
 			echo '<h2>Manage Projects</h2>';
 			echo '<div class="wrap wpa">';
