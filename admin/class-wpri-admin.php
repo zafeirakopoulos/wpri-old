@@ -421,24 +421,34 @@ class WPRI_Admin {
 				'actions' => array("add","remove","update"),
 				'groups'=> array(
 					array(
-						'title' => "title",
+						'title' => "Project title",
 						'elements' => array(
 							array(
 								'type'=> "text",
-								'id' => "idd",
-								'name'=> "name",
-								'caption' => "caption" ,
-								'value'=> "5",
-								'cols' => "10",
+								'id' => "",
+								'name'=> "official_title",
+								'caption' => "Official title" ,
+								'value'=> "as appearing in the funding agency",
+								'cols' => "50",
+								'rows'=> "2"
+							),
+							array(
+								'type'=> "text",
+								"all_locales"=>1,
+								'name'=> "title",
+								'caption' => "Title in different locales" ,
+								'value'=> "",
+								'cols' => "50",
 								'rows'=> "2"
 							)
 						)
 					),
 					array(
-						'title' => "members[]",
+						'title' => "Project members",
 						'elements' => array(
 							array(
-								'caption' => "Choose members" ,
+								'caption' => "Choose institute members" ,
+								'name'=> "members[]",
 								'value'=> "",
 								'type'=> "multiple-select",
 								'source_table' => "member",
