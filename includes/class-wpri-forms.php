@@ -50,7 +50,7 @@ class WPRI_Form {
 	// // 	'actions' => array("add","remove","update")
 	// // );
 
-	public function wpri_form($group) {
+	public static function wpri_form($group) {
 		?>
 		<div class='row'>
 			<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
@@ -70,7 +70,7 @@ class WPRI_Form {
 				<?php }	?>
 			<?php } ?>
 		</div>
-	<?php } 
+	<?php }
 
 
 }
