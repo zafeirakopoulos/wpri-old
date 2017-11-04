@@ -437,7 +437,7 @@ class WPRI_Admin {
 								"all_locales"=>1,
 								'name'=> "title",
 								'caption' => "Title in different locales" ,
-								'value'=> "",
+								'value'=> "Title in different locales",
 								'cols' => "50",
 								'rows'=> "2"
 							)
