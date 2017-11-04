@@ -163,7 +163,10 @@ class WPRI_Form {
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
 							echo "<h3>".$element["caption"]."/</h3>";
-							$all_entries = WPRI_Database::get_all($element["source_table"]);
+							$all_entries = array();
+							foreach ($element["source_table"] as $table) {
+								 $all_entries = $all_entries + WPRI_Database::get_all($table);
+							}
 							foreach ( $all_entries as $item ) {
 								echo "<div class='form-check'>";
 								echo "<label class='form-check-label'>";
