@@ -101,6 +101,12 @@ class WPRI_Form {
 		?>
 		<div id="DeleteTabs" class="container">
 
+			<ul  class="nav nav-pills">
+				<li class="active"><a href="#select-delete" data-toggle="tab">Select</a>
+				</li>
+				<li><a href="#confirm-delete" data-toggle="tab" id="confirm_delete_tab">Confirm</a>
+			</ul>
+
 			<div class="tab-content clearfix">
 				<div class="tab-pane active" id="select-delete">
 					select delete
@@ -111,7 +117,7 @@ class WPRI_Form {
 						<div class="list-group">
 							<?php foreach ( $all_entries as $item ) {?>
 						  	   <button type="submit"
-		   						onclick="$('#confirm-delete').trigger('click')" value="<?php $item->name ?>" class="button-secondary"/>
+		   						onclick="$('#confirm_delete_tab-delete').trigger('click')" value="<?php $item->name ?>" class="button-secondary"/>
 							<?php } ?>
 						</div>
 						<!-- <input type="hidden" name="type" value="select"/>
