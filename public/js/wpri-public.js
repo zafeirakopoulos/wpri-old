@@ -30,7 +30,17 @@
 	 */
 
 
-
+	 function makeSortable(divname) {
+	   $( "#".divname ).sortable({
+	 	revert: true
+	   });
+	   $( "#".divname ).draggable({
+	 	connectToSortable: "#sortable",
+	 	helper: "clone",
+	 	revert: "invalid"
+	   });
+	   $( "ul, li" ).disableSelection();
+	 };
 
 })( jQuery );
 
