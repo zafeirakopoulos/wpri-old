@@ -147,7 +147,7 @@ class WPRI_Form {
 								echo "<div class='form-check'>";
 								echo "<label class='form-check-label'>";
 								echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item->id."'>  ";
-								echo $item->$element["display_column"];
+								echo "jjj".$item->$element["display_column"];
 								echo "</label>";
 								echo "</div>";
 							}
