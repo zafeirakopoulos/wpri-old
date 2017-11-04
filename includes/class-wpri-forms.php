@@ -102,13 +102,9 @@ class WPRI_Form {
 		?>
 		<form name='id' method="post" action="">
 			<div class="form-group">
-
-			  <label for="sel1">Select list:</label>
-			  <select class="form-control" id="id">
 				  <?php foreach ( $all_entries as $item ) {
-					  echo "<option>".$item->name."</option>";  					
+					  echo "<input type='checkbox' name='check_list[]' value=".$item->id."><label>".$item->name."</label>";  					
   			  } ?>
-			  </select>
 			</div>
 			<input type="hidden" name="type" value="delete"/>
 		</form>
