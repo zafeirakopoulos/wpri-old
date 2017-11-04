@@ -52,25 +52,21 @@ class WPRI_Form {
 
 	public static function wpri_form_from_array($form) {
 		?>
-		<div class='container'>
+		<div>
 			<?php
 			foreach ($form["groups"] as $group) {?>
-			</hr>
+				</hr>
 				<div class='row'>
 				<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
 				<?php
 				foreach ($group["elements"] as $element) {
 					if ($element["type"]=="text"){?>
-					<div class='row'>
 						<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
 						<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
-					</div>
 					<?php }
 					elseif ($element["type"]=="radio"){?>
-						<div class='row'>";
 							<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
 							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
-						</div>
 					<?php }	?>
 				<?php } ?>
 				</div>
