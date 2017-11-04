@@ -102,13 +102,13 @@ class WPRI_Form {
 		<div id="DeleteTabs" class="container">
 
 			<ul  class="nav nav-pills">
-				<li class="active"><a href="#select-delete" data-toggle="tab">Select</a>
+				<li class="active"><a href="#select_delete" data-toggle="tab">Select</a>
 				</li>
-				<li><a href="#confirm-delete" data-toggle="tab" >Confirm</a>
+				<li><a href="#confirm_delete-delete" data-toggle="tab" >Confirm</a>
 			</ul>
 
 			<div class="tab-content clearfix">
-				<div class="tab-pane active" id="select-delete">
+				<div class="tab-pane active" id="select_delete">
 					select delete
 					<?php
 					$all_entries = WPRI_Database::get_all($form["table_name"]);
@@ -117,13 +117,13 @@ class WPRI_Form {
 						<div class="list-group">
 							<?php foreach ( $all_entries as $item ) {?>
 						  	   <button type="submit"
-		   						onclick="$('#confirm-delete').tab('show');" value="<?php $item->name ?>" class="button-secondary"/>
+		   						onclick="$('.nav-tabs a[href="#confirm_delete"]').tab('show')" value="<?php $item->name ?>" class="button-secondary"/>
 							<?php } ?>
 						</div>
 						<!-- <input type="hidden" name="type" value="select"/>
 					</form> -->
 				</div>
-				<div class="tab-pane" id="confirm-delete">
+				<div class="tab-pane" id="confirm_delete">
 					<div class='row'>
 						<form name='<?php echo $form["name"]?>' method="post" action="">
 							<div class='col-sm-12 form-title'> <?php echo $form["title"] ?> </div>
