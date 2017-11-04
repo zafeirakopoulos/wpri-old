@@ -179,10 +179,10 @@ class WPRI_Form {
 							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 						<?php }	?>
 					<?php } ?>
-					</div>
 				<?php } ?>
 				<button type="submit" name="action" value="add">Add</button>
 			</form>
 		</div>
+	</div>
 	<?php }
 }
