@@ -141,6 +141,7 @@ class WPRI_Form {
 							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
+							echo "mult select:";
 							$all_entries = WPRI_Database::get_all($element["source_table"]);
 							foreach ( $all_entries as $item ) {
 								echo "<div class='form-check'>";
