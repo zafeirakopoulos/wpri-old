@@ -38,6 +38,51 @@ class WPRI_Project {
 			$members  = WPRI_Database::get_all_members();
 			$agencies = WPRI_Database::get_agencies();
 
+			$project = array(
+				'title' => "Projects",
+				'table_name' => "project",
+				'name' => "project",
+				'actions' => array("add","remove","update"),
+				'groups'=> array(
+					array(
+						'title' => "Project title",
+						'elements' => array(
+							array(
+								'type'=> "text",
+								'id' => "",
+								'name'=> "official_title",
+								'caption' => "Official title" ,
+								'value'=> "as appearing in the funding agency",
+								'cols' => "50",
+								'rows'=> "2"
+							),
+							array(
+								'type'=> "text",
+								"all_locales"=>1,
+								'name'=> "title",
+								'caption' => "Title in different locales" ,
+								'value'=> "Title in different locales",
+								'cols' => "50",
+								'rows'=> "2"
+							)
+						)
+					),
+					array(
+						'title' => "Project members",
+						'elements' => array(
+							array(
+								'caption' => "Choose institute members" ,
+								'name'=> "members[]",
+								'value'=> "",
+								'type'=> "multiple-select",
+								'source_table' => "member",
+								'display_column' => "name"
+							)
+						)
+					)
+				)
+			);
+			WPRI_Form::wpri_create_form("Projects", $project);
 
 			echo '<div class="wrap">';
 			echo '<h2>Manage Projects</h2>';
