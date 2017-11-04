@@ -50,7 +50,7 @@ class WPRI_Form {
 	// );
 
 	public function wpri_form_group($group) {
-	   echo "<h2>".$group["title"]/"</h2>";
+	   echo "<h2>".$group["title"]."</h2>";
 	//    <table class="form-table">
 	//    <tr>
 	//    <th><label>Institution</label></th>
