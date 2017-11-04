@@ -177,7 +177,7 @@ class WPRI_Form {
 							}
 						}
 						elseif ($element["type"]=="date") {?>
-							<input type='text' class='datepicker'/>
+							<input type='text' class='datepicker' id='datepicker'/>
 							<?php
 						}?>
 						</div>
