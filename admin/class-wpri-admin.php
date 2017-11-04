@@ -378,18 +378,34 @@ class WPRI_Admin {
 			echo '<h2>Manage Locale Options</h2>';
 			WPRI_Admin::simple_setting_form('locale');
 			echo '</div>';
-			$field = array(
-				'title' => "title",
-				'elements' => array(
+			$form = array(
+				'title' => "Form title"
+				'groups'=> array(
 					array(
-						'caption' => "caption" ,
-						'value'=> "5",
-						'type'=> "text"
+						'title' => "title",
+						'elements' => array(
+							array(
+								'caption' => "caption" ,
+								'value'=> "5",
+								'type'=> "text"
+							)
+						),
+						'actions' => array("add","remove","update")
+					),
+					array(
+						'title' => "title",
+						'elements' => array(
+							array(
+								'caption' => "caption" ,
+								'value'=> "5",
+								'type'=> "text"
+							)
+						),
+						'actions' => array("add","remove","update")
 					)
-				),
-				'actions' => array("add","remove","update")
+				)
 			);
-		   WPRI_Form::wpri_form_from_array($field);
+		   WPRI_Form::wpri_form_from_array($form);
 		}
 		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
 	}
