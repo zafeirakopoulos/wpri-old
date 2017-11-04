@@ -43,7 +43,7 @@ class WPRI_Form {
 	   			<div class="tab-content clearfix">
 		   			<div class="tab-pane active" id="add">
 						<?php
-					//    WPRI_Form::wpri_form_add($form);
+					    WPRI_Form::wpri_form_add($form);
 					   ?>
 		   			</div>
 		   			<div class="tab-pane" id="update">
@@ -82,10 +82,10 @@ class WPRI_Form {
 							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 						<?php }	?>
 					<?php } ?>
-					</div>
 				<?php } ?>
 				<button type="submit" name="action" value="add">Add</button>
 			</form>
+			</div>
 		</div>
 	<?php }
 
