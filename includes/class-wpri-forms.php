@@ -32,35 +32,36 @@ class WPRI_Form {
 	public static function wpri_form_from_array($form) {
 		?>
 		<div>
-			<?php
-			foreach ($form["groups"] as $group) {?>
-				</hr>
-				<div class='row'>
-				<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
+			<form name='<?php echo $form["name"]?>' method="post" action="">
 				<?php
-				foreach ($group["elements"] as $element) {
-					if ($element["type"]=="text"){?>
-						<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
-						<div class='col-sm-3 form-element-value'>
-							<textarea id='<?php echo $element["id"]?>'
-									  name='<?php echo $element["name"]?>'
-									  cols='<?php echo $element["cols"]?>'
-									  rows='<?php echo $element["rows"]?>'>
-								 <?php echo $element["value"]?>
-							</textarea>
-						</div>
-					<?php }
-					elseif ($element["type"]=="radio"){?>
-						<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
-						<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
-					<?php }	?>
+				foreach ($form["groups"] as $group) {?>
+					</hr>
+					<div class='row'>
+					<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
+					<?php
+					foreach ($group["elements"] as $element) {
+						if ($element["type"]=="text"){?>
+							<label class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></label>
+							<div class='col-sm-3 form-element-value'>
+								<textarea id='<?php echo $element["id"]?>'
+										  name='<?php echo $element["name"]?>'
+										  cols='<?php echo $element["cols"]?>'
+										  rows='<?php echo $element["rows"]?>'>
+									 <?php echo $element["value"]?>
+								</textarea>
+							</div>
+						<?php }
+						elseif ($element["type"]=="radio"){?>
+							<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
+							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
+						<?php }	?>
+					<?php } ?>
+					</div>
 				<?php } ?>
-				</div>
-			<?php } ?>
+				<?php foreach ($group["actions"] as $action) {?>
+					<button type="submit" name="action" value="<?php echo $action?>"> <?php echo $action?></button>
+				<?php } ?>
+			</form>
 		</div>
 	<?php }
 }
-
-
-echo '<td>< ';
-echo '<span class="description">Write uni/dept name.</span>';
