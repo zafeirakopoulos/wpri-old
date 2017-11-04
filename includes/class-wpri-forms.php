@@ -98,64 +98,20 @@ class WPRI_Form {
 
 
 	public static function wpri_form_delete($form) {
+		$all_entries = WPRI_Database::get_all($form["table_name"]);
 		?>
-		<div id="DeleteTabs" class="container">
+		<form name='id' method="post" action="">
+			<div class="form-group">
 
-			<ul  class="nav nav-pills">
-				<li class="active"><a href="#select_delete" data-toggle="tab">Select</a>
-				</li>
-				<li><a href="#confirm_delete" data-toggle="tab" >Confirm</a>
-			</ul>
-
-			<div class="tab-content clearfix">
-				<div class="tab-pane active" id="select_delete">
-					select delete
-					<?php
-					$all_entries = WPRI_Database::get_all($form["table_name"]);
-					?>
-					<!-- <form name='id' method="post" action=""> -->
-						<div class="list-group">
-							<?php foreach ( $all_entries as $item ) {?>
-						  	   <button type="submit"
-		   						onclick="$('#confirm_delete').tab('show')" value="<?php $item->name ?>" class="button-secondary"/>
-							<?php } ?>
-						</div>
-						<!-- <input type="hidden" name="type" value="select"/>
-					</form> -->
-				</div>
-				<div class="tab-pane" id="confirm_delete">
-					<div class='row'>
-						<form name='<?php echo $form["name"]?>' method="post" action="">
-							<div class='col-sm-12 form-title'> <?php echo $form["title"] ?> </div>
-							<?php
-							foreach ($form["groups"] as $group) {?>
-								<hr/>
-								<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
-								<?php
-								foreach ($group["elements"] as $element) {
-									if ($element["type"]=="text"){?>
-										<label class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></label>
-										<div class='col-sm-3 form-element-value'>
-											<textarea id='<?php echo $element["id"]?>'
-													  name='<?php echo $element["name"]?>'
-													  cols='<?php echo $element["cols"]?>'
-													  rows='<?php echo $element["rows"]?>'>
-												 <?php echo $element["value"]?>
-											</textarea>
-										</div>
-									<?php }
-									elseif ($element["type"]=="radio"){?>
-										<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
-										<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
-									<?php }	?>
-								<?php } ?>
-							<?php } ?>
-							<button type="submit" name="action" value="add">Add</button>
-						</form>
-					</div>
-			   </div>
+			  <label for="sel1">Select list:</label>
+			  <select class="form-control" id="id">
+				  <?php foreach ( $all_entries as $item ) {
+					  echo "<option>".$item->name."</option>";  					
+  			  } ?>
+			  </select>
 			</div>
-		</div>
+			<input type="hidden" name="type" value="delete"/>
+		</form>
 	<?php }
 
 	public static function wpri_form_update($form) {
