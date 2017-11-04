@@ -90,7 +90,7 @@ class WPRI_Form {
 						<?php }	?>
 					<?php } ?>
 				<?php } ?>
-				<div class='col-sm-3 form-element-caption'>
+				<div class='col-sm-12 form-element-caption'>
 					<button type="submit" class="btn btn-primary">Add</button>
 				</div>
 				<input type="hidden" name="type" value="add"/>
