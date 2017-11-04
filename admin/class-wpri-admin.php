@@ -388,9 +388,13 @@ class WPRI_Admin {
 						'title' => "title",
 						'elements' => array(
 							array(
+								'type'=> "text",
+								'id' => "idd",
+								'name'=> "name",
 								'caption' => "caption" ,
 								'value'=> "5",
-								'type'=> "text"
+								'cols' => "10",
+								'rows'=> "2"
 							)
 						),
 						'actions' => array("add","remove","update")
