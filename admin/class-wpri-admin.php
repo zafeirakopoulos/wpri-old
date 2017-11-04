@@ -396,8 +396,8 @@ class WPRI_Admin {
 						'title' => "title",
 						'elements' => array(
 							array(
-								'caption' => "caption" ,
-								'value'=> "5",
+								'caption' => "Some other caption" ,
+								'value'=> "other val",
 								'type'=> "text"
 							)
 						),
