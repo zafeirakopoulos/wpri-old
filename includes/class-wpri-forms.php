@@ -109,7 +109,7 @@ class WPRI_Form {
 					  echo "</label>";
 					  echo "</div>";
   			  } ?>
-			<input type="submit" name="delete_button" value="Delete selected" class="button" />
+			<button type="submit" class="btn btn-primary">Delete selected</button>
 			<input type="hidden" name="type" value="delete"/>
 		</form>
 	<?php }
