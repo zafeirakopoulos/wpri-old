@@ -126,7 +126,6 @@ class WPRI_Form {
 					<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
 					<?php
 					foreach ($group["elements"] as $element) {
-						echo "<div class='col-sm-12>";
 
 						if ($element["type"]=="text"){
 							if ($element["all_locales"]!=1){ ?>
@@ -172,7 +171,6 @@ class WPRI_Form {
 								echo "</div>";
 							}
 						}
-						 echo "</div>";
 					 }
 				 } ?>
 				<div class='col-sm-12 form-element-caption'>
