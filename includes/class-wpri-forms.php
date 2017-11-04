@@ -104,11 +104,10 @@ class WPRI_Form {
 				  <?php foreach ( $all_entries as $item ) {
 					  echo "<div class='form-check'>";
 					  echo "<label class='form-check-label'>";
-					  echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item->id."'>";
+					  echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item->id."'>  ";
 					  echo $item->name;
 					  echo "</label>";
 					  echo "</div>";
-
   			  } ?>
 			<input type="hidden" name="type" value="delete"/>
 		</form>
