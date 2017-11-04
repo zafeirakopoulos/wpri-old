@@ -101,9 +101,9 @@ class WPRI_Form {
 		$all_entries = WPRI_Database::get_all($form["table_name"]);
 		?>
 		<form name='id' method="post" action="">
-			<div class="form-group">
+			<div class="form-check">
 				  <?php foreach ( $all_entries as $item ) {
-					  echo "<input type='checkbox' name='check_list[]' value=".$item->id."><label>".$item->name."</label>";  					
+					  echo "<label class='form-check-label'><input class='form-check-input' type='checkbox' name='check_list[]' value=".$item->id.">".$item->name."</label>";  					
   			  } ?>
 			</div>
 			<input type="hidden" name="type" value="delete"/>
