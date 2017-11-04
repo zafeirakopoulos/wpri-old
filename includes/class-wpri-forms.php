@@ -146,7 +146,6 @@ class WPRI_Form {
 				</div>
 		   </div>
 		</div>
-	</div>
 	<?php }
 
 	public static function wpri_form_update($form) {
