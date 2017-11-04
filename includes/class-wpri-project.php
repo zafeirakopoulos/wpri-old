@@ -154,7 +154,7 @@ class WPRI_Project {
 			function add_datepicker_in_footer(){ ?>
 			<script type="text/javascript">
 			jQuery(document).ready(function(){
-			    jQuery('#date').datepicker({
+			    jQuery('.datepicker').datepicker({
 			        dateFormat: 'dd-mm-yy'
 			    });
 			});
