@@ -45,31 +45,28 @@ class WPRI_Form {
 	   		</ul>
 
 	   			<div class="tab-content clearfix">
-	   			  <div class="tab-pane active" id="1a">
-	             <h3>Content's background color is the same for the tab</h3>
-	   				</div>
-	   				<div class="tab-pane" id="2a">
-	             <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
-	   				</div>
-	           <div class="tab-pane" id="3a">
-	             <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
-	   				</div>
-	             <div class="tab-pane" id="4a">
-	             <h3>We use css to change the background color of the content to be equal to the tab</h3>
-	   				</div>
+		   			  <div class="tab-pane active" id="1a">
+		             <h3>Content's background color is the same for the tab</h3>
+		   				</div>
+		   				<div class="tab-pane" id="2a">
+		             <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+		   				</div>
+		           <div class="tab-pane" id="3a">
+		             <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
+		   				</div>
+		             <div class="tab-pane" id="4a">
+						 <?php
+			 			WPRI_Form::wpri_form_from_array($form);
+			 			?>
+		   			</div>
 	   			</div>
 	     </div>
 
 
-		<div class='container'>
-			<?php
-			WPRI_Form::wpri_form_from_array($form);
-			?>
-		</div>
 		<?php
 	}
 
-	public static function wpri_form_add($form) {
+	public static function wpri_form_from_array($form) {
 		?>
 		<div>
 			<div class='row'>
