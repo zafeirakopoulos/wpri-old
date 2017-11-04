@@ -30,39 +30,30 @@ class WPRI_Form {
 	 * @since    1.0.0
 	 */
     public static function wpri_create_form($title, $form) {?>
-	   <div class="container"><h1><?php echo $title ?> </h1></div>
-	   <div id="exTab1" class="container">
-	   <ul  class="nav nav-pills">
-	   			<li class="active">
-	           <a  href="#1a" data-toggle="tab">Overview</a>
-	   			</li>
-	   			<li><a href="#2a" data-toggle="tab">Using nav-pills</a>
-	   			</li>
-	   			<li><a href="#3a" data-toggle="tab">Applying clearfix</a>
-	   			</li>
-	     		<li><a href="#4a" data-toggle="tab">Background color</a>
-	   			</li>
-	   		</ul>
+		<div class="container"><h1><?php echo $title ?> </h1></div>
+	    	<div id="exTab1" class="container">
+				<ul  class="nav nav-pills">
+					<li class="active"><a href="#add" data-toggle="tab">Add</a>
+					</li>
+					<li><a href="#update" data-toggle="tab">Update</a>
+					</li>
+					<li><a href="#delete" data-toggle="tab">Delete</a>
+			   	</ul>
 
 	   			<div class="tab-content clearfix">
-		   			  <div class="tab-pane active" id="1a">
-		             <h3>Content's background color is the same for the tab</h3>
-		   				</div>
-		   				<div class="tab-pane" id="2a">
-		             <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
-		   				</div>
-		           <div class="tab-pane" id="3a">
-		             <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
-		   				</div>
-		             <div class="tab-pane" id="4a">
+		   			<div class="tab-pane active" id="add">
+		            	<h3>Content's background color is the same for the tab</h3>
+		   			</div>
+		   			<div class="tab-pane" id="update">
+		            	<h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+		   			</div>
+		            <div class="tab-pane" id="delete">
 						 <?php
 			 			WPRI_Form::wpri_form_from_array($form);
 			 			?>
 		   			</div>
 	   			</div>
 	     </div>
-
-
 		<?php
 	}
 
