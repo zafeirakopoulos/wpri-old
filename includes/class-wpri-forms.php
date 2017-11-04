@@ -65,8 +65,8 @@ class WPRI_Form {
 						<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 					<?php }
 					elseif ($element["type"]=="radio"){?>
-							<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
-							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
+						<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
+						<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 					<?php }	?>
 				<?php } ?>
 				</div>
