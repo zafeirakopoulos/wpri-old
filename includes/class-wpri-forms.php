@@ -117,7 +117,7 @@ class WPRI_Form {
 						<div class="list-group">
 							<?php foreach ( $all_entries as $item ) {?>
 						  	   <button type="submit"
-		   						onclick="$('.nav-tabs a[href="#confirm_delete"]').tab('show')" value="<?php $item->name ?>" class="button-secondary"/>
+		   						onclick="$('.nav-tabs a[href='#confirm_delete']').tab('show')" value="<?php $item->name ?>" class="button-secondary"/>
 							<?php } ?>
 						</div>
 						<!-- <input type="hidden" name="type" value="select"/>
