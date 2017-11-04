@@ -43,7 +43,7 @@ class WPRI_Form {
 	   			<div class="tab-content clearfix">
 		   			<div class="tab-pane active" id="add">
 						<?php
-					   WPRI_Form::wpri_form_add($form);
+					//    WPRI_Form::wpri_form_add($form);
 					   ?>
 		   			</div>
 		   			<div class="tab-pane" id="update">
