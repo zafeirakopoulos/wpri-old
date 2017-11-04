@@ -29,14 +29,26 @@ class WPRI_Form {
 	 *
 	 * @since    1.0.0
 	 */
+    public static function wpri_create_form($title, $form) {?>
+		<h1><?php echo $title ?></h1>
+		<div class='row'>
+			<div class='col-sm-3'> Add </div>
+			<div class='col-sm-3'> Update </div>
+			<div class='col-sm-3'> Remove </div>
+		</div>
+		<?php }
+		WPRI_Form::wpri_form_from_array($form);
+	}
+
 	public static function wpri_form_from_array($form) {
 		?>
 		<div>
+			<div class='row'>
 			<form name='<?php echo $form["name"]?>' method="post" action="">
+				<div class='col-sm-12 form-title'> <?php echo $form["title"] ?> </div>
 				<?php
 				foreach ($form["groups"] as $group) {?>
-					</hr>
-					<div class='row'>
+					<hr/>
 					<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
 					<?php
 					foreach ($group["elements"] as $element) {
