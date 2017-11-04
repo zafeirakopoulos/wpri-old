@@ -31,13 +31,17 @@ class WPRI_Form {
 	 */
     public static function wpri_create_form($title, $form) {?>
 		<h1><?php echo $title ?></h1>
-		<div class='row'>
-			<div class='col-sm-3'> Add </div>
-			<div class='col-sm-3'> Update </div>
-			<div class='col-sm-3'> Remove </div>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-sm-3'> Add </div>
+				<div class='col-sm-3'> Update </div>
+				<div class='col-sm-3'> Remove </div>
+			</div>
+			<?php
+			WPRI_Form::wpri_form_from_array($form);
+			?>
 		</div>
 		<?php
-		WPRI_Form::wpri_form_from_array($form);
 	}
 
 	public static function wpri_form_from_array($form) {
