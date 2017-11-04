@@ -125,8 +125,9 @@ class WPRI_Form {
 					<hr/>
 					<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
 					<?php
-					foreach ($group["elements"] as $element) {
-
+					foreach ($group["elements"] as $element) {?>
+						<div class='row'>
+						<?php
 						if ($element["type"]=="text"){
 							if ($element["all_locales"]!=1){ ?>
 								<label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
@@ -171,8 +172,9 @@ class WPRI_Form {
 								echo "</label>";
 								echo "</div>";
 							}
-						}
-					 }
+						}?>
+						</div>
+					 <?php }
 				 } ?>
 				<div class='col-sm-12 form-element-caption'>
 					<button type="submit" class="btn btn-primary">Add</button>
