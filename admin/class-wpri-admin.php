@@ -389,7 +389,7 @@ class WPRI_Admin {
 				),
 				'actions' => array("add","remove","update")
 			);
-		   WPRI_Form::wpri_form_group($field);
+		   WPRI_Form::wpri_form($field);
 		}
 		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
 	}
