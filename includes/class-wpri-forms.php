@@ -29,27 +29,6 @@ class WPRI_Form {
 	 *
 	 * @since    1.0.0
 	 */
-
-	// // $name,$caption,$description,$cols,$rows
-	// // an array of arrays, field=> value. Filled in if update
-	// // $field = array(
-	// // 	'title' => "title",
-	// // 	'elements' => array(
-	// // 		array(
-	// // 			'caption' => "caption" ,
-	// 			 'value'=> "",
-	// // 			'type'=> "text"
-	// // 		),
-	// // 		array(
-	// // 			'' => ,
-	// // 		),
-	// // 		array(
-	// // 			'' => ,
-	// // 		)
-	// // 	),
-	// // 	'actions' => array("add","remove","update")
-	// // );
-
 	public static function wpri_form_from_array($form) {
 		?>
 		<div>
@@ -61,8 +40,15 @@ class WPRI_Form {
 				<?php
 				foreach ($group["elements"] as $element) {
 					if ($element["type"]=="text"){?>
-						<div class='col-sm-3 col-lg-3 form-element-caption'> <?php echo $element["caption"] ?></div>
-						<div class='col-sm-3 col-lg-3  form-element-value'>   <?php echo $element["value"]   ?></div>
+						<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
+						<div class='col-sm-3 form-element-value'>
+							<textarea id='<?php echo $element["id"]?>'
+									  name='<?php echo $element["name"]?>'
+									  cols='<?php echo $element["cols"]?>'
+									  rows='<?php echo $element["rows"]?>'>
+								 <?php echo $element["value"]?>
+							</textarea>
+						</div>
 					<?php }
 					elseif ($element["type"]=="radio"){?>
 						<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
@@ -73,6 +59,8 @@ class WPRI_Form {
 			<?php } ?>
 		</div>
 	<?php }
-
-
 }
+
+
+echo '<td>< ';
+echo '<span class="description">Write uni/dept name.</span>';
