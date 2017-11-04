@@ -104,7 +104,7 @@ class WPRI_Form {
 			<ul  class="nav nav-pills">
 				<li class="active"><a href="#select_delete" data-toggle="tab">Select</a>
 				</li>
-				<li><a href="#confirm_delete-delete" data-toggle="tab" >Confirm</a>
+				<li><a href="#confirm_delete" data-toggle="tab" >Confirm</a>
 			</ul>
 
 			<div class="tab-content clearfix">
