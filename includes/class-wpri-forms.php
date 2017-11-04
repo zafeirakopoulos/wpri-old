@@ -177,11 +177,13 @@ class WPRI_Form {
 							}
 						}
 						elseif ($element["type"]=="date") {?>
-							<input type='text' id='datepicker'>
+							<input type='text' class='datepicker'>
 							<script>
-								 	$( function() {
-								   		$('#datepicker').datepicker();
-									});
+							jQuery(function() {
+							    jQuery( ".datepicker" ).datepicker({
+							        dateFormat : "dd-mm-yy"
+							    });
+							});
 							</script>
 							<?php
 						}?>
