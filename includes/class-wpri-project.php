@@ -151,19 +151,7 @@ class WPRI_Project {
 
 			WPRI_Form::wpri_create_form("Projects", $project);
 
-			function add_datepicker_in_footer(){ ?>
-			<script type="text/javascript">
-			jQuery(document).ready(function(){
-				<script>
-				    jQuery(document).ready(function($) {
-				        $("#datepicker").datepicker();
-				    });
-				</script>
-			<?php
-			} // close add_datepicker_in_footer() here
-			//add an action to call add_datepicker_in_footer function
-			add_action('wp_footer','add_datepicker_in_footer',10);
-
+	 
 			echo '<div class="wrap">';
 			echo '<h2>Manage Projects</h2>';
 			echo '<div class="wrap wpa">';
