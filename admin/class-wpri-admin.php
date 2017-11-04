@@ -383,7 +383,7 @@ class WPRI_Admin {
 			echo '</div>';
 			$form = array(
 				'title' => "Locales",
-				'table' => "locale",
+				'table_name' => "locale",
 				'name' => "form_name",
 				'actions' => array("add","remove","update"),
 				'groups'=> array(
