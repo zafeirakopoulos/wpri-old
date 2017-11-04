@@ -162,7 +162,7 @@ class WPRI_Form {
 							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
-							echo "<h3>".$element["caption"]."/</h3>";
+							echo "<h3>".$element["caption"]."</h3>";
 							$all_entries = array();
 							foreach ($element["source_tables"] as $table) {
 								 $all_entries = $all_entries + WPRI_Database::get_all($table);
@@ -175,6 +175,15 @@ class WPRI_Form {
 								echo "</label>";
 								echo "</div>";
 							}
+						}
+						elseif ($element["type"]=="date") {
+							echo "<input type='text' id='datepicker'>";
+							echo "<script>
+								 	$( function() {
+								   		$('#datepicker').datepicker();
+									});
+								 </script>
+								 ";
 						}?>
 						</div>
 					 <?php }
