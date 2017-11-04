@@ -405,7 +405,10 @@ class WPRI_Admin {
 					)
 				)
 			);
-		   WPRI_Form::wpri_form_from_array($form);
+			echo '<div class="container">';
+
+		   	WPRI_Form::wpri_form_from_array($form);
+			echo "</div>";
 		}
 		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
 	}
