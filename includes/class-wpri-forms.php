@@ -180,9 +180,9 @@ class WPRI_Form {
 							<input type='text' class='datepicker'/>
 							<script>
 							$(function() {
-							    $( ".datepicker" ).datepicker({
-							        dateFormat : "dd-mm-yy"
-							    });
+								$( ".datepicker" ).datepicker({
+									dateFormat : "dd-mm-yy"
+								});
 							});
 							</script>
 							<?php
