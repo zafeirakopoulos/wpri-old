@@ -74,6 +74,7 @@ class WPRI_Admin {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wpri-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
 
 	}
 
@@ -95,6 +96,8 @@ class WPRI_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
+		wp_register_script( 'bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ));
+	  	wp_enqueue_script( 'bootstrap_js' );
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wpri-admin.js', array( 'jquery' ), $this->version, false );
 
@@ -405,8 +408,7 @@ class WPRI_Admin {
 					)
 				)
 			);
-			echo '<div class="container">';
-
+			echo "<div class='container'>";
 		   	WPRI_Form::wpri_form_from_array($form);
 			echo "</div>";
 		}
