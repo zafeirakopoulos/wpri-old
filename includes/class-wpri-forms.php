@@ -46,9 +46,9 @@ class WPRI_Form {
 					   WPRI_Form::wpri_form_add($form);
 					   ?>		   			</div>
 		   			<div class="tab-pane" id="update">
-						<?php
+						<!-- <?php
 					   WPRI_Form::wpri_form_update($form);
-					   ?>
+					   ?> -->
 		   			</div>
 		            <!-- <div class="tab-pane" id="delete">
 						 <?php
