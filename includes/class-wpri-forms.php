@@ -36,8 +36,8 @@ class WPRI_Form {
 			<div class='col-sm-3'> Update </div>
 			<div class='col-sm-3'> Remove </div>
 		</div>
-		<?php }
-		wpri_form_from_array($form);
+		<?php
+		WPRI_Form::wpri_form_from_array($form);
 	}
 
 	public static function wpri_form_from_array($form) {
