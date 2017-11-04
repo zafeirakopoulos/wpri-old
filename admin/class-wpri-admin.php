@@ -379,7 +379,7 @@ class WPRI_Admin {
 			WPRI_Admin::simple_setting_form('locale');
 			echo '</div>';
 			$form = array(
-				'title' => "Form title"
+				'title' => "Form title",
 				'groups'=> array(
 					array(
 						'title' => "title",
