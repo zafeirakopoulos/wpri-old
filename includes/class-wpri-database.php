@@ -684,7 +684,7 @@ class WPRI_Database {
 				}
 
 				public static function get_all($table) {
-					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name($table) );
+					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name($table),"ARRAY_A" );
 				}
 
 				public static function get_all_members() {
