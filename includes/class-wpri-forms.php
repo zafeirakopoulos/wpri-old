@@ -50,24 +50,30 @@ class WPRI_Form {
 	// // 	'actions' => array("add","remove","update")
 	// // );
 
-	public static function wpri_form_from_array($group) {
+	public static function wpri_form_from_array($form) {
 		?>
-		<div class='row'>
-			<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
+		<div class='container'>
 			<?php
-			foreach ($group["elements"] as $element) {
-				if ($element["type"]=="text"){?>
-				<div class='row'>";
-					<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
-					<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
-				</div>
-				<?php }
-				elseif ($element["type"]=="radio"){?>
-					<div class='row'>";
+			foreach ($form["groups"] as $group) {?>
+			</hr>
+				<div class='row'>
+				<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
+				<?php
+				foreach ($group["elements"] as $element) {
+					if ($element["type"]=="text"){?>
+					<div class='row'>
 						<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
 						<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 					</div>
-				<?php }	?>
+					<?php }
+					elseif ($element["type"]=="radio"){?>
+						<div class='row'>";
+							<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
+							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
+						</div>
+					<?php }	?>
+				<?php } ?>
+				</div>
 			<?php } ?>
 		</div>
 	<?php }
