@@ -381,10 +381,43 @@ class WPRI_Admin {
 			echo '<h2>Manage Locale Options</h2>';
 			WPRI_Admin::simple_setting_form('locale');
 			echo '</div>';
-			$form = array(
-				'title' => "Locales",
-				'table_name' => "locale",
-				'name' => "form_name",
+			// $form = array(
+			// 	'title' => "Locales",
+			// 	'table_name' => "locale",
+			// 	'name' => "form_name",
+			// 	'actions' => array("add","remove","update"),
+			// 	'groups'=> array(
+			// 		array(
+			// 			'title' => "title",
+			// 			'elements' => array(
+			// 				array(
+			// 					'type'=> "text",
+			// 					'id' => "idd",
+			// 					'name'=> "name",
+			// 					'caption' => "caption" ,
+			// 					'value'=> "5",
+			// 					'cols' => "10",
+			// 					'rows'=> "2"
+			// 				)
+			// 			)
+			// 		),
+			// 		array(
+			// 			'title' => "title",
+			// 			'elements' => array(
+			// 				array(
+			// 					'caption' => "Some other caption" ,
+			// 					'value'=> "other val",
+			// 					'type'=> "text"
+			// 				)
+			// 			)
+			// 		)
+			// 	)
+			// );
+			//   	WPRI_Form::wpri_create_form("tetsing", $form);
+			$project = array(
+				'title' => "Projects",
+				'table_name' => "project",
+				'name' => "project",
 				'actions' => array("add","remove","update"),
 				'groups'=> array(
 					array(
@@ -402,18 +435,20 @@ class WPRI_Admin {
 						)
 					),
 					array(
-						'title' => "title",
+						'title' => "members[]",
 						'elements' => array(
 							array(
-								'caption' => "Some other caption" ,
-								'value'=> "other val",
-								'type'=> "text"
+								'caption' => "Choose members" ,
+								'value'=> "",
+								'type'=> "multiple-select",
+								'source_table' => "member",
+								'display_column' => "name"
 							)
 						)
 					)
 				)
 			);
-		   	WPRI_Form::wpri_create_form("tetsing", $form);
+			WPRI_Form::wpri_create_form("Projects", $project);
 		}
 		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
 	}
