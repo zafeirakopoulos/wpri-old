@@ -50,20 +50,11 @@ class WPRI_Form {
 	// );
 
 	public function wpri_form_group($group) {
-	   echo "<h2>".$group["title"]."</h2>";
-	//    <table class="form-table">
-	//    <tr>
-	//    <th><label>Institution</label></th>
-	//    <td><textarea id="bs_inst" name="bs_inst" cols="70" rows="1"></textarea>
-	//    <span class="description">Write uni/dept name.</span>
-	//    </td></tr>
-	//    <tr>
-	//    <th><label>Year</label></th>
-	//    <td><textarea id="bs_year" name="bs_year" cols="4" rows="1"></textarea>
-	//    <span class="description">Graduation year</span>
-	//    </td></tr>
-	//    <tr>
-	//    </table>
+		?>
+		<div class='row'>";
+	   	<h2> <?php echo $group["title"]?> </h2>
+		</div>
+		<?php
 	}
 
 	public function wpri_text_field($field) {
