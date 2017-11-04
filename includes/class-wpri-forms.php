@@ -143,8 +143,8 @@ class WPRI_Form {
 							else{
 								echo  $element["caption"];
 								foreach ($locales as $locale) {?>
-									<label class='col-sm-3 form-element-caption'> <?php echo $locale["name"] ?></label>
-									<div class='col-sm-3 form-element-value'>
+									<label class='col-sm-6 form-element-caption'> <?php echo $locale["name"] ?></label>
+									<div class='col-sm-6 form-element-value'>
 										<textarea id='<?php echo $element["id"]?>'
 												  name='<?php echo $element["name"].$locale["id"] ?>'
 												  cols='<?php echo $element["cols"]?>'
