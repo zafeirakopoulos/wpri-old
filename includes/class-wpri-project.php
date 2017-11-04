@@ -75,13 +75,80 @@ class WPRI_Project {
 								'name'=> "members[]",
 								'value'=> "",
 								'type'=> "multiple-select",
-								'source_table' => "member",
+								'source_tables' => array("member","collaborator"),
+								'display_column' => "name"
+							),
+							array(
+								'caption' => "Choose principal investigator" ,
+								'name'=> "PI",
+								'value'=> "",
+								'type'=> "select",
+								'source_tables' => array("member","collaborator"),
 								'display_column' => "name"
 							)
 						)
-					)
+					),
+					array(
+						'title' => "Funding",
+						'elements' => array(
+							array(
+								'caption' => "Choose funding agency" ,
+								'name'=> "agency",
+								'value'=> "",
+								'type'=> "multiple-select",
+								'source_tables' => array("member","collaborator"),
+								'display_column' => "name"
+							),
+							array(
+								'caption' => "Budget" ,
+								'name'=> "budget",
+								'value'=> "",
+								'type'=> "select",
+								'source_tables' => array("member","collaborator"),
+								'display_column' => "name"
+							)
+						)
+					),
+					array(
+						'title' => "Info",
+						'elements' => array(
+							array(
+								'caption' => "Website" ,
+								'name'=> "website",
+								'value'=> "",
+								'type'=> "text",
+							),
+							array(
+								'caption' => "Status" ,
+								'name'=> "status",
+								'value'=> "",
+								'type'=> "select",
+								'source_tables' => array("project_status"),
+								'display_column' => "name"
+							)
+						)
+					),
+					array(
+						'title' => "Dates",
+						'elements' => array(
+							array(
+								'caption' => "Start date" ,
+								'name'=> "startdate",
+								'value'=> "",
+								'type'=> "date"
+							),
+							array(
+								'caption' => "End date" ,
+								'name'=> "enddate",
+								'value'=> "",
+								'type'=> "date"
+							)
+						)
+					),
 				)
 			);
+
+
 			WPRI_Form::wpri_create_form("Projects", $project);
 
 			echo '<div class="wrap">';
