@@ -683,6 +683,10 @@ class WPRI_Database {
 						 );
 				}
 
+				public static function get_all($table) {
+					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name($table) );
+				}
+
 				public static function get_all_members() {
 					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
 				}
