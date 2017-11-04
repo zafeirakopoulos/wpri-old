@@ -919,9 +919,9 @@ class WPRI_Database {
 					$locales = WPRI_Database::get_locales();
 					foreach ( $locales as $locale ) {
 						$GLOBALS['wpdb']->insert( self::table_name("project_description") , array(
-							'locale' => $locale->id,
-							'description' => $project["description"][$locale->id],
-							'title' => $project["title"][$locale->id],
+							'locale' => $locale["id"],
+							'description' => $project["description"][$locale["id"]],
+							'title' => $project["title"][$locale["id"]],
 							'project' => $pid
 						));
 					}
@@ -1043,7 +1043,7 @@ class WPRI_Database {
 				}
 
 				public static function get_locales() {
-					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"));
+					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"),"ARRAY_A");
 				}
 
 				public static function get_agencies() {
