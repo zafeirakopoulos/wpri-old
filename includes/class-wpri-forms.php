@@ -114,6 +114,7 @@ class WPRI_Form {
 	}
 
 	public static function wpri_form_add($form) {
+		$locales= WPRI_Database::get_locales();
 		?>
 		<div>
 			<div class='row'>
@@ -127,23 +128,40 @@ class WPRI_Form {
 					foreach ($group["elements"] as $element) {
 						echo "<div class='col-sm-12>";
 
-						if ($element["type"]=="text"){?>
-							<label class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></label>
-							<div class='col-sm-3 form-element-value'>
-								<textarea id='<?php echo $element["id"]?>'
-										  name='<?php echo $element["name"]?>'
-										  cols='<?php echo $element["cols"]?>'
-										  rows='<?php echo $element["rows"]?>'>
-									 <?php echo $element["value"]?>
-								</textarea>
-							</div>
+						if ($element["type"]=="text"){
+							if ($element["all_locales"]!=1){ ?>
+								<label class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></label>
+								<div class='col-sm-3 form-element-value'>
+									<textarea id='<?php echo $element["id"]?>'
+											  name='<?php echo $element["name"]?>'
+											  cols='<?php echo $element["cols"]?>'
+											  rows='<?php echo $element["rows"]?>'>
+										 <?php echo $element["value"]?>
+									</textarea>
+								</div>
 						<?php }
+							else{
+								echo  $element["caption"];
+								foreach ($locales as $locale) {?>
+									<label class='col-sm-3 form-element-caption'> <?php echo $locale ?></label>
+									<div class='col-sm-3 form-element-value'>
+										<textarea id='<?php echo $element["id"]?>'
+												  name='<?php echo $element["name"].$locale ?>'
+												  cols='<?php echo $element["cols"]?>'
+												  rows='<?php echo $element["rows"]?>'>
+											 <?php echo $element["value"]?>
+										</textarea>
+									</div>
+								<?php
+								}
+							}
+						}
 						elseif ($element["type"]=="radio"){?>
 							<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
 							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
-							echo "mult select:";
+							echo "<h3>".$element["caption"]."/</h3>";
 							$all_entries = WPRI_Database::get_all($element["source_table"]);
 							foreach ( $all_entries as $item ) {
 								echo "<div class='form-check'>";
