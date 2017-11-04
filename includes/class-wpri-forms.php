@@ -101,6 +101,7 @@ class WPRI_Form {
 		?>
 		<div class="tab-content clearfix">
 			<div class="tab-pane active" id="select-delete">
+				select delete
 				<?php
 				$all_entries = WPRI_Database::get_all($form["table_name"]);
 				?>
