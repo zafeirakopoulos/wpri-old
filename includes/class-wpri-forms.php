@@ -176,9 +176,21 @@ class WPRI_Form {
 								echo "</div>";
 							}
 						}
+						elseif ($element["type"]=="select"){
+							echo "<h3>".$element["caption"]."</h3>";
+							$all_entries = array();
+							foreach ($element["source_tables"] as $table) {
+								 $all_entries = $all_entries + WPRI_Database::get_all($table);
+							}
+							foreach ( $all_entries as $item ) {
+								echo "<select>";
+								echo "<option name='".$element["type"]."' value='".$item->id."'></option>";
+								echo "</select>";
+							}
+						}
 						elseif ($element["type"]=="date") {
 							echo "<h3>".$element["caption"]."</h3>";
-							echo "<input type='date' name='".$element["name"]."'/>";	
+							echo "<input type='date' name='".$element["name"]."'/>";
 						}?>
 						</div>
 					 <?php }
