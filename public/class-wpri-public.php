@@ -74,6 +74,9 @@ class WPRI_Public {
 		 * class.
 		 */
 
+		 wp_register_style('jquery-ui', 'http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css' );
+ 	     wp_enqueue_style( 'jquery-ui' );
+
     	wp_enqueue_style( 'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
 
 		wp_enqueue_style( 'wpri', plugin_dir_url( __FILE__ ) . 'css/wpri-public.css' );
@@ -104,8 +107,6 @@ class WPRI_Public {
 		 wp_enqueue_script( 'jquery-ui-core');
 		 wp_enqueue_script( 'jquery-ui-datepicker');
 
- 		 wp_register_style( 'jquery-ui', 'http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css' );
- 	     wp_enqueue_style( 'jquery-ui' );
 
 		 wp_register_script( 'bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ));
 		 wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wpri-public.js', array( 'jquery' ));
