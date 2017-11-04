@@ -125,7 +125,7 @@ class WPRI_Form {
 					<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
 					<?php
 					foreach ($group["elements"] as $element) {
-						// echo "<div class='col-sm-12>";
+						echo "<div class='col-sm-12>";
 
 						if ($element["type"]=="text"){?>
 							<label class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></label>
@@ -154,8 +154,8 @@ class WPRI_Form {
 								echo "</div>";
 							}
 						}
+						 echo "</div>";
 					 }
-					//  echo "</div>";
 				 } ?>
 				<div class='col-sm-12 form-element-caption'>
 					<button type="submit" class="btn btn-primary">Add</button>
