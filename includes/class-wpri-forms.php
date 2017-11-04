@@ -107,11 +107,11 @@ class WPRI_Form {
 					<?php
 					$all_entries = WPRI_Database::get_all($form["table_name"]);
 					?>
-					<form name='id' method="post"
-						onclick="$('#second_tab').trigger('click')" action="">
+					<form name='id' method="post" action="">
 						<div class="list-group">
 							<?php foreach ( $all_entries as $item ) {?>
-						  	   <input type="submit" name="add_button" value="<?php $item->id ?>" class="button-secondary"/>
+						  	   <button type="submit"
+		   						onclick="$('#second_tab').trigger('click')" value="<?php $item->name ?>" class="button-secondary"/>
 							<?php } ?>
 						</div>
 						<input type="hidden" name="type" value="select"/>
