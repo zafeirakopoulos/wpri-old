@@ -176,14 +176,14 @@ class WPRI_Form {
 								echo "</div>";
 							}
 						}
-						elseif ($element["type"]=="date") {
-							echo "<input type='text' id='datepicker'>";
-							echo "<script>
+						elseif ($element["type"]=="date") {?>
+							<input type='text' id='datepicker'>
+							<script>
 								 	$( function() {
 								   		$('#datepicker').datepicker();
 									});
-								 </script>
-								 ";
+							</script>
+							<?php
 						}?>
 						</div>
 					 <?php }
