@@ -178,6 +178,7 @@ class WPRI_Form {
 						}
 						elseif ($element["type"]=="select"){
 							echo "<h3>".$element["caption"]."</h3>";
+							echo "<select>";
 							$all_entries = array();
 							foreach ($element["source_tables"] as $table) {
 								 $all_entries = $all_entries + WPRI_Database::get_all($table);
@@ -187,6 +188,7 @@ class WPRI_Form {
 								echo "<option name='".$element["type"]."' value='".$item->id."'></option>";
 								echo "</select>";
 							}
+							echo "</select>";
 						}
 						elseif ($element["type"]=="date") {
 							echo "<h3>".$element["caption"]."</h3>";
