@@ -171,6 +171,21 @@ class WPRI_Project {
 											'value'=> "the handle",
 											'cols' => "50",
 											'rows'=> "2",
+										)
+									)
+								),
+								array(
+									'title' => "Entity localized name",
+									'elements' => array(
+										array(
+											'type'=> "text",
+											"form_type" => "text",
+											"column_name" => "name",
+											'form_name'=> "localized_name",
+											'caption' => "Entity localized name" ,
+											'value'=> "name in languages",
+											'cols' => "50",
+											'rows'=> "2",
 											"all_locales"=>1,
 										)
 									)
