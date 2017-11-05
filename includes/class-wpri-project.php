@@ -75,7 +75,7 @@ class WPRI_Project {
 								'name'=> "members[]",
 								'value'=> "",
 								'type'=> "multiple-select",
-								'source_tables' => array("member","collaborator"),
+								'source_tables' => array("member"),
 								'display_column' => "name"
 							),
 							array(
