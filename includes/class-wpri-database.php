@@ -337,6 +337,7 @@ class WPRI_Database {
 				///////////////////////////
 
 				public static function get_localized($table,$id) {
+					echo "SELECT name FROM " . self::table_name("locale_".$table). " WHERE ".$table." = %d AND locale= %d";
 	 		 		$results=  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT name FROM " . self::table_name("locale_".$table). " WHERE ".$table." = %d AND locale= %d",
