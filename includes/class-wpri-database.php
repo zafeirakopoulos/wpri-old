@@ -337,7 +337,6 @@ class WPRI_Database {
 				///////////////////////////
 
 				public static function get_localized($table,$id) {
-					echo "SELECT name FROM " . self::table_name("locale_".$table). " WHERE ".$table." = %d AND locale= %d";
 	 		 		$results=  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT name FROM " . self::table_name("locale_".$table). " WHERE ".$table." = %d AND locale= %d",
@@ -345,6 +344,26 @@ class WPRI_Database {
 						)
 					);
 					return $results[0]->name;
+				}
+
+				# The associcative array names is of the form locale_id => "translated name of table[id]"
+				public static function add_localized($table,$item,$names) {
+					$GLOBALS['wpdb']->insert( self::table_name($table) , array( 'name' => $item ) );
+					$new_id = $GLOBALS['wpdb']->insert_id;
+					$success = $new_id;
+
+			 		foreach ( WPRI_Database::get_locales() as $locale ) {
+						$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
+							'locale' => $locale->id,
+							$table => $new_id,
+							'name' => $names[$locale->id]
+						));
+						$success = $success * $GLOBALS['wpdb']->insert_id;
+					}
+					if (!$success){
+						# TODO Delete what was added
+					}
+					return $success;
 				}
 
 				public static function get_title($user) {
