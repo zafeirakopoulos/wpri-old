@@ -83,7 +83,8 @@ class WPRI_Project {
 								'name'=> "PI",
 								'value'=> "",
 								'type'=> "select",
-								'source_tables' => array("member","collaborator"),
+								// 'source_tables' => array("member","collaborator"),
+								'source_tables' => array("member"),
 								'display_column' => "name"
 							)
 						)
