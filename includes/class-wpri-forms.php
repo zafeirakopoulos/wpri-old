@@ -184,6 +184,7 @@ class WPRI_Form {
 								foreach (WPRI_Database::get_all($table) as $dbitem) {
 									if ($element["localized"]==1){
    									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"]);
+										echo "<h1>name:".$display_name."</h1>";
 	   								}
 	   								else{
 	   									$display_name = $item[$element["display_column"]];
