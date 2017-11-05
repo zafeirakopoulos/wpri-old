@@ -336,6 +336,16 @@ class WPRI_Database {
 				// Helper
 				///////////////////////////
 
+				public static function get_localized($table,$id) {
+	 		 		$results=  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT name FROM " . self::table_name("locale_".$table). " WHERE ".$table." = %d AND locale= %d",
+							$id, $_SESSION['locale']
+						)
+					);
+					return $results[0]->name;
+				}
+
 				public static function get_title($user) {
 	 		 		$titles=  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
