@@ -226,6 +226,9 @@ class WPRI_Form {
 
 	public static function wpri_form_delete($form) {
 		$all_entries = WPRI_Database::get_all($form["table_name"]);
+		if (empty($all_entries)){
+			echo "<h2>No entries found. Nothing to delete.</h2>";
+		}else{
 		?>
 		<form name='id' method="post" action="">
 				  <?php foreach ( $all_entries as $item ) {
@@ -240,6 +243,7 @@ class WPRI_Form {
 			<input type="hidden" name="type" value="delete"/>
 		</form>
 	<?php }
+	}
 
 	public static function wpri_form_update($form) {
 		?>
