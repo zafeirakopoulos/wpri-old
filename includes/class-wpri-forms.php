@@ -184,7 +184,7 @@ class WPRI_Form {
 								 $all_entries = $all_entries + WPRI_Database::get_all($table);
 							}
 							foreach ( $all_entries as $item ) {
-								echo "<option name='".$element["type"]."' value='".$item->id."'></option>";
+								echo "<option name='".$item["id"]."' value='".$item["name"]."'></option>";
 							}
 							echo "</select>";
 						}
