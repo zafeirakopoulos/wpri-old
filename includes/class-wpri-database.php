@@ -35,6 +35,10 @@ class WPRI_Database {
 		return $wp_prefix."wpri_".$name ;
 	}
 
+	public static function create_entity_table($entity){
+		$wp_prefix = $GLOBALS['wpdb']->prefix;
+		return $wp_prefix."wpri_".$name ;
+	}
 
 
 /******************************************************************************************
@@ -332,39 +336,71 @@ class WPRI_Database {
 				*/
 
 
-				///////////////////////////
-				// Helper
-				///////////////////////////
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
 
-				public static function get_localized($table,$id) {
-	 		 		$results=  $GLOBALS['wpdb']->get_results(
-						$GLOBALS['wpdb']->prepare(
-							"SELECT name FROM " . self::table_name("locale_".$table). " WHERE ".$table." = %d AND locale= %d",
-							$id, $_SESSION['locale']
-						)
-					);
-					return $results[0]->name;
-				}
+	public static function get_localized($table,$id) {
+	 		$results=  $GLOBALS['wpdb']->get_results(
+			$GLOBALS['wpdb']->prepare(
+				"SELECT name FROM " . self::table_name("locale_".$table). " WHERE ".$table." = %d AND locale= %d",
+				$id, $_SESSION['locale']
+			)
+		);
+		return $results[0]->name;
+	}
 
-				# The associcative array names is of the form locale_id => "translated name of table[id]"
-				public static function add_localized($table,$item,$names) {
-					$GLOBALS['wpdb']->insert( self::table_name($table) , array( 'name' => $item ) );
-					$new_id = $GLOBALS['wpdb']->insert_id;
-					$success = $new_id;
+	# The associcative array names is of the form locale_id => "translated name of table[id]"
+	public static function add_localized($table,$item,$names) {
+		$GLOBALS['wpdb']->insert( self::table_name($table) , array( 'name' => $item ) );
+		$new_id = $GLOBALS['wpdb']->insert_id;
+		$success = $new_id;
 
-			 		foreach ( WPRI_Database::get_locales() as $locale ) {
-						$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
-							'locale' => $locale->id,
-							$table => $new_id,
-							'name' => $names[$locale->id]
-						));
-						$success = $success * $GLOBALS['wpdb']->insert_id;
-					}
-					if (!$success){
-						# TODO Delete what was added
-					}
-					return $success;
-				}
+			foreach ( WPRI_Database::get_locales() as $locale ) {
+			$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
+				'locale' => $locale->id,
+				$table => $new_id,
+				'name' => $names[$locale->id]
+			));
+			$success = $success * $GLOBALS['wpdb']->insert_id;
+		}
+		if (!$success){
+			# TODO Delete what was added
+		}
+		return $success;
+	}
+
+	public static function delete_localized($table,$id) {
+			foreach ( WPRI_Database::get_locales() as $locale ) {
+			$success = $GLOBALS['wpdb']->query(
+				$GLOBALS['wpdb']->prepare(
+					"DELETE FROM " . self::table_name("locale_".$table). " WHERE ".$table." = %d", $id
+				)
+			);
+		}
+
+		$success = $GLOBALS['wpdb']->query(
+			$GLOBALS['wpdb']->prepare(
+				"DELETE FROM " . self::table_name($table). " WHERE id = %d", $id
+			)
+		);
+
+		return $success;
+	}
+
+
+
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
 
 				public static function get_title($user) {
 	 		 		$titles=  $GLOBALS['wpdb']->get_results(
