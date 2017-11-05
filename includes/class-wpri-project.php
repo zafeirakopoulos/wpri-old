@@ -149,7 +149,37 @@ class WPRI_Project {
 			);
 
 
-			WPRI_Form::wpri_create_form("Projects", $project);
+						$test = array(
+							'title' => "Test entity",
+							'table_name' => "test",
+							'name' => "test",
+							'actions' => array(
+								"add" => array("all"),
+								"remove" => array("admin"),
+								"update"=> array("all")
+							),
+							'groups'=> array(
+								array(
+									'title' => "Entity handle",
+									'elements' => array(
+										array(
+											'type'=> "text",
+											"form_type" => "text",
+											"column_name" => "name",
+											'form_name'=> "handle",
+											'caption' => "Entity handle" ,
+											'value'=> "the handle",
+											'cols' => "50",
+											'rows'=> "2",
+											"all_locales"=>1,
+										)
+									)
+								)
+							)
+						);
+
+			// WPRI_Form::wpri_create_form("Projects", $project);
+			WPRI_Form::wpri_create_form("Tests", $test);
 
 
 			echo '<div class="wrap">';
