@@ -122,7 +122,8 @@ class WPRI_Project {
 								'value'=> "",
 								'type'=> "select",
 								'source_tables' => array("project_status"),
-								'display_column' => "name"
+								'display_column' => "name",
+								'localized' => 1
 							)
 						)
 					),
