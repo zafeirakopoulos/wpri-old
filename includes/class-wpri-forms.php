@@ -212,13 +212,17 @@ class WPRI_Form {
 			</form>
 			</div>
 			<?php $all_entries = WPRI_Database::get_all($form["table_name"]);
-			echo "<h2>Already existing:</h2>";
-			echo "<ul class='list-group'>";
-			foreach ( $all_entries as $item ) {
-				echo "<li class='list-group-item'>".$item->name."</li>";
+			if (empty($all_entries)){
+				echo "<h2>No entries yet.</h2>";
+			}else{
+				echo "<h2>Already existing:</h2>";
+				echo "<ul class='list-group'>";
+				foreach ( $all_entries as $item ) {
+					echo "<li class='list-group-item'>".$item->name."</li>";
 
-			 }
-		  	 echo "</ul>";
+				 }
+			  	 echo "</ul>";
+			}
 			  ?>
 		</div>
 	<?php }
