@@ -186,7 +186,7 @@ class WPRI_Form {
    									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"]);
 	   								}
 	   								else{
-	   									$display_name = $item[$element["display_column"]]
+	   									$display_name = $item[$element["display_column"]];
 	   								}
 									array_push($all_entries, array($dbitem,$display_name));
 								}
