@@ -181,10 +181,19 @@ class WPRI_Form {
 							echo "<select name='".$element["name"]."'>";
 							$all_entries = array();
 							foreach ($element["source_tables"] as $table) {
-								 $all_entries = $all_entries + WPRI_Database::get_all($table);
+								foreach (WPRI_Database::get_all($table) as $dbitem) {
+									if ($element["localized"]==1){
+   									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"]);
+	   								}
+	   								else{
+	   									$display_name = $item[$element["display_column"]]
+	   								}
+									array_push($all_entries, array($dbitem,$display_name));
+								}
 							}
 							foreach ( $all_entries as $item ) {
-								echo "<option name='".$item["id"]."' value='".$item["name"]."'></option>";
+
+								echo "<option name='".$item[0]["id"]."' value='".$item[1]."'></option>";
 							}
 							echo "</select>";
 						}
