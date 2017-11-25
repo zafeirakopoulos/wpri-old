@@ -68,18 +68,18 @@ class WPRI_Database {
 							// echo "it is a relation";
 						}
 						elseif ($element["type"]== "select"){
-							$sql = $sql .  ",". $element["name"] ." INT ";
+							$sql = $sql .  ", ". $element["name"] ." INT";
 				 			// echo "FOREIGN KEY (status) REFERENCES ".self::table_name("project_status")."(id)";
 							// echo "it is a foreign key";
 						}
 						else{
-							$sql = $sql .  ",".  $element["name"] ." ". $element["type"];
+							$sql = $sql .  ", ".  $element["name"] ." ". $element["type"];
 						}
 					}
 				}
 				$sql = $sql . ");";
 				echo $sql;
-				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare()( $sql ) );
+				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare()( $sql, array() ) );
 			}
 		}
 
