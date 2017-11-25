@@ -31,7 +31,7 @@ class WPRI_Declarations {
 		fclose($jsonfile);
 
 		# Parse the json string as an associative array
-		$declarations = json_decode ($jsonstring , true )
+		$declarations = json_decode ($jsonstring , true );
 		echo $declarations;
 		return $declarations;
 	}
