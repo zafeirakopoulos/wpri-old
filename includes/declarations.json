@@ -251,7 +251,7 @@
                         "value": "",
                         "type": "select",
                         "table" : "user",
-                        "column" : "id",
+                        "column" : "ID",
                         "display_column" : "name"
                     },
                     {
