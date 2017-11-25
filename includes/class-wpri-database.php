@@ -56,7 +56,7 @@ class WPRI_Database {
 		$declarations = WPRI_Declarations::get_declarations();
 
  		foreach ($declarations as $entity_name => $entity) {
-			// if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
+			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
 				// error_log("Creating table ".$entity_name);
 				$sql = "CREATE TABLE ".self::table_name($entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY";
 				foreach ($entity["groups"] as $group ) {
@@ -82,7 +82,7 @@ class WPRI_Database {
 			    error_log($sql);
 				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 			}
-		// }
+		}
 
 
 	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -97,9 +97,9 @@ class WPRI_Database {
 	    $tables_to_drop = array_keys($declarations);
 		error_log("tables_to_drop".implode($tables_to_drop));
 
-	    foreach($tables_to_drop as $table_name){
-		    $GLOBALS['wpdb']->query( "DROP TABLE IF EXISTS  " . self::table_name($table_name) );
-	    }
+	    // foreach($tables_to_drop as $table_name){
+		//     $GLOBALS['wpdb']->query( "DROP TABLE IF EXISTS  " . self::table_name($table_name) );
+	    // }
     }
 
 
