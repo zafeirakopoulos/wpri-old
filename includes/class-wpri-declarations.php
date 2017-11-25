@@ -28,8 +28,9 @@ class WPRI_Declarations {
 		ini_set("auto_detect_line_endings", true);
 		$jsonfilename = plugin_dir_path( dirname( __FILE__ ) ) . "includes/declarations.json";
 		$jsonfile = file($jsonfilename);
-		error_log(print_r($jsonfile,true));
-		error_log(var_dump($jsonfile,true));
+		foreach ($jsonfile as $line) {
+			error_log($line);
+		}
 
 		$jsonstring =  implode($jsonfile);
 error_log(print_r("thestring".$jsonstring,true));
