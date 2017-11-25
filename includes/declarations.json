@@ -59,6 +59,7 @@
                         "value": "",
                         "type": "select",
                         "table" : "member",
+                        "column" : "id",
                         "display_column" : "name"
                     }
                 ]
@@ -97,6 +98,7 @@
                         "value": "",
                         "type": "select",
                         "table" : "project_status",
+                        "column" : "id",
                         "display_column" : "name",
                         "localized" : 1
                     }
