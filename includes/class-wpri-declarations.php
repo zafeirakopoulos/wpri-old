@@ -28,12 +28,12 @@ class WPRI_Declarations {
 		ini_set("auto_detect_line_endings", true);
 		$jsonfilename = plugin_dir_path( dirname( __FILE__ ) ) . "includes/declarations.json";
 		$jsonfile = file($jsonfilename);
-		foreach ($jsonfile as $line) {
-			error_log($line);
-		}
+		#foreach ($jsonfile as $line) {
+		#	error_log($line);
+		#}
 
 		$jsonstring =  implode($jsonfile);
-error_log(print_r("thestring".$jsonstring,true));
+error_log("thestring".$jsonstring);
 		# Parse the json string as an associative array
 		$declarations = json_decode ($jsonstring , true );
  		return $declarations;
