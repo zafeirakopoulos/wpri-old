@@ -32,7 +32,13 @@ class WPRI_Database {
 	 */
 	public static function table_name($name){
 		$wp_prefix = $GLOBALS['wpdb']->prefix;
-		return $wp_prefix."wpri_".$name ;
+
+		if ($name=="user"){
+			return $wp_prefix."users" ;
+
+		}else{
+			return $wp_prefix."wpri_".$name ;
+		}
 	}
 
 
@@ -78,7 +84,6 @@ class WPRI_Database {
 			foreach ($entity["groups"] as $group ) {
 				foreach ($group["elements"] as $element ) {
 					// if (isset($element["all_locales"]) && ($element["all_locales"]==true)){
-					error_log($element["all_locales"]);
 					if (isset($element["all_locales"]) ){
 						$sql = "CREATE TABLE ".self::table_name("locale_".$entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
 						$sql = $sql .  $element["name"] ." INT,";
