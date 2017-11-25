@@ -89,7 +89,7 @@ vs    "project": {
                         "caption" : "Website" ,
                         "name": "website",
                         "value": "",
-                        "type": "text",
+                        "type": "text"
                     },
                     {
                         "caption" : "Status" ,

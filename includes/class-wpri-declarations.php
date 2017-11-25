@@ -31,7 +31,6 @@ class WPRI_Declarations {
 error_log(print_r("thestring".$jsonstring,true));
 		# Parse the json string as an associative array
 		$declarations = json_decode ($jsonstring , true );
-error_log(print_r($declarations,true));
-		return $declarations;
+ 		return $declarations;
 	}
 }
