@@ -1,8 +1,8 @@
 {
-    "project": {
-        "title" : "Projects",
-        "table_name" : "project",
-        "name" :"project",
+    "locale": {
+        "title" : "Locales",
+        "table_name" : "locale",
+        "name" :"locale",
         "actions": {
             "add" : ["all"],
             "remove" : ["admin"],
@@ -10,117 +10,220 @@
         },
         "groups" :[
             {
-                "title" : "Project title",
+                "title" : "",
                 "elements" : [
                     {
-                        "type": "text",
-                        "name" : "official_title",
-                        "caption" : "Official title" ,
-                        "value": "as appearing in the funding agency",
-                        "cols" : "50",
-                        "rows": "2"
-                    },
-                    {
-                        "type": "text",
-                        "all_locales":1,
-                        "name": "title",
-                        "caption" : "Title in different locales" ,
-                        "value": "Title in different locales",
-                        "cols" : "50",
-                        "rows": "2"
-                    }
-                ]
-            },
-            {
-                "title" : "Project members",
-                "elements" : [
-                    {
-                        "caption" : "Members of the institute participating in the project" ,
-                        "name": "members[]",
-                        "value": "",
-                        "type": "multiple-select",
-                        "relation" : [
-                            {
-                                "table" : "member",
-                                "column" : "id",
-                                "type" : "foreach"
-                            },
-                            {
-                                "table" : "project_role",
-                                "column" : "id",
-                                "type" : "unique",
-                                "form_type" : "select"
-                            }
-                        ]
-                    },
-                    {
-                        "caption" : "Principal investigator" ,
-                        "name": "PI",
-                        "value": "",
-                        "type": "select",
-                        "table" : "member",
-                        "column" : "id",
-                        "display_column" : "name"
-                    }
-                ]
-            },
-            {
-                "title" : "Funding",
-                "elements" : [
-                    {
-                        "caption" : "Choose funding agency" ,
-                        "name": "agency",
-                        "value": "",
-                        "type": "multiple-select",
-                        "table" : "agency",
-                        "display_column" : "name"
-                    },
-                    {
-                        "caption" : "Budget" ,
-                        "name": "budget",
-                        "value": "",
-                        "type": "text"
-                    }
-                ]
-            },
-            {
-                "title" : "Info",
-                "elements" : [
-                    {
-                        "caption" : "Website" ,
-                        "name": "website",
-                        "value": "",
-                        "type": "text"
-                    },
-                    {
-                        "caption" : "Status" ,
-                        "name": "status",
-                        "value": "",
-                        "type": "select",
-                        "table" : "project_status",
-                        "column" : "id",
-                        "display_column" : "name",
-                        "localized" : 1
-                    }
-                ]
-            },
-            {
-                "title" : "Dates",
-                "elements" : [
-                    {
-                        "caption" : "Start date" ,
-                        "name": "startdate",
-                        "value": "",
-                        "type": "datetime"
-                    },
-                    {
-                        "caption" : "End date" ,
-                        "name": "enddate",
-                        "value": "",
-                        "type": "datetime"
+                        "type": "tinytext",
+                        "name" : "locale",
+                        "caption" : "Locale" ,
+                        "value": "en_US",
+                        "cols" : "5",
+                        "rows": "1"
                     }
                 ]
             }
         ]
-    }
+    },
+    "position": {
+        "title" : "Positions",
+        "table_name" : "position",
+        "name" :"position",
+        "actions": {
+            "add" : ["all"],
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "",
+                "elements" : [
+                    {
+                        "type": "text",
+                        "name" : "position",
+                        "caption" : "Position" ,
+                        "value": "researcher",
+                        "cols" : "25",
+                        "rows": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": {
+        "title" : "Titles",
+        "table_name" : "title",
+        "name" :"title",
+        "actions": {
+            "add" : ["all"],
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "",
+                "elements" : [
+                    {
+                        "type": "tinytext",
+                        "name" : "title",
+                        "caption" : "Title" ,
+                        "value": "Dr.",
+                        "cols" : "25",
+                        "rows": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    "agency": {
+        "title" : "Funding Agencies",
+        "table_name" : "agency",
+        "name" :"agency",
+        "actions": {
+            "add" : ["all"],
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "",
+                "elements" : [
+                    {
+                        "type": "tinytext",
+                        "name" : "agency",
+                        "caption" : "Agency" ,
+                        "value": "EU H2020",
+                        "cols" : "25",
+                        "rows": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    "role": {
+        "title" : "Role",
+        "table_name" : "role",
+        "name" :"role",
+        "actions": {
+            "add" : ["all"],
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "",
+                "elements" : [
+                    {
+                        "type": "tinytext",
+                        "name" : "role",
+                        "caption" : "Role" ,
+                        "value": "Admin",
+                        "cols" : "25",
+                        "rows": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    "status": {
+        "title" : "Status",
+        "table_name" : "status",
+        "name" :"status",
+        "actions": {
+            "add" : ["all"],
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "",
+                "elements" : [
+                    {
+                        "type": "tinytext",
+                        "name" : "status",
+                        "caption" : "Status" ,
+                        "value": "ongoing",
+                        "cols" : "25",
+                        "rows": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    "requirement": {
+        "title" : "Requirement",
+        "table_name" : "requirement",
+        "name" :"requirement",
+        "actions": {
+            "add" : ["all"],
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "",
+                "elements" : [
+                    {
+                        "type": "text",
+                        "name" : "requirement",
+                        "caption" : "Requirement" ,
+                        "value": "Computer Science degree",
+                        "cols" : "100",
+                        "rows": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    "projectrole": {
+        "title" : "Project role",
+        "table_name" : "projectrole",
+        "name" :"projectrole",
+        "actions": {
+            "add" : ["all"],
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "",
+                "elements" : [
+                    {
+                        "type": "tinytext",
+                        "name" : "projectrole",
+                        "caption" : "Project role" ,
+                        "value": "researcher",
+                        "cols" : "25",
+                        "rows": "1"
+                    }
+                ]
+            }
+        ]
+    },
+},
+"institute_info": {
+    "title" : "Institute info",
+    "table_name" : "institute_info",
+    "name" :"institute_info",
+    "actions": {
+        "add" : ["all"],
+        "remove" : ["admin"],
+        "update" : ["all"]
+    },
+    "groups" :[
+        {
+            "title" : "Contact",
+            "elements" : [
+                {
+                    "type": "text",
+                    "name" : "address",
+                    "caption" : "Address" ,
+                    "value": "Institute of Information Technologies",
+                    "cols" : "50",
+                    "rows": "3"
+                }
+            ]
+        }
+    ]
+},
+
 }
