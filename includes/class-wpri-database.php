@@ -54,7 +54,7 @@ class WPRI_Database {
 	public static function create_tables() {
 
 		$declarations = WPRI_Declarations::get_declarations();
-trigger_error('PLUGIN OK',E_USER_ERROR);
+trigger_error('PLUGIN OK',$declarations,E_USER_ERROR);
  		foreach ($declarations as $entity_name => $entity) {
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
 				$sql = "CREATE TABLE ".self::table_name($entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,";
