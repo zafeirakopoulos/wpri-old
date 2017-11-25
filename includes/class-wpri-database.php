@@ -54,7 +54,7 @@ class WPRI_Database {
 	public static function create_tables() {
 
 		$declarations = WPRI_Declarations::get_declarations();
- 
+
  		foreach ($declarations as $entity_name => $entity) {
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
 				$sql = "CREATE TABLE ".self::table_name($entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,";
@@ -63,16 +63,16 @@ class WPRI_Database {
 						if ($element["all_locales"]){
 
 						}
-						elseif ($element["type"]!= "multiple-select"){
+						elseif ($element["type"]== "multiple-select"){
 							echo "it is a relation";
 						}
-						elseif ($element["type"]!= "select"){
+						elseif ($element["type"]== "select"){
 							$sql = $sql . $element["name"] . $element["type"] . ",";
 				 			echo "FOREIGN KEY (status) REFERENCES ".self::table_name("project_status")."(id)";
 							echo "it is a foreign key";
 						}
 						else{
-							$sql = $sql . $element["name"] . $element["type"] . ",";
+							$sql = $sql . $element["name"] ." ". $element["type"] . ",";
 						}
 					}
 				}
