@@ -26,7 +26,7 @@ class WPRI_Declarations {
 
 	public static function get_declarations() {
 		$jsonfilename = plugin_dir_path( dirname( __FILE__ ) ) . "includes/declarations.json";
-		$jsonstring =  file_get_contents($jsonfilename);
+		$jsonstring =  "'".file_get_contents($jsonfilename)."'";
 error_log(print_r("thestring".$jsonstring,true));
 		# Parse the json string as an associative array
 		$declarations = json_decode ($jsonstring , true );
