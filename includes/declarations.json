@@ -69,7 +69,8 @@
                         "caption" : "Title" ,
                         "value": "Dr.",
                         "cols" : "25",
-                        "rows": "1"
+                        "rows": "1",
+                        "all_locales" : true
                     }
                 ]
             }
@@ -94,7 +95,8 @@
                         "caption" : "Agency" ,
                         "value": "EU H2020",
                         "cols" : "25",
-                        "rows": "1"
+                        "rows": "1",
+                        "all_locales" : true
                     }
                 ]
             }
@@ -119,7 +121,8 @@
                         "caption" : "Role" ,
                         "value": "Admin",
                         "cols" : "25",
-                        "rows": "1"
+                        "rows": "1",
+                        "all_locales" : true
                     }
                 ]
             }
@@ -144,7 +147,8 @@
                         "caption" : "Status" ,
                         "value": "ongoing",
                         "cols" : "25",
-                        "rows": "1"
+                        "rows": "1",
+                        "all_locales" : true
                     }
                 ]
             }
@@ -169,7 +173,8 @@
                         "caption" : "Requirement" ,
                         "value": "Computer Science degree",
                         "cols" : "100",
-                        "rows": "1"
+                        "rows": "1",
+                        "all_locales" : true
                     }
                 ]
             }
@@ -194,7 +199,8 @@
                         "caption" : "Project role" ,
                         "value": "researcher",
                         "cols" : "25",
-                        "rows": "1"
+                        "rows": "1",
+                        "all_locales" : true
                     }
                 ]
             }
@@ -219,11 +225,171 @@
                         "caption" : "Address" ,
                         "value": "Institute of Information Technologies",
                         "cols" : "50",
-                        "rows": "3"
+                        "rows": "3",
+                        "all_locales" : true
                     }
                 ]
             }
         ]
-    }
+    },
+    "member": {
+        "title" : "Members",
+        "table_name" : "member",
+        "name" :"member",
+        "actions": {
+            "add" : ["all"],
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "User",
+                "elements" : [
+                    {
+                        "caption" : "User" ,
+                        "name": "user",
+                        "value": "",
+                        "type": "select",
+                        "table" : "user",
+                        "column" : "id",
+                        "display_column" : "name"
+                    },
+                    {
+                        "caption" : "Role" ,
+                        "name": "role",
+                        "value": "",
+                        "type": "select",
+                        "table" : "role",
+                        "column" : "id",
+                        "display_column" : "name"
+                    }
+                ]
+            }
+        ]
+    },
 
+        "project": {
+            "title" : "Projects",
+            "table_name" : "project",
+            "name" :"project",
+            "actions": {
+                "add" : ["all"],
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "Project title",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "official_title",
+                            "caption" : "Official title" ,
+                            "value": "as appearing in the funding agency",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "type": "text",
+                            "all_locales":1,
+                            "name": "title",
+                            "caption" : "Title in different locales" ,
+                            "value": "Title in different locales",
+                            "cols" : "50",
+                            "rows": "2"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Project members",
+                    "elements" : [
+                        {
+                            "caption" : "Members of the institute participating in the project" ,
+                            "name": "members[]",
+                            "value": "",
+                            "type": "multiple-select",
+                            "relation" : [
+                                {
+                                    "table" : "member",
+                                    "column" : "id",
+                                    "type" : "foreach"
+                                },
+                                {
+                                    "table" : "project_role",
+                                    "column" : "id",
+                                    "type" : "unique",
+                                    "form_type" : "select"
+                                }
+                            ]
+                        },
+                        {
+                            "caption" : "Principal investigator" ,
+                            "name": "PI",
+                            "value": "",
+                            "type": "select",
+                            "table" : "member",
+                            "column" : "id",
+                            "display_column" : "name"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Funding",
+                    "elements" : [
+                        {
+                            "caption" : "Choose funding agency" ,
+                            "name": "agency",
+                            "value": "",
+                            "type": "multiple-select",
+                            "table" : "agency",
+                            "display_column" : "name"
+                        },
+                        {
+                            "caption" : "Budget" ,
+                            "name": "budget",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Info",
+                    "elements" : [
+                        {
+                            "caption" : "Website" ,
+                            "name": "website",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "caption" : "Status" ,
+                            "name": "status",
+                            "value": "",
+                            "type": "select",
+                            "table" : "project_status",
+                            "column" : "id",
+                            "display_column" : "name",
+                            "localized" : 1
+                        }
+                    ]
+                },
+                {
+                    "title" : "Dates",
+                    "elements" : [
+                        {
+                            "caption" : "Start date" ,
+                            "name": "startdate",
+                            "value": "",
+                            "type": "datetime"
+                        },
+                        {
+                            "caption" : "End date" ,
+                            "name": "enddate",
+                            "value": "",
+                            "type": "datetime"
+                        }
+                    ]
+                }
+            ]
+        }
 }
