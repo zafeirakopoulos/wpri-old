@@ -54,7 +54,7 @@ class WPRI_Database {
 	public static function create_tables() {
 
 		$declarations = WPRI_Declarations::get_declarations();
-		echo $declarations;
+		die( $declarations);
 
  		foreach ($declarations as $entity_name => $entity) {
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
