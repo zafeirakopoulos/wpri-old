@@ -116,7 +116,30 @@ class WPRI_Database {
     public static function drop_tables() {
 
 		$declarations = WPRI_Declarations::get_declarations();
-	    $tables_to_drop = array_reverse(array_keys($declarations));
+
+	    $tables_to_drop = array();
+
+		foreach ($declarations as $entity_name => $entity) {
+			# Drop the table
+			$tables_to_drop.push($entity_name);
+
+			# Drop locale_* tables for all_locales elements
+			foreach ($entity["groups"] as $group ) {
+				foreach ($group["elements"] as $element ) {
+					if (isset($element["all_locales"]) ){
+						if ($entity_name!=$element["name"]){
+							$tables_to_drop.push("locale_".$entity_name."_".$element["name"]);
+						}
+						else{
+							$tables_to_drop.push("locale_".$element["name"]);
+						}
+					}
+				}
+			}
+
+		}
+
+		array_reverse($tables_to_drop);
 		error_log("tables_to_drop".implode($tables_to_drop));
 
 	    foreach($tables_to_drop as $table_name){
