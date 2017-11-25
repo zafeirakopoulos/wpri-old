@@ -82,10 +82,6 @@ class WPRI_Database {
 				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
 			}
 		}
-	}
-
-
-
 
 
 	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
