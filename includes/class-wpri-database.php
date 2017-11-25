@@ -57,10 +57,11 @@ class WPRI_Database {
 
  		foreach ($declarations as $entity_name => $entity) {
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
-				$sql = "CREATE TABLE ".self::table_name($entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,";
+				$sql = "CREATE TABLE ".self::table_name($entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY";
 				foreach ($entity["groups"] as $group ) {
+
 					foreach ($group["elements"] as $element ) {
-						if ($element["all_locales"]){
+						if (is_set($element["all_locales"])){
 
 						}
 						elseif ($element["type"]== "multiple-select"){
@@ -72,13 +73,13 @@ class WPRI_Database {
 							echo "it is a foreign key";
 						}
 						else{
-							$sql = $sql . $element["name"] ." ". $element["type"] . ",";
+							$sql = $sql .  ",".  $element["name"] ." ". $element["type"];
 						}
 					}
 				}
 				$sql = $sql . ");";
 				echo $sql;
-				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
+				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare()( $sql ) );
 			}
 		}
 
