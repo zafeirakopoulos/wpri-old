@@ -25,6 +25,7 @@
  */
 
  define( 'WPRI_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'WP_DEBUG', true );
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
