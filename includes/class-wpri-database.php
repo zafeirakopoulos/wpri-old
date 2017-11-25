@@ -65,7 +65,7 @@ class WPRI_Database {
 
 						}
 						elseif ($element["type"]== "multiple-select"){
-							echo "it is a relation";
+							// echo "it is a relation";
 						}
 						elseif ($element["type"]== "select"){
 							$sql = $sql .  ",". $element["name"] ." INT ";
