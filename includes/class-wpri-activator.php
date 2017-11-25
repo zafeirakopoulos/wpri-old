@@ -41,7 +41,6 @@ class WPRI_Activator {
         }
 
         flush_rewrite_rules();
-		die("in activate");
 
 	}
 
