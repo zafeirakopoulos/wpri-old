@@ -109,13 +109,13 @@
                         "caption" : "Start date" ,
                         "name": "startdate",
                         "value": "",
-                        "type": "date"
+                        "type": "datetime"
                     },
                     {
                         "caption" : "End date" ,
                         "name": "enddate",
                         "value": "",
-                        "type": "date"
+                        "type": "datetime"
                     }
                 ]
             }
