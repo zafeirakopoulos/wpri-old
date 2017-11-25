@@ -166,22 +166,22 @@ class WPRI {
 
 	}
 
-	/**
-	 * Define the locale for this plugin for internationalization.
-	 *
-	 * Uses the WPRI_i18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function set_locale() {
-
-		// $plugin_i18n = new WPRI_i18n();
-
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
-	}
+	// /**
+	//  * Define the locale for this plugin for internationalization.
+	//  *
+	//  * Uses the WPRI_i18n class in order to set the domain and to register the hook
+	//  * with WordPress.
+	//  *
+	//  * @since    1.0.0
+	//  * @access   private
+	//  */
+	// private function set_locale() {
+    //
+	// 	// $plugin_i18n = new WPRI_i18n();
+    //
+	// 	$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+    //
+	// }
 
 	/**
 	 * Register all of the hooks related to the admin area functionality
