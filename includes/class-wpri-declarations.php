@@ -26,9 +26,7 @@ class WPRI_Declarations {
 
 	public static function get_declarations() {
 		$jsonfilename = plugin_dir_path( dirname( __FILE__ ) ) . "includes/declarations.json";
-		$jsonfile = fopen($jsonfilename, "r") or die("Unable to open file!");
-		$jsonstring =  fread($jsonfile,filesize($jsonfilename));
-		fclose($jsonfile);
+		$jsonstring =  file_get_contents($jsonfile);
 error_log(print_r("thestring".$jsonstring,true));
 		# Parse the json string as an associative array
 		$declarations = json_decode ($jsonstring , true );
