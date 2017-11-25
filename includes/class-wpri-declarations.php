@@ -25,7 +25,7 @@ class WPRI_Declarations {
 
 
 	function get_declarations() {
-		$jsonfilename = "includes/declarations.json";
+		$jsonfilename = "declarations.json";
 		$jsonfile = fopen($jsonfilename, "r") or die("Unable to open file!");
 		$jsonstring =  fread($jsonfile,filesize($jsonfilename));
 		fclose($jsonfile);
