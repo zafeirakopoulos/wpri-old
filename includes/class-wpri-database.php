@@ -57,6 +57,7 @@ class WPRI_Database {
 
  		foreach ($declarations as $entity_name => $entity) {
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
+				error_log("Creating table");
 				$sql = "CREATE TABLE ".self::table_name($entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY";
 				foreach ($entity["groups"] as $group ) {
 
@@ -80,7 +81,7 @@ class WPRI_Database {
 				$sql = $sql . ");";
 
 				error_log($sql);
-				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
+			//	$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 			}
 		}
 
