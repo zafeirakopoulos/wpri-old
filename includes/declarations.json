@@ -1,5 +1,5 @@
-{
-    "project": {
+{svd
+vs    "project": {
         "title" : "Projects",
         "table_name" : "project",
         "name" :"project",
