@@ -103,11 +103,11 @@ class WPRI {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-loader.php';
 
-		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-i18n.php';
+		// /**
+		//  * The class responsible for defining internationalization functionality
+		//  * of the plugin.
+		//  */
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
