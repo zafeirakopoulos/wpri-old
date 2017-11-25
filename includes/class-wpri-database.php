@@ -955,6 +955,7 @@ class WPRI_Database {
 		 */
 		 // TODO make this short. Take an array and populate stuff
 		public static function  populate_tables() {
+			return 0;
 			/* Create pubtypes */
 			$table_name = $GLOBALS['wpdb']->prefix . "wpri_pubtype";
 			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => "Journal"));
