@@ -61,7 +61,7 @@ class WPRI_Database {
 				foreach ($entity["groups"] as $group ) {
 
 					foreach ($group["elements"] as $element ) {
-						if (is_set($element["all_locales"])){
+						if (isset($element["all_locales"])){
 
 						}
 						elseif ($element["type"]== "multiple-select"){
