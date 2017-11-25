@@ -93,41 +93,10 @@ class WPRI_Database {
 
     public static function drop_tables() {
 
-	    $tables_to_drop = array(
-		'institute_info',
-	    'publication_member',
-	    'publication_project',
-		'publication_agency',
-		'publication',
-		'pubtype',
-	    'locale_agency',
-	    'locale_position',
-	    'locale_title',
-	    'locale_project_description',
-	    'locale_agency',
-		'locale_position_requirement',
-		'description',
-	    'project_description',
-	    'project_member',
-		'locale_projectrole',
-		'locale_project_status',
-		'locale_institute_info',
-		'locale_role',
-		'projectrole',
-		'open_position_contact',
-		'open_position_project',
-		'open_position_requirement',
-		'position_requirement',
-		'open_position',
-	    'project',
-		'project_status',
-	    'member',
-		'role',
-	    'title',
-	    'position',
-	    'agency',
-	    'locale'
-	    );
+		$declarations = WPRI_Declarations::get_declarations();
+	    $tables_to_drop = $declarations.keys();
+		error_log("tables_to_drop".implode($tables_to_drop));
+
 	    foreach($tables_to_drop as $table_name){
 		    $GLOBALS['wpdb']->query( "DROP TABLE IF EXISTS  " . self::table_name($table_name) );
 	    }
