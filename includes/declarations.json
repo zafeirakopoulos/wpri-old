@@ -43,7 +43,8 @@
                         "caption" : "Position" ,
                         "value": "researcher",
                         "cols" : "25",
-                        "rows": "1"
+                        "rows": "1",
+                        "all_locales" : true
                     }
                 ]
             }
