@@ -85,7 +85,7 @@ class WPRI_Database {
 		}
 
 
-	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	    // require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		return 0; #first install
 	}
 
@@ -97,9 +97,9 @@ class WPRI_Database {
 	    $tables_to_drop = array_keys($declarations);
 		error_log("tables_to_drop".implode($tables_to_drop));
 
-	    // foreach($tables_to_drop as $table_name){
-		//     $GLOBALS['wpdb']->query( "DROP TABLE IF EXISTS  " . self::table_name($table_name) );
-	    // }
+	    foreach($tables_to_drop as $table_name){
+		    $GLOBALS['wpdb']->query( "DROP TABLE IF EXISTS  " . self::table_name($table_name) );
+	    }
     }
 
 
