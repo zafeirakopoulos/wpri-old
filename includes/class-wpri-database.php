@@ -56,8 +56,7 @@ class WPRI_Database {
 		$declarations = WPRI_Declarations::get_declarations();
 		echo $declarations;
 
-		return 0;
-		foreach ($declarations as $entity_name => $entity) {
+ 		foreach ($declarations as $entity_name => $entity) {
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
 				$sql = "CREATE TABLE ".self::table_name($entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,";
 				foreach ($entity["groups"] as $group ) {
