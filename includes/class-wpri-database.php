@@ -77,7 +77,7 @@ class WPRI_Database {
 				}
 				$sql = $sql . ");";
 
-			    error_log($sql);
+			    // error_log($sql);
 				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 			}
 			# Create locale_* tables for all_locales elements
@@ -95,7 +95,7 @@ class WPRI_Database {
 						$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
 						$sql = $sql .  "FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($element["name"])."(id)";
 						$sql = $sql . ");";
-						error_log($sql);
+						// error_log($sql);
 						$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 					}
 				}
