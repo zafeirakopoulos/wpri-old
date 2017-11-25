@@ -199,31 +199,30 @@
             }
         ]
     },
-},
-"institute_info": {
-    "title" : "Institute info",
-    "table_name" : "institute_info",
-    "name" :"institute_info",
-    "actions": {
-        "add" : ["all"],
-        "remove" : ["admin"],
-        "update" : ["all"]
-    },
-    "groups" :[
-        {
-            "title" : "Contact",
-            "elements" : [
-                {
-                    "type": "text",
-                    "name" : "address",
-                    "caption" : "Address" ,
-                    "value": "Institute of Information Technologies",
-                    "cols" : "50",
-                    "rows": "3"
-                }
-            ]
-        }
-    ]
-},
+    "institute_info": {
+        "title" : "Institute info",
+        "table_name" : "institute_info",
+        "name" :"institute_info",
+        "actions": {
+            "add" : ["all"],
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "Contact",
+                "elements" : [
+                    {
+                        "type": "text",
+                        "name" : "address",
+                        "caption" : "Address" ,
+                        "value": "Institute of Information Technologies",
+                        "cols" : "50",
+                        "rows": "3"
+                    }
+                ]
+            }
+        ]
+    }
 
 }
