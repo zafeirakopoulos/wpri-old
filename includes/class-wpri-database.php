@@ -123,17 +123,18 @@ class WPRI_Database {
 			array_push($tables_to_drop,$entity_name);
 
 			# Drop locale_* tables for all_locales elements
+			$with_all_locales=false;
 			foreach ($entity["groups"] as $group ) {
+				# One table with different "name" attributes
 				foreach ($group["elements"] as $element ) {
+					// if (isset($element["all_locales"]) && ($element["all_locales"]==true)){
 					if (isset($element["all_locales"]) ){
-						if ($entity_name!=$element["name"]){
-							array_push($tables_to_drop,"locale_".$entity_name."_".$element["name"]);
-						}
-						else{
-							array_push($tables_to_drop,"locale_".$element["name"]);
-						}
+						$with_all_locales=true;
 					}
 				}
+			}
+			if ($with_all_locales==true){
+				array_push($tables_to_drop,"locale_".$entity_name);
 			}
 
 		}
