@@ -69,8 +69,8 @@ class WPRI_Database {
 						}
 						elseif ($element["type"]== "select"){
 							$sql = $sql . $element["name"] ." INT ,";
-				 			echo "FOREIGN KEY (status) REFERENCES ".self::table_name("project_status")."(id)";
-							echo "it is a foreign key";
+				 			// echo "FOREIGN KEY (status) REFERENCES ".self::table_name("project_status")."(id)";
+							// echo "it is a foreign key";
 						}
 						else{
 							$sql = $sql .  ",".  $element["name"] ." ". $element["type"];
