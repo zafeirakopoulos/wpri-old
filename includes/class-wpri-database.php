@@ -52,36 +52,36 @@ class WPRI_Database {
 	 * @since    1.0.0
 	 */
 	public static function create_tables() {
-
-		$declarations = WPRI_Declarations::get_declarations();
-		echo $declarations;
-
-		foreach ($declarations as $entity_name => $entity) {
-			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
-				$sql = "CREATE TABLE ".self::table_name($entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,";
-				foreach ($entity["groups"] as $group ) {
-					foreach ($group["elements"] as $element ) {
-						if ($element["all_locales"]){
-
-						}
-						elseif ($element["type"]!= "multiple-select"){
-							echo "it is a relation";
-						}
-						elseif ($element["type"]!= "select"){
-							$sql = $sql . $element["name"] . $element["type"] . ",";
-				 			echo "FOREIGN KEY (status) REFERENCES ".self::table_name("project_status")."(id)";
-							echo "it is a foreign key";
-						}
-						else{
-							$sql = $sql . $element["name"] . $element["type"] . ",";
-						}
-					}
-				}
-				$sql = $sql . ");";
-				echo $sql;
-				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
-			}
-		}
+        //
+		// $declarations = WPRI_Declarations::get_declarations();
+		// echo $declarations;
+        //
+		// foreach ($declarations as $entity_name => $entity) {
+		// 	if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
+		// 		$sql = "CREATE TABLE ".self::table_name($entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,";
+		// 		foreach ($entity["groups"] as $group ) {
+		// 			foreach ($group["elements"] as $element ) {
+		// 				if ($element["all_locales"]){
+        //
+		// 				}
+		// 				elseif ($element["type"]!= "multiple-select"){
+		// 					echo "it is a relation";
+		// 				}
+		// 				elseif ($element["type"]!= "select"){
+		// 					$sql = $sql . $element["name"] . $element["type"] . ",";
+		// 		 			echo "FOREIGN KEY (status) REFERENCES ".self::table_name("project_status")."(id)";
+		// 					echo "it is a foreign key";
+		// 				}
+		// 				else{
+		// 					$sql = $sql . $element["name"] . $element["type"] . ",";
+		// 				}
+		// 			}
+		// 		}
+		// 		$sql = $sql . ");";
+		// 		echo $sql;
+		// 		$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->escape( $sql ) );
+		// 	}
+		// }
 
 
 	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
