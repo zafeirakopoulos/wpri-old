@@ -29,10 +29,12 @@ class WPRI_Declarations {
 		$jsonfile = fopen($jsonfilename, "r") or die("Unable to open file!");
 		$jsonstring =  fread($jsonfile,filesize($jsonfilename));
 		fclose($jsonfile);
+		error_log( var_dump($jsonstring) );
 
 		# Parse the json string as an associative array
 		$declarations = json_decode ($jsonstring , true );
-		echo $declarations;
+		error_log( var_dump($declarations) );
+
 		return $declarations;
 	}
 }
