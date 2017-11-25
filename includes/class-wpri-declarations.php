@@ -25,6 +25,7 @@ class WPRI_Declarations {
 
 
 	public static function get_declarations() {
+		ini_set("auto_detect_line_endings", true);
 		$jsonfilename = plugin_dir_path( dirname( __FILE__ ) ) . "includes/declarations.json";
 		$jsonstring =  file_get_contents($jsonfilename);
 error_log(print_r("thestring".$jsonstring,true));
