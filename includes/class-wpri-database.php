@@ -80,12 +80,12 @@ class WPRI_Database {
 					// if (isset($element["all_locales"]) && ($element["all_locales"]==true)){
 					if (isset($element["all_locales"]) ){
 						$sql = "CREATE TABLE ".self::table_name("locale_".$entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
-						// $sql = $sql .  $element["name"] ." INT,";
-						// $sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale"])."(id),";
-						// $sql = $sql .  "FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($entity_name)."(id)";
-						// $sql = $sql . ");";
+						$sql = $sql .  $element["name"] ." INT,";
+						$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale"])."(id),";
+						$sql = $sql .  "FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($entity_name)."(id)";
+						$sql = $sql . ");";
 						error_log($sql);
-						// $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
+						$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 					}
 				}
 			}
