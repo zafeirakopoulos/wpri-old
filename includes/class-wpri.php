@@ -128,24 +128,24 @@ class WPRI {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-declarations.php';
 
-		/**
-		 * The class responsible for the forms
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-forms.php';
-
-
-		/**
-		 * The class responsible for standards pages
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-pages.php';
-
-		/**
-		 * The class responsible for nes posts
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-news.php';
+		// /**
+		//  * The class responsible for the forms
+		//  * of the plugin.
+		//  */
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-forms.php';
+        //
+        //
+		// /**
+		//  * The class responsible for standards pages
+		//  * of the plugin.
+		//  */
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-pages.php';
+        //
+		// /**
+		//  * The class responsible for nes posts
+		//  * of the plugin.
+		//  */
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-news.php';
 
 		/**
 		 * The class responsible for database functionality
@@ -154,15 +154,15 @@ class WPRI {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-database.php';
 
 
-		/**
-		 * The class responsible for the template loader
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-template-loader.php';
-
-		/**
-		 * The class responsible template loading extending the previous one
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gamajo-template-loader.php';
+		// /**
+		//  * The class responsible for the template loader
+		//  */
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-template-loader.php';
+        //
+		// /**
+		//  * The class responsible template loading extending the previous one
+		//  */
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gamajo-template-loader.php';
 
 	}
 
@@ -240,13 +240,13 @@ class WPRI {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-		$this->loader->add_filter( 'template_include',$plugin_public, 'page_template', 99 );
-		$this->loader->add_filter( 'template_include',$plugin_public, 'front_page_template', 99 );
-		$this->loader->add_filter( 'template_include',$plugin_public, 'session_page_template', 99 );
-		$this->loader->add_filter( 'template_include',$plugin_public, 'single_template', 99 );
-
-
-		$this->loader->add_action('init', new WPRI_News(),'create_news_posttype' , 1);
+		// $this->loader->add_filter( 'template_include',$plugin_public, 'page_template', 99 );
+		// $this->loader->add_filter( 'template_include',$plugin_public, 'front_page_template', 99 );
+		// $this->loader->add_filter( 'template_include',$plugin_public, 'session_page_template', 99 );
+		// $this->loader->add_filter( 'template_include',$plugin_public, 'single_template', 99 );
+        //
+        //
+		// $this->loader->add_action('init', new WPRI_News(),'create_news_posttype' , 1);
 
 
 
