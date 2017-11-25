@@ -123,6 +123,12 @@ class WPRI {
 		$this->loader = new WPRI_Loader();
 
 		/**
+		 * The class responsible for database functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-declarations.php';
+
+		/**
 		 * The class responsible for the forms
 		 * of the plugin.
 		 */
@@ -147,32 +153,6 @@ class WPRI {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-database.php';
 
-
-		/**
-		 * The class responsible for defining the projects functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-project.php';
-
-
-		/**
-		 * The class responsible for defining the publications functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-publication.php';
-
-		/**
-		 * The class responsible for defining the open positions functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-position.php';
-
-
-		/**
-		 * The class responsible for defining the shortcodes functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-shortcodes.php';
 
 		/**
 		 * The class responsible for the template loader
@@ -213,10 +193,6 @@ class WPRI {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new WPRI_Admin( $this->get_plugin_name(), $this->get_version() );
-		$plugin_project = new WPRI_Project( $this->get_plugin_name(), $this->get_version() );
-		$plugin_publication = new WPRI_Publication( $this->get_plugin_name(), $this->get_version() );
-		$plugin_position = new WPRI_Position( $this->get_plugin_name(), $this->get_version() );
-		// $plugin_forms = new WPRI_Form( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -272,11 +248,6 @@ class WPRI {
 
 		$this->loader->add_action('init', new WPRI_News(),'create_news_posttype' , 1);
 
-
-
-		$plugin_shortcodes = new WPRI_Shortcodes( $this->get_plugin_name(), $this->get_version() );
-
-		$this->loader->add_action('init', $plugin_shortcodes, 'shortcodes_init');
 
 
 	}
