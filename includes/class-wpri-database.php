@@ -85,7 +85,7 @@ class WPRI_Database {
 
 
 	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-		return 1; #first install
+		return 0; #first install
 	}
 
 
