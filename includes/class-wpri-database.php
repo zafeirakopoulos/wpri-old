@@ -94,7 +94,7 @@ class WPRI_Database {
     public static function drop_tables() {
 
 		$declarations = WPRI_Declarations::get_declarations();
-	    $tables_to_drop = $declarations.keys();
+	    $tables_to_drop = array_keys($declarations);
 		error_log("tables_to_drop".implode($tables_to_drop));
 
 	    foreach($tables_to_drop as $table_name){
