@@ -36,8 +36,6 @@ class WPRI_Database {
 	}
 
 
-
-
 /******************************************************************************************
 *******************************************************************************************
 ***************    Table definitions  *****************************************************
@@ -56,19 +54,13 @@ class WPRI_Database {
 		$declarations = WPRI_Declarations::get_declarations();
 
  		foreach ($declarations as $entity_name => $entity) {
+			# Create the table
 			if( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name($entity_name)."'") != self::table_name($entity_name) ){
 				// error_log("Creating table ".$entity_name);
 				$sql = "CREATE TABLE ".self::table_name($entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY";
 				foreach ($entity["groups"] as $group ) {
-
 					foreach ($group["elements"] as $element ) {
-						if (isset($element["all_locales"])){
-
-						}
-						elseif ($element["type"]== "multiple-select"){
-							// echo "it is a relation";
-						}
-						elseif ($element["type"]== "select"){
+						if ($element["type"]== "select"){
 							$sql = $sql .  ", ". $element["name"] ." INT";
 							$sql = $sql .  ", FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($element["table"])."(".$element["column"].")";
 						}
@@ -82,10 +74,28 @@ class WPRI_Database {
 			    error_log($sql);
 				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 			}
+			# Create locale_* tables for all_locales elements
+			foreach ($entity["groups"] as $group ) {
+				foreach ($group["elements"] as $element ) {
+					if (isset($element["all_locales"]) && $element["all_locales"]){
+						$sql = "CREATE TABLE ".self::table_name("locale_".$entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
+						$sql = $sql .  $element["name"] ." INT,";
+						$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale"])."(id),";
+						$sql = $sql .  "FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($entity_name)."(id)";
+						$sql = $sql . ");";
+						error_log($sql);
+						$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
+					}
+				}
+			}
+
 		}
 
+		// elseif ($element["type"]== "multiple-select"){
+		// 	// echo "it is a relation";
+		// }
 
-	    // require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		return 0; #first install
 	}
 
