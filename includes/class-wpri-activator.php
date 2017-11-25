@@ -34,7 +34,6 @@ class WPRI_Activator {
 		// WPRI_Pages::create_pages();
 
 		# Create the tables for wpri.
-		die("in activate");
         $first_install = WPRI_Database::create_tables();
         if ($first_install == 1) {
 			# If the tables are fresh, populate them with standard data.
@@ -42,6 +41,8 @@ class WPRI_Activator {
         }
 
         flush_rewrite_rules();
+		die("in activate");
+
 	}
 
 }
