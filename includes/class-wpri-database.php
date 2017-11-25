@@ -81,26 +81,25 @@ class WPRI_Database {
 				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 			}
 			# Create locale_* tables for all_locales elements
+			$with_all_locales=false;
 			foreach ($entity["groups"] as $group ) {
+				# One table with different "name" attributes
 				foreach ($group["elements"] as $element ) {
 					// if (isset($element["all_locales"]) && ($element["all_locales"]==true)){
 					if (isset($element["all_locales"]) ){
-						if ($entity_name!=$element["name"]){
-							$sql = "CREATE TABLE ".self::table_name("locale_".$entity_name."_".$element["name"])." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
-						}
-						else{
-							$sql = "CREATE TABLE ".self::table_name("locale_".$element["name"])." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
-						}
-						$sql = $sql .  $element["name"] ." INT,";
-						$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
-						$sql = $sql .  "FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($element["name"])."(id)";
-						$sql = $sql . ");";
-						// error_log($sql);
-						$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
+						$with_all_locales=true;
 					}
 				}
 			}
-
+			if ($with_all_locales==true){
+				$sql = "CREATE TABLE ".self::table_name("locale_".$entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
+				$sql = $sql .  $element["name"] ." INT,";
+				$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
+				$sql = $sql .  "FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($element["name"])."(id)";
+				$sql = $sql . ");";
+				// error_log($sql);
+				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
+			}
 		}
 
 		// elseif ($element["type"]== "multiple-select"){
