@@ -29,6 +29,7 @@ class WPRI_Declarations {
 		$jsonfilename = plugin_dir_path( dirname( __FILE__ ) ) . "includes/declarations.json";
 		$jsonfile = file($jsonfilename);
 		error_log(print_r($jsonfile,true));
+		error_log(var_dump($jsonfile,true));
 
 		$jsonstring =  implode($jsonfile);
 error_log(print_r("thestring".$jsonstring,true));
