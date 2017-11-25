@@ -79,7 +79,7 @@ class WPRI_Database {
 				}
 				$sql = $sql . ");";
 				echo $sql;
-				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( $sql, array() ) );
+				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare( $sql ) );
 			}
 		}
 
