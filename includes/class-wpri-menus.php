@@ -54,9 +54,7 @@ class WPRI_Menu {
 class wpri_menu_factory {
      public function __construct($entity) {
         $callback = function() use ($entity){
-            echo $entity["title"];
-            WPRI_Form::wpri_create_form("Tests", $entity);
-
+            WPRI_Form::wpri_create_form($entity);
         };
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"],$callback);
     }
