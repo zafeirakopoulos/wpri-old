@@ -340,7 +340,7 @@
                         "value": "",
                         "type": "select",
                         "table" : "status",
-                        "column" : "id",
+                        "column" : "id"
                     }
                 ]
             },
