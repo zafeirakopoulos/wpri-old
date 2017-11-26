@@ -52,7 +52,7 @@ class WPRI_Menu {
  */
 class wpri_menu_factory {
 
-    public $entity = null;
+    // public $entity = null;
     /**
      * Autoload method
      * @return void
