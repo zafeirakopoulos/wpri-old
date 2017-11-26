@@ -57,7 +57,7 @@ class wpri_menu_factory {
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
         function menu_page_callback() {
            echo '<div class="wrap">';
-           echo '<h2>Submenu title</h2>';
+           echo '<h2>".$entity["title"].</h2>';
            echo '</div>';
        }
     }
