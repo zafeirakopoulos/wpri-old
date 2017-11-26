@@ -244,6 +244,7 @@
     "project": {
         "title" : "Projects",
         "table_name" : "project",
+        "has_menu": true,
         "name" :"project",
         "actions": {
             "add" : "manage_options",
