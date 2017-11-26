@@ -139,7 +139,7 @@ class WPRI_Database {
 							$table_name = $table_name."_".$attribute["table"] ;
 						}
 						$sql = "CREATE TABLE ".self::table_name($table_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,	";
-						$sql = $sql .  $entity_name ." INT";
+						$sql = $sql .  $entity_name ." INT,";
 						$sql = $sql .  "FOREIGN KEY (".$entity_name.") REFERENCES ".self::table_name($entity_name)."(id)";
 						foreach ($relation as $attribute ) {
 							$sql = $sql . ",". $attribute["table"]." INT,";
