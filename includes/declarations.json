@@ -368,40 +368,5 @@
                 ]
             }
         ]
-    },
-    "publication": {
-        "title" : "Publications",
-        "table_name" : "publication",
-        "has_menu": true,
-        "name" :"publication",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
-        },
-        "groups" :[
-            {
-                "title" : "Publication title",
-                "elements" : [
-                    {
-                        "type": "text",
-                        "name" : "official_title",
-                        "caption" : "Official title" ,
-                        "value": "as appearing in the funding agency",
-                        "cols" : "50",
-                        "rows": "2"
-                    },
-                    {
-                        "type": "text",
-                        "localized":true,
-                        "name": "title",
-                        "caption" : "Title in different locales" ,
-                        "value": "Title in different locales",
-                        "cols" : "50",
-                        "rows": "2"
-                    }
-                ]
-            }
-        ]
     }
 }
