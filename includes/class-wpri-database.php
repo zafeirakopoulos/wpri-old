@@ -128,11 +128,29 @@ class WPRI_Database {
 				}
 			}
 
+			# Create relation tables for multiple-select elements
+ 			foreach ($entity["groups"] as $group ) {
+				# One table with different "name" attributes
+				foreach ($group["elements"] as $element ) {
+					if ($element["type"]=="multiple-select") ){
+						$relation = $element["relation"];
+						$table_name = $entity_name;
+						foreach ($relation as $attribute ) {
+							$table_name = $table_name."_".$attribute["table"] ;
+						}
+						$sql = "CREATE TABLE ".self::table_name($table_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,	";
+						$sql = $sql .  $entity_name ." INT,";
+						foreach ($relation as $attribute ) {
+							$sql = $sql .  $attribute["table"]." INT,";
+							$sql = $sql .  "FOREIGN KEY (".$attribute["table"].") REFERENCES ".self::table_name($attribute["table"])."(id),";
+						}
+						$sql = $sql . ");";
+						error_log($sql);
+						$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
+					}
+				}
+			}
 		}
-
-		// elseif ($element["type"]== "multiple-select"){
-		// 	// echo "it is a relation";
-		// }
 
 	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		return 0; #first install
