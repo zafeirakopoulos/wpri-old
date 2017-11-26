@@ -61,6 +61,6 @@ class wpri_menu_factory {
          }
          ';
         error_log($callback);
-        add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"],eval($callback));
+        // add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"],eval($callback));
     }
 }
