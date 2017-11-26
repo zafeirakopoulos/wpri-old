@@ -49,7 +49,7 @@ class WPRI_Database {
 *******************************************************************************************/
 
 	/**
-	 * Short Description. (use period)
+	 * Create database tables from the JSON description.
 	 *
 	 * Long Description.
 	 *
@@ -146,7 +146,6 @@ class WPRI_Database {
 							$sql = $sql .  "FOREIGN KEY (".$attribute["table"].") REFERENCES ".self::table_name($attribute["table"])."(id)";
 						}
 						$sql = $sql . ");";
-						error_log($sql);
 						$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 					}
 				}
@@ -158,6 +157,13 @@ class WPRI_Database {
 	}
 
 
+	/**
+	 * Drop database tables from the JSON description.
+	 *
+	 * Long Description.
+	 *
+	 * @since    1.0.0
+	 */
 
     public static function drop_tables() {
 

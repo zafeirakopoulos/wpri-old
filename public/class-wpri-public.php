@@ -76,10 +76,8 @@ class WPRI_Public {
 
 		 wp_register_style('jquery-ui', 'http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css' );
  	     wp_enqueue_style( 'jquery-ui' );
-
-    	wp_enqueue_style( 'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
-
-		wp_enqueue_style( 'wpri', plugin_dir_url( __FILE__ ) . 'css/wpri-public.css' );
+		 wp_enqueue_style( 'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
+		 wp_enqueue_style( 'wpri', plugin_dir_url( __FILE__ ) . 'css/wpri-public.css' );
 
 	}
 
