@@ -54,13 +54,12 @@ class WPRI_Menu {
 class wpri_menu_factory {
      public function __construct($entity) {
         $GLOBALS["entity"] = $entity;
-        add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
-
-        # Nested functions act like globally defined.
-        function menu_page_callback() {
-           echo '<div class="wrap">';
-           echo "<h2>".$GLOBALS["entity"]["title"]."</h2>";
-           echo '</div>';
-       };
+        add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"],
+            function() {
+               echo '<div class="wrap">';
+               echo "<h2>".$GLOBALS["entity"]["title"]."</h2>";
+               echo '</div>';
+            }
+        );
     }
 }
