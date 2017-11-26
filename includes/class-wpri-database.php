@@ -168,18 +168,7 @@ class WPRI_Database {
 			# Drop the table
 			array_push($tables_to_drop,$entity_name);
 
-			foreach ($entity["groups"] as $group ) {
-				foreach ($group["elements"] as $element ) {
-					if ($element["type"]=="multiple-select") {
-						$relation = $element["relation"];
-						$table_name = $entity_name;
-						foreach ($relation as $attribute ) {
-							$table_name = $table_name."_".$attribute["table"] ;
-						}
-						array_push($tables_to_drop,$table_name);
-					}
-				}
-			}
+
 
 			# Drop locale_* tables for all_locales elements
 			$with_all_locales=false;
@@ -196,8 +185,28 @@ class WPRI_Database {
 				array_push($tables_to_drop,"locale_".$entity_name);
 			}
 
+			# Drop locale_entity_element tables
+			foreach ($entity["groups"] as $group ) {
+				foreach ($group["elements"] as $element ) {
+					if (isset($element["localized"]) ){
+						array_push($tables_to_drop,"locale_".$entity_name."_".$element["name"] );						
+					}
+				}
+			}
 
-
+			# Drop relations
+			foreach ($entity["groups"] as $group ) {
+				foreach ($group["elements"] as $element ) {
+					if ($element["type"]=="multiple-select") {
+						$relation = $element["relation"];
+						$table_name = $entity_name;
+						foreach ($relation as $attribute ) {
+							$table_name = $table_name."_".$attribute["table"] ;
+						}
+						array_push($tables_to_drop,$table_name);
+					}
+				}
+			}
 		}
 
 		$tables_to_drop = array_reverse($tables_to_drop);
