@@ -75,7 +75,7 @@ class WPRI_Database {
 							}
 							$sql = $sql .  ", FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($element["table"])."(".$element["column"].")";
 						}
-						else{
+						elseif ($element["type"]!= "multiple-select"){
 							$sql = $sql .  ", ".  $element["name"] ." ". $element["type"];
 						}
 					}
