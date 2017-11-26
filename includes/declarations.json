@@ -264,7 +264,7 @@
                     },
                     {
                         "type": "text",
-                        "all_locales":true,
+                        "localized":true,
                         "name": "title",
                         "caption" : "Title in different locales" ,
                         "value": "Title in different locales",
@@ -339,7 +339,7 @@
                         "name": "status",
                         "value": "",
                         "type": "select",
-                        "table" : "project_status",
+                        "table" : "tatus",
                         "column" : "id",
                         "display_column" : "name",
                         "localized" : 1
