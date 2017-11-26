@@ -217,15 +217,15 @@
         },
         "groups" :[
             {
-                "title" : "Contact",
+                "title" : "",
                 "elements" : [
                     {
                         "type": "text",
                         "name" : "address",
-                        "caption" : "Address" ,
-                        "value": "Institute of Information Technologies",
+                        "caption" : "Institute attribute" ,
+                        "value": "address",
                         "cols" : "50",
-                        "rows": "3",
+                        "rows": "1",
                         "all_locales" : true
                     }
                 ]
