@@ -70,7 +70,7 @@ class wpri_menu_factory {
             echo '<div class="wrap">';
             echo '<h2>Submenu title</h2>';
             echo '</div>';
-        }
+        };
     }
 
 
