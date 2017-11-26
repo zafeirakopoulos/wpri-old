@@ -288,10 +288,9 @@
                                 "type" : "foreach"
                             },
                             {
-                                "table" : "project_role",
+                                "table" : "projectrole",
                                 "column" : "id",
-                                "type" : "unique",
-                                "form_type" : "select"
+                                "type" : "select",
                             }
                         ]
                     },
@@ -314,8 +313,14 @@
                         "name": "agency",
                         "value": "",
                         "type": "multiple-select",
-                        "table" : "agency",
-                        "display_column" : "name"
+                        "relation" : [
+                            {
+                                "table" : "agency",
+                                "column" : "id",
+                                "type" : "foreach",
+                                "display_column" : "name"
+                            }
+                        ]
                     },
                     {
                         "caption" : "Budget" ,
