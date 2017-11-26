@@ -29,10 +29,10 @@ class WPRI_Form {
 	 *
 	 * @since    1.0.0
 	 */
-    public static function wpri_create_form($title, $form) {
+    public static function wpri_create_form($form) {
 		// WPRI_Form::wpri_form_handle_request($form);
 		?>
-		<div class="container"><h1><?php echo $title ?> </h1></div>
+		<div class="container"><h1><?php echo $form["title"] ?> </h1></div>
 	    	<div id="exTab1" class="container">
 				<ul  class="nav nav-pills">
 					<li class="active"><a href="#add" data-toggle="tab">Add New</a>
@@ -66,51 +66,6 @@ class WPRI_Form {
 	public static function wpri_form_handle_request($form) {
 
 
-		// If POST for adding
-		if( isset( $_POST['type']) && $_POST['type'] == 'add_' . $setting_name ) {
-
-			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => $_POST["setting_name"] ) );
-			echo $GLOBALS['wpdb']->insert_id ;
-			$new_id = $GLOBALS['wpdb']->insert_id;
-			if($GLOBALS['wpdb']->insert_id) {
-				?>
-			<div class="updated"><p><strong>Added.</strong></p></div>
-				<?php
-			} else {
-				?>
-			<div class="error"><p>Unable to add.</p></div>
-			<?php
-			}
-			foreach ( $locales as $locale ) {
-				$GLOBALS['wpdb']->insert( $mixed_table_name , array(
-					'locale' => $locale->id,
-					$setting_name => $new_id,
-					'name' => $_POST["setting_name_" . $locale->id],
-				));
-			}
-
-		}
-
-		// If POST for deleting
-		if( isset( $_POST['type']) && $_POST['type'] == 'delete_' . $setting_name ) {
-			foreach ( $locales as $locale ) {
-				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
-					"DELETE FROM $mixed_table_name WHERE $setting_name = %d", $_POST['setting_id']
-				));
-			}
-			$result = $GLOBALS['wpdb']->query( $GLOBALS['wpdb']->prepare(
-				"DELETE FROM " . $table_name . " WHERE id = %d", $_POST['setting_id']
-				));
-			if($result) {
-				?>
-			<div class="updated"><p><strong>Deleted.</strong></p></div>
-				<?php
-			} else {
-				?>
-			<div class="error"><p>Unable to delete.</p></div>
-			<?php
-			}
-		}
 	}
 
 	public static function wpri_form_add($form) {
