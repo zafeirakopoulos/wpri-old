@@ -55,7 +55,7 @@ class wpri_menu_factory {
      public function __construct($entity) {
         // $callback = create_function('','echo "<div>";echo "<h2>"'.$entity["title"].'"</h2>";echo "</div>";';
         // $callback = create_function('','echo $entity["title"] ');
-        $callback = function(){ echo $entity["title"] };
+        $callback = function(){ echo $entity["title"]; };
 
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"],$callback);
     }
