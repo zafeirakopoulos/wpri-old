@@ -67,7 +67,8 @@ class wpri_menu_factory {
      * @return void
      */
     public function register_menu() {
-        add_menu_page( "wpri-".this->entity->title."-menu", this->entity["title"], this->entity->actions->add, "wpri-".this->entity->title, "menu_page_callback" );
+        $entity = this->entity;
+        add_menu_page( "wpri-".$entity["title"]."-menu" , $entity_title, $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
     }
 
 
