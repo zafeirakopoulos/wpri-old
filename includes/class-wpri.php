@@ -135,12 +135,12 @@ class WPRI {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-menus.php';
 
 
-		// /**
-		//  * The class responsible for the forms
-		//  * of the plugin.
-		//  */
-		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-forms.php';
-        //
+		/**
+		 * The class responsible for the forms
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-forms.php';
+
         //
 		// /**
 		//  * The class responsible for standards pages
@@ -200,6 +200,7 @@ class WPRI {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new WPRI_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
 
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
@@ -212,8 +213,6 @@ class WPRI {
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_position_requirements_menu' );
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_institute_info_menu' );
 
-
-		$plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->	add_action( 'admin_menu', $plugin_menu, 'wpri_menus' );
 
 
