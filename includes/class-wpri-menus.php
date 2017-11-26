@@ -52,8 +52,7 @@ class WPRI_Menu {
  * @author Zafeirakis Zafeirakopoulos
  */
 class wpri_menu_factory {
-    public $entity = null;
-    public function __construct($entity) {
+     public function __construct($entity) {
         $GLOBALS["entity"] = $entity;
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
 
