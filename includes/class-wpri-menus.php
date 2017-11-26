@@ -39,42 +39,7 @@ class WPRI_Menu {
             new wpri_menu($declarations[$menu_name]);
         }
 	}
-}
-
-/**
- * Menu class
- *
- * @author Zafeirakis Zafeirakopoulos
- */
-class wpri_menu {
-
-    public $entity = null;
-    /**
-     * Autoload method
-     * @return void
-     */
-    public function __construct($entity) {
-        $this->entity= $entity;
-        add_action( 'admin_menu', array(&$this, 'register_menu') );
-    }
-
-    /**
-     * Register submenu
-     * @return void
-     */
-    public function register_menu() {
-        add_menu_page( "wpri-".this->entity["title"]."-menu", this->entity["title"], this->entity["actions"]["add"], "wpri-".this->entity["title"], "menu_page_callback" );
-    }
 
 
-    /**
-     * Render menu
-     * @return void
-     */
-    public function menu_page_callback() {
-        echo '<div class="wrap">';
-        echo '<h2>Submenu title</h2>';
-        echo '</div>';
-    }
 
 }
