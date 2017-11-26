@@ -22,7 +22,6 @@
  */
 class WPRI_Database {
 
-
 	/**
 	 * Returns the full name of a table, adding the correct prefix.
 	 *
@@ -233,6 +232,50 @@ class WPRI_Database {
 *******************************************************************************************
 *******************************************************************************************/
 
+public static function get($entity,$id) {
+	$results=  $GLOBALS['wpdb']->get_results(
+		$GLOBALS['wpdb']->prepare("SELECT * FROM " . self::table_name($entity). " WHERE id= %d ", $id)
+	);
+	return $results[0];
+}
+
+public static function get_localized($entity,$id) {
+		$results=  $GLOBALS['wpdb']->get_results(
+		$GLOBALS['wpdb']->prepare(
+			"SELECT * FROM " . self::table_name("locale_".$entity). " WHERE ".$entity." = %d AND locale= %d",
+			$id, $_SESSION['locale']
+		)
+	);
+	return $results[0];
+}
+
+
+public static function get_all($entity) {
+	return $GLOBALS['wpdb']->get_results(("SELECT * FROM " . self::table_name($entity),"ARRAY_A" );
+}
+
+
+
+public static function get_relation($left,$leftid,$right,$rightid) {
+	$results=  $GLOBALS['wpdb']->get_results(
+		$GLOBALS['wpdb']->prepare(
+			"SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left"= %d AND ".$right." =% ", $leftid,$rightid)
+	);
+	return $results;
+}
+
+public static function get_locales() {
+	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"),"ARRAY_A");
+}
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
+#################################################################################################
+
+
 				/*
 					For every item we need:
 					1. get_wp_ITEM_ids()
@@ -257,15 +300,7 @@ class WPRI_Database {
 #################################################################################################
 #################################################################################################
 
-	public static function get_localized($table,$id) {
-	 		$results=  $GLOBALS['wpdb']->get_results(
-			$GLOBALS['wpdb']->prepare(
-				"SELECT name FROM " . self::table_name("locale_".$table). " WHERE ".$table." = %d AND locale= %d",
-				$id, $_SESSION['locale']
-			)
-		);
-		return $results[0]->name;
-	}
+
 
 	# The associcative array names is of the form locale_id => "translated name of table[id]"
 	public static function add_localized($table,$item,$names) {
@@ -662,9 +697,6 @@ class WPRI_Database {
 						 );
 				}
 
-				public static function get_all($table) {
-					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name($table),"ARRAY_A" );
-				}
 
 				public static function get_all_members() {
 					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
@@ -1021,9 +1053,7 @@ class WPRI_Database {
 					);
 				}
 
-				public static function get_locales() {
-					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"),"ARRAY_A");
-				}
+
 
 				public static function get_agencies() {
 					return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("agency"));
