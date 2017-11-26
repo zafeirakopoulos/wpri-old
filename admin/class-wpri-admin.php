@@ -321,6 +321,7 @@ class WPRI_Admin {
 				echo '<form name="delete_member" method="post" action="">';
 				echo '<tr>';
 				echo '<td><label>' . $member->name . '</label></td>';
+				// TODO get_member_name (from user)
 				echo '<td> <input type="submit" name="delete_button' . $member->id  . '" value="Delete" class="button" />';
 		    	echo '<input type="hidden" name="type" value="delete_member" />';
 		   		echo '<input type="hidden" name="member_id" value=' . $member->id . '/></td>';
@@ -593,7 +594,7 @@ class WPRI_Admin {
 		echo '</tr>';
 	 	foreach ( $locales as $locale ) {
 			echo '<tr>';
-			echo '<td><label>' . $locale->name . ': </label></td>';
+			echo '<td><label>' . $locale->locale . ': </label></td>';
 			echo '<td><textarea id="setting_name_' . $locale->id . '" name="setting_name_' . $locale->id . '" cols="60" rows="1"></textarea></td>';
 			echo '</tr>';
 		}
