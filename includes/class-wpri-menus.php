@@ -53,10 +53,11 @@ class WPRI_Menu {
  */
 class wpri_menu_factory {
      public function __construct($entity) {
-        // $callback = create_function('','echo "<div>";echo "<h2>"'.$entity["title"].'"</h2>";echo "</div>";';
-        // $callback = create_function('','echo $entity["title"] ');
-        $callback = function() use ($entity){ echo $entity["title"]; };
+        $callback = function() use ($entity){
+            echo $entity["title"];
+            WPRI_Form::wpri_create_form("Tests", $entity);
 
+        };
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"],$callback);
     }
 }
