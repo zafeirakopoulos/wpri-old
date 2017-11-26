@@ -67,7 +67,13 @@ class WPRI_Database {
 				foreach ($entity["groups"] as $group ) {
 					foreach ($group["elements"] as $element ) {
 						if ($element["type"]== "select"){
-							$sql = $sql .  ", ". $element["name"] ." INT";
+							if ($element["name"]=="user"){
+
+								$sql = $sql .  ", ". $element["name"] ." bigint(20) unsigned";
+							}
+							else{
+								$sql = $sql .  ", ". $element["name"] ." INT";
+							}
 							$sql = $sql .  ", FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($element["table"])."(".$element["column"].")";
 						}
 						else{
