@@ -34,9 +34,9 @@ class WPRI_Menu {
 
         $menus =  array();
         $declarations = WPRI_Declarations::get_declarations();
-        foreach ($declarations as $entity){
+        foreach ($declarations as $entity_name => $entity) {
             if ($entity["has_menu"]){
-                array_push($menus,$entity["title"]);
+                array_push($menus,$entity_name );
             }
         }
 
