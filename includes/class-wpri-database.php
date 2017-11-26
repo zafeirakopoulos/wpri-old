@@ -239,20 +239,20 @@ class WPRI_Database {
 // 	return $results[0];
 // }
 //
-// public static function get_localized($entity,$id) {
-// 		$results=  $GLOBALS['wpdb']->get_results(
-// 		$GLOBALS['wpdb']->prepare(
-// 			"SELECT * FROM " . self::table_name("locale_".$entity). " WHERE ".$entity." = %d AND locale= %d",
-// 			$id, $_SESSION['locale']
-// 		)
-// 	,"ARRAY_A");
-// 	return $results[0];
-// }
-//
-//
-// public static function get_all($entity) {
-// 	return $GLOBALS['wpdb']->get_results(("SELECT * FROM " . self::table_name($entity),"ARRAY_A" );
-// }
+public static function get_localized($entity,$id) {
+		$results=  $GLOBALS['wpdb']->get_results(
+		$GLOBALS['wpdb']->prepare(
+			"SELECT * FROM " . self::table_name("locale_".$entity). " WHERE ".$entity." = %d AND locale= %d",
+			$id, $_SESSION['locale']
+		)
+	,"ARRAY_A");
+	return $results[0];
+}
+
+
+public static function get_all($entity) {
+	return $GLOBALS['wpdb']->get_results(("SELECT * FROM " . self::table_name($entity),"ARRAY_A" );
+}
 //
 //
 //
