@@ -62,6 +62,6 @@ class wpri_menu_factory {
            echo '<div class="wrap">';
            echo "<h2>"$GLOBALS["entity"]["title"]."</h2>";
            echo '</div>';
-        }
+       };
     }
 }
