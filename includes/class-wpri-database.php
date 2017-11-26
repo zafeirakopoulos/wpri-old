@@ -111,26 +111,23 @@ class WPRI_Database {
 			}
 
 			# Create locale_entity_element tables for localized elements
-			$with_localized=false;
-			foreach ($entity["groups"] as $group ) {
+ 			foreach ($entity["groups"] as $group ) {
 				# One table with different "name" attributes
 				foreach ($group["elements"] as $element ) {
 					// if (isset($element["all_locales"]) && ($element["all_locales"]==true)){
 					if (isset($element["localized"]) ){
-						$with_localized=true;
+						$sql = "CREATE TABLE ".self::table_name("locale_".$entity_name."_".$element["name"] )." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
+						$sql = $sql .  $element["name"] ." INT,";
+						$sql = $sql .  "name ". $element["type"] .",";
+						$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
+						$sql = $sql .  "FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($entity_name)."(".$element["name"].")";
+						$sql = $sql . ");";
+						// error_log($sql);
+						$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 					}
 				}
 			}
-			if ($with_localized==true){
-				$sql = "CREATE TABLE ".self::table_name("locale_".$entity_name."_".$element["name"] )." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
-				$sql = $sql .  $element["name"] ." INT,";
-				$sql = $sql .  "name ". $element["type"] .",";
-				$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
-				$sql = $sql .  "FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($entity_name)."(".$element["name"].")";
-				$sql = $sql . ");";
-				// error_log($sql);
-				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
-			}
+
 		}
 
 		// elseif ($element["type"]== "multiple-select"){
