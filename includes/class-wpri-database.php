@@ -139,10 +139,10 @@ class WPRI_Database {
 							$table_name = $table_name."_".$attribute["table"] ;
 						}
 						$sql = "CREATE TABLE ".self::table_name($table_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,	";
-						$sql = $sql .  $entity_name ." INT,";
+						$sql = $sql .  $entity_name ." INT";
 						foreach ($relation as $attribute ) {
-							$sql = $sql .  $attribute["table"]." INT,";
-							$sql = $sql .  "FOREIGN KEY (".$attribute["table"].") REFERENCES ".self::table_name($attribute["table"])."(id),";
+							$sql = $sql . ",". $attribute["table"]." INT,";
+							$sql = $sql .  "FOREIGN KEY (".$attribute["table"].") REFERENCES ".self::table_name($attribute["table"])."(id)";
 						}
 						$sql = $sql . ");";
 						error_log($sql);
