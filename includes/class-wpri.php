@@ -214,7 +214,7 @@ class WPRI {
 
 
 		$plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
-		$this->loader->	add_action( 'user_menu', $plugin_menu, 'wpri_menus' );
+		$this->loader->	add_action( 'admin_menu', $plugin_menu, 'wpri_menus' );
 
 
 
