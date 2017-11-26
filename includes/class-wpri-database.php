@@ -169,7 +169,6 @@ class WPRI_Database {
 			array_push($tables_to_drop,$entity_name);
 
 			foreach ($entity["groups"] as $group ) {
-				# One table with different "name" attributes
 				foreach ($group["elements"] as $element ) {
 					if ($element["type"]=="multiple-select") {
 						$relation = $element["relation"];
@@ -181,7 +180,7 @@ class WPRI_Database {
 					}
 				}
 			}
-			
+
 			# Drop locale_* tables for all_locales elements
 			$with_all_locales=false;
 			foreach ($entity["groups"] as $group ) {
