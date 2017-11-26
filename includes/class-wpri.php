@@ -212,11 +212,9 @@ class WPRI {
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_position_requirements_menu' );
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_institute_info_menu' );
 
-		// $this->loader->	add_action( 'admin_menu', $plugin_project, 'project_menu' );
-		// $this->loader->	add_action( 'admin_menu', $plugin_publication, 'publication_menu' );
-		// $this->loader->	add_action( 'admin_menu', $plugin_position, 'position_menu' );
-		// $plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
-		// $this->loader->	add_action( 'user_menu', $plugin_menu, 'wpri_menus' );
+
+		$plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->	add_action( 'user_menu', $plugin_menu, 'wpri_menus' );
 
 
 
