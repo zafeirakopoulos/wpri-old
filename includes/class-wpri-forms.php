@@ -119,7 +119,7 @@ class WPRI_Form {
 						elseif ($element["type"]=="multiple-select"){
 							echo "<h3>".$element["caption"]."</h3>";
 							$all_entries = array();
-							foreach ($element["source_tables"] as $table) {
+							foreach ($element["table"] as $table) {
 								 $all_entries = $all_entries + WPRI_Database::get_all($table);
 							}
 							foreach ( $all_entries as $item ) {
@@ -135,10 +135,10 @@ class WPRI_Form {
 							echo "<h3>".$element["caption"]."</h3>";
 							echo "<select name='".$element["name"]."'>";
 							$all_entries = array();
-							foreach ($element["source_tables"] as $table) {
+							foreach ($element["table"] as $table) {
 								foreach (WPRI_Database::get_all($table) as $dbitem) {
 									if ($element["localized"]==1){
-   									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"]);
+   									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"])->$table;
 										echo "<h1>name:".$display_name."</h1>";
 	   								}
 	   								else{
