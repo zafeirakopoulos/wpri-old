@@ -132,7 +132,7 @@ class WPRI_Database {
  			foreach ($entity["groups"] as $group ) {
 				# One table with different "name" attributes
 				foreach ($group["elements"] as $element ) {
-					if ($element["type"]=="multiple-select") ){
+					if ($element["type"]=="multiple-select") {
 						$relation = $element["relation"];
 						$table_name = $entity_name;
 						foreach ($relation as $attribute ) {
