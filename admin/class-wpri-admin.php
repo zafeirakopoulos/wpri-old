@@ -487,7 +487,7 @@ class WPRI_Admin {
 		$all_entries = $GLOBALS['wpdb']->get_results("SELECT * FROM " . $table_name );
 	 	foreach ( $all_entries as $dbitem ) {
 			echo '<form name="delete_$setting_name" method="post" action="">';
-			echo '<li><label for="delete_button' . $dbitem->id  . '">' . $dbitem->name . ': </label>';
+			echo '<li><label for="delete_button' . $dbitem->id  . '">' . $dbitem->$setting_name . ': </label>';
 			echo ' <input type="submit" name="delete_button' . $dbitem->id  . '" value="Delete" class="button" />';
 	    	echo '<input type="hidden" name="type" value="delete_' . $setting_name . '" />';
 	   		echo '<li><input type="hidden" name="setting_id" value=' . $dbitem->id . '/></li>';
