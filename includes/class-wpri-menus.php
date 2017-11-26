@@ -56,10 +56,11 @@ class wpri_menu_factory {
     public function __construct($entity) {
         $this->entity = $entity;
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
-         function menu_page_callback() {
-            echo '<div class="wrap">';
-            echo "<h2>".$this->entity["title"]."</h2>";
-            echo '</div>';
-       }
+
     }
+    function menu_page_callback() {
+       echo '<div class="wrap">';
+       echo "<h2>".$this->entity["title"]."</h2>";
+       echo '</div>';
+  }
 }
