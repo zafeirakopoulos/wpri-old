@@ -43,3 +43,5 @@ class WPRI_Menu {
 
 
 }
+class anotherclass {
+}
