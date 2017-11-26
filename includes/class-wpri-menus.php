@@ -63,18 +63,23 @@ class wpri_menu_factory {
         $this->entity = $entity;
         add_menu_page( "test-menu" , "test-menu" , "manage_options", "test-menu" , "menu_page_callback" );
 
+        error_log($entity["title"]);
+        error_log($entity["actions"]["add"]);
+ 
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
         error_log("Menu registered: "."wpri-".$entity["title"]."-menu" );
 
-        public function menu_page_callback() {
-            echo '<div class="wrap">';
-            echo '<h2>Submenu title</h2>';
-            echo '</div>';
-        };
     }
 
 
-
-
+    /**
+     * Render menu
+     * @return void
+     */
+    public function menu_page_callback() {
+        echo '<div class="wrap">';
+        echo '<h2>Submenu title</h2>';
+        echo '</div>';
+    }
 
 }
