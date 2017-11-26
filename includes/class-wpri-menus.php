@@ -55,7 +55,7 @@ class wpri_menu_factory {
      public function __construct($entity) {
          $callback = '
          function(){
-             echo "<div class="wrap">";
+             echo "<div class=\'wrap\'>";
              echo "<h2>"'.$entity["title"].'"</h2>";
              echo "</div>";
          }
