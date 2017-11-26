@@ -32,16 +32,18 @@ class WPRI_Menu {
 
 	public function wpri_menus() {
 
-        $menus =  array("project" );
+        $menus =  array();
         $declarations = WPRI_Declarations::get_declarations();
+        foreach ($declarations as $entity){
+            if ($entity["has_menu"]){
+                array_push($menus,$entity["title"])
+            }
+        }
 
         foreach ($menus as $menu_name){
             new wpri_menu_factory($declarations[$menu_name]);
         }
 	}
-
-
-
 }
 
 
@@ -51,24 +53,12 @@ class WPRI_Menu {
  * @author Zafeirakis Zafeirakopoulos
  */
 class wpri_menu_factory {
-
-    public $entity = null;
-    /**
-     * Autoload method
-     * @return void
-     */
     public function __construct($entity) {
-        // error_log("Class constructed: ".$entity["title"]);
-
-        $this->entity = $entity;
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
         function menu_page_callback() {
            echo '<div class="wrap">';
            echo '<h2>Submenu title</h2>';
            echo '</div>';
        }
-
     }
-
-
 }
