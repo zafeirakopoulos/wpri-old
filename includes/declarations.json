@@ -290,7 +290,7 @@
                             {
                                 "table" : "projectrole",
                                 "column" : "id",
-                                "type" : "select",
+                                "type" : "select"
                             }
                         ]
                     },
