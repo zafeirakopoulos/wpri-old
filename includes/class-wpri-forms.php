@@ -84,10 +84,10 @@ class WPRI_Form {
 						<div class='row'>
 						<?php
 						if ($element["type"]=="text"){
-							if ($element["all_locales"]!=1){ ?>
+							if (isset($element["all_locales"])!=true){ ?>
 								<label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
 								<div class='col-sm-3 form-element-value'>
-									<textarea id='<?php echo $element["id"]?>'
+									<textarea id='<?php echo $element["name"]?>'
 											  name='<?php echo $element["name"]?>'
 											  cols='<?php echo $element["cols"]?>'
 											  rows='<?php echo $element["rows"]?>'>
@@ -138,7 +138,7 @@ class WPRI_Form {
 							foreach ($element["table"] as $table) {
 								foreach (WPRI_Database::get_all($table) as $dbitem) {
 									if ($element["localized"]==1){
-   									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"])->$table;
+   									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"])[$table];
 										echo "<h1>name:".$display_name."</h1>";
 	   								}
 	   								else{
@@ -219,7 +219,7 @@ class WPRI_Form {
 						if ($element["type"]=="text"){?>
 							<label class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></label>
 							<div class='col-sm-3 form-element-value'>
-								<textarea id='<?php echo $element["id"]?>'
+								<textarea id='<?php echo $element["name"]?>'
 										  name='<?php echo $element["name"]?>'
 										  cols='<?php echo $element["cols"]?>'
 										  rows='<?php echo $element["rows"]?>'>
