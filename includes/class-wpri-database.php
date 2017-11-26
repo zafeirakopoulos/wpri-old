@@ -140,6 +140,7 @@ class WPRI_Database {
 						}
 						$sql = "CREATE TABLE ".self::table_name($table_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,	";
 						$sql = $sql .  $entity_name ." INT";
+						$sql = $sql .  "FOREIGN KEY (".$entity_name.") REFERENCES ".self::table_name($entity_name)."(id)";
 						foreach ($relation as $attribute ) {
 							$sql = $sql . ",". $attribute["table"]." INT,";
 							$sql = $sql .  "FOREIGN KEY (".$attribute["table"].") REFERENCES ".self::table_name($attribute["table"])."(id)";
@@ -189,7 +190,7 @@ class WPRI_Database {
 			foreach ($entity["groups"] as $group ) {
 				foreach ($group["elements"] as $element ) {
 					if (isset($element["localized"]) ){
-						array_push($tables_to_drop,"locale_".$entity_name."_".$element["name"] );						
+						array_push($tables_to_drop,"locale_".$entity_name."_".$element["name"] );
 					}
 				}
 			}
