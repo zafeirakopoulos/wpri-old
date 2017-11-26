@@ -295,7 +295,6 @@ class WPRI_Admin {
 				$user = $u_query->results;
 				$new_member_id = WPRI_Database::add_member(array(
 					'user' => $_POST["user"],
-					'name' => $user[0]->display_name,
 					'role' => $_POST["role"]
 				));
 				if($new_member_id) {
@@ -381,40 +380,6 @@ class WPRI_Admin {
 			echo '<h2>Manage Locale Options</h2>';
 			WPRI_Admin::simple_setting_form('locale');
 			echo '</div>';
-			// $form = array(
-			// 	'title' => "Locales",
-			// 	'table_name' => "locale",
-			// 	'name' => "form_name",
-			// 	'actions' => array("add","remove","update"),
-			// 	'groups'=> array(
-			// 		array(
-			// 			'title' => "title",
-			// 			'elements' => array(
-			// 				array(
-			// 					'type'=> "text",
-			// 					'id' => "idd",
-			// 					'name'=> "name",
-			// 					'caption' => "caption" ,
-			// 					'value'=> "5",
-			// 					'cols' => "10",
-			// 					'rows'=> "2"
-			// 				)
-			// 			)
-			// 		),
-			// 		array(
-			// 			'title' => "title",
-			// 			'elements' => array(
-			// 				array(
-			// 					'caption' => "Some other caption" ,
-			// 					'value'=> "other val",
-			// 					'type'=> "text"
-			// 				)
-			// 			)
-			// 		)
-			// 	)
-			// );
-			//   	WPRI_Form::wpri_create_form("tetsing", $form);
-
 		}
 		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
 	}
@@ -489,7 +454,7 @@ class WPRI_Admin {
 
 		// If POST for adding
 		if( isset( $_POST['type']) && $_POST['type'] == 'add_' . $setting_name ) {
-			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => $_POST["setting_name"] ) );
+			$GLOBALS['wpdb']->insert( $table_name , array( $setting_name => $_POST["setting_name"] ) );
 			if($GLOBALS['wpdb']->insert_id) {
 				?>
 		    <div class="updated"><p><strong>Added.</strong></p></div>
