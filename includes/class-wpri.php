@@ -128,6 +128,13 @@ class WPRI {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-declarations.php';
 
+		/**
+		 * The class responsible for database functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-menus.php';
+
+
 		// /**
 		//  * The class responsible for the forms
 		//  * of the plugin.
