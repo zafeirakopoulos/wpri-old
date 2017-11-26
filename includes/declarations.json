@@ -341,8 +341,6 @@
                         "type": "select",
                         "table" : "status",
                         "column" : "id",
-                        "display_column" : "name",
-                        "localized" : 1
                     }
                 ]
             },
