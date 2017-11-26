@@ -58,6 +58,8 @@ class wpri_menu_factory {
      * @return void
      */
     public function __construct($entity) {
+        error_log("Class constructed: ".$entity["title"]);
+
         $this->entity = $entity;
         add_action( 'admin_menu', array(&$this, 'register_menu') );
     }
@@ -69,6 +71,8 @@ class wpri_menu_factory {
     public function register_menu() {
         $entity = $this->entity;
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity_title, $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
+        error_log("Menu registered: "."wpri-".$entity["title"]."-menu" );
+
     }
 
 
