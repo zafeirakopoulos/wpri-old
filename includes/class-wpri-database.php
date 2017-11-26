@@ -232,37 +232,37 @@ class WPRI_Database {
 *******************************************************************************************
 *******************************************************************************************/
 
-public static function get($entity,$id) {
-	$results=  $GLOBALS['wpdb']->get_results(
-		$GLOBALS['wpdb']->prepare("SELECT * FROM " . self::table_name($entity). " WHERE id= %d ", $id)
-	);
-	return $results[0];
-}
-
-public static function get_localized($entity,$id) {
-		$results=  $GLOBALS['wpdb']->get_results(
-		$GLOBALS['wpdb']->prepare(
-			"SELECT * FROM " . self::table_name("locale_".$entity). " WHERE ".$entity." = %d AND locale= %d",
-			$id, $_SESSION['locale']
-		)
-	);
-	return $results[0];
-}
-
-
-public static function get_all($entity) {
-	return $GLOBALS['wpdb']->get_results(("SELECT * FROM " . self::table_name($entity),"ARRAY_A" );
-}
-
-
-
-public static function get_relation($left,$leftid,$right,$rightid) {
-	$results=  $GLOBALS['wpdb']->get_results(
-		$GLOBALS['wpdb']->prepare(
-			"SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left"= %d AND ".$right." =% ", $leftid,$rightid)
-	);
-	return $results;
-}
+// public static function get($entity,$id) {
+// 	$results=  $GLOBALS['wpdb']->get_results(
+// 		$GLOBALS['wpdb']->prepare("SELECT * FROM " . self::table_name($entity). " WHERE id= %d ", $id)
+// 	,"ARRAY_A");
+// 	return $results[0];
+// }
+//
+// public static function get_localized($entity,$id) {
+// 		$results=  $GLOBALS['wpdb']->get_results(
+// 		$GLOBALS['wpdb']->prepare(
+// 			"SELECT * FROM " . self::table_name("locale_".$entity). " WHERE ".$entity." = %d AND locale= %d",
+// 			$id, $_SESSION['locale']
+// 		)
+// 	,"ARRAY_A");
+// 	return $results[0];
+// }
+//
+//
+// public static function get_all($entity) {
+// 	return $GLOBALS['wpdb']->get_results(("SELECT * FROM " . self::table_name($entity),"ARRAY_A" );
+// }
+//
+//
+//
+// public static function get_relation($left,$leftid,$right,$rightid) {
+// 	$results=  $GLOBALS['wpdb']->get_results(
+// 		$GLOBALS['wpdb']->prepare(
+// 			"SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left"= %d AND ".$right." =% ", $leftid,$rightid)
+// 	,"ARRAY_A");
+// 	return $results;
+// }
 
 public static function get_locales() {
 	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"),"ARRAY_A");
