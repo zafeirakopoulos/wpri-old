@@ -339,7 +339,7 @@
                         "name": "status",
                         "value": "",
                         "type": "select",
-                        "table" : "tatus",
+                        "table" : "status",
                         "column" : "id",
                         "display_column" : "name",
                         "localized" : 1
