@@ -52,14 +52,14 @@ class WPRI_Menu {
  */
 class wpri_menu_factory {
 
-    // public $entity = null;
+    public $entity = null;
     /**
      * Autoload method
      * @return void
      */
     public function __construct($entity) {
-        $this->entity= $entity;
-        add_action( 'admin_menu', array(&$this, 'register_menu') );
+        $this->entity = $entity;
+        // add_action( 'admin_menu', array(&$this, 'register_menu') );
     }
 
     /**
@@ -67,7 +67,7 @@ class wpri_menu_factory {
      * @return void
      */
     public function register_menu() {
-        add_menu_page( "wpri-".this->entity["title"]."-menu", this->entity["title"], this->entity["actions"]["add"], "wpri-".this->entity["title"], "menu_page_callback" );
+        // add_menu_page( "wpri-".this->entity["title"]."-menu", this->entity["title"], this->entity["actions"]["add"], "wpri-".this->entity["title"], "menu_page_callback" );
     }
 
 
