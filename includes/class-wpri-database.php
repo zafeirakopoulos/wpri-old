@@ -183,6 +183,20 @@ class WPRI_Database {
 				array_push($tables_to_drop,"locale_".$entity_name);
 			}
 
+			foreach ($entity["groups"] as $group ) {
+				# One table with different "name" attributes
+				foreach ($group["elements"] as $element ) {
+					if ($element["type"]=="multiple-select") {
+						$relation = $element["relation"];
+						$table_name = $entity_name;
+						foreach ($relation as $attribute ) {
+							$table_name = $table_name."_".$attribute["table"] ;
+						}
+						array_push($tables_to_drop,$table_name);
+					}
+				}
+			}
+
 		}
 
 		$tables_to_drop = array_reverse($tables_to_drop);
