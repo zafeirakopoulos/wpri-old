@@ -61,18 +61,8 @@ class wpri_menu_factory {
         error_log("Class constructed: ".$entity["title"]);
 
         $this->entity = $entity;
-        add_action( 'admin_menu', array(&$this, 'register_menu') );
-    }
 
-    /**
-     * Register submenu
-     * @return void
-     */
-    public function register_menu() {
-        error_log("In menu register" );
-
-        $entity = $this->entity;
-        add_menu_page( "wpri-".$entity["title"]."-menu" , $entity_title, $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
+        add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
         error_log("Menu registered: "."wpri-".$entity["title"]."-menu" );
 
     }
