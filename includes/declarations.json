@@ -240,5 +240,129 @@
                 ]
             }
         ]
-    }
+    },
+    "project": {
+        "title" : "Projects",
+        "table_name" : "project",
+        "name" :"project",
+        "actions": {
+            "add" : ["all"],
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "Project title",
+                "elements" : [
+                    {
+                        "type": "text",
+                        "name" : "official_title",
+                        "caption" : "Official title" ,
+                        "value": "as appearing in the funding agency",
+                        "cols" : "50",
+                        "rows": "2"
+                    },
+                    {
+                        "type": "text",
+                        "all_locales":true,
+                        "name": "title",
+                        "caption" : "Title in different locales" ,
+                        "value": "Title in different locales",
+                        "cols" : "50",
+                        "rows": "2"
+                    }
+                ]
+            },
+            {
+                "title" : "Project members",
+                "elements" : [
+                    {
+                        "caption" : "Members of the institute participating in the project" ,
+                        "name": "members[]",
+                        "value": "",
+                        "type": "multiple-select",
+                        "relation" : [
+                            {
+                                "table" : "member",
+                                "column" : "id",
+                                "type" : "foreach"
+                            },
+                            {
+                                "table" : "project_role",
+                                "column" : "id",
+                                "type" : "unique",
+                                "form_type" : "select"
+                            }
+                        ]
+                    },
+                    {
+                        "caption" : "Principal investigator" ,
+                        "name": "PI",
+                        "value": "",
+                        "type": "select",
+                        "table" : "member",
+                        "column" : "id",
+                        "display_column" : "name"
+                    }
+                ]
+            },
+            {
+                "title" : "Funding",
+                "elements" : [
+                    {
+                        "caption" : "Choose funding agency" ,
+                        "name": "agency",
+                        "value": "",
+                        "type": "multiple-select",
+                        "table" : "agency",
+                        "display_column" : "name"
+                    },
+                    {
+                        "caption" : "Budget" ,
+                        "name": "budget",
+                        "value": "",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "title" : "Info",
+                "elements" : [
+                    {
+                        "caption" : "Website" ,
+                        "name": "website",
+                        "value": "",
+                        "type": "text"
+                    },
+                    {
+                        "caption" : "Status" ,
+                        "name": "status",
+                        "value": "",
+                        "type": "select",
+                        "table" : "project_status",
+                        "column" : "id",
+                        "display_column" : "name",
+                        "localized" : 1
+                    }
+                ]
+            },
+            {
+                "title" : "Dates",
+                "elements" : [
+                    {
+                        "caption" : "Start date" ,
+                        "name": "startdate",
+                        "value": "",
+                        "type": "datetime"
+                    },
+                    {
+                        "caption" : "End date" ,
+                        "name": "enddate",
+                        "value": "",
+                        "type": "datetime"
+                    }
+                ]
+            }
+        ]
+    }}}
 }
