@@ -59,7 +59,7 @@ class wpri_menu_factory {
         # Nested functions act like globally defined.
         function menu_page_callback() {
            echo '<div class="wrap">';
-           echo "<h2>"$GLOBALS["entity"]["title"]."</h2>";
+           echo "<h2>".$GLOBALS["entity"]["title"]."</h2>";
            echo '</div>';
        };
     }
