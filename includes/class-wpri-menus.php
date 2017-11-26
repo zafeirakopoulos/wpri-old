@@ -59,7 +59,7 @@ class wpri_menu_factory {
      */
     public function __construct($entity) {
         $this->entity = $entity;
-        // add_action( 'admin_menu', array(&$this, 'register_menu') );
+        add_action( 'admin_menu', array(&$this, 'register_menu') );
     }
 
     /**
