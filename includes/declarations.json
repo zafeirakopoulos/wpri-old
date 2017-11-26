@@ -4,7 +4,7 @@
         "table_name" : "locale",
         "name" :"locale",
         "actions": {
-            "add" : ["manage_options"],
+            "add" : "manage_options",
             "remove" : ["admin"],
             "update" : ["all"]
         },
@@ -29,7 +29,7 @@
         "table_name" : "position",
         "name" :"position",
         "actions": {
-            "add" : ["manage_options"],
+            "add" : "manage_options",
             "remove" : ["admin"],
             "update" : ["all"]
         },
@@ -55,7 +55,7 @@
         "table_name" : "title",
         "name" :"title",
         "actions": {
-            "add" : ["manage_options"],
+            "add" : "manage_options",
             "remove" : ["admin"],
             "update" : ["all"]
         },
@@ -81,7 +81,7 @@
         "table_name" : "agency",
         "name" :"agency",
         "actions": {
-            "add" : ["manage_options"],
+            "add" : "manage_options",
             "remove" : ["admin"],
             "update" : ["all"]
         },
@@ -107,7 +107,7 @@
         "table_name" : "role",
         "name" :"role",
         "actions": {
-            "add" : ["manage_options"],
+            "add" : "manage_options",
             "remove" : ["admin"],
             "update" : ["all"]
         },
@@ -133,7 +133,7 @@
         "table_name" : "status",
         "name" :"status",
         "actions": {
-            "add" : ["manage_options"],
+            "add" : "manage_options",
             "remove" : ["admin"],
             "update" : ["all"]
         },
@@ -159,7 +159,7 @@
         "table_name" : "requirement",
         "name" :"requirement",
         "actions": {
-            "add" : ["manage_options"],
+            "add" : "manage_options",
             "remove" : ["admin"],
             "update" : ["all"]
         },
@@ -185,7 +185,7 @@
         "table_name" : "projectrole",
         "name" :"projectrole",
         "actions": {
-            "add" : ["manage_options"],
+            "add" : "manage_options",
             "remove" : ["admin"],
             "update" : ["all"]
         },
@@ -211,7 +211,7 @@
         "table_name" : "member",
         "name" :"member",
         "actions": {
-            "add" : ["manage_options"],
+            "add" : "manage_options",
             "remove" : ["admin"],
             "update" : ["all"]
         },
@@ -246,7 +246,7 @@
         "table_name" : "project",
         "name" :"project",
         "actions": {
-            "add" : ["manage_options"],
+            "add" : "manage_options",
             "remove" : ["admin"],
             "update" : ["all"]
         },
