@@ -259,7 +259,7 @@ public static function get_all($entity) {
 public static function get_relation($left,$leftid,$right,$rightid) {
 	$results=  $GLOBALS['wpdb']->get_results(
 		$GLOBALS['wpdb']->prepare(
-			"SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left"= %d AND ".$right." =% ", $leftid,$rightid)
+			"SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left."= %d AND ".$right." =% ", $leftid,$rightid)
 	,"ARRAY_A");
 	return $results;
 }
