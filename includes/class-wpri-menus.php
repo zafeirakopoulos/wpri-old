@@ -69,6 +69,8 @@ class wpri_menu_factory {
      * @return void
      */
     public function register_menu() {
+        error_log("In menu register" );
+
         $entity = $this->entity;
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity_title, $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
         error_log("Menu registered: "."wpri-".$entity["title"]."-menu" );
