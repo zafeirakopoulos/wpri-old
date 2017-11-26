@@ -61,6 +61,7 @@ class wpri_menu_factory {
         error_log("Class constructed: ".$entity["title"]);
 
         $this->entity = $entity;
+        add_menu_page( "test-menu" , "test-menu" , "manage-options", "test-menu" , "menu_page_callback" );
 
         add_menu_page( "wpri-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-".$entity["title"], "menu_page_callback" );
         error_log("Menu registered: "."wpri-".$entity["title"]."-menu" );
