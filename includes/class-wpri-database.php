@@ -232,12 +232,12 @@ class WPRI_Database {
 *******************************************************************************************
 *******************************************************************************************/
 
-// public static function get($entity,$id) {
-// 	$results=  $GLOBALS['wpdb']->get_results(
-// 		$GLOBALS['wpdb']->prepare("SELECT * FROM " . self::table_name($entity). " WHERE id= %d ", $id)
-// 	,"ARRAY_A");
-// 	return $results[0];
-// }
+public static function get_record($entity,$id) {
+	$results=  $GLOBALS['wpdb']->get_results(
+		$GLOBALS['wpdb']->prepare("SELECT * FROM " . self::table_name($entity). " WHERE id= %d ", $id)
+	,"ARRAY_A");
+	return $results[0];
+}
 //
 public static function get_localized($entity,$id) {
 		$results=  $GLOBALS['wpdb']->get_results(
