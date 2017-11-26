@@ -94,7 +94,7 @@ class WPRI_Database {
 			if ($with_all_locales==true){
 				$sql = "CREATE TABLE ".self::table_name("locale_".$entity_name)." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
 				$sql = $sql .  $element["name"] ." INT,";
-				$sql = $sql .  "name". $element["type"] .",";
+				$sql = $sql .  "name ". $element["type"] .",";
 				$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
 				$sql = $sql .  "FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($element["name"])."(id)";
 				$sql = $sql . ");";
@@ -142,7 +142,7 @@ class WPRI_Database {
 
 		$tables_to_drop = array_reverse($tables_to_drop);
 		error_log("tables_to_drop ".implode($tables_to_drop));
-		array_push($tables_to_drop,"locale_project_title");
+		// array_push($tables_to_drop,"locale_project_title");
 
 	    foreach($tables_to_drop as $table_name){
 		    $GLOBALS['wpdb']->query( "DROP TABLE IF EXISTS  " . self::table_name($table_name) );
