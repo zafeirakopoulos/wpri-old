@@ -224,25 +224,25 @@ class WPRI_Database {
 	    }
     }
 
-	// public static function  populate_tables() {
-	// 	$locales= WPRI_Database::get_locales();
-	// 	$locales_dict = array();
-	// 	foreach ($locales as $key => $value) {
-	// 		array_push($locales_dict, $value=>$key);
-	// 	}
-    //
-	// 	foreach ($declarations as $entity_name => $entity) {
-	// 		if (isset($entity["default_values"]) ){
-	// 			foreach ($entity["default_values"] as $element) {
-	// 				if (isset($element["locale"]) ){
-	// 					WPRI_Database::add_localized($entity,$locales_dict[$element["locale"]], $element[$entity]);
-	// 				}else{
-	// 					WPRI_Database::add($entity, $element[$entity]);
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
+	public static function  populate_tables() {
+		$locales= WPRI_Database::get_locales();
+		$locales_dict = array();
+		foreach ($locales as $key => $value) {
+			$locales_dict[$value]=$key;
+		}
+
+		foreach ($declarations as $entity_name => $entity) {
+			if (isset($entity["default_values"]) ){
+				foreach ($entity["default_values"] as $element) {
+					if (isset($element["locale"]) ){
+						WPRI_Database::add_localized($entity,$locales_dict[$element["locale"]], $element[$entity]);
+					}else{
+						WPRI_Database::add($entity, $element[$entity]);
+					}
+				}
+			}
+		}
+	}
 
 /******************************************************************************************
 *******************************************************************************************
