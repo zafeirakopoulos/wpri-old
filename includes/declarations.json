@@ -22,6 +22,14 @@
                     }
                 ]
             }
+        ],
+        "default_values" : [
+            {
+                "locale" : "en_US",
+            },
+            {
+                "locale" : "tr_TR"
+            }
         ]
     },
     "position": {
@@ -47,6 +55,16 @@
                         "all_locales" : true
                     }
                 ]
+            }
+        ],
+        "default_values" : [
+            {
+                "position" : "Director",
+                "locale" : "en_US"
+            },
+            {
+                "position" : "Mudur",
+                "locale" : "tr_TR"
             }
         ]
     },
