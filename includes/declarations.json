@@ -309,7 +309,7 @@
                         "type": "text",
                         "name" : "requirement",
                         "caption" : "Requirement" ,
-                        "value": "Computer Science degree",
+                        "value": "Computer Engineering degree",
                         "cols" : "100",
                         "rows": "1",
                         "all_locales" : true
@@ -353,7 +353,7 @@
                 "status" : "YDS > 75",
                 "en_US" : "YDS > 75",
                 "tr_TR" : "YDS > 75"
-            }    
+            }
         ]
     },
     "projectrole": {
@@ -379,6 +379,32 @@
                         "all_locales" : true
                     }
                 ]
+            }
+        ],
+        "default_values" : [
+            {
+                "localized" : true,
+                "projectrole" : "Principal Investigator",
+                "en_US" : "Principal Investigator",
+                "tr_TR" : "Yurutuncu"
+            },
+            {
+                "localized" : true,
+                "projectrole" : "Researcher",
+                "en_US" : "Researcher",
+                "tr_TR" : "Researcher"
+            },
+            {
+                "localized" : true,
+                "projectrole" : "Research Assistant",
+                "en_US" : "Research Assistant",
+                "tr_TR" : "Research Assistant"
+            } ,
+            {
+                "localized" : true,
+                "projectrole" : "Advisor",
+                "en_US" : "Advisor",
+                "tr_TR" : "Advisor"
             }
         ]
     },
