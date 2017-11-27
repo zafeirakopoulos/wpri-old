@@ -143,8 +143,7 @@ class WPRI_Form {
 								<li class="list-group-item" data-id:"5">Just drag some elements around.</li>
 							</ul>
 							<ul id="output<?php echo $element["name"]?>" class="list-group">
-								<!-- <li class="list-group-item">It h devices.</li>
-								<li class="list-group-item">It h devvdvdvdsvdsices.</li> -->
+								<li class="list-group-item">Drag here the authors</li>
 							</ul>
 							<div id='<?php echo $element["name"]?>_order'></div>
 							<script>
