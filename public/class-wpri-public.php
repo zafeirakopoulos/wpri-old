@@ -103,9 +103,14 @@ class WPRI_Public {
 
 
 		 wp_register_script( 'bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ));
+		 wp_register_script( 'sortable_js', '//cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js');
+
+
 		 wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wpri-public.js', array( 'jquery' ));
 
 		wp_enqueue_script( 'bootstrap_js' );
+		wp_enqueue_script( 'sortable_js' );
+
 		wp_enqueue_script($this->plugin_name);
 
 		wp_localize_script( $this->plugin_name, 'wpri_ajax', array(
@@ -114,8 +119,9 @@ class WPRI_Public {
 			)
 		);
 
+
 		wp_enqueue_script( 'jquery');
-		wp_enqueue_script( 'jquery-ui-core');
+		// wp_enqueue_script( 'jquery-ui-core');
 		wp_enqueue_script( 'jquery-ui-datepicker');
 
 
