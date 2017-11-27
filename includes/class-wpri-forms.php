@@ -136,11 +136,15 @@ class WPRI_Form {
 								<li class="list-group-item">It has support for touch devices.</li>
 								<li class="list-group-item">Just drag some elements around.</li>
 							</ul>
-
+							<ul id="otherList<?php echo $element["name"]?>" class="list-group">
+								<li class="list-group-item">It h devices.</li>
+							</ul>
 							<script>
 							    // Simple list
 								var el = document.getElementById('simpleList<?php echo $element["name"]?>');
-							    Sortable.create(el);
+							    Sortable.create(el,{draggable: ".item", group:"mygroup"});
+								var el = document.getElementById('otherList<?php echo $element["name"]?>');
+							    Sortable.create(el,{group:"mygroup"});
 							</script>
 							<?php
 							// $all_entries = array();
