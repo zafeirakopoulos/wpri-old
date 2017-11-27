@@ -149,7 +149,7 @@ class WPRI_Form {
 							    Sortable.create(output,{sort:true, group:"<?php echo $element["name"]?>",
 									onUpdate: function(event, ui) {
 						                var order = this.toArray();
-						                document.getElementById('<?php echo $element["name"]?>_order').val(order.join(","));
+						                jQuery('#<?php echo $element["name"]?>_order').val(order.join(","));
 						            }
 								});
 							</script>
