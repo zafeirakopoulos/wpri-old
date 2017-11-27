@@ -232,6 +232,9 @@ class WPRI_Database {
 			$locales_dict[$value]=$key;
 		}
 
+		$declarations = WPRI_Declarations::get_declarations();
+
+
 		foreach ($declarations as $entity_name => $entity) {
 			if (isset($entity["default_values"]) ){
 				foreach ($entity["default_values"] as $element) {
