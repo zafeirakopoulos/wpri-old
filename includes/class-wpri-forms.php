@@ -129,16 +129,17 @@ class WPRI_Form {
 							// TODO Read the relation
 							echo "<h3>".$element["caption"]."</h3>";
 							?>
-							<ul id='contnetbox'>
-							<li> item </li>
-							<li> other item </li>
-							<li> yet another item </li>
+							<ul id="simpleList" class="list-group">
+								<li class="list-group-item">This is <a href="http://rubaxa.github.io/Sortable/">Sortable</a></li>
+								<li class="list-group-item">It works with Bootstrap...</li>
+								<li class="list-group-item">...out of the box.</li>
+								<li class="list-group-item">It has support for touch devices.</li>
+								<li class="list-group-item">Just drag some elements around.</li>
 							</ul>
 
-							<script type="text/javascript">
-								jQuery(document).ready( function($) {
-								   $('#contnetbox').sortable();
-								});
+							<script>
+							    // Simple list
+							    Sortable.create(simpleList);
 							</script>
 							<?php
 							// $all_entries = array();
