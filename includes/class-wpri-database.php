@@ -236,15 +236,12 @@ class WPRI_Database {
 			foreach ($locales as $key => $value) {
 				error_log($key."-->".$value);
 			}
-
-			if (empty($locales)==false){
-				$locales_dict = array();
-				foreach ($locales as $key => $value) {
-					$locales_dict[$value]=$key;
-				}
-				error_log(print_r($locales_dict));
-
+			$locales_dict = array();
+			foreach ($locales as $key => $value) {
+				$locales_dict[$value]=$key;
 			}
+			error_log(print_r($locales_dict));
+
 			if (isset($entity["default_values"]) ){
 				foreach ($entity["default_values"] as $element) {
 					if (isset($element["locale"]) ){
