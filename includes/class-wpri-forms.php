@@ -129,23 +129,30 @@ class WPRI_Form {
 							// TODO Read the relation
 							echo "<h3>".$element["caption"]."</h3>";
 							?>
-							<ul id="simpleList<?php echo $element["name"]?>" class="list-group">
+							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<li class="list-group-item">This is <a href="http://rubaxa.github.io/Sortable/">Sortable</a></li>
 								<li class="list-group-item">It works with Bootstrap...</li>
 								<li class="list-group-item">...out of the box.</li>
 								<li class="list-group-item">It has support for touch devices.</li>
 								<li class="list-group-item">Just drag some elements around.</li>
 							</ul>
-							<ul id="otherList<?php echo $element["name"]?>" class="list-group">
+							<ul id="output<?php echo $element["name"]?>" class="list-group">
 								<li class="list-group-item">It h devices.</li>
 								<li class="list-group-item">It h devvdvdvdsvdsices.</li>
 							</ul>
 							<script>
 							    // Simple list
-								var el = document.getElementById('simpleList<?php echo $element["name"]?>');
-							    Sortable.create(el,{sort:true, group:"mygroup"});
-								var el = document.getElementById('otherList<?php echo $element["name"]?>');
-							    Sortable.create(el,{sort:true, group:"mygroup"});
+								var input = document.getElementById('input<?php echo $element["name"]?>');
+							    Sortable.create(input,{sort:true, group:"<?php echo $element["name"]?>p"});
+								var output = document.getElementById('output<?php echo $element["name"]?>');
+							    Sortable.create(output,{sort:true, group:"<?php echo $element["name"]?>",
+									onUpdate: function(event, ui) {
+										var output = document.getElementById('output<?php echo $element["name"]?>');
+						                var order = output.toArray();
+						                jQuery('#<?php echo $element["name"]?>_order').val(order.join(","));
+						                alert($('#<?php echo $element["name"]?>_order').val());
+						            }
+								});
 							</script>
 							<?php
 							// $all_entries = array();
