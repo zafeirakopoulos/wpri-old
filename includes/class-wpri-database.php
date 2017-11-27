@@ -264,6 +264,13 @@ public static function get_record($entity,$id) {
 	return $results[0];
 }
 
+public static function get_field($table,$field,$id) {
+	$results=  $GLOBALS['wpdb']->get_results(
+		$GLOBALS['wpdb']->prepare("SELECT ".$field." FROM " . self::table_name($table). " WHERE id= %d ", $id)
+	,"ARRAY_A");
+	return $results[0];
+}
+
 
 public static function get_records($table, $where) {
 	$values = array();
