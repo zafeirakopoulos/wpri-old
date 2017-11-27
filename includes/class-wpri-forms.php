@@ -152,7 +152,11 @@ class WPRI_Form {
    								}
    								else{
 									if (is_array($element["display_column"])){
+										error_log($element["display_column"][0].$element["display_column"][1].$dbitem["id"]);
+
 										$display_name = WPRI_Database::get_field($element["display_column"][0],$element["display_column"][1],$dbitem["id"]);
+										error_log("display name:".$display_name);
+
 									}else{
 										$display_name = $dbitem[$element["display_column"]];
 									}
@@ -161,8 +165,6 @@ class WPRI_Form {
 							}
 
 							foreach ( $all_entries as $item ) {
-								error_log($item[0]["id"]."====>".$item[1]);
-
 								echo "<option name='".$item[0]["id"]."'>".$item[1]."</option>";
 							}
 							echo "</select>";
