@@ -152,7 +152,7 @@ class WPRI_Form {
 									echo "<h1>name:".$display_name."</h1>";
    								}
    								else{
-   									$display_name = $item[$element["display_column"]];
+   									$display_name = $dbitem[$element["display_column"]];
    								}
 								array_push($all_entries, array($dbitem,$display_name));
 							}
