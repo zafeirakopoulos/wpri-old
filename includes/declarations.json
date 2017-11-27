@@ -487,7 +487,8 @@
                 "elements" : [
                     {
                         "caption" : "Members of the institute participating in the project" ,
-                        "name": "members[]",
+                        "form_name": "members[]",
+                        "name": "members",
                         "value": "",
                         "type": "multiple-select",
                         "relation" : [
