@@ -320,37 +320,37 @@
         "default_values" : [
             {
                 "localized" : true,
-                "status" : "Computer Science degree",
+                "requirement" : "Computer Science degree",
                 "en_US" : "Computer Science degree",
                 "tr_TR" : "Computer Science degree"
             },
             {
                 "localized" : true,
-                "status" : "Mathematics degree",
+                "requirement" : "Mathematics degree",
                 "en_US" : "Mathematics degree",
                 "tr_TR" : "Mathematics degree"
             },
             {
                 "localized" : true,
-                "status" : "Computer Engineering degree",
+                "requirement" : "Computer Engineering degree",
                 "en_US" : "Computer Engineering degree",
                 "tr_TR" : "Computer Engineering degree"
             },
             {
                 "localized" : true,
-                "status" : "Electrical Engineering degree",
+                "requirement" : "Electrical Engineering degree",
                 "en_US" : "Electrical Engineering degree",
                 "tr_TR" : "Electrical Engineering degree"
             },
             {
                 "localized" : true,
-                "status" : "ALES > 75",
+                "requirement" : "ALES > 75",
                 "en_US" : "ALES > 75",
                 "tr_TR" : "ALES > 75"
             },
             {
                 "localized" : true,
-                "status" : "YDS > 75",
+                "requirement" : "YDS > 75",
                 "en_US" : "YDS > 75",
                 "tr_TR" : "YDS > 75"
             }
