@@ -136,21 +136,9 @@ class WPRI_Form {
 							</ul>
 
 							<script type="text/javascript">
-							jQuery(function(){
-								jQuery("#contnetbox").sortable({
-
-								stop: function (event, ui) {
-
-									var new_order = jQuery(this).sortable('serialize');
-									jQuery.post( "http://www.thissite.com/wp-admin/ajax.php", { action: my_custom_ajax_save, order: new_order }, function( data ) {
-
-										console.log('ajax sent and response received');
-
-									});
-								}
+								jQuery(document).ready( function($) {
+								   $('table#image_sort tbody').sortable();
 								});
-
-								})
 							</script>
 							<?php
 							// $all_entries = array();
