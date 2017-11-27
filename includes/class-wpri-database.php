@@ -318,7 +318,7 @@ public static function add($table,$item) {
 
 # The associcative array names is of the form locale_id => "translated name of table[id]"
 public static function add_localized($table,$item,$names) {
-	$GLOBALS['wpdb']->insert( self::table_name($table) , array( 'name' => $item ) );
+	$GLOBALS['wpdb']->insert( self::table_name($table) , array( $table => $item ) );
 	$new_id = $GLOBALS['wpdb']->insert_id;
 	$success = $new_id;
 
