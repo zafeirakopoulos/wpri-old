@@ -242,7 +242,7 @@ public static function get_record($entity,$id) {
 
 public static function get_records($table, $where) {
 	$values = array();
-	$wherearray = array()
+	$wherearray = array();
 	foreach ($where as $key => $value) {
 		# gettype
 		array_push($wherearray," ".$key."= %d ");
