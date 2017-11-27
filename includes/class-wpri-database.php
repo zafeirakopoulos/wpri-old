@@ -234,9 +234,9 @@ class WPRI_Database {
 		foreach ($declarations as $entity_name => $entity) {
 			$locales= WPRI_Database::get_locales();
 
- 			foreach ($locales as $key => $value) {
-				$locales_dict[$value["locale"]]=$key;
-			}
+ 			// foreach ($locales as $key => $value) {
+			// 	$locales_dict[$value["locale"]]=$key;
+			// }
 
 			if (isset($entity["default_values"]) ){
 				foreach ($entity["default_values"] as $element) {
@@ -245,8 +245,8 @@ class WPRI_Database {
 					} else{
 						if (isset($element["localized"])){
 							$names = array();
-							foreach ($locales_dict as $key => $value) {
-								$names[$value]= $element[$key] ;
+							foreach ($locales as $key => $value) {
+								$names[$key]= $element[$value] ;
 								error_log($value."--->".$element[$key]);
 							}
 							WPRI_Database::add_localized($entity_name, $element[$entity_name] , $names);
