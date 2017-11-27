@@ -101,9 +101,10 @@ class WPRI_Admin {
 		// wp_register_script( 'sortable_js', 'http://cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js');
 
 		// wp_enqueue_script( 'sortable_js' );
+		wp_enqueue_script( 'jquery');
 		wp_enqueue_script( 'jquery-ui-core');
 		wp_enqueue_script( 'jquery-ui-sortable');
-	   wp_enqueue_script( 'jquery-ui-datepicker');
+	    wp_enqueue_script( 'jquery-ui-datepicker');
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wpri-admin.js', array( 'jquery' ), $this->version, false );
 
