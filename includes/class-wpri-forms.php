@@ -161,6 +161,7 @@ class WPRI_Form {
 							}
 
 							foreach ( $all_entries as $item ) {
+								error_log($item[0]["id"]."====>".$item[1]);
 
 								echo "<option name='".$item[0]["id"]."' value='".$item[1]."'></option>";
 							}
