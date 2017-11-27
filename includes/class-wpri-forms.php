@@ -152,7 +152,7 @@ class WPRI_Form {
    								}
    								else{
 									if (is_array($element["display_column"])){
-										$display_name = WPRI_Database::get_field($element["display_column"][0],$element["display_column"][1],$dbitem["id"]));
+										$display_name = WPRI_Database::get_field($element["display_column"][0],$element["display_column"][1],$dbitem["id"]);
 									}else{
 										$display_name = $dbitem[$element["display_column"]];
 									}
