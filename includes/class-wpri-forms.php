@@ -138,12 +138,12 @@ class WPRI_Form {
 							</ul>
 							<ul id="otherList<?php echo $element["name"]?>" class="list-group">
 								<li class="list-group-item">It h devices.</li>
-								<li class="list-group-item">It h devices.</li>
+								<li class="list-group-item">It h devvdvdvdsvdsices.</li>
 							</ul>
 							<script>
 							    // Simple list
 								var el = document.getElementById('simpleList<?php echo $element["name"]?>');
-							    Sortable.create(el,{sort:true, draggable: ".item", group:"mygroup"});
+							    Sortable.create(el,{sort:true, group:"mygroup"});
 								var el = document.getElementById('otherList<?php echo $element["name"]?>');
 							    Sortable.create(el,{sort:true, group:"mygroup"});
 							</script>
