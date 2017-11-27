@@ -226,24 +226,25 @@ class WPRI_Database {
     }
 
 	public static function  populate_tables() {
-		$locales= WPRI_Database::get_locales();
-		foreach ($locales as $key => $value) {
-			error_log($key."-->".$value);
-		}
 
-		if (empty($locales)==false){
-			$locales_dict = array();
-			foreach ($locales as $key => $value) {
-				$locales_dict[$value]=$key;
-			}
-			error_log(print_r($locales_dict));
-
-		}
 
 		$declarations = WPRI_Declarations::get_declarations();
 
 
 		foreach ($declarations as $entity_name => $entity) {
+			$locales= WPRI_Database::get_locales();
+			foreach ($locales as $key => $value) {
+				error_log($key."-->".$value);
+			}
+
+			if (empty($locales)==false){
+				$locales_dict = array();
+				foreach ($locales as $key => $value) {
+					$locales_dict[$value]=$key;
+				}
+				error_log(print_r($locales_dict));
+
+			}
 			if (isset($entity["default_values"]) ){
 				foreach ($entity["default_values"] as $element) {
 					if (isset($element["locale"]) ){
