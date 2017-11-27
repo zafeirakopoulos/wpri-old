@@ -137,7 +137,7 @@ class WPRI_Form {
 
 							<script type="text/javascript">
 								jQuery(document).ready( function($) {
-								   $('table#image_sort tbody').sortable();
+								   $('#contnetbox').sortable();
 								});
 							</script>
 							<?php
