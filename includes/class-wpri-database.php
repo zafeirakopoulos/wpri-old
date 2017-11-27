@@ -233,11 +233,9 @@ class WPRI_Database {
 
 		foreach ($declarations as $entity_name => $entity) {
 			$locales= WPRI_Database::get_locales();
-			foreach ($locales as $key => $value) {
-				error_log($key."-->".$value["locale"]);
-			}
+
  			foreach ($locales as $key => $value) {
-				$locales_dict[$value]=$key;
+				$locales_dict[$value["locale"]]=$key;
 			}
 
 			if (isset($entity["default_values"]) ){
