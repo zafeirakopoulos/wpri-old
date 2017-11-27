@@ -125,26 +125,29 @@ class WPRI_Form {
 							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
+
+							// TODO Read the relation
 							echo "<h3>".$element["caption"]."</h3>";
-							$all_entries = array();
-							foreach ($element["table"] as $table) {
-								 $all_entries = $all_entries + WPRI_Database::get_all($table);
-							}
-							foreach ( $all_entries as $item ) {
-								echo "<div class='form-check'>";
-								echo "<label class='form-check-label'>";
-								echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item->id."'>  ";
-								echo $item[$element["display_column"]];
-								echo "</label>";
-								echo "</div>";
-							}
+							// $all_entries = array();
+							// foreach ($element["table"] as $table) {
+							// 	 $all_entries = $all_entries + WPRI_Database::get_all($table);
+							// }
+                            //
+							// foreach ( $all_entries as $item ) {
+							// 	echo "<div class='form-check'>";
+							// 	echo "<label class='form-check-label'>";
+							// 	echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item->id."'>  ";
+							// 	echo $item[$element["display_column"]];
+							// 	echo "</label>";
+							// 	echo "</div>";
+							// }
 						}
 						elseif ($element["type"]=="select"){
 							echo "<h3>".$element["caption"]."</h3>";
 							echo "<select name='".$element["name"]."'>";
 							$all_entries = array();
 							foreach (WPRI_Database::get_all($element["table"]) as $dbitem) {
-								if ($element["localized"]==1){
+								if (isset($element["localized"])){
 									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"])[$table];
 									echo "<h1>name:".$display_name."</h1>";
    								}
