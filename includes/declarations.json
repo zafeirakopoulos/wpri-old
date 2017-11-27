@@ -59,12 +59,10 @@
         ],
         "default_values" : [
             {
+                "localized" : true,
                 "position" : "Director",
-                "locale" : "en_US"
-            },
-            {
-                "position" : "Mudur",
-                "locale" : "tr_TR"
+                "en_US" : "Director",
+                "tr_TR" : "Mudur"
             }
         ]
     },
