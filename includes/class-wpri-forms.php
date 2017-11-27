@@ -129,7 +129,7 @@ class WPRI_Form {
 							// TODO Read the relation
 							echo "<h3>".$element["caption"]."</h3>";
 							?>
-							<ul id="simpleList" class="list-group">
+							<ul id="#simpleList<?php echo $element["name"]?>" class="list-group">
 								<li class="list-group-item">This is <a href="http://rubaxa.github.io/Sortable/">Sortable</a></li>
 								<li class="list-group-item">It works with Bootstrap...</li>
 								<li class="list-group-item">...out of the box.</li>
@@ -139,7 +139,7 @@ class WPRI_Form {
 
 							<script>
 							    // Simple list
-							    Sortable.create(simpleList);
+							    Sortable.create(simpleList<?php echo $element["name"]?>);
 							</script>
 							<?php
 							// $all_entries = array();
