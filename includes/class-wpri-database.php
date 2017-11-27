@@ -245,9 +245,9 @@ class WPRI_Database {
 					} else{
 						if (isset($element["localized"])){
 							$names = array();
-							foreach ($locales as $key => $value) {
-								$names[$key]= $element[$value["locale"]] ;
-								error_log($key."--->".$element[$value["locale"]]);
+							foreach ($locales as $value) {
+								$names[$value["id"]]= $element[$value["locale"]] ;
+								error_log($value["id"]."--->".$element[$value["locale"]]);
 							}
 							WPRI_Database::add_localized($entity_name, $element[$entity_name] , $names);
 						}else{
@@ -322,7 +322,7 @@ public static function add_localized($table,$item,$names) {
 	$new_id = $GLOBALS['wpdb']->insert_id;
 	$success = $new_id;
 
-		foreach ( WPRI_Database::get_locales() as $locale ) {
+	foreach ( WPRI_Database::get_locales() as $locale ) {
 		$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
 			'locale' => $locale["id"],
 			$table => $new_id,
