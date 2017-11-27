@@ -128,20 +128,21 @@ class WPRI_Form {
 							$relation = $element["relation"];
 							// TODO Read the relation
 							echo "<h3>".$element["caption"]."</h3>";
-							echo "<ul id='contnet-box'>";
-							echo "<li> item </li>";
-							echo "<li> other item </li>";
-							echo "<li> yet another item </li>";
-							echo "</ul>";
-
-							echo '<script type="text/javascript">
+							?>
+							<ul id='contnet-box'>
+							<li> item </li>
+							<li> other item </li>
+							<li> yet another item </li>
+							</ul>
+							<script type="text/javascript">
 								jQuery(document).ready(function(){
 
 								  jQuery( "ul#contnet-box" ).sortable({
 								            });
 								      });
 
-								</script>';
+								</script>
+							<?php
 							// $all_entries = array();
 							// foreach ($element["table"] as $table) {
 							// 	 $all_entries = $all_entries + WPRI_Database::get_all($table);
