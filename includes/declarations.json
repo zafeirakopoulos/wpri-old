@@ -428,7 +428,7 @@
                         "type": "select",
                         "table" : "user",
                         "column" : "ID",
-                        "display_column" : "name"
+                        "display_column" : ["user","name"]
                     },
                     {
                         "caption" : "Role" ,
@@ -437,7 +437,7 @@
                         "type": "select",
                         "table" : "role",
                         "column" : "id",
-                        "display_column" : "name"
+                        "display_column" : "localized"
                     }
                 ]
             }

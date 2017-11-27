@@ -148,11 +148,14 @@ class WPRI_Form {
 							$all_entries = array();
 							foreach (WPRI_Database::get_all($element["table"]) as $dbitem) {
 								if (isset($element["localized"])){
-									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"])[$table];
-									echo "<h1>name:".$display_name."</h1>";
+									 $display_name = WPRI_Database::get_localized($table,$dbitem["id"])[$table];
    								}
    								else{
-   									$display_name = $dbitem[$element["display_column"]];
+									if (is_array($element["display_column"])){
+										$display_name = WPRI_Database::get_field($element["display_column"][0],$element["display_column"][1],$dbitem["id"]));
+									}else{
+										$display_name = $dbitem[$element["display_column"]];
+									}
    								}
 								array_push($all_entries, array($dbitem,$display_name));
 							}
