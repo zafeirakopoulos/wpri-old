@@ -243,10 +243,11 @@ class WPRI_Database {
 					if ($entity_name=="locale"){
 						WPRI_Database::add("locale", array( "locale" => $element["locale"]));
 					} else{
-						if (isset($element["localized"]) ){
+						if (isset($element["localized"])){
 							$names = array();
 							foreach ($locales_dict as $key => $value) {
 								$names[$value]= $element[$key] ;
+								error_log($value."--->".$element[$key]);
 							}
 							WPRI_Database::add_localized($entity_name, $element[$entity_name] , $names);
 						}else{
