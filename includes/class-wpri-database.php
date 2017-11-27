@@ -251,6 +251,8 @@ class WPRI_Database {
 							}
 							WPRI_Database::add_localized($entity_name, $element[$entity_name] , $names);
 						}else{
+							error_log("not localized");
+
 							// WPRI_Database::add($entity_name, $element[$entity_name]);
 						}
 					}
