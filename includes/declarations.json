@@ -63,6 +63,30 @@
                 "position" : "Director",
                 "en_US" : "Director",
                 "tr_TR" : "Mudur"
+            },
+            {
+                "localized" : true,
+                "position" : "Vice Director",
+                "en_US" : "Vice Director",
+                "tr_TR" : "Yard Mudur"
+            },
+            {
+                "localized" : true,
+                "position" : "Faculty",
+                "en_US" : "Faculty",
+                "tr_TR" : "Faculty"
+            },
+            {
+                "localized" : true,
+                "position" : "Research Assistant",
+                "en_US" : "Research Assistant",
+                "tr_TR" : "Ar Gor"
+            },
+            {
+                "localized" : true,
+                "position" : "Technician",
+                "en_US" : "Technician",
+                "tr_TR" : "Technician"
             }
         ]
     },
