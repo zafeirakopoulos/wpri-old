@@ -247,7 +247,7 @@ class WPRI_Database {
 							$names = array();
 							foreach ($locales as $key => $value) {
 								$names[$key]= $element[$value] ;
-								error_log($value."--->".$element[$key]);
+								error_log($key."--->".$element[$value]);
 							}
 							WPRI_Database::add_localized($entity_name, $element[$entity_name] , $names);
 						}else{
