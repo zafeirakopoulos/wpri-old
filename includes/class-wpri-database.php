@@ -227,9 +227,12 @@ class WPRI_Database {
 
 	public static function  populate_tables() {
 		$locales= WPRI_Database::get_locales();
+		foreach ($locales as $key => $value) {
+			error_log($key."-->".$value);
+		}
+
 		if (empty($locales)==false){
 			$locales_dict = array();
-			error_log(print_r($locales));
 			foreach ($locales as $key => $value) {
 				$locales_dict[$value]=$key;
 			}
