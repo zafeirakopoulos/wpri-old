@@ -242,12 +242,16 @@ class WPRI_Database {
 			}
 			error_log(print_r($locales_dict));
 
-			if (isset($entity["default_values"]) ){
-				foreach ($entity["default_values"] as $element) {
-					if (isset($element["locale"]) ){
-						WPRI_Database::add_localized($entity,$locales_dict[$element["locale"]], $element[$entity]);
-					}else{
-						WPRI_Database::add($entity, $element[$entity]);
+			if ($entity_name=="locale"){
+				WPRI_Database::add($entity_name, $element[$entity_name]);
+			} else{
+				if (isset($entity["default_values"]) ){
+					foreach ($entity["default_values"] as $element) {
+						if (isset($element["locale"]) ){
+							WPRI_Database::add_localized($entity_name,$locales_dict[$element["locale"]], $element[$entity_name]);
+						}else{
+							WPRI_Database::add($entity_name, $element[$entity_name]);
+						}
 					}
 				}
 			}
