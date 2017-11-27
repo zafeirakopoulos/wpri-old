@@ -139,7 +139,8 @@ class WPRI_Form {
 
 							<script>
 							    // Simple list
-							    Sortable.create(document.getElementById('simpleList<?php echo $element["name"]?>'));
+								var el = document.getElementById('simpleList<?php echo $element["name"]?>');
+							    Sortable.create(el);
 							</script>
 							<?php
 							// $all_entries = array();
