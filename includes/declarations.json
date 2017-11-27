@@ -114,6 +114,32 @@
                     }
                 ]
             }
+        ],
+        "default_values" : [
+            {
+                "localized" : true,
+                "title" : "Professor",
+                "en_US" : "Professor",
+                "tr_TR" : "Professor"
+            },
+            {
+                "localized" : true,
+                "title" : "Associate Professor",
+                "en_US" : "Associate Professor",
+                "tr_TR" : "Docent"
+            },
+            {
+                "localized" : true,
+                "title" : "Assistant Professor",
+                "en_US" : "Assistant Professor",
+                "tr_TR" : "Yard Doc"
+            },
+            {
+                "localized" : true,
+                "title" : "Dr.",
+                "en_US" : "Dr.",
+                "tr_TR" : "Dr."
+            }
         ]
     },
     "agency": {
@@ -139,6 +165,20 @@
                         "all_locales" : true
                     }
                 ]
+            }
+        ],
+        "default_values" : [
+            {
+                "localized" : true,
+                "agency" : "TUBITAK",
+                "en_US" : "TUBITAK",
+                "tr_TR" : "TUBITAK"
+            },
+            {
+                "localized" : true,
+                "agency" : "H2020",
+                "en_US" : "H2020",
+                "tr_TR" : "H2020"
             }
         ]
     },
@@ -166,6 +206,26 @@
                     }
                 ]
             }
+        ],
+        "default_values" : [
+            {
+                "localized" : true,
+                "role" : "admin",
+                "en_US" : "admin",
+                "tr_TR" : "admin"
+            },
+            {
+                "localized" : true,
+                "role" : "manager",
+                "en_US" : "manager",
+                "tr_TR" : "manager"
+            },
+            {
+                "localized" : true,
+                "role" : "user",
+                "en_US" : "user",
+                "tr_TR" : "user"
+            }
         ]
     },
     "status": {
@@ -191,6 +251,44 @@
                         "all_locales" : true
                     }
                 ]
+            }
+        ],
+        "default_values" : [
+            {
+                "localized" : true,
+                "status" : "ongoing",
+                "en_US" : "ongoing",
+                "tr_TR" : "ongoing"
+            },
+            {
+                "localized" : true,
+                "status" : "submitted",
+                "en_US" : "submitted",
+                "tr_TR" : "submitted"
+            },
+            {
+                "localized" : true,
+                "status" : "concluded",
+                "en_US" : "concluded",
+                "tr_TR" : "concluded"
+            },
+            {
+                "localized" : true,
+                "status" : "accepted",
+                "en_US" : "accepted",
+                "tr_TR" : "accepted"
+            },
+            {
+                "localized" : true,
+                "status" : "published",
+                "en_US" : "published",
+                "tr_TR" : "published"
+            },
+            {
+                "localized" : true,
+                "status" : "expired",
+                "en_US" : "expired",
+                "tr_TR" : "expired"
             }
         ]
     },
@@ -218,6 +316,44 @@
                     }
                 ]
             }
+        ],
+        "default_values" : [
+            {
+                "localized" : true,
+                "status" : "Computer Science degree",
+                "en_US" : "Computer Science degree",
+                "tr_TR" : "Computer Science degree"
+            },
+            {
+                "localized" : true,
+                "status" : "Mathematics degree",
+                "en_US" : "Mathematics degree",
+                "tr_TR" : "Mathematics degree"
+            },
+            {
+                "localized" : true,
+                "status" : "Computer Engineering degree",
+                "en_US" : "Computer Engineering degree",
+                "tr_TR" : "Computer Engineering degree"
+            },
+            {
+                "localized" : true,
+                "status" : "Electrical Engineering degree",
+                "en_US" : "Electrical Engineering degree",
+                "tr_TR" : "Electrical Engineering degree"
+            },
+            {
+                "localized" : true,
+                "status" : "ALES > 75",
+                "en_US" : "ALES > 75",
+                "tr_TR" : "ALES > 75"
+            },
+            {
+                "localized" : true,
+                "status" : "YDS > 75",
+                "en_US" : "YDS > 75",
+                "tr_TR" : "YDS > 75"
+            }    
         ]
     },
     "projectrole": {
