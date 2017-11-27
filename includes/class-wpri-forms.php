@@ -140,6 +140,7 @@ class WPRI_Form {
 								<li class="list-group-item">It h devices.</li>
 								<li class="list-group-item">It h devvdvdvdsvdsices.</li>
 							</ul>
+							<div id='<?php echo $element["name"]?>_order'></div>
 							<script>
 							    // Simple list
 								var input = document.getElementById('input<?php echo $element["name"]?>');
@@ -148,8 +149,7 @@ class WPRI_Form {
 							    Sortable.create(output,{sort:true, group:"<?php echo $element["name"]?>",
 									onUpdate: function(event, ui) {
 						                var order = this.toArray();
-						                document.getElementById('#<?php echo $element["name"]?>_order').val(order.join(","));
-						                alert($('#<?php echo $element["name"]?>_order').val());
+						                document.getElementById('<?php echo $element["name"]?>_order').val(order.join(","));
 						            }
 								});
 							</script>
