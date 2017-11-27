@@ -55,6 +55,7 @@ class WPRI_Database {
 	 * @since    1.0.0
 	 */
 	public static function create_tables() {
+		$first_install = ( $GLOBALS['wpdb']->get_var( "SHOW TABLES LIKE '".self::table_name("locale")."'") != self::table_name("locale")  );
 
 		$declarations = WPRI_Declarations::get_declarations();
 
@@ -152,7 +153,7 @@ class WPRI_Database {
 		}
 
 	    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-		return 0; #first install
+		return $first_install;
 	}
 
 
