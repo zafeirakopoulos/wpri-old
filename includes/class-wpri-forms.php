@@ -129,16 +129,28 @@ class WPRI_Form {
 							// TODO Read the relation
 							echo "<h3>".$element["caption"]."</h3>";
 							?>
-							<ul id='contnet-box'>
+							<ul id='contnetbox'>
 							<li> item </li>
 							<li> other item </li>
 							<li> yet another item </li>
 							</ul>
 
 							<script type="text/javascript">
- 								jQuery(function() {
-						        $( "#contnet-box" ).sortable();
-						        });
+							jQuery(function(){
+								jQuery("#contnetbox").sortable({
+
+								stop: function (event, ui) {
+
+									var new_order = jQuery(this).sortable('serialize');
+									jQuery.post( "http://www.thissite.com/wp-admin/ajax.php", { action: my_custom_ajax_save, order: new_order }, function( data ) {
+
+										console.log('ajax sent and response received');
+
+									});
+								}
+								});
+
+								})
 							</script>
 							<?php
 							// $all_entries = array();
