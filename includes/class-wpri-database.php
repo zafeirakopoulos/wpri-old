@@ -238,7 +238,22 @@ public static function get_record($entity,$id) {
 	,"ARRAY_A");
 	return $results[0];
 }
-//
+
+
+public static function get_records($table, $where) {
+	$values = array();
+	$wherearray = array()
+	foreach ($where as $key => $value) {
+		# gettype
+		array_push($wherearray," ".$key."= %d ");
+		array_push($values,$value);
+	}
+	$query = "SELECT * FROM " . self::table_name($table). " WHERE ". join(" AND ", $wherearray);
+	error_log($query);
+	$results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare($query, $values),"ARRAY_A");
+	return $results[0];
+}
+
 public static function get_localized($entity,$id) {
 		$results=  $GLOBALS['wpdb']->get_results(
 		$GLOBALS['wpdb']->prepare(
@@ -255,14 +270,6 @@ public static function get_all($entity) {
 }
 
 
-
-public static function get_relation($left,$leftid,$right,$rightid) {
-	$results=  $GLOBALS['wpdb']->get_results(
-		$GLOBALS['wpdb']->prepare(
-			"SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left."= %d AND ".$right." =% ", $leftid,$rightid)
-	,"ARRAY_A");
-	return $results;
-}
 
 public static function get_locales() {
 	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"),"ARRAY_A");
