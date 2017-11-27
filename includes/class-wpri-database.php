@@ -226,17 +226,10 @@ class WPRI_Database {
     }
 
 	public static function  populate_tables() {
-
-
 		$declarations = WPRI_Declarations::get_declarations();
-
-
 		foreach ($declarations as $entity_name => $entity) {
+			# Has to be in the loop because in the beginning locales are not defined.
 			$locales= WPRI_Database::get_locales();
-
- 			// foreach ($locales as $key => $value) {
-			// 	$locales_dict[$value["locale"]]=$key;
-			// }
 
 			if (isset($entity["default_values"]) ){
 				foreach ($entity["default_values"] as $element) {
@@ -247,13 +240,10 @@ class WPRI_Database {
 							$names = array();
 							foreach ($locales as $value) {
 								$names[$value["id"]]= $element[$value["locale"]] ;
-								error_log($value["id"]."--->".$element[$value["locale"]]);
 							}
 							WPRI_Database::add_localized($entity_name, $element[$entity_name] , $names);
 						}else{
-							error_log("not localized");
-
-							// WPRI_Database::add($entity_name, $element[$entity_name]);
+							WPRI_Database::add($entity_name, array( $entity_name => $element[$entity_name] ));
 						}
 					}
 				}
