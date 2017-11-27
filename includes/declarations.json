@@ -548,7 +548,8 @@
                         "value": "",
                         "type": "select",
                         "table" : "status",
-                        "column" : "id"
+                        "column" : "id",
+                        "display_column" : "status"
                     }
                 ]
             },
