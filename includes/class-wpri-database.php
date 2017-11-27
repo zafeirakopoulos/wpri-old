@@ -236,17 +236,15 @@ class WPRI_Database {
 			foreach ($locales as $key => $value) {
 				error_log($key."-->".$value);
 			}
-			$locales_dict = array();
-			foreach ($locales as $key => $value) {
+ 			foreach ($locales as $key => $value) {
 				$locales_dict[$value]=$key;
 			}
-			error_log(print_r($locales_dict));
 
-			if ($entity_name=="locale"){
-				WPRI_Database::add("locale", array( "locale" => $element[$entity_name]));
-			} else{
-				if (isset($entity["default_values"]) ){
-					foreach ($entity["default_values"] as $element) {
+			if (isset($entity["default_values"]) ){
+				foreach ($entity["default_values"] as $element) {
+					if ($entity_name=="locale"){
+						WPRI_Database::add("locale", array( "locale" => $element[$entity_name]));
+					} else{
 						if (isset($element["locale"]) ){
 							// WPRI_Database::add_localized($entity_name,$locales_dict[$element["locale"]], $element[$entity_name]);
 						}else{
