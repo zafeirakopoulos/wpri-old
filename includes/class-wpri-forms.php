@@ -135,13 +135,9 @@ class WPRI_Form {
 							<li> yet another item </li>
 							</ul>
 							<script type="text/javascript">
-								jQuery(document).ready(function(){
+								$("#contnet-box").sortable("widget"); 
 
-								  jQuery( "ul#contnet-box" ).sortable({
-								            });
-								      });
-
-								</script>
+							</script>
 							<?php
 							// $all_entries = array();
 							// foreach ($element["table"] as $table) {
