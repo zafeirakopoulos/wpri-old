@@ -135,7 +135,8 @@ class WPRI_Form {
 							<li> yet another item </li>
 							</ul>
 							<script type="text/javascript">
-								jQuery("#contnet-box").sortable("widget"); 
+								var list = document.getElementById("contnet-box");
+								Sortable.create(list); 
 
 							</script>
 							<?php
