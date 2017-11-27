@@ -243,7 +243,7 @@ class WPRI_Database {
 			error_log(print_r($locales_dict));
 
 			if ($entity_name=="locale"){
-				WPRI_Database::add($entity_name, $element[$entity_name]);
+				WPRI_Database::add("locale", array( "locale" => $element[$entity_name]));
 			} else{
 				if (isset($entity["default_values"]) ){
 					foreach ($entity["default_values"] as $element) {
@@ -306,6 +306,32 @@ public static function get_all($entity) {
 public static function get_locales() {
 	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"),"ARRAY_A");
 }
+
+# item is an associative array
+public static function add($table,$item) {
+	$GLOBALS['wpdb']->insert( self::table_name($table) , $item);
+	return $GLOBALS['wpdb']->insert_id;
+}
+
+# The associcative array names is of the form locale_id => "translated name of table[id]"
+public static function add_localized($table,$item,$names) {
+	$GLOBALS['wpdb']->insert( self::table_name($table) , array( 'name' => $item ) );
+	$new_id = $GLOBALS['wpdb']->insert_id;
+	$success = $new_id;
+
+		foreach ( WPRI_Database::get_locales() as $locale ) {
+		$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
+			'locale' => $locale->id,
+			$table => $new_id,
+			'name' => $names[$locale->id]
+		));
+		$success = $success * $GLOBALS['wpdb']->insert_id;
+	}
+	if (!$success){
+		# TODO Delete what was added
+	}
+	return $success;
+}
 #################################################################################################
 #################################################################################################
 #################################################################################################
@@ -341,25 +367,7 @@ public static function get_locales() {
 
 
 
-	# The associcative array names is of the form locale_id => "translated name of table[id]"
-	public static function add_localized($table,$item,$names) {
-		$GLOBALS['wpdb']->insert( self::table_name($table) , array( 'name' => $item ) );
-		$new_id = $GLOBALS['wpdb']->insert_id;
-		$success = $new_id;
 
-			foreach ( WPRI_Database::get_locales() as $locale ) {
-			$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
-				'locale' => $locale->id,
-				$table => $new_id,
-				'name' => $names[$locale->id]
-			));
-			$success = $success * $GLOBALS['wpdb']->insert_id;
-		}
-		if (!$success){
-			# TODO Delete what was added
-		}
-		return $success;
-	}
 
 	public static function delete_localized($table,$id) {
 			foreach ( WPRI_Database::get_locales() as $locale ) {
