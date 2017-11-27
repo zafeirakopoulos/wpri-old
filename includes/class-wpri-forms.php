@@ -130,17 +130,17 @@ class WPRI_Form {
 							echo "<h3>".$element["caption"]."</h3>";
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
-								<li class="list-group-item">
+								<li class="list-group-item" data-id:"1">
 									 <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
 									This is <a href="http://rubaxa.github.io/Sortable/">Sortable</a>
 								</li>
-								<li class="list-group-item">
+								<li class="list-group-item" data-id:"2">
 									  <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
 									  It works with Bootstrap...
 								</li>
-								<li class="list-group-item">...out of the box.</li>
-								<li class="list-group-item">It has support for touch devices.</li>
-								<li class="list-group-item">Just drag some elements around.</li>
+								<li class="list-group-item" data-id:"3">...out of the box.</li>
+								<li class="list-group-item" data-id:"4">It has support for touch devices.</li>
+								<li class="list-group-item" data-id:"5">Just drag some elements around.</li>
 							</ul>
 							<ul id="output<?php echo $element["name"]?>" class="list-group">
 								<li class="list-group-item">It h devices.</li>
