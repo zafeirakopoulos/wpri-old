@@ -295,6 +295,7 @@ class WPRI_Admin {
 				$user = $u_query->results;
 				$new_member_id = WPRI_Database::add_member(array(
 					'user' => $_POST["user"],
+					'name' => WPRI_Database::get_field("member","name",$_POST["user"]),
 					'role' => $_POST["role"]
 				));
 				if($new_member_id) {
