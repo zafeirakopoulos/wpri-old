@@ -143,18 +143,17 @@ class WPRI_Form {
 							echo "<h3>".$element["caption"]."</h3>";
 							echo "<select name='".$element["name"]."'>";
 							$all_entries = array();
-							foreach ($element["table"] as $table) {
-								foreach (WPRI_Database::get_all($table) as $dbitem) {
-									if ($element["localized"]==1){
-   									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"])[$table];
-										echo "<h1>name:".$display_name."</h1>";
-	   								}
-	   								else{
-	   									$display_name = $item[$element["display_column"]];
-	   								}
-									array_push($all_entries, array($dbitem,$display_name));
-								}
+							foreach (WPRI_Database::get_all($element["table"]) as $dbitem) {
+								if ($element["localized"]==1){
+									 	$display_name = WPRI_Database::get_localized($table,$dbitem["id"])[$table];
+									echo "<h1>name:".$display_name."</h1>";
+   								}
+   								else{
+   									$display_name = $item[$element["display_column"]];
+   								}
+								array_push($all_entries, array($dbitem,$display_name));
 							}
+
 							foreach ( $all_entries as $item ) {
 
 								echo "<option name='".$item[0]["id"]."' value='".$item[1]."'></option>";
@@ -229,8 +228,8 @@ class WPRI_Form {
 							<div class='col-sm-3 form-element-value'>
 								<textarea id='<?php echo $element["name"]?>'
 										  name='<?php echo $element["name"]?>'
-										  cols='<?php echo $element["cols"]?>'
-										  rows='<?php echo $element["rows"]?>'>
+										  cols='80'
+										  rows='3'>
 									 <?php echo $element["value"]?>
 								</textarea>
 							</div>
