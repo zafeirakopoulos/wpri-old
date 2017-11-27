@@ -89,7 +89,7 @@ class WPRI_Form {
 								<div class='col-sm-3 form-element-value'>
 									<textarea id='<?php echo $element["name"]?>'
 											  name='<?php echo $element["name"]?>'
-											  cols='35>'
+											  cols='80>'
 											  rows='3'>
 										 <?php echo $element["value"]?>
 									</textarea>
@@ -103,7 +103,7 @@ class WPRI_Form {
 									<div class='col-sm-6 form-element-value'>
 										<textarea id='<?php echo $element["id"]?>'
 												  name='<?php echo $element["name"].$locale["id"] ?>'
-												  cols='35'
+												  cols='80'
 												  rows='3'>
 											 <?php echo $element["value"]?>
 										</textarea>
@@ -115,7 +115,7 @@ class WPRI_Form {
 						elseif ($element["type"]=="tinytext"){?>
 							<textarea id='<?php echo $element["id"]?>'
 									  name='<?php echo $element["name"].$locale["id"] ?>'
-									  cols='25'
+									  cols='40'
 									  rows='1'>
 								 <?php echo $element["value"]?>
 							</textarea>
