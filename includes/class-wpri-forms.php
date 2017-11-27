@@ -74,7 +74,7 @@ class WPRI_Form {
 		<div>
 			<div class='row'>
 			<form name='<?php echo $form["name"]?>' method="post" action="">
-				<div class='col-sm-12 form-title'> <?php echo $form["title"] ?> </div>
+				<!-- <div class='col-sm-12 form-title'> <?php echo $form["title"] ?> </div> -->
 				<?php
 				foreach ($form["groups"] as $group) {?>
 					<hr/>
