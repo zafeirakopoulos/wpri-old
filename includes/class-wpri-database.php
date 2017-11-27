@@ -228,11 +228,11 @@ class WPRI_Database {
 	public static function  populate_tables() {
 		$locales= WPRI_Database::get_locales();
 		$locales_dict = array();
-		error_log($locales);
+		error_log(print_r($locales));
 		foreach ($locales as $key => $value) {
 			$locales_dict[$value]=$key;
 		}
-		error_log($locales_dict);
+		error_log(print_r($locales_dict));
 
 		$declarations = WPRI_Declarations::get_declarations();
 
