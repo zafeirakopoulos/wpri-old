@@ -428,7 +428,13 @@
                         "type": "select",
                         "table" : "user",
                         "column" : "ID",
-                        "display_column" : ["user","name"]
+                        "display_column" : "name"
+                    },
+                    {
+                        "caption" : "Name" ,
+                        "name": "name",
+                        "value": "",
+                        "type": "text"
                     },
                     {
                         "caption" : "Role" ,
