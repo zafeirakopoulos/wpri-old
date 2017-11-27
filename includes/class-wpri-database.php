@@ -248,9 +248,9 @@ class WPRI_Database {
 				if (isset($entity["default_values"]) ){
 					foreach ($entity["default_values"] as $element) {
 						if (isset($element["locale"]) ){
-							WPRI_Database::add_localized($entity_name,$locales_dict[$element["locale"]], $element[$entity_name]);
+							// WPRI_Database::add_localized($entity_name,$locales_dict[$element["locale"]], $element[$entity_name]);
 						}else{
-							WPRI_Database::add($entity_name, $element[$entity_name]);
+							// WPRI_Database::add($entity_name, $element[$entity_name]);
 						}
 					}
 				}
