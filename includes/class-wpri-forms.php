@@ -125,9 +125,23 @@ class WPRI_Form {
 							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
-
+							$relation = $element["relation"];
 							// TODO Read the relation
 							echo "<h3>".$element["caption"]."</h3>";
+							echo "<ul id='contnet-box'>";
+							echo "<li> item </li>";
+							echo "<li> other item </li>";
+							echo "<li> yet another item </li>";
+							echo "</ul>";
+
+							echo '<script type="text/javascript">
+								jQuery(document).ready(function(){
+
+								  jQuery( "ul#contnet-box" ).sortable({
+								            });
+								      });
+
+								</script>';
 							// $all_entries = array();
 							// foreach ($element["table"] as $table) {
 							// 	 $all_entries = $all_entries + WPRI_Database::get_all($table);
