@@ -142,9 +142,8 @@ class WPRI_Form {
 								<li class="list-group-item" data-id:"4">It has support for touch devices.</li>
 								<li class="list-group-item" data-id:"5">Just drag some elements around.</li>
 							</ul>
-							<ul id="output<?php echo $element["name"]?>" class="list-group">
-								<li class="list-group-item">Drag here the authors</li>
-							</ul>
+							<ul id="output<?php echo $element["name"]?>" class="list-group" style="min-height:100px">
+ 							</ul>
 							<div id='<?php echo $element["name"]?>_order'></div>
 							<script>
  								var input = document.getElementById('input<?php echo $element["name"]?>');
