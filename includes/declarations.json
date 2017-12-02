@@ -523,14 +523,13 @@
                         "name": "agency",
                         "value": "",
                         "type": "multiple-select",
-                        "relation" : [
-                            {
+                        "relation" : {
+                            "foreach" : {
                                 "table" : "agency",
                                 "column" : "id",
-                                "type" : "foreach",
                                 "display_column" : "name"
                             }
-                        ]
+                        }
                     },
                     {
                         "caption" : "Budget" ,
