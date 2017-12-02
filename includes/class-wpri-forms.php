@@ -132,11 +132,11 @@ class WPRI_Form {
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<?php
-								// foreach ( $all_entries as $item ) {
-								// 	echo "<li
-								// 		class="list-group-item" optionname="1">
-								// 		<span class="glyphicon glyphicon-move" aria-hidden="true"></span>".	$item["name"]."</li>";
-								// }
+								foreach ( $all_entries as $item ) {
+									echo "<li
+										class='list-group-item' optionname='1>
+										<span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item["name"]."</li>";
+								}
 								?>
 							</ul>
 							<?php
