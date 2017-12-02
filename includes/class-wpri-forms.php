@@ -154,19 +154,27 @@ class WPRI_Form {
 									dataIdAttr: "optionname",
 									group:"<?php echo $element["name"]?>"});
 								var output = document.getElementById('output<?php echo $element["name"]?>');
-							    Sortable.create(output,{sort:true,
-									dataIdAttr: "optionname",
-									group:"<?php echo $element["name"]?>",
-									onAdd: function(event) {
-										var order = this.toArray();
-										console.log(order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
-								  	},
-									onMove:
-									function(event, ui) {
-										var order = this.toArray();
-										console.log(order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
+
+								<?php
+									foreach ($all_options as $option){
+										echo "
+									    Sortable.create(output,{sort:true,
+											dataIdAttr: 'optionname',
+											group:'".$element["name"].",
+											onAdd: function(event) {
+												var order = this.toArray();
+												console.log(order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
+										  	},
+											onMove:
+											function(event, ui) {
+												var order = this.toArray();
+												console.log(order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
+											}
+										});
+										";
 									}
-								});
+								?>
+
 
 
 
