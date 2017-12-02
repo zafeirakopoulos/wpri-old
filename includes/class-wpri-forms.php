@@ -145,7 +145,7 @@ class WPRI_Form {
 									echo "<div>".$option[$relation["select"]["display_column"]];
 									echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'></ul>";
 									echo "</div>";
-									echo "<input type='hidden' name='".$element["name"].$option["id"]."'/>";
+									echo "<input type='hidden' name='".$element["name"].$option["id"]."' id='".$element["name"].$option["id"]."'/>";
 								}
 							?>
  							<script>
