@@ -143,7 +143,7 @@ class WPRI_Form {
 								$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 								foreach ($all_options as $option){
 									echo "<div>".$option[$relation["select"]["display_column"]];
-									echo "<ul id='output".$element["name"].$option["id"]." class='list-group' style='min-height:100px'></ul>";
+									echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'></ul>";
 									echo "</div>";
 								}
 							?>
