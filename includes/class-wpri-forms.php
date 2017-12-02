@@ -134,15 +134,9 @@ class WPRI_Form {
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<?php
 								foreach ( $all_entries as $item ) {
-									echo "<div class='form-check'>";
-									echo "<label class='form-check-label'>";
-									echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item->id."'>  ";
-									echo $item[$element["display_column"]];
 									echo "<li
 										class="list-group-item" optionname="1">
-										<span class="glyphicon glyphicon-move" aria-hidden="true"></span>".
-										$item[$element["display_column"]]
-										."</li>";
+										<span class="glyphicon glyphicon-move" aria-hidden="true"></span>".	$item[$element["display_column"]]."</li>";
 								}
 								?>
 							</ul>
