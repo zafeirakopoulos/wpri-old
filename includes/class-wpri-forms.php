@@ -30,7 +30,7 @@ class WPRI_Form {
 	 * @since    1.0.0
 	 */
     public static function wpri_create_form($form) {
-		// WPRI_Form::wpri_form_handle_request($form);
+		WPRI_Form::wpri_form_handle_request($form);
 		?>
 		<div class="container"><h1><?php echo $form["title"] ?> </h1></div>
 	    	<div id="exTab1" class="container">
@@ -64,7 +64,28 @@ class WPRI_Form {
 	}
 
 	public static function wpri_form_handle_request($form) {
-
+		// If POST for adding
+		if( isset( $_POST['type']) && $_POST['type'] == 'add') {
+			$project = array(
+				'title' => $_POST["title"],
+				'PI' => $_POST["pi"],
+				'budget' => $_POST["budget"],
+				'website' => $_POST["website"],
+				'funding' => $_POST["agency"],
+				'startdate' => $_POST["startdate"],
+				'enddate' => $_POST["enddate"],
+				'status' => $_POST["status"]
+			);
+			$success = WPRI_Database::add_project($project);
+			// Add PI as a member
+			WPRI_Database::add_project_member($success,WPRI_Database::get_member_from_user($_POST["pi"])->id,1);
+			// Returns the new id. 0 on fail.
+			if($success ) {
+				echo "<div class='updated'><p><strong>Added.</strong></p></div>";
+			} else {
+				echo "<div class='error'><p>Unable to add.</p></div>";
+			}
+		}
 
 	}
 
@@ -160,13 +181,10 @@ class WPRI_Form {
 							    Sortable.create(input,{sort:true,
 									dataIdAttr: "optionname",
 									group:"<?php echo $element["name"]?>"});
-
 								<?php
 									if (isset($relation["select"]["table"])){
-
 										foreach ($all_options as $option){
 											echo "var output = document.getElementById('output".$element["name"].$option["id"]."');";
-
 											echo "
 										    Sortable.create(output,{sort:true,
 												dataIdAttr: 'optionname',
@@ -195,7 +213,6 @@ class WPRI_Form {
 										}
 									} else {
 										echo "var output = document.getElementById('output".$element["name"]."');";
-
 										echo "
 										Sortable.create(output,{sort:true,
 											dataIdAttr: 'optionname',

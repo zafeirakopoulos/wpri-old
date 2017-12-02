@@ -527,7 +527,7 @@
                             "foreach" : {
                                 "table" : "agency",
                                 "column" : "id",
-                                "display_column" : "name"
+                                "display_column" : "agency"
                             }
                         }
                     },
