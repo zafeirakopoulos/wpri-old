@@ -153,12 +153,13 @@ class WPRI_Form {
 							    Sortable.create(input,{sort:true,
 									dataIdAttr: "optionname",
 									group:"<?php echo $element["name"]?>"});
-								var output = document.getElementById('output<?php echo $element["name"]?>');
 
 								<?php
 									foreach ($all_options as $option){
+										echo "var output = document.getElementById('output".$element["name"].$option["id"]."');";
+
 										echo "
-									    Sortable.create(output".$element["name"].$option["id"].",{sort:true,
+									    Sortable.create(output,{sort:true,
 											dataIdAttr: 'optionname',
 											group:'".$element["name"].",
 											onAdd: function(event) {
