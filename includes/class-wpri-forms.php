@@ -142,12 +142,11 @@ class WPRI_Form {
 							<?php
 								$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 								foreach ($all_options as $option){
-
+									echo "<div>".$option;
+									echo "<ul id='output".$element["name"].$option." class='list-group' style='min-height:100px'></ul>";
+									echo "</div>";
 								}
 							?>
-							Options:
-							<ul id="output<?php echo $element["name"]?>" class="list-group" style="min-height:100px">
- 							</ul>
 							<div id='<?php echo $element["name"]?>_order'></div>
 							<script>
  								var input = document.getElementById('input<?php echo $element["name"]?>');
