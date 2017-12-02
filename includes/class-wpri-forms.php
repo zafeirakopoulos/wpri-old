@@ -165,8 +165,8 @@ class WPRI_Form {
 											onAdd: function(event) {
 												var order = this.toArray();
 												var inputel = document.getElementById('".$element["name"].$option["id"]."');
-												console.log(".$element["name"].$option["id"].");
 												inputel.setAttribute('value', order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
+												console.log(inputel);
 										  	},
 											onMove:
 											function(event, ui) {
