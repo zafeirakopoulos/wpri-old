@@ -143,7 +143,7 @@ class WPRI_Form {
 								$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 								foreach ($all_options as $option){
 									echo "<div>".$option;
-									echo "<ul id='output".$element["name"].$option." class='list-group' style='min-height:100px'></ul>";
+									echo "<ul id='output".$element["name"].$option["name"]." class='list-group' style='min-height:100px'></ul>";
 									echo "</div>";
 								}
 							?>
@@ -158,7 +158,7 @@ class WPRI_Form {
 								<?php
 									foreach ($all_options as $option){
 										echo "
-									    Sortable.create(output,{sort:true,
+									    Sortable.create(output".$element["name"].$option["name"].",{sort:true,
 											dataIdAttr: 'optionname',
 											group:'".$element["name"].",
 											onAdd: function(event) {
