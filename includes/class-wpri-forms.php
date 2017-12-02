@@ -158,7 +158,7 @@ class WPRI_Form {
 									dataIdAttr: "optionname",
 									group:"<?php echo $element["name"]?>",
 									onAdd: function(event) {
-										console.log(event.item.getAttribute('draggable'));
+										console.log(event.item.getAttribute('optionname'));
 										console.log(event.item);
 								  	},
 									onMove:
