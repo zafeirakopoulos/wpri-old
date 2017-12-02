@@ -129,15 +129,15 @@ class WPRI_Form {
 							// TODO Read the relation
 							echo "<h3>".$element["caption"]."</h3>";
 
-							$all_entries = WPRI_Database::get_all($relation["table"]);
+							// $all_entries = WPRI_Database::get_all($relation["table"]);
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<?php
-								foreach ( $all_entries as $item ) {
-									echo "<li
-										class="list-group-item" optionname="1">
-										<span class="glyphicon glyphicon-move" aria-hidden="true"></span>".	$item[$element["display_column"]]."</li>";
-								}
+								// foreach ( $all_entries as $item ) {
+								// 	echo "<li
+								// 		class="list-group-item" optionname="1">
+								// 		<span class="glyphicon glyphicon-move" aria-hidden="true"></span>".	$item[$element["display_column"]]."</li>";
+								// }
 								?>
 							</ul>
 							<ul id="output<?php echo $element["name"]?>" class="list-group" style="min-height:100px">
