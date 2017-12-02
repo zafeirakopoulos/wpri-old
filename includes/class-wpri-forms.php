@@ -162,6 +162,8 @@ class WPRI_Form {
 									function(event, ui) {
 										var order = this.toArray();
 										console.log(order);
+										console.log(order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
+
 										jQuery('#<?php echo $element["name"]?>_order').val(order.join(","));
 										console.log(jQuery('#<?php echo $element["name"]?>_order').val());
 
