@@ -128,16 +128,14 @@ class WPRI_Form {
 							$relation = $element["relation"];
 							// TODO Read the relation
 							echo "<h3>".$element["caption"]."</h3>";
-							echo $relation["foreach"];
-						 echo $relation["foreach"]["table"];
-							$all_entries = WPRI_Database::get_all($relation["foreach"]["table"]);
+ 							$all_entries = WPRI_Database::get_all($relation["foreach"]["table"]);
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<?php
 								foreach ( $all_entries as $item ) {
 									echo "<li
 										class="list-group-item" optionname="1">
-										<span class="glyphicon glyphicon-move" aria-hidden="true"></span>".	$item[$element["display_column"]]."</li>";
+										<span class="glyphicon glyphicon-move" aria-hidden="true"></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
 								}
 								?>
 							</ul>
