@@ -130,17 +130,17 @@ class WPRI_Form {
 							echo "<h3>".$element["caption"]."</h3>";
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
-								<li class="list-group-item" data-id:"1">
+								<li class="list-group-item" optionname:"1">
 									 <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
 									This is <a href="http://rubaxa.github.io/Sortable/">Sortable</a>
 								</li>
-								<li class="list-group-item" data-id:"2">
+								<li class="list-group-item" optionname:"2">
 									  <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
 									  It works with Bootstrap...
 								</li>
-								<li class="list-group-item" data-id:"3">...out of the box.</li>
-								<li class="list-group-item" data-id:"4">It has support for touch devices.</li>
-								<li class="list-group-item" data-id:"5">Just drag some elements around.</li>
+								<li class="list-group-item" optionname:"3">...out of the box.</li>
+								<li class="list-group-item" optionname:"4">It has support for touch devices.</li>
+								<li class="list-group-item" optionname:"5">Just drag some elements around.</li>
 							</ul>
 							<ul id="output<?php echo $element["name"]?>" class="list-group" style="min-height:100px">
  							</ul>
@@ -149,7 +149,7 @@ class WPRI_Form {
  								var input = document.getElementById('input<?php echo $element["name"]?>');
 							    Sortable.create(input,{sort:true, group:"<?php echo $element["name"]?>"});
 								var output = document.getElementById('output<?php echo $element["name"]?>');
-							    Sortable.create(output,{sort:true, dataIdAttr: "data-id",group:"<?php echo $element["name"]?>",
+							    Sortable.create(output,{sort:true, dataIdAttr: "optionname",group:"<?php echo $element["name"]?>",
 									onMove:
 									function(event, ui) {
 										var order = this.toArray();
