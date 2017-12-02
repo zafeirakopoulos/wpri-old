@@ -160,7 +160,7 @@ class WPRI_Form {
 										echo "
 									    Sortable.create(output,{sort:true,
 											dataIdAttr: 'optionname',
-											group:'".$element["name"].",
+											group:'".$element["name"]."'',
 											onAdd: function(event) {
 												var order = this.toArray();
 												console.log(order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
