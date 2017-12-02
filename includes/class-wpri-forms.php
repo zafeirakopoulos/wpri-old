@@ -64,6 +64,8 @@ class WPRI_Form {
 	}
 
 	public static function wpri_form_handle_request($entity) {
+		$locales= WPRI_Database::get_locales();
+
 		// If POST for adding
 		if( isset( $_POST['type']) && $_POST['type'] == 'add') {
 			$to_add = array();
