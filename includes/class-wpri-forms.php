@@ -157,7 +157,7 @@ class WPRI_Form {
 							    Sortable.create(output,{sort:true,
 									group:"<?php echo $element["name"]?>",
 									onAdd: function(event) {
-									  console.log(event.item.attr("optionname"));
+									  console.log(event.item.getAttribute("optionname"));
 								  	},
 									onMove:
 									function(event, ui) {
