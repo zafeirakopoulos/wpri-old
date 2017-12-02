@@ -145,7 +145,7 @@ class WPRI_Form {
 									echo "<div>".$option[$relation["select"]["display_column"]];
 									echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'></ul>";
 									echo "</div>";
-									echo "<input type='hidden' name=".$element["name"].$option["id"]."/>";
+									echo "<input type='hidden' name=".$element["name"].$option["id"]."'/>";
 								}
 							?>
  							<script>
@@ -171,8 +171,6 @@ class WPRI_Form {
 											function(event, ui) {
 												var order = this.toArray();
 												console.log(order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
-												document.getElementById('".$element["name"].$option["id"]."').val(order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
-
 											}
 										});
 										";
