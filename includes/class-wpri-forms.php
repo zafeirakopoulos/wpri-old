@@ -135,7 +135,7 @@ class WPRI_Form {
 								foreach ( $all_entries as $item ) {
 									echo "<li
 										class="list-group-item" optionname="1">
-										<span class="glyphicon glyphicon-move" aria-hidden="true"></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
+										<span class="glyphicon glyphicon-move" aria-hidden="true"></span>".	$item["name"]."</li>";
 								}
 								?>
 							</ul>
