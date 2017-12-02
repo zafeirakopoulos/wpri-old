@@ -149,7 +149,12 @@ class WPRI_Form {
  								var input = document.getElementById('input<?php echo $element["name"]?>');
 							    Sortable.create(input,{sort:true, group:"<?php echo $element["name"]?>"});
 								var output = document.getElementById('output<?php echo $element["name"]?>');
-							    Sortable.create(output,{sort:true, dataIdAttr: "optionname",group:"<?php echo $element["name"]?>",
+							    Sortable.create(output,{sort:true,
+									dataIdAttr: "optionname",
+									ghostClass: "optionname",
+									chosenClass: "optionname",
+									dragClass: "optionname",
+									group:"<?php echo $element["name"]?>",
 									onMove:
 									function(event, ui) {
 										var order = this.toArray();
