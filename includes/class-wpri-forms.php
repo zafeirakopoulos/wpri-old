@@ -168,13 +168,19 @@ class WPRI_Form {
 												inputel.setAttribute('value', order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
 												console.log(inputel);
 										  	},
-
+											onRemove: function (event) {
+													var order = this.toArray();
+													var inputel = document.getElementById('".$element["name"].$option["id"]."');
+													inputel.setAttribute('value', order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
+													console.log(inputel);
+											},
 											onMove:
 											function(event, ui) {
 												var order = this.toArray();
 												var inputel = document.getElementById('".$element["name"].$option["id"]."');
 												inputel.setAttribute('value', order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
 												console.log(inputel);
+											}
 											});
 										";
 									}
