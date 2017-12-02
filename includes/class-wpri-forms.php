@@ -126,8 +126,7 @@ class WPRI_Form {
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
 							$relation = $element["relation"];
-							// TODO Read the relation
-							echo "<h3>".$element["caption"]."</h3>";
+ 							echo "<h3>".$element["caption"]."</h3>";
  							$all_entries = WPRI_Database::get_all($relation["foreach"]["table"]);
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
@@ -140,12 +139,20 @@ class WPRI_Form {
 								?>
 							</ul>
 							<?php
-								$all_options = WPRI_Database::get_all($relation["select"]["table"]);
-								foreach ($all_options as $option){
-									echo "<div>".$option[$relation["select"]["display_column"]];
-									echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'></ul>";
+
+								if (isset($relation["select"]["table"])){
+									$all_options = WPRI_Database::get_all($relation["select"]["table"]);
+									foreach ($all_options as $option){
+										echo "<div>".$option[$relation["select"]["display_column"]];
+										echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'></ul>";
+										echo "</div>";
+										echo "<input type='hidden' name='".$element["name"].$option["id"]."' id='".$element["name"].$option["id"]."'/>";
+									}
+								} else {
+									echo "<div> Selected:";
+									echo "<ul id='output".$element["name"]."' class='list-group' style='min-height:100px'></ul>";
 									echo "</div>";
-									echo "<input type='hidden' name='".$element["name"].$option["id"]."' id='".$element["name"].$option["id"]."'/>";
+									echo "<input type='hidden' name='".$element["name"]."' id='".$element["name"]."'/>";
 								}
 							?>
  							<script>
@@ -155,29 +162,60 @@ class WPRI_Form {
 									group:"<?php echo $element["name"]?>"});
 
 								<?php
-									foreach ($all_options as $option){
-										echo "var output = document.getElementById('output".$element["name"].$option["id"]."');";
+									if (isset($relation["select"]["table"])){
+
+										foreach ($all_options as $option){
+											echo "var output = document.getElementById('output".$element["name"].$option["id"]."');";
+
+											echo "
+										    Sortable.create(output,{sort:true,
+												dataIdAttr: 'optionname',
+												group:'".$element["name"]."',
+												onAdd: function(event) {
+													var order = this.toArray();
+													var inputel = document.getElementById('".$element["name"].$option["id"]."');
+													inputel.setAttribute('value', order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
+													console.log(inputel);
+											  	},
+												onRemove: function (event) {
+														var order = this.toArray();
+														var inputel = document.getElementById('".$element["name"].$option["id"]."');
+														inputel.setAttribute('value', order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
+														console.log(inputel);
+												},
+												onMove:
+												function(event, ui) {
+													var order = this.toArray();
+													var inputel = document.getElementById('".$element["name"].$option["id"]."');
+													inputel.setAttribute('value', order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
+													console.log(inputel);
+												}
+												});
+											";
+										}
+									} else {
+										echo "var output = document.getElementById('output".$element["name"]."');";
 
 										echo "
-									    Sortable.create(output,{sort:true,
+										Sortable.create(output,{sort:true,
 											dataIdAttr: 'optionname',
 											group:'".$element["name"]."',
 											onAdd: function(event) {
 												var order = this.toArray();
-												var inputel = document.getElementById('".$element["name"].$option["id"]."');
+												var inputel = document.getElementById('".$element["name"]."');
 												inputel.setAttribute('value', order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
 												console.log(inputel);
-										  	},
+											},
 											onRemove: function (event) {
 													var order = this.toArray();
-													var inputel = document.getElementById('".$element["name"].$option["id"]."');
+													var inputel = document.getElementById('".$element["name"]."');
 													inputel.setAttribute('value', order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
 													console.log(inputel);
 											},
 											onMove:
 											function(event, ui) {
 												var order = this.toArray();
-												var inputel = document.getElementById('".$element["name"].$option["id"]."');
+												var inputel = document.getElementById('".$element["name"]."');
 												inputel.setAttribute('value', order.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]));
 												console.log(inputel);
 											}
@@ -185,10 +223,6 @@ class WPRI_Form {
 										";
 									}
 								?>
-
-
-
-
 							</script>
 							<?php
 
