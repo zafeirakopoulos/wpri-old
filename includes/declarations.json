@@ -500,7 +500,7 @@
                             "select":{
                                 "table" : "projectrole",
                                 "column" : "id",
-                                "display_column" : "name"
+                                "display_column" : "projectrole"
                             }
                         }
                     },
