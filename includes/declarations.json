@@ -491,19 +491,18 @@
                         "name": "members",
                         "value": "",
                         "type": "multiple-select",
-                        "relation" : [
-                            {
+                        "relation" : {
+                            "foreach" : {
                                 "table" : "member",
                                 "column" : "id",
-                                "display_column" : "name",
-                                "type" : "foreach"
+                                "display_column" : "name"
                             },
-                            {
+                            "select":{
                                 "table" : "projectrole",
                                 "column" : "id",
-                                "type" : "select"
+                                "display_column" : "name"
                             }
-                        ]
+                        }
                     },
                     {
                         "caption" : "Principal investigator" ,
