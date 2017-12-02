@@ -63,28 +63,58 @@ class WPRI_Form {
 		<?php
 	}
 
-	public static function wpri_form_handle_request($form) {
+	public static function wpri_form_handle_request($entity) {
 		// If POST for adding
 		if( isset( $_POST['type']) && $_POST['type'] == 'add') {
-			$project = array(
-				'title' => $_POST["title"],
-				'PI' => $_POST["pi"],
-				'budget' => $_POST["budget"],
-				'website' => $_POST["website"],
-				'funding' => $_POST["agency"],
-				'startdate' => $_POST["startdate"],
-				'enddate' => $_POST["enddate"],
-				'status' => $_POST["status"]
-			);
-			$success = WPRI_Database::add_project($project);
-			// Add PI as a member
-			WPRI_Database::add_project_member($success,WPRI_Database::get_member_from_user($_POST["pi"])->id,1);
-			// Returns the new id. 0 on fail.
-			if($success ) {
-				echo "<div class='updated'><p><strong>Added.</strong></p></div>";
-			} else {
-				echo "<div class='error'><p>Unable to add.</p></div>";
+			$to_add = array();
+
+			foreach ($entity["groups"] as $group ) {
+				foreach ($group["elements"] as $element ) {
+					if (isset($element["localized"]) ){
+						$localized =array();
+						foreach ($locales as $locale) {
+							$localized[$locale["id"]] = $_POST[$element["name"].$locale["id"]] ;
+						}
+						$to_add[$element["name"]] = $localized;
+					}
+					elseif ($element["type"]== "multiple-select"){
+						$relation = $element["relation"];
+						if (isset($relation["select"])) {
+							$tmp = array();
+							$all_options = WPRI_Database::get_all($relation["select"]["table"]);
+							foreach ($all_options as $option){
+								array_push($tmp, array( $option["id"], $_POST[$element["name"].$option["id"]] ));
+							}
+							$to_add[$element["name"]] = $tmp;
+						} else {
+							$to_add[$element["name"]] = $_POST[$element["name"]];
+						}
+					} else{
+						$to_add[$element["name"]] = $_POST[$element["name"]];
+					}
+				}
 			}
+            //
+			// $project = array(
+			// 	'title' => $_POST["title"],
+			// 	'PI' => $_POST["pi"],
+			// 	'budget' => $_POST["budget"],
+			// 	'website' => $_POST["website"],
+			// 	'funding' => $_POST["agency"],
+			// 	'startdate' => $_POST["startdate"],
+			// 	'enddate' => $_POST["enddate"],
+			// 	'status' => $_POST["status"]
+			// );
+            //
+			// $success = WPRI_Database::add_project($project);
+			// // Add PI as a member
+			// WPRI_Database::add_project_member($success,WPRI_Database::get_member_from_user($_POST["pi"])->id,1);
+			// // Returns the new id. 0 on fail.
+			// if($success ) {
+			// 	echo "<div class='updated'><p><strong>Added.</strong></p></div>";
+			// } else {
+			// 	echo "<div class='error'><p>Unable to add.</p></div>";
+			// }
 		}
 
 	}
