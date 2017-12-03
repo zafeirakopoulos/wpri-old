@@ -95,8 +95,7 @@ class WPRI_Form {
 							$relations[$element["name"]] =  array( $relation["foreach"]["name"] => $_POST[$element["name"].$option["id"]] );
 						}
 					} elseif ($element["type"]== "select"){
-						$relations[$element["name"]] =  $_POST[$element["name"] ;
-
+						$relations[$element["name"]] =  $_POST[$element["name"]] ;
 					} else{
 						$plain[$element["name"]] = $_POST[$element["name"]];
 					}
