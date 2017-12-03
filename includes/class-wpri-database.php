@@ -355,7 +355,7 @@ public static function add_form($entity, $form) {
 	$success = $new_id;
 
 	foreach (  $form["localized"]  as $localizedname => $names ) {
-		WPRI_Database::add_localized_relation($entity["name"],$localizedname,$id, $names) ;
+		WPRI_Database::add_localized_relation($entity["name"],$localizedname,$new_id , $names) ;
 	}
 	// foreach ( WPRI_Database::get_locales() as $locale ) {
 	// 	$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
