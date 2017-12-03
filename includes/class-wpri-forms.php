@@ -345,18 +345,19 @@ class WPRI_Form {
 		}else{
 		?>
 		<form name='id' method="post" action="">
-				  <?php foreach ( $all_entries as $item ) {
+			<ul>
 
-					  echo "<input type='submit' value='Delete' class='button' /> ";
+				  <?php
+				  	foreach ( $all_entries as $item ) {
+					  echo "<li>";
+					  echo "<input type='submit' value='Delete' class='btn btn-primary' /> ";
 					  echo $item[$form["display_element"]];
 					  echo '<input type="hidden" name="type" value="delete" />';
 					  echo '<input type="hidden" name="id" value='.$item["id"].'/>';
-
-  			  } ?>
-
-
-			  <button type="submit" class="btn btn-primary">Delete</button>
-			<input type="hidden" name="type" value="delete"/>
+					  echo "</li>";
+  			  		}
+				 ?>
+		  	</ul>
 		</form>
 	<?php }
 	}
