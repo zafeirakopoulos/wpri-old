@@ -35,27 +35,25 @@ class WPRI_Form {
 		<div class="container"><h1><?php echo $form["title"] ?> </h1></div>
 	    	<div id="exTab1" class="container">
 				<ul  class="nav nav-pills">
-					<li class="active"><a href="#add" data-toggle="tab">Add New</a>
-					</li>
-					<li><a href="#update" data-toggle="tab">Update Existing</a>
-					</li>
-					<li><a href="#delete" data-toggle="tab">Delete Existing</a>
+					<li  class="active"><a href="#show" data-toggle="tab"><?php $form["title"]?></a></li>
+					<li><a href="#add" data-toggle="tab">Add New</a></li>
 			   	</ul>
 
+
 	   			<div class="tab-content clearfix">
-		   			<div class="tab-pane active" id="add">
+					<div class="tab-pane active" id="show">
 						<?php
-					    WPRI_Form::wpri_form_add($form);
+						WPRI_Form::wpri_form_show_existing($form);
 					   ?>
-		   			</div>
+					</div>
 		   			<div class="tab-pane" id="update">
 						<?php
 					    WPRI_Form::wpri_form_update($form);
 					   ?>
 		   			</div>
-					<div class="tab-pane" id="delete">
+					<div class="tab-pane" id="add">
 						<?php
-					    WPRI_Form::wpri_form_delete($form);
+					    WPRI_Form::wpri_form_add($form);
 					   ?>
 		   			</div>
 			 	</div>
@@ -322,14 +320,14 @@ class WPRI_Form {
 	public static function wpri_form_delete($form) {
 		$all_entries = WPRI_Database::get_all($form["table_name"]);
 		if (empty($all_entries)){
-			echo "<h2>No entries found. Nothing to delete.</h2>";
+			echo "<h2>No entries found.</h2>";
 		}else{
 		?>
 		<form name='id' method="post" action="">
 				  <?php foreach ( $all_entries as $item ) {
 					  echo "<div class='form-check'>";
 					  echo "<label class='form-check-label'>";
-					  echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item->id."'>  ";
+					  echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item["id"]."'>  ";
 					  echo $item[$form["display_element"]];
 					  echo "</label>";
 					  echo "</div>";
@@ -340,6 +338,28 @@ class WPRI_Form {
 	<?php }
 	}
 
+	public static function wpri_form_show_existing($form) {
+		$all_entries = WPRI_Database::get_all($form["table_name"]);
+		if (empty($all_entries)){
+			echo "<h2>No entries found.</h2>";
+		}else{
+		?>
+		<form name='id' method="post" action="">
+				  <?php foreach ( $all_entries as $item ) {
+
+					  echo "<input type='submit' value='Delete' class='button' /> ";
+					  echo $item[$form["display_element"]];
+					  echo '<input type="hidden" name="type" value="delete" />';
+					  echo '<input type="hidden" name="id" value='.$item["id"].'/>';
+
+  			  } ?>
+
+
+			  <button type="submit" class="btn btn-primary">Delete</button>
+			<input type="hidden" name="type" value="delete"/>
+		</form>
+	<?php }
+	}
 	public static function wpri_form_update($form) {
 		?>
 		<div>
