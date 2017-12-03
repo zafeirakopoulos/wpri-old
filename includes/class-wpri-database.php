@@ -332,6 +332,27 @@ public static function add_localized($table,$item,$names) {
 	}
 	return $success;
 }
+
+public static function add_form($entity, $form) {
+
+	$GLOBALS['wpdb']->insert( self::table_name($entity["table_name"]) , $form["plain"] );
+	$new_id = $GLOBALS['wpdb']->insert_id;
+	$success = $new_id;
+
+	// foreach ( WPRI_Database::get_locales() as $locale ) {
+	// 	$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
+	// 		'locale' => $locale["id"],
+	// 		$table => $new_id,
+	// 		'name' => $names[$locale["id"]]
+	// 	));
+	// 	$success = $success * $GLOBALS['wpdb']->insert_id;
+	// }
+	if (!$success){
+		# TODO Delete what was added
+	}
+	return $success;
+}
+
 #################################################################################################
 #################################################################################################
 #################################################################################################
