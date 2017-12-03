@@ -96,29 +96,21 @@ class WPRI_Form {
 					}
 				}
 			}
-            //
-			// $project = array(
-			// 	'title' => $_POST["title"],
-			// 	'PI' => $_POST["pi"],
-			// 	'budget' => $_POST["budget"],
-			// 	'website' => $_POST["website"],
-			// 	'funding' => $_POST["agency"],
-			// 	'startdate' => $_POST["startdate"],
-			// 	'enddate' => $_POST["enddate"],
-			// 	'status' => $_POST["status"]
-			// );
-            //
-			// $success = WPRI_Database::add_project($project);
-			// // Add PI as a member
-			// WPRI_Database::add_project_member($success,WPRI_Database::get_member_from_user($_POST["pi"])->id,1);
-			// // Returns the new id. 0 on fail.
-			// if($success ) {
-			// 	echo "<div class='updated'><p><strong>Added.</strong></p></div>";
-			// } else {
-			// 	echo "<div class='error'><p>Unable to add.</p></div>";
-			// }
-		}
 
+
+			$success = WPRI_Database::add_form($to_add);
+			if($success ) {
+				echo "<div class='updated'><p><strong>Added.</strong></p></div>";
+			} else {
+				echo "<div class='error'><p>Unable to add.</p></div>";
+			}
+		}
+		if( isset( $_POST['type']) && $_POST['type'] == 'update') {
+
+		}
+		if( isset( $_POST['type']) && $_POST['type'] == 'remove') {
+
+		}
 	}
 
 	public static function wpri_form_add($form) {
