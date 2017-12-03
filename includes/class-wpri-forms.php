@@ -35,7 +35,7 @@ class WPRI_Form {
 		<div class="container"><h1><?php echo $form["title"] ?> </h1></div>
 	    	<div id="exTab1" class="container">
 				<ul  class="nav nav-pills">
-					<li  class="active"><a href="#show" data-toggle="tab"><?php $form["title"]?></a></li>
+					<li  class="active"><a href="#show" data-toggle="tab">Existing</a></li>
 					<li><a href="#add" data-toggle="tab">Add New</a></li>
 			   	</ul>
 
