@@ -69,6 +69,9 @@ class WPRI_Form {
 		// If POST for adding
 		if( isset( $_POST['type']) && $_POST['type'] == 'add') {
 			$to_add = array();
+			$plain = array();
+			$local = array();
+			$relations = array();
 
 			foreach ($entity["groups"] as $group ) {
 				foreach ($group["elements"] as $element ) {
@@ -77,7 +80,7 @@ class WPRI_Form {
 						foreach ($locales as $locale) {
 							$localized[$locale["id"]] = $_POST[$element["name"].$locale["id"]] ;
 						}
-						$to_add[$element["name"]] = $localized;
+						$local[$element["name"]] = $localized;
 					}
 					elseif ($element["type"]== "multiple-select"){
 						$relation = $element["relation"];
@@ -87,18 +90,20 @@ class WPRI_Form {
 							foreach ($all_options as $option){
 								array_push($tmp, array( $option["id"], $_POST[$element["name"].$option["id"]] ));
 							}
-							$to_add[$element["name"]] = $tmp;
+							$relations[$element["name"]] = $tmp;
 						} else {
-							$to_add[$element["name"]] = $_POST[$element["name"]];
+							$plain[$element["name"]] = $_POST[$element["name"]];
 						}
 					} else{
-						$to_add[$element["name"]] = $_POST[$element["name"]];
+						$plain[$element["name"]] = $_POST[$element["name"]];
 					}
 				}
 			}
 
-
-			$success = WPRI_Database::add_form($to_add);
+			$to_add["plain"]=$plain;
+			$to_add["relations"]=$relations;
+			$to_add["localized"]=$local;
+			$success = WPRI_Database::add_form($entity,$to_add);
 			if($success ) {
 				echo "<div class='updated'><p><strong>Added.</strong></p></div>";
 			} else {
