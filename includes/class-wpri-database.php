@@ -392,14 +392,14 @@ public static function add_form($entity, $form) {
 	foreach (  $form["localized"]  as $localizedname => $names ) {
 		WPRI_Database::add_localized_relation($entity["name"],$localizedname,$new_id , $names) ;
 	}
-    //
-	// foreach (  $form["relations"]  as $name => $item ) {
-	// 	WPRI_Database::add_simple_relation($entity["name"],$name,$new_id,$item) ;
-	// }
-    //
-	// foreach (  $form["multirelations"]  as $name => $item ) {
-	// 	WPRI_Database::add_double_relation($entity["name"],$name,$new_id,$item) ;
-	// }
+    
+	foreach (  $form["relations"]  as $name => $item ) {
+		WPRI_Database::add_simple_relation($entity["name"],$name,$new_id,$item) ;
+	}
+
+	foreach (  $form["multirelations"]  as $name => $item ) {
+		WPRI_Database::add_double_relation($entity["name"],$name,$new_id,$item) ;
+	}
 
 	if (!$success){
 		# TODO Delete what was added
