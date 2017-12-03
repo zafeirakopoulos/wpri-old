@@ -348,6 +348,41 @@ public static function add_localized($table,$item,$names) {
 	}
 	return $success;
 }
+
+# select
+public static function add_simple_relation($left, $left, $id, $relations) {
+
+   foreach ( $relations as $relation ) {
+	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$left) , array(
+		   $left => $id,
+		   $right => $relation[$right]
+	   ));
+	   $success = $success * $GLOBALS['wpdb']->insert_id;
+   }
+   if (!$success){
+	   # TODO Delete what was added
+   }
+   return $success;
+}
+
+
+# foreach & select
+public static function add_double_relation($left, $middle, $right, $id, $relations) {
+
+   foreach ( $relations as $relation ) {
+	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$middle."_".$left) , array(
+		   $left => $id,
+		   $middle => $relation[$middle],
+		   $right => $relation[$right]
+	   ));
+	   $success = $success * $GLOBALS['wpdb']->insert_id;
+   }
+   if (!$success){
+	   # TODO Delete what was added
+   }
+   return $success;
+}
+
 public static function add_form($entity, $form) {
 
 	$GLOBALS['wpdb']->insert( self::table_name($entity["table_name"]) , $form["plain"] );
@@ -357,14 +392,15 @@ public static function add_form($entity, $form) {
 	foreach (  $form["localized"]  as $localizedname => $names ) {
 		WPRI_Database::add_localized_relation($entity["name"],$localizedname,$new_id , $names) ;
 	}
-	// foreach ( WPRI_Database::get_locales() as $locale ) {
-	// 	$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
-	// 		'locale' => $locale["id"],
-	// 		$table => $new_id,
-	// 		'name' => $names[$locale["id"]]
-	// 	));
-	// 	$success = $success * $GLOBALS['wpdb']->insert_id;
-	// }
+
+	foreach (  $form["relations"]  as $name => $item ) {
+		WPRI_Database::add_simple_relation($entity["name"],$name,$new_id,$item) ;
+	}
+
+	foreach (  $form["multirelations"]  as $name => $item ) {
+		WPRI_Database::add_double_relation($entity["name"],$name,$new_id,$item) ;
+	}
+
 	if (!$success){
 		# TODO Delete what was added
 	}
