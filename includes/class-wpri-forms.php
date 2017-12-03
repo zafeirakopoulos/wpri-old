@@ -315,19 +315,6 @@ class WPRI_Form {
 				<input type="hidden" name="type" value="add"/>
 			</form>
 			</div>
-			<?php $all_entries = WPRI_Database::get_all($form["table_name"]);
-			if (empty($all_entries)){
-				echo "<h2>No entries yet.</h2>";
-			}else{
-				echo "<h2>Already existing:</h2>";
-				echo "<ul class='list-group'>";
-				foreach ( $all_entries as $item ) {
-					echo "<li class='list-group-item'>".$item->name."</li>";
-
-				 }
-			  	 echo "</ul>";
-			}
-			  ?>
 		</div>
 	<?php }
 
@@ -343,7 +330,7 @@ class WPRI_Form {
 					  echo "<div class='form-check'>";
 					  echo "<label class='form-check-label'>";
 					  echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item->id."'>  ";
-					  echo $item->name;
+					  echo $item->$form["display_element"];
 					  echo "</label>";
 					  echo "</div>";
   			  } ?>
