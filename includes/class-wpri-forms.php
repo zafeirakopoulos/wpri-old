@@ -88,12 +88,15 @@ class WPRI_Form {
 							$tmp = array();
 							$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 							foreach ($all_options as $option){
-								array_push($tmp, array( $option["id"], $_POST[$element["name"].$option["id"]] ));
+								array_push($tmp, array( $relation["select"]["name"] => $option["id"], $relation["foreach"]["name"] => $_POST[$element["name"].$option["id"]] ));
 							}
 							$relations[$element["name"]] = $tmp;
 						} else {
-							$plain[$element["name"]] = $_POST[$element["name"]];
+							$relations[$element["name"]] =  array( $relation["foreach"]["name"] => $_POST[$element["name"].$option["id"]] );
 						}
+					} elseif ($element["type"]== "select"){
+						$relations[$element["name"]] =  $_POST[$element["name"] ;
+
 					} else{
 						$plain[$element["name"]] = $_POST[$element["name"]];
 					}
