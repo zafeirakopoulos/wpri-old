@@ -117,10 +117,10 @@ class WPRI_Database {
 					// if (isset($element["all_locales"]) && ($element["all_locales"]==true)){
 					if (isset($element["localized"]) ){
 						$sql = "CREATE TABLE ".self::table_name("locale_".$entity_name."_".$element["name"] )." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
-						$sql = $sql .  $entity_name."_".$element["name"] ." INT,";
+						$sql = $sql .  $entity_name  ." INT,";
 						$sql = $sql .  "name ". $element["type"] .",";
 						$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
-						$sql = $sql .  "FOREIGN KEY (". $entity_name."_".$element["name"] .") REFERENCES ".self::table_name($entity_name)."(id)";
+						$sql = $sql .  "FOREIGN KEY (". $entity_name .") REFERENCES ".self::table_name($entity_name)."(id)";
 						$sql = $sql . ");";
 						// error_log($sql);
 						$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
@@ -333,12 +333,12 @@ public static function add_localized($table,$item,$names) {
 	return $success;
 }
 
- public static function add_localized_relation($table,$id,$names) {
+ public static function add_localized_relation($entityname, $elementame,$id,$names) {
 
 	foreach ( WPRI_Database::get_locales() as $locale ) {
-		$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
+		$GLOBALS['wpdb']->insert( self::table_name("locale_".$entityname."_".$elementame) , array(
 			'locale' => $locale["id"],
-			$table => $id,
+			$entityname => $id,
 			'name' => $names[$locale["id"]]
 		));
 		$success = $success * $GLOBALS['wpdb']->insert_id;
@@ -355,7 +355,7 @@ public static function add_form($entity, $form) {
 	$success = $new_id;
 
 	foreach (  $form["localized"]  as $localizedname => $names ) {
-		WPRI_Database::add_localized_relation($entity["name"]."_".$localizedname,$id, $names) ;
+		WPRI_Database::add_localized_relation($entity["name"],$localizedname,$id, $names) ;
 	}
 	// foreach ( WPRI_Database::get_locales() as $locale ) {
 	// 	$GLOBALS['wpdb']->insert( self::table_name("locale_".$table) , array(
