@@ -117,7 +117,7 @@ class WPRI_Database {
 					// if (isset($element["all_locales"]) && ($element["all_locales"]==true)){
 					if (isset($element["localized"]) ){
 						$sql = "CREATE TABLE ".self::table_name("locale_".$entity_name."_".$element["name"] )." ( id INT AUTO_INCREMENT PRIMARY KEY,	locale INT,	";
-						$sql = $sql .  $entity_name ." INT,";
+						$sql = $sql .  $entity_name."_".$element["name"] ." INT,";
 						$sql = $sql .  "name ". $element["type"] .",";
 						$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
 						$sql = $sql .  "FOREIGN KEY (". $entity_name .") REFERENCES ".self::table_name($entity_name)."(id)";
