@@ -39,7 +39,6 @@ class WPRI_Form {
 					<li><a href="#add" data-toggle="tab">Add New</a></li>
 			   	</ul>
 
-
 	   			<div class="tab-content clearfix">
 					<div class="tab-pane active" id="show">
 						<?php
@@ -113,8 +112,13 @@ class WPRI_Form {
 		if( isset( $_POST['type']) && $_POST['type'] == 'update') {
 
 		}
-		if( isset( $_POST['type']) && $_POST['type'] == 'remove') {
-
+		if( isset( $_POST['delete_button'])) {
+			$success = WPRI_Database::delete_record($_POST["id"],$entity);
+			if($success ) {
+				echo "<div class='updated'><p><strong>Deleted.</strong></p></div>";
+			} else {
+				echo "<div class='error'><p>Unable to delete.</p></div>";
+			}
 		}
 	}
 
