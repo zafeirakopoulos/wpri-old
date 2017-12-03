@@ -120,7 +120,7 @@ class WPRI_Database {
 						$sql = $sql .  $entity_name."_".$element["name"] ." INT,";
 						$sql = $sql .  "name ". $element["type"] .",";
 						$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
-						$sql = $sql .  "FOREIGN KEY (". $entity_name .") REFERENCES ".self::table_name($entity_name)."(id)";
+						$sql = $sql .  "FOREIGN KEY (". $entity_name."_".$element["name"] .") REFERENCES ".self::table_name($entity_name)."(id)";
 						$sql = $sql . ");";
 						// error_log($sql);
 						$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
