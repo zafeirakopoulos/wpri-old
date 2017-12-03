@@ -350,7 +350,7 @@ public static function add_localized($table,$item,$names) {
 }
 
 # select
-public static function add_simple_relation($left, $right, $id, $relations) {	
+public static function add_simple_relation($left, $right, $id, $relations) {
 	$success = 1;
 	foreach ( $relations as $relation ) {
 	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$left) , array(
@@ -367,21 +367,21 @@ public static function add_simple_relation($left, $right, $id, $relations) {
 
 
 # foreach & select
-// public static function add_double_relation($left, $middle, $right, $id, $relations) {
-//
-//    foreach ( $relations as $relation ) {
-// 	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$middle."_".$left) , array(
-// 		   $left => $id,
-// 		   $middle => $relation[$middle],
-// 		   $right => $relation[$right]
-// 	   ));
-// 	   $success = $success * $GLOBALS['wpdb']->insert_id;
-//    }
-//    if (!$success){
-// 	   # TODO Delete what was added
-//    }
-//    return $success;
-// }
+public static function add_double_relation($left, $middle, $right, $id, $relations) {
+
+   foreach ( $relations as $relation ) {
+	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$middle."_".$left) , array(
+		   $left => $id,
+		   $middle => $relation[$middle],
+		   $right => $relation[$right]
+	   ));
+	   $success = $success * $GLOBALS['wpdb']->insert_id;
+   }
+   if (!$success){
+	   # TODO Delete what was added
+   }
+   return $success;
+}
 
 public static function add_form($entity, $form) {
 
