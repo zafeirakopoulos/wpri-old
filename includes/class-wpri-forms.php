@@ -344,22 +344,22 @@ class WPRI_Form {
 			echo "<h2>No entries found.</h2>";
 		}else{
 		?>
-		<form name='id' method="post" action="">
 			<ul>
 
 				  <?php
 				  	foreach ( $all_entries as $item ) {
 					  echo "<li>";
+					  echo "<form name='id' method='post' action=''>";
 					  echo $item[$form["display_element"]];
 					  echo "<input type='submit' name='delete_button' value='Delete' class='btn btn-primary' /> ";
 					  echo "<input type='submit' name='update_button' value='Update' class='btn btn-primary' /> ";
 					  // echo '<input type="hidden" name="type" value="delete" />';
 					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
+					  echo "</form>";
 					  echo "</li>";
   			  		}
 				 ?>
 		  	</ul>
-		</form>
 	<?php }
 	}
 	public static function wpri_form_update($form) {
