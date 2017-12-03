@@ -354,7 +354,7 @@ class WPRI_Form {
 					  echo "<input type='submit' name='delete_button' value='Delete' class='btn btn-primary' /> ";
 					  echo "<input type='submit' name='update_button' value='Update' class='btn btn-primary' /> ";
 					  // echo '<input type="hidden" name="type" value="delete" />';
-					  echo '<input type="hidden" name="id" value='.$item["id"].'/>';
+					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
 					  echo "</li>";
   			  		}
 				 ?>
