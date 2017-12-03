@@ -350,19 +350,19 @@ public static function add_localized($table,$item,$names) {
 }
 
 # select
-public static function add_simple_relation($left, $left, $id, $relations) {
-
-   foreach ( $relations as $relation ) {
+public static function add_simple_relation($left, $right, $id, $relations) {	
+	$success = 1;
+	foreach ( $relations as $relation ) {
 	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$left) , array(
 		   $left => $id,
 		   $right => $relation[$right]
 	   ));
 	   $success = $success * $GLOBALS['wpdb']->insert_id;
-   }
-   if (!$success){
+	}
+	if (!$success){
 	   # TODO Delete what was added
-   }
-   return $success;
+	}
+	return $success;
 }
 
 
