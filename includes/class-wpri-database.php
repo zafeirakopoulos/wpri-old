@@ -397,7 +397,7 @@ public static function add_form($entity, $form) {
 		WPRI_Database::add_simple_relation($entity["name"],$name,$new_id,$item) ;
 	}
 
-	foreach (  $form["multirelations"]  as $relation ) {
+	foreach (  $form["multirelations"]  as $name => $relation ) {
 		WPRI_Database::add_double_relation($entity["name"],array_keys($relation)[0],array_keys($relation)[1],$new_id,$relation) ;
 	}
 
