@@ -138,7 +138,21 @@ class WPRI_Form {
 						<div class='row'>
 						<?php
 						if ($element["type"]=="text"){
-							if (isset($element["all_locales"])!=true){ ?>
+							if (isset($element["all_locales"])!=true){
+								if (isset($element["localized"])){
+									foreach ($locales as $locale) {?>
+										<label class='col-sm-6 form-element-caption'> <?php echo $locale["name"] ?></label>
+										<div class='col-sm-6 form-element-value'>
+											<textarea id='<?php echo $element["id"]?>'
+													  name='<?php echo $element["name"].$locale["id"] ?>'
+													  cols='80'
+													  rows='3'>
+												 <?php echo $element["value"]?>
+											</textarea>
+										</div>
+									<?php
+									}
+			 					}else{ ?>
 								<label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
 								<div class='col-sm-3 form-element-value'>
 									<textarea id='<?php echo $element["name"]?>'
@@ -148,7 +162,9 @@ class WPRI_Form {
 										 <?php echo $element["value"]?>
 									</textarea>
 								</div>
-						<?php }
+							<?php
+								}
+							}
 							else{?>
 								<label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
 								<?php
