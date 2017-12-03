@@ -353,7 +353,7 @@ public static function add_localized($table,$item,$names) {
 public static function add_simple_relation($left, $right, $id, $relations) {
 	$success = 1;
 	foreach ( $relations as $relation ) {
-	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$left) , array(
+	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$right) , array(
 		   $left => $id,
 		   $right => $relation[$right]
 	   ));
@@ -370,7 +370,7 @@ public static function add_simple_relation($left, $right, $id, $relations) {
 public static function add_double_relation($left, $middle, $right, $id, $relations) {
 
    foreach ( $relations as $relation ) {
-	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$middle."_".$left) , array(
+	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$middle."_".$right) , array(
 		   $left => $id,
 		   $middle => $relation[$middle],
 		   $right => $relation[$right]
@@ -392,7 +392,7 @@ public static function add_form($entity, $form) {
 	foreach (  $form["localized"]  as $localizedname => $names ) {
 		WPRI_Database::add_localized_relation($entity["name"],$localizedname,$new_id , $names) ;
 	}
-    
+
 	foreach (  $form["relations"]  as $name => $item ) {
 		WPRI_Database::add_simple_relation($entity["name"],$name,$new_id,$item) ;
 	}
