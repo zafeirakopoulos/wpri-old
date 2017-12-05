@@ -415,8 +415,8 @@ public static function add_form($entity, $form) {
 		WPRI_Database::add_localized_relation($entity["name"],$localizedname,$new_id , $names) ;
 	}
 
-	foreach (  $form["relations"]  as $name => $item ) {
-		WPRI_Database::add_simple_relation($entity["name"],$name,$new_id,$item) ;
+	foreach (  $form["relations"]  as $name => $items ) {
+		WPRI_Database::add_simple_relation($entity["name"],$name,$new_id,$items) ;
 	}
 
 	foreach (  $form["multirelations"]  as $name => $relation ) {
