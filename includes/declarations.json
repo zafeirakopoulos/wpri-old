@@ -535,7 +535,9 @@
                                 "column" : "id",
                                 "display_column" : "projectrole"
                             }
-                        },
+                        }
+                    },
+                    {
                         "caption" : "Collaborators participating in the project" ,
                         "name": "collaborators",
                         "value": "",
