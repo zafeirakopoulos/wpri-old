@@ -87,7 +87,7 @@ class WPRI_Form {
 							$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 							foreach ($all_options as $option){
                                 if ($_POST[$element["name"].$option["id"]]!=NULL){
-                                    array_push($tmp, array(  $relation["foreach"]["table"] => $_POST[$element["name"].$option["id"]], ));                                    
+                                    array_push($tmp, array(  $relation["foreach"]["table"] => $_POST[$element["name"].$option["id"]],$relation["select"]["table"] => $option["id"] ));                                    
                                 }
 							}
 							$multiplerelations[$element["name"]] = $tmp;
