@@ -1,5 +1,5 @@
-(function( $ ) {
-	'use strict';
+// (function( $ ) {
+// 	'use strict';
 
 	/**
 	 * All of the code for your public-facing JavaScript source
@@ -30,23 +30,23 @@
 	 */
 
 
-
-	function wpri_change_locale( locale ) {
-		jQuery.post(
-		    /*wpri_ajax.ajaxurl,*/
-			wpri_ajax.session_url,
-		    {
-		        'action': 'change_locale',
-		        'data':   {'locale' : locale}
-		    },
-		    function(response){
-			location.reload();
-		       // alert('The server responded: ' + response);
-		    }
-		);
-
-
-	}
+    // 
+	// function wpri_change_locale( locale ) {
+	// 	jQuery.post(
+	// 	    /*wpri_ajax.ajaxurl,*/
+	// 		wpri_ajax.session_url,
+	// 	    {
+	// 	        'action': 'change_locale',
+	// 	        'data':   {'locale' : locale}
+	// 	    },
+	// 	    function(response){
+	// 		location.reload();
+	// 	       // alert('The server responded: ' + response);
+	// 	    }
+	// 	);
+    //
+    //
+	// }
 
 
 		function wpri_get_report( report_form ) {
@@ -66,4 +66,4 @@
 
 		}
 
-}
+// }
