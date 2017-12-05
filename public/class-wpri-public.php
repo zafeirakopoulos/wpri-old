@@ -117,7 +117,7 @@ class WPRI_Public {
 		// );
 
 		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wpri-public.js', array( 'jquery' ));
-		wp_localize_script( $this->plugin_name, array(
+		wp_localize_script( $this->plugin_name, "wpri", array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ) ,
 			'session_url' => site_url()."/session"
 			)

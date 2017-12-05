@@ -30,7 +30,7 @@
 	 */
 
 
-    // 
+    //
 	// function wpri_change_locale( locale ) {
 	// 	jQuery.post(
 	// 	    /*wpri_ajax.ajaxurl,*/
@@ -51,8 +51,7 @@
 
 		function wpri_get_report( report_form ) {
 			jQuery.post(
-			    /*wpri_ajax.ajaxurl,*/
-				ajaxurl.session_url,
+ 				wpri.ajaxurl,
 			    {
 			        'action': 'get_report',
 			        'data':   {'report_form' : report_form}
