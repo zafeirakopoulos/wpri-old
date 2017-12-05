@@ -625,17 +625,17 @@
                 }
             ]
         },
-        "project": {
-            "title" : "Projects",
-            "table_name" : "project",
-            "has_menu": true,
-            "name" :"project",
-            "display_element": "official_title",
-            "actions": {
-                "add" : "manage_options",
-                "remove" : ["admin"],
-                "update" : ["all"]
-            },
+                    "project": {
+                        "title" : "Projects",
+                        "table_name" : "project",
+                        "has_menu": true,
+                        "name" :"project",
+                        "display_element": "official_title",
+                        "actions": {
+                            "add" : "manage_options",
+                            "remove" : ["admin"],
+                            "update" : ["all"]
+                        },
             "groups" :[
                 {
                     "title" : "Project title",
@@ -953,6 +953,19 @@
             "public" : true,
             "has_archive" : true,
             "rewrite" : {"slug" : "blog"}
+        }
+    },
+    "reports":
+    {
+        "projects": {
+            "title" : "Projects",
+            "has_menu": true,
+            "name" :"project",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            }
         }
     }
 }
