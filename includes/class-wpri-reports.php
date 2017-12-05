@@ -78,6 +78,7 @@ class wpri_report_menu_factory {
         };
 		add_submenu_page( "wpri-reports-menu", "test","test",  "manage_options", "wpri-report-test",$callback);
 		error_log("registering submenu");
-        add_submenu_page( "wpri-reports-menu", $entity["title"],$entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
+		error_log($entity["title"]);
+    add_submenu_page( "wpri-reports-menu", $entity["title"],$entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
     }
 }
