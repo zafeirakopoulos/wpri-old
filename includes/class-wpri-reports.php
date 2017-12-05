@@ -23,7 +23,7 @@
 class WPRI_Report {
 
 
-	public function wpri_reports() {
+	public static function wpri_reports() {
 		$callback = function() {
             // TODO ?
         };
