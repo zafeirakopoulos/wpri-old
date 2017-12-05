@@ -60,7 +60,7 @@ class WPRI_Report {
 		foreach($rows as $row)
 			$writer->writeSheetRow('Sheet1', $row);
 		// $writer->writeToStdOut();
-		$writer->writeToFile(plugin_dir_url( __FILE__ ).$name);
+		$writer->writeToFile($name);
 		//echo $writer->writeToString();
 		// die(1);
  	}
