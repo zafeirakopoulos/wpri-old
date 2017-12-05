@@ -147,6 +147,15 @@ class WPRI {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-posts.php';
 
+		/**
+		 * The class responsible for reports functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-reports.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'tools/xlsxwriter.class.php';
+
+
+
         //
 		// /**
 		//  * The class responsible for standards pages
