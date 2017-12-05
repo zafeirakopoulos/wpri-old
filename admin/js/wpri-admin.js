@@ -3,7 +3,7 @@ function wpri_get_report(report_form) {
 		wpri.ajaxurl,
 		{
 			'action': 'get_report',
-			'data':   {'report_form' : report_form}
+			'data':  JSON.stringify({'report_form' : report_form})
 		},
 		function(response){
 		   // location.reload();
