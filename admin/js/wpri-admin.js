@@ -11,7 +11,7 @@ function wpri_get_report(report_form) {
 		// }
 		function(response) {
 			alert('The server responded: '+ response);
-            var form = $jQuery('<form method="POST" action="' + url + '">');
+            var form = jQuery('<form method="POST" action="' + url + '">');
             // jQuery.each(params, function(k, v) {
             //     form.append(jQuery('<input type="hidden" name="' + k +
             //             '" value="' + v + '">'));
