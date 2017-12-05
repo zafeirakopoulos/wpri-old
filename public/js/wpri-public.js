@@ -49,7 +49,7 @@
 	// }
 
 
-		function wpri_get_report( report_form ) {
+		function wpri_get_report() {
 			jQuery.post(
  				wpri.ajaxurl,
 			    {
