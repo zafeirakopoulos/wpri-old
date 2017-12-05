@@ -218,7 +218,7 @@ class WPRI_Database {
 
 		$tables_to_drop = array_reverse($tables_to_drop);
 		// error_log("tables_to_drop ".implode($tables_to_drop));
-		// array_push($tables_to_drop,"institute_info");
+		 array_push($tables_to_drop,"vacancy_project");
 
 	    foreach($tables_to_drop as $table_name){
 		    $GLOBALS['wpdb']->query( "DROP TABLE IF EXISTS  " . self::table_name($table_name) );
