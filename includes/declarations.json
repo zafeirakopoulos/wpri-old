@@ -880,6 +880,19 @@
                         "value": "Title in different locales",
                         "cols" : "50",
                         "rows": "2"
+                    },
+                    {
+                        "caption" : "Contact persons" ,
+                        "name": "members",
+                        "value": "",
+                        "type": "multiple-select",
+                        "relation" : {
+                            "foreach" : {
+                                "table" : "member",
+                                "column" : "id",
+                                "display_column" : "name"
+                            }
+                        }
                     }
                 ]
             },
@@ -906,19 +919,6 @@
                         "type": "text"
                     }
                 ]
-            },
-            {
-                "caption" : "Contact persons" ,
-                "name": "members",
-                "value": "",
-                "type": "multiple-select",
-                "relation" : {
-                    "foreach" : {
-                        "table" : "member",
-                        "column" : "id",
-                        "display_column" : "name"
-                    }
-                }
             }
         ]
     }
