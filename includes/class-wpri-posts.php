@@ -20,7 +20,7 @@
  * @subpackage wpri/includes
  * @author     Zafeirakis Zafeirakopoulos
  */
-class WPRI_Posts {
+class WPRI_Post {
 
 
 
@@ -33,7 +33,7 @@ class WPRI_Posts {
 	 */
 
 
-	public static function create_new_posttype() {
+	public static function wpri_posts() {
 		$declarations = WPRI_Declarations::get_post_types();
 		foreach ($declarations as $name => $options) {
 			register_post_type( $name , $options);
