@@ -27,7 +27,7 @@ class WPRI_Report {
 		$callback = function() {
             // TODO ?
         };
-		add_menu_page( "wpri-reports-menu", "Reports", "manage_options", "wpri-reports",$callback);
+		add_menu_page( "Reports Management", "Reports", "manage_options", "wpri-reports-menu",$callback);
 
         $menus =  array();
         $declarations = WPRI_Declarations::get_reports();
@@ -37,8 +37,7 @@ class WPRI_Report {
             }
         }
         foreach ($menus as $menu_name){
-			error_log("about to add submenu ".$menu_name);
-            // new wpri_report_menu_factory($declarations[$menu_name]);
+        	new wpri_report_menu_factory($declarations[$menu_name]);
         }
 	}
 
@@ -77,8 +76,9 @@ class wpri_report_menu_factory {
         $callback = function() use ($entity){
             // WPRI_Form::wpri_create_form($entity);
         };
-		// add_submenu_page( "wpri-reports-menu", "test","test",  "manage_options", "wpri-report-test",$callback);
-		error_log("registering submenu ".$entity["title"]);
+		add_submenu_page( "wpri-reports-menu", "test","test",  "manage_options", "wpri-report-test",$callback);
+		add_submenu_page( 'wpri-settings-menu','Locale Management','Locales' ,  'manage_options', 'wpri-settings-locale' , 'wpri_settings_locale_management');
+error_log("registering submenu ".$entity["title"]);
     	// add_submenu_page( "wpri-reports-menu", $entity["title"],$entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
     }
 }
