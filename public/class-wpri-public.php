@@ -124,6 +124,8 @@ class WPRI_Public {
 			'session_url' => site_url()."/session"
 			)
 		);
+		wp_enqueue_script( 'wpri');
+
 		wp_enqueue_script( 'jquery');
 
 
