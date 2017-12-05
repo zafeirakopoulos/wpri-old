@@ -388,6 +388,7 @@ public static function add_simple_relation($left, $right, $id, $rightvalues) {
 
 # foreach & select
 public static function add_double_relation($left, $middle, $right, $id, $relations) {
+	$success = 1;
 
    foreach ( $relations as $relation ) {
 	   $success = 1;
