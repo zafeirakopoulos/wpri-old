@@ -31,6 +31,16 @@ class WPRI_Declarations {
 		$jsonstring =  implode($jsonfile);
  		# Parse the json string as an associative array
 		$declarations = json_decode ($jsonstring , true );
- 		return $declarations;
+		return $declarations["entities"];
+	}
+
+	public static function get_post_types() {
+		ini_set("auto_detect_line_endings", true);
+		$jsonfilename = plugin_dir_path( dirname( __FILE__ ) ) . "includes/declarations.json";
+		$jsonfile = file($jsonfilename);
+		$jsonstring =  implode($jsonfile);
+		# Parse the json string as an associative array
+		$declarations = json_decode ($jsonstring , true );
+		return $declarations["post_types"];
 	}
 }

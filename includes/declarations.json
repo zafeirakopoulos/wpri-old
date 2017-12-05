@@ -1,925 +1,932 @@
 {
-    "locale": {
-        "title" : "Locales",
-        "table_name" : "locale",
-        "name" :"locale",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+    "entities":
+    {
+        "locale": {
+            "title" : "Locales",
+            "table_name" : "locale",
+            "name" :"locale",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "tinytext",
+                            "name" : "locale",
+                            "caption" : "Locale" ,
+                            "value": "en_US",
+                            "cols" : "5",
+                            "rows": "1"
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "locale" : "en_US"
+                },
+                {
+                    "locale" : "tr_TR"
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "",
-                "elements" : [
-                    {
-                        "type": "tinytext",
-                        "name" : "locale",
-                        "caption" : "Locale" ,
-                        "value": "en_US",
-                        "cols" : "5",
-                        "rows": "1"
-                    }
-                ]
-            }
-        ],
-        "default_values" : [
-            {
-                "locale" : "en_US"
+        "position": {
+            "title" : "Positions",
+            "table_name" : "position",
+            "name" :"position",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "locale" : "tr_TR"
-            }
-        ]
-    },
-    "position": {
-        "title" : "Positions",
-        "table_name" : "position",
-        "name" :"position",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "position",
+                            "caption" : "Position" ,
+                            "value": "researcher",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "position" : "Director",
+                    "en_US" : "Director",
+                    "tr_TR" : "Mudur"
+                },
+                {
+                    "localized" : true,
+                    "position" : "Vice Director",
+                    "en_US" : "Vice Director",
+                    "tr_TR" : "Yard Mudur"
+                },
+                {
+                    "localized" : true,
+                    "position" : "Faculty",
+                    "en_US" : "Faculty",
+                    "tr_TR" : "Faculty"
+                },
+                {
+                    "localized" : true,
+                    "position" : "Research Assistant",
+                    "en_US" : "Research Assistant",
+                    "tr_TR" : "Ar Gor"
+                },
+                {
+                    "localized" : true,
+                    "position" : "Technician",
+                    "en_US" : "Technician",
+                    "tr_TR" : "Technician"
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "",
-                "elements" : [
-                    {
-                        "type": "text",
-                        "name" : "position",
-                        "caption" : "Position" ,
-                        "value": "researcher",
-                        "cols" : "25",
-                        "rows": "1",
-                        "all_locales" : true
-                    }
-                ]
-            }
-        ],
-        "default_values" : [
-            {
-                "localized" : true,
-                "position" : "Director",
-                "en_US" : "Director",
-                "tr_TR" : "Mudur"
+        "pubtype": {
+            "title" : "Publication typr",
+            "table_name" : "pubtype",
+            "name" :"pubtype",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "localized" : true,
-                "position" : "Vice Director",
-                "en_US" : "Vice Director",
-                "tr_TR" : "Yard Mudur"
-            },
-            {
-                "localized" : true,
-                "position" : "Faculty",
-                "en_US" : "Faculty",
-                "tr_TR" : "Faculty"
-            },
-            {
-                "localized" : true,
-                "position" : "Research Assistant",
-                "en_US" : "Research Assistant",
-                "tr_TR" : "Ar Gor"
-            },
-            {
-                "localized" : true,
-                "position" : "Technician",
-                "en_US" : "Technician",
-                "tr_TR" : "Technician"
-            }
-        ]
-    },
-    "pubtype": {
-        "title" : "Publication typr",
-        "table_name" : "pubtype",
-        "name" :"pubtype",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "pubtype",
+                            "caption" : "Publication type" ,
+                            "value": "",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "pubtype" : "SCI indexed International Journal",
+                    "en_US" : "SCI indexed International Journal",
+                    "tr_TR" : "SCI indexed International Journal"
+                },
+                {
+                    "localized" : true,
+                    "pubtype" : "SCI-E indexed International Journal",
+                    "en_US" : "SCI-E indexed International Journal",
+                    "tr_TR" : "SCI-E indexed International Journal"
+                },
+                {
+                    "localized" : true,
+                    "pubtype" : "International Journal",
+                    "en_US" : "International Journal",
+                    "tr_TR" : "International Journal"
+                },
+                {
+                    "localized" : true,
+                    "pubtype" : "SCI indexed National Journal",
+                    "en_US" : "SCI indexed National Journal",
+                    "tr_TR" : "SCI indexed National Journal"
+                },
+                {
+                    "localized" : true,
+                    "pubtype" : "National Journal",
+                    "en_US" : "National Journal",
+                    "tr_TR" : "National Journal"
+                },
+                {
+                    "localized" : true,
+                    "pubtype" : "SCI indexed International Conference Proceedings",
+                    "en_US" : "SCI indexed International Conference Proceedings",
+                    "tr_TR" : "SCI indexed International Conference Proceedings"
+                },
+                {
+                    "localized" : true,
+                    "pubtype" : "SCI indexed National Conference Proceedings",
+                    "en_US" : "SCI indexed National Conference Proceedings",
+                    "tr_TR" : "SCI indexed National Conference Proceedings"
+                },
+                {
+                    "localized" : true,
+                    "pubtype" : "International Conference Proceedings",
+                    "en_US" : "International Conference Proceedings",
+                    "tr_TR" : "International Conference Proceedings"
+                },
+                {
+                    "localized" : true,
+                    "pubtype" : "National Conference Proceedings",
+                    "en_US" : "National Conference Proceedings",
+                    "tr_TR" : "National Conference Proceedings"
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "",
-                "elements" : [
-                    {
-                        "type": "text",
-                        "name" : "pubtype",
-                        "caption" : "Publication type" ,
-                        "value": "",
-                        "cols" : "25",
-                        "rows": "1",
-                        "all_locales" : true
-                    }
-                ]
-            }
-        ],
-        "default_values" : [
-            {
-                "localized" : true,
-                "pubtype" : "SCI indexed International Journal",
-                "en_US" : "SCI indexed International Journal",
-                "tr_TR" : "SCI indexed International Journal"
+        "title": {
+            "title" : "Titles",
+            "table_name" : "title",
+            "name" :"title",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "localized" : true,
-                "pubtype" : "SCI-E indexed International Journal",
-                "en_US" : "SCI-E indexed International Journal",
-                "tr_TR" : "SCI-E indexed International Journal"
-            },
-            {
-                "localized" : true,
-                "pubtype" : "International Journal",
-                "en_US" : "International Journal",
-                "tr_TR" : "International Journal"
-            },
-            {
-                "localized" : true,
-                "pubtype" : "SCI indexed National Journal",
-                "en_US" : "SCI indexed National Journal",
-                "tr_TR" : "SCI indexed National Journal"
-            },
-            {
-                "localized" : true,
-                "pubtype" : "National Journal",
-                "en_US" : "National Journal",
-                "tr_TR" : "National Journal"
-            },
-            {
-                "localized" : true,
-                "pubtype" : "SCI indexed International Conference Proceedings",
-                "en_US" : "SCI indexed International Conference Proceedings",
-                "tr_TR" : "SCI indexed International Conference Proceedings"
-            },
-            {
-                "localized" : true,
-                "pubtype" : "SCI indexed National Conference Proceedings",
-                "en_US" : "SCI indexed National Conference Proceedings",
-                "tr_TR" : "SCI indexed National Conference Proceedings"
-            },
-            {
-                "localized" : true,
-                "pubtype" : "International Conference Proceedings",
-                "en_US" : "International Conference Proceedings",
-                "tr_TR" : "International Conference Proceedings"
-            },
-            {
-                "localized" : true,
-                "pubtype" : "National Conference Proceedings",
-                "en_US" : "National Conference Proceedings",
-                "tr_TR" : "National Conference Proceedings"
-            }
-        ]
-    },
-    "title": {
-        "title" : "Titles",
-        "table_name" : "title",
-        "name" :"title",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "tinytext",
+                            "name" : "title",
+                            "caption" : "Title" ,
+                            "value": "Dr.",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "title" : "Professor",
+                    "en_US" : "Professor",
+                    "tr_TR" : "Professor"
+                },
+                {
+                    "localized" : true,
+                    "title" : "Associate Professor",
+                    "en_US" : "Associate Professor",
+                    "tr_TR" : "Docent"
+                },
+                {
+                    "localized" : true,
+                    "title" : "Assistant Professor",
+                    "en_US" : "Assistant Professor",
+                    "tr_TR" : "Yard Doc"
+                },
+                {
+                    "localized" : true,
+                    "title" : "Dr.",
+                    "en_US" : "Dr.",
+                    "tr_TR" : "Dr."
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "",
-                "elements" : [
-                    {
-                        "type": "tinytext",
-                        "name" : "title",
-                        "caption" : "Title" ,
-                        "value": "Dr.",
-                        "cols" : "25",
-                        "rows": "1",
-                        "all_locales" : true
-                    }
-                ]
-            }
-        ],
-        "default_values" : [
-            {
-                "localized" : true,
-                "title" : "Professor",
-                "en_US" : "Professor",
-                "tr_TR" : "Professor"
+        "agency": {
+            "title" : "Funding Agencies",
+            "table_name" : "agency",
+            "name" :"agency",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "localized" : true,
-                "title" : "Associate Professor",
-                "en_US" : "Associate Professor",
-                "tr_TR" : "Docent"
-            },
-            {
-                "localized" : true,
-                "title" : "Assistant Professor",
-                "en_US" : "Assistant Professor",
-                "tr_TR" : "Yard Doc"
-            },
-            {
-                "localized" : true,
-                "title" : "Dr.",
-                "en_US" : "Dr.",
-                "tr_TR" : "Dr."
-            }
-        ]
-    },
-    "agency": {
-        "title" : "Funding Agencies",
-        "table_name" : "agency",
-        "name" :"agency",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "tinytext",
+                            "name" : "agency",
+                            "caption" : "Agency" ,
+                            "value": "EU H2020",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "agency" : "TUBITAK",
+                    "en_US" : "TUBITAK",
+                    "tr_TR" : "TUBITAK"
+                },
+                {
+                    "localized" : true,
+                    "agency" : "H2020",
+                    "en_US" : "H2020",
+                    "tr_TR" : "H2020"
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "",
-                "elements" : [
-                    {
-                        "type": "tinytext",
-                        "name" : "agency",
-                        "caption" : "Agency" ,
-                        "value": "EU H2020",
-                        "cols" : "25",
-                        "rows": "1",
-                        "all_locales" : true
-                    }
-                ]
-            }
-        ],
-        "default_values" : [
-            {
-                "localized" : true,
-                "agency" : "TUBITAK",
-                "en_US" : "TUBITAK",
-                "tr_TR" : "TUBITAK"
+        "role": {
+            "title" : "Role",
+            "table_name" : "role",
+            "name" :"role",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "localized" : true,
-                "agency" : "H2020",
-                "en_US" : "H2020",
-                "tr_TR" : "H2020"
-            }
-        ]
-    },
-    "role": {
-        "title" : "Role",
-        "table_name" : "role",
-        "name" :"role",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "tinytext",
+                            "name" : "role",
+                            "caption" : "Role" ,
+                            "value": "Admin",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "role" : "admin",
+                    "en_US" : "admin",
+                    "tr_TR" : "admin"
+                },
+                {
+                    "localized" : true,
+                    "role" : "manager",
+                    "en_US" : "manager",
+                    "tr_TR" : "manager"
+                },
+                {
+                    "localized" : true,
+                    "role" : "user",
+                    "en_US" : "user",
+                    "tr_TR" : "user"
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "",
-                "elements" : [
-                    {
-                        "type": "tinytext",
-                        "name" : "role",
-                        "caption" : "Role" ,
-                        "value": "Admin",
-                        "cols" : "25",
-                        "rows": "1",
-                        "all_locales" : true
-                    }
-                ]
-            }
-        ],
-        "default_values" : [
-            {
-                "localized" : true,
-                "role" : "admin",
-                "en_US" : "admin",
-                "tr_TR" : "admin"
+        "status": {
+            "title" : "Status",
+            "table_name" : "status",
+            "name" :"status",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "localized" : true,
-                "role" : "manager",
-                "en_US" : "manager",
-                "tr_TR" : "manager"
-            },
-            {
-                "localized" : true,
-                "role" : "user",
-                "en_US" : "user",
-                "tr_TR" : "user"
-            }
-        ]
-    },
-    "status": {
-        "title" : "Status",
-        "table_name" : "status",
-        "name" :"status",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "tinytext",
+                            "name" : "status",
+                            "caption" : "Status" ,
+                            "value": "ongoing",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "status" : "ongoing",
+                    "en_US" : "ongoing",
+                    "tr_TR" : "ongoing"
+                },
+                {
+                    "localized" : true,
+                    "status" : "submitted",
+                    "en_US" : "submitted",
+                    "tr_TR" : "submitted"
+                },
+                {
+                    "localized" : true,
+                    "status" : "concluded",
+                    "en_US" : "concluded",
+                    "tr_TR" : "concluded"
+                },
+                {
+                    "localized" : true,
+                    "status" : "accepted",
+                    "en_US" : "accepted",
+                    "tr_TR" : "accepted"
+                },
+                {
+                    "localized" : true,
+                    "status" : "published",
+                    "en_US" : "published",
+                    "tr_TR" : "published"
+                },
+                {
+                    "localized" : true,
+                    "status" : "expired",
+                    "en_US" : "expired",
+                    "tr_TR" : "expired"
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "",
-                "elements" : [
-                    {
-                        "type": "tinytext",
-                        "name" : "status",
-                        "caption" : "Status" ,
-                        "value": "ongoing",
-                        "cols" : "25",
-                        "rows": "1",
-                        "all_locales" : true
-                    }
-                ]
-            }
-        ],
-        "default_values" : [
-            {
-                "localized" : true,
-                "status" : "ongoing",
-                "en_US" : "ongoing",
-                "tr_TR" : "ongoing"
+        "authornumber": {
+            "title" : "Author number",
+            "table_name" : "authornumber",
+            "name" :"authornumber",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "localized" : true,
-                "status" : "submitted",
-                "en_US" : "submitted",
-                "tr_TR" : "submitted"
-            },
-            {
-                "localized" : true,
-                "status" : "concluded",
-                "en_US" : "concluded",
-                "tr_TR" : "concluded"
-            },
-            {
-                "localized" : true,
-                "status" : "accepted",
-                "en_US" : "accepted",
-                "tr_TR" : "accepted"
-            },
-            {
-                "localized" : true,
-                "status" : "published",
-                "en_US" : "published",
-                "tr_TR" : "published"
-            },
-            {
-                "localized" : true,
-                "status" : "expired",
-                "en_US" : "expired",
-                "tr_TR" : "expired"
-            }
-        ]
-    },
-    "authornumber": {
-        "title" : "Author number",
-        "table_name" : "authornumber",
-        "name" :"authornumber",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "INT",
+                            "name" : "authornumber",
+                            "caption" : "Author Number" ,
+                            "value": "1",
+                            "cols" : "2",
+                            "rows": "1"
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "authornumber" : 0
+                },
+                {
+                    "authornumber" : 1
+                },
+                {
+                    "authornumber" : 2
+                },
+                {
+                    "authornumber" : 3
+                },
+                {
+                    "authornumber" : 4
+                },
+                {
+                    "authornumber" : 5
+                },
+                {
+                    "authornumber" : 6
+                },
+                {
+                    "authornumber" : 7
+                },
+                {
+                    "authornumber" : 8
+                },
+                {
+                    "authornumber" : 9
+                },
+                {
+                    "authornumber" : 10
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "",
-                "elements" : [
-                    {
-                        "type": "INT",
-                        "name" : "authornumber",
-                        "caption" : "Author Number" ,
-                        "value": "1",
-                        "cols" : "2",
-                        "rows": "1"
-                    }
-                ]
-            }
-        ],
-        "default_values" : [
-            {
-                "authornumber" : 0
+        "requirement": {
+            "title" : "Requirement",
+            "table_name" : "requirement",
+            "name" :"requirement",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "authornumber" : 1
-            },
-            {
-                "authornumber" : 2
-            },
-            {
-                "authornumber" : 3
-            },
-            {
-                "authornumber" : 4
-            },
-            {
-                "authornumber" : 5
-            },
-            {
-                "authornumber" : 6
-            },
-            {
-                "authornumber" : 7
-            },
-            {
-                "authornumber" : 8
-            },
-            {
-                "authornumber" : 9
-            },
-            {
-                "authornumber" : 10
-            }
-        ]
-    },
-    "requirement": {
-        "title" : "Requirement",
-        "table_name" : "requirement",
-        "name" :"requirement",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "requirement",
+                            "caption" : "Requirement" ,
+                            "value": "Computer Engineering degree",
+                            "cols" : "100",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "requirement" : "Computer Science degree",
+                    "en_US" : "Computer Science degree",
+                    "tr_TR" : "Computer Science degree"
+                },
+                {
+                    "localized" : true,
+                    "requirement" : "Mathematics degree",
+                    "en_US" : "Mathematics degree",
+                    "tr_TR" : "Mathematics degree"
+                },
+                {
+                    "localized" : true,
+                    "requirement" : "Computer Engineering degree",
+                    "en_US" : "Computer Engineering degree",
+                    "tr_TR" : "Computer Engineering degree"
+                },
+                {
+                    "localized" : true,
+                    "requirement" : "Electrical Engineering degree",
+                    "en_US" : "Electrical Engineering degree",
+                    "tr_TR" : "Electrical Engineering degree"
+                },
+                {
+                    "localized" : true,
+                    "requirement" : "ALES > 75",
+                    "en_US" : "ALES > 75",
+                    "tr_TR" : "ALES > 75"
+                },
+                {
+                    "localized" : true,
+                    "requirement" : "YDS > 75",
+                    "en_US" : "YDS > 75",
+                    "tr_TR" : "YDS > 75"
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "",
-                "elements" : [
-                    {
-                        "type": "text",
-                        "name" : "requirement",
-                        "caption" : "Requirement" ,
-                        "value": "Computer Engineering degree",
-                        "cols" : "100",
-                        "rows": "1",
-                        "all_locales" : true
-                    }
-                ]
-            }
-        ],
-        "default_values" : [
-            {
-                "localized" : true,
-                "requirement" : "Computer Science degree",
-                "en_US" : "Computer Science degree",
-                "tr_TR" : "Computer Science degree"
+        "projectrole": {
+            "title" : "Project role",
+            "table_name" : "projectrole",
+            "name" :"projectrole",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "localized" : true,
-                "requirement" : "Mathematics degree",
-                "en_US" : "Mathematics degree",
-                "tr_TR" : "Mathematics degree"
-            },
-            {
-                "localized" : true,
-                "requirement" : "Computer Engineering degree",
-                "en_US" : "Computer Engineering degree",
-                "tr_TR" : "Computer Engineering degree"
-            },
-            {
-                "localized" : true,
-                "requirement" : "Electrical Engineering degree",
-                "en_US" : "Electrical Engineering degree",
-                "tr_TR" : "Electrical Engineering degree"
-            },
-            {
-                "localized" : true,
-                "requirement" : "ALES > 75",
-                "en_US" : "ALES > 75",
-                "tr_TR" : "ALES > 75"
-            },
-            {
-                "localized" : true,
-                "requirement" : "YDS > 75",
-                "en_US" : "YDS > 75",
-                "tr_TR" : "YDS > 75"
-            }
-        ]
-    },
-    "projectrole": {
-        "title" : "Project role",
-        "table_name" : "projectrole",
-        "name" :"projectrole",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "tinytext",
+                            "name" : "projectrole",
+                            "caption" : "Project role" ,
+                            "value": "researcher",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "projectrole" : "Principal Investigator",
+                    "en_US" : "Principal Investigator",
+                    "tr_TR" : "Yurutuncu"
+                },
+                {
+                    "localized" : true,
+                    "projectrole" : "Researcher",
+                    "en_US" : "Researcher",
+                    "tr_TR" : "Researcher"
+                },
+                {
+                    "localized" : true,
+                    "projectrole" : "Research Assistant",
+                    "en_US" : "Research Assistant",
+                    "tr_TR" : "Research Assistant"
+                } ,
+                {
+                    "localized" : true,
+                    "projectrole" : "Advisor",
+                    "en_US" : "Advisor",
+                    "tr_TR" : "Advisor"
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "",
-                "elements" : [
-                    {
-                        "type": "tinytext",
-                        "name" : "projectrole",
-                        "caption" : "Project role" ,
-                        "value": "researcher",
-                        "cols" : "25",
-                        "rows": "1",
-                        "all_locales" : true
-                    }
-                ]
-            }
-        ],
-        "default_values" : [
-            {
-                "localized" : true,
-                "projectrole" : "Principal Investigator",
-                "en_US" : "Principal Investigator",
-                "tr_TR" : "Yurutuncu"
+        "member": {
+            "title" : "Members",
+            "table_name" : "member",
+            "name" :"member",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "localized" : true,
-                "projectrole" : "Researcher",
-                "en_US" : "Researcher",
-                "tr_TR" : "Researcher"
+            "groups" :[
+                {
+                    "title" : "User",
+                    "elements" : [
+                        {
+                            "caption" : "User" ,
+                            "name": "user",
+                            "value": "",
+                            "type": "select",
+                            "table" : "user",
+                            "column" : "ID",
+                            "display_column" : "name"
+                        },
+                        {
+                            "caption" : "Name" ,
+                            "name": "name",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "caption" : "Role" ,
+                            "name": "role",
+                            "value": "",
+                            "type": "select",
+                            "table" : "role",
+                            "column" : "id",
+                            "display_column" : "localized"
+                        }
+                    ]
+                }
+            ]
+        },
+        "collaborator": {
+            "title" : "Collaborators",
+            "table_name" : "collaborator",
+            "name" :"collaborator",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "localized" : true,
-                "projectrole" : "Research Assistant",
-                "en_US" : "Research Assistant",
-                "tr_TR" : "Research Assistant"
-            } ,
-            {
-                "localized" : true,
-                "projectrole" : "Advisor",
-                "en_US" : "Advisor",
-                "tr_TR" : "Advisor"
-            }
-        ]
-    },
-    "member": {
-        "title" : "Members",
-        "table_name" : "member",
-        "name" :"member",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+            "groups" :[
+                {
+                    "title" : "Information",
+                    "elements" : [
+                        {
+                            "caption" : "Name" ,
+                            "name": "name",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "caption" : "Role" ,
+                            "name": "role",
+                            "value": "",
+                            "type": "select",
+                            "table" : "role",
+                            "column" : "id",
+                            "display_column" : "localized"
+                        }
+                    ]
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "User",
-                "elements" : [
-                    {
-                        "caption" : "User" ,
-                        "name": "user",
-                        "value": "",
-                        "type": "select",
-                        "table" : "user",
-                        "column" : "ID",
-                        "display_column" : "name"
-                    },
-                    {
-                        "caption" : "Name" ,
-                        "name": "name",
-                        "value": "",
-                        "type": "text"
-                    },
-                    {
-                        "caption" : "Role" ,
-                        "name": "role",
-                        "value": "",
-                        "type": "select",
-                        "table" : "role",
-                        "column" : "id",
-                        "display_column" : "localized"
-                    }
-                ]
-            }
-        ]
-    },
-    "collaborator": {
-        "title" : "Collaborators",
-        "table_name" : "collaborator",
-        "name" :"collaborator",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
-        },
-        "groups" :[
-            {
-                "title" : "Information",
-                "elements" : [
-                    {
-                        "caption" : "Name" ,
-                        "name": "name",
-                        "value": "",
-                        "type": "text"
-                    },
-                    {
-                        "caption" : "Role" ,
-                        "name": "role",
-                        "value": "",
-                        "type": "select",
-                        "table" : "role",
-                        "column" : "id",
-                        "display_column" : "localized"
-                    }
-                ]
-            }
-        ]
-    },
-    "project": {
-        "title" : "Projects",
-        "table_name" : "project",
-        "has_menu": true,
-        "name" :"project",
-        "display_element": "official_title",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
-        },
-        "groups" :[
-            {
-                "title" : "Project title",
-                "elements" : [
-                    {
-                        "type": "text",
-                        "name" : "official_title",
-                        "caption" : "Official title" ,
-                        "value": "as appearing in the funding agency",
-                        "cols" : "50",
-                        "rows": "2"
-                    },
-                    {
-                        "type": "text",
-                        "localized":true,
-                        "name": "title",
-                        "caption" : "Title in different locales" ,
-                        "value": "Title in different locales",
-                        "cols" : "50",
-                        "rows": "2"
-                    }
-                ]
+        "project": {
+            "title" : "Projects",
+            "table_name" : "project",
+            "has_menu": true,
+            "name" :"project",
+            "display_element": "official_title",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "title" : "Project members",
-                "elements" : [
-                    {
-                        "caption" : "Members of the institute participating in the project" ,
-                        "form_name": "members[]",
-                        "name": "members",
-                        "value": "",
-                        "type": "multiple-select",
-                        "relation" : {
-                            "foreach" : {
-                                "table" : "member",
-                                "column" : "id",
-                                "display_column" : "name"
-                            },
-                            "select":{
-                                "table" : "projectrole",
-                                "column" : "id",
-                                "display_column" : "projectrole"
+            "groups" :[
+                {
+                    "title" : "Project title",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "official_title",
+                            "caption" : "Official title" ,
+                            "value": "as appearing in the funding agency",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "type": "text",
+                            "localized":true,
+                            "name": "title",
+                            "caption" : "Title in different locales" ,
+                            "value": "Title in different locales",
+                            "cols" : "50",
+                            "rows": "2"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Project members",
+                    "elements" : [
+                        {
+                            "caption" : "Members of the institute participating in the project" ,
+                            "form_name": "members[]",
+                            "name": "members",
+                            "value": "",
+                            "type": "multiple-select",
+                            "relation" : {
+                                "foreach" : {
+                                    "table" : "member",
+                                    "column" : "id",
+                                    "display_column" : "name"
+                                },
+                                "select":{
+                                    "table" : "projectrole",
+                                    "column" : "id",
+                                    "display_column" : "projectrole"
+                                }
+                            }
+                        },
+                        {
+                            "caption" : "Collaborators participating in the project" ,
+                            "name": "collaborators",
+                            "value": "",
+                            "type": "multiple-select",
+                            "relation" : {
+                                "foreach" : {
+                                    "table" : "collaborator",
+                                    "column" : "id",
+                                    "display_column" : "name"
+                                },
+                                "select":{
+                                    "table" : "projectrole",
+                                    "column" : "id",
+                                    "display_column" : "projectrole"
+                                }
                             }
                         }
-                    },
-                    {
-                        "caption" : "Collaborators participating in the project" ,
-                        "name": "collaborators",
-                        "value": "",
-                        "type": "multiple-select",
-                        "relation" : {
-                            "foreach" : {
-                                "table" : "collaborator",
-                                "column" : "id",
-                                "display_column" : "name"
-                            },
-                            "select":{
-                                "table" : "projectrole",
-                                "column" : "id",
-                                "display_column" : "projectrole"
+                    ]
+                },
+                {
+                    "title" : "Funding",
+                    "elements" : [
+                        {
+                            "caption" : "Choose funding agency" ,
+                            "name": "agency",
+                            "value": "",
+                            "type": "multiple-select",
+                            "relation" : {
+                                "foreach" : {
+                                    "table" : "agency",
+                                    "column" : "id",
+                                    "display_column" : "agency"
+                                }
                             }
+                        },
+                        {
+                            "caption" : "Budget" ,
+                            "name": "budget",
+                            "value": "",
+                            "type": "text"
                         }
-                    }
-                ]
-            },
-            {
-                "title" : "Funding",
-                "elements" : [
-                    {
-                        "caption" : "Choose funding agency" ,
-                        "name": "agency",
-                        "value": "",
-                        "type": "multiple-select",
-                        "relation" : {
-                            "foreach" : {
-                                "table" : "agency",
-                                "column" : "id",
-                                "display_column" : "agency"
-                            }
+                    ]
+                },
+                {
+                    "title" : "Info",
+                    "elements" : [
+                        {
+                            "caption" : "Website" ,
+                            "name": "website",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "caption" : "Status" ,
+                            "name": "status",
+                            "value": "",
+                            "type": "select",
+                            "table" : "status",
+                            "column" : "id",
+                            "display_column" : "status"
                         }
-                    },
-                    {
-                        "caption" : "Budget" ,
-                        "name": "budget",
-                        "value": "",
-                        "type": "text"
-                    }
-                ]
-            },
-            {
-                "title" : "Info",
-                "elements" : [
-                    {
-                        "caption" : "Website" ,
-                        "name": "website",
-                        "value": "",
-                        "type": "text"
-                    },
-                    {
-                        "caption" : "Status" ,
-                        "name": "status",
-                        "value": "",
-                        "type": "select",
-                        "table" : "status",
-                        "column" : "id",
-                        "display_column" : "status"
-                    }
-                ]
-            },
-            {
-                "title" : "Dates",
-                "elements" : [
-                    {
-                        "caption" : "Start date" ,
-                        "name": "startdate",
-                        "value": "",
-                        "type": "datetime"
-                    },
-                    {
-                        "caption" : "End date" ,
-                        "name": "enddate",
-                        "value": "",
-                        "type": "datetime"
-                    }
-                ]
-            }
-        ]
-    },
-    "publication": {
-        "title" : "Publications",
-        "table_name" : "publication",
-        "has_menu": true,
-        "name" :"publication",
-        "display_element": "official_title",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+                    ]
+                },
+                {
+                    "title" : "Dates",
+                    "elements" : [
+                        {
+                            "caption" : "Start date" ,
+                            "name": "startdate",
+                            "value": "",
+                            "type": "datetime"
+                        },
+                        {
+                            "caption" : "End date" ,
+                            "name": "enddate",
+                            "value": "",
+                            "type": "datetime"
+                        }
+                    ]
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "Publication title",
-                "elements" : [
-                    {
-                        "type": "text",
-                        "name" : "official_title",
-                        "caption" : "Official title" ,
-                        "value": "as appearing in the funding agency",
-                        "cols" : "50",
-                        "rows": "2"
-                    },
-                    {
-                        "type": "text",
-                        "localized":true,
-                        "name": "title",
-                        "caption" : "Title in different locales" ,
-                        "value": "Title in different locales",
-                        "cols" : "50",
-                        "rows": "2"
-                    }
-                ]
+        "publication": {
+            "title" : "Publications",
+            "table_name" : "publication",
+            "has_menu": true,
+            "name" :"publication",
+            "display_element": "official_title",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "title" : "Information",
-                "elements" : [
-                    {
-                        "caption" : "Publication type" ,
-                        "name": "pubtype",
-                        "value": "",
-                        "type": "select",
-                        "table" : "pubtype",
-                        "column" : "id",
-                        "display_column" : "pubtype"
-                    }
-                ]
-            },
-            {
-                "title" : "Bibliographic information",
-                "elements" : [
-                    {
-                        "caption" : "Bibtex" ,
-                        "name": "bibtex",
-                        "value": "",
-                        "type": "text",
-                        "cols" : "100",
-                        "rows": "10"
-                    },
-                    {
-                        "caption" : "Publication date" ,
-                        "name": "pubdate",
-                        "value": "",
-                        "type": "datetime"
-                    }
-                ]
-            },
-            {
-                "title" : "Project information",
-                "elements" : [
-                    {
-                        "caption" : "Publication is acknowleding funding from" ,
-                        "name": "project",
-                        "value": "",
-                        "type": "multiple-select",
-                        "relation" : {
-                            "foreach" : {
-                                "table" : "project",
-                                "column" : "id",
-                                "display_column" : "official_title"
+            "groups" :[
+                {
+                    "title" : "Publication title",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "official_title",
+                            "caption" : "Official title" ,
+                            "value": "as appearing in the funding agency",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "type": "text",
+                            "localized":true,
+                            "name": "title",
+                            "caption" : "Title in different locales" ,
+                            "value": "Title in different locales",
+                            "cols" : "50",
+                            "rows": "2"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Information",
+                    "elements" : [
+                        {
+                            "caption" : "Publication type" ,
+                            "name": "pubtype",
+                            "value": "",
+                            "type": "select",
+                            "table" : "pubtype",
+                            "column" : "id",
+                            "display_column" : "pubtype"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Bibliographic information",
+                    "elements" : [
+                        {
+                            "caption" : "Bibtex" ,
+                            "name": "bibtex",
+                            "value": "",
+                            "type": "text",
+                            "cols" : "100",
+                            "rows": "10"
+                        },
+                        {
+                            "caption" : "Publication date" ,
+                            "name": "pubdate",
+                            "value": "",
+                            "type": "datetime"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Project information",
+                    "elements" : [
+                        {
+                            "caption" : "Publication is acknowleding funding from" ,
+                            "name": "project",
+                            "value": "",
+                            "type": "multiple-select",
+                            "relation" : {
+                                "foreach" : {
+                                    "table" : "project",
+                                    "column" : "id",
+                                    "display_column" : "official_title"
+                                }
                             }
                         }
-                    }
-                ]
-            }
-        ]
-    },
-    "vacancy": {
-        "title" : "Vacancies",
-        "table_name" : "vacancy",
-        "has_menu": true,
-        "name" :"vacancy",
-        "display_element": "official_title",
-        "actions": {
-            "add" : "manage_options",
-            "remove" : ["admin"],
-            "update" : ["all"]
+                    ]
+                }
+            ]
         },
-        "groups" :[
-            {
-                "title" : "Position information",
-                "elements" : [
-                    {
-                        "type": "text",
-                        "name" : "official_title",
-                        "caption" : "Official title" ,
-                        "value": "",
-                        "cols" : "50",
-                        "rows": "2"
-                    },
-                    {
-                        "type": "text",
-                        "localized":true,
-                        "name": "title",
-                        "caption" : "Title in different locales" ,
-                        "value": "Title in different locales",
-                        "cols" : "50",
-                        "rows": "2"
-                    },
-                    {
-                        "caption" : "Contact persons" ,
-                        "name": "members",
-                        "value": "",
-                        "type": "multiple-select",
-                        "relation" : {
-                            "foreach" : {
-                                "table" : "member",
-                                "column" : "id",
-                                "display_column" : "name"
-                            }
-                        }
-                    }
-                ]
+        "vacancy": {
+            "title" : "Vacancies",
+            "table_name" : "vacancy",
+            "has_menu": true,
+            "name" :"vacancy",
+            "display_element": "official_title",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
             },
-            {
-                "title" : "Funding",
-                "elements" : [
-                    {
-                        "caption" : "Choose funding agency" ,
-                        "name": "agency",
-                        "value": "",
-                        "type": "multiple-select",
-                        "relation" : {
-                            "foreach" : {
-                                "table" : "agency",
-                                "column" : "id",
-                                "display_column" : "agency"
+            "groups" :[
+                {
+                    "title" : "Position information",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "official_title",
+                            "caption" : "Official title" ,
+                            "value": "",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "type": "text",
+                            "localized":true,
+                            "name": "title",
+                            "caption" : "Title in different locales" ,
+                            "value": "Title in different locales",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "caption" : "Contact persons" ,
+                            "name": "members",
+                            "value": "",
+                            "type": "multiple-select",
+                            "relation" : {
+                                "foreach" : {
+                                    "table" : "member",
+                                    "column" : "id",
+                                    "display_column" : "name"
+                                }
                             }
                         }
-                    },
-                    {
-                        "caption" : "Budget" ,
-                        "name": "budget",
-                        "value": "",
-                        "type": "text"
-                    }
-                ]
-            }
-        ]
+                    ]
+                },
+                {
+                    "title" : "Funding",
+                    "elements" : [
+                        {
+                            "caption" : "Choose funding agency" ,
+                            "name": "agency",
+                            "value": "",
+                            "type": "multiple-select",
+                            "relation" : {
+                                "foreach" : {
+                                    "table" : "agency",
+                                    "column" : "id",
+                                    "display_column" : "agency"
+                                }
+                            }
+                        },
+                        {
+                            "caption" : "Budget" ,
+                            "name": "budget",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "post_types":
+    {
+
     }
 }
