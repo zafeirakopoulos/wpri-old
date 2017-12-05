@@ -1,4 +1,4 @@
-function wpri_get_report() {
+function wpri_get_report(report_form) {
 	jQuery.post(
 		wpri.ajaxurl,
 		{
@@ -7,7 +7,7 @@ function wpri_get_report() {
 		},
 		function(response){
 		   // location.reload();
-		   alert('The server responded: ');
+		   alert('The server responded: '+ response);
 		}
 	);
 
