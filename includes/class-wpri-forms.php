@@ -102,7 +102,7 @@ class WPRI_Form {
                                 else{
                                     $relations[$relation["foreach"]["table"]] = array($tmp) ;
                                 }
-                                error_log(print_r($relations[$relation["foreach"]["table"]]));
+                                // error_log(print_r($relations[$relation["foreach"]["table"]]));
                             }
 						}
 					} elseif ($element["type"]== "select"){
@@ -318,10 +318,7 @@ class WPRI_Form {
    								}
    								else{
 									if (is_array($element["display_column"])){
-										error_log($element["display_column"][0].$element["display_column"][1].$dbitem["id"]);
-
 										$display_name = WPRI_Database::get_field($element["display_column"][0],$element["display_column"][1],$dbitem["id"]);
-										error_log("display name:".$display_name);
 
 									}else{
 										$display_name = $dbitem[$element["display_column"]];
