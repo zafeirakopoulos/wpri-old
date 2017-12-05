@@ -41,7 +41,8 @@ class WPRI_Report {
         }
 	}
 
-	public static function get_report($name) {
+	public static function get_report() {
+		$name = $_POST["report_form"];
 		error_log(XLSXWriter::sanitize_filename($name));
 		error_log($name);
 		header('Content-disposition: attachment; filename="'.XLSXWriter::sanitize_filename($name).'"');
