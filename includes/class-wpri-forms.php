@@ -106,7 +106,9 @@ class WPRI_Form {
                             }
 						}
 					} elseif ($element["type"]== "select"){
-						$relations[$element["name"]] =  $_POST[$element["name"]] ;
+                        if (empty($_POST[$element["name"]] )!=1){
+                            $plain[$element["name"]] =  $_POST[$element["name"]] ;
+                        }
 					} else{
 						$plain[$element["name"]] = $_POST[$element["name"]];
 					}
