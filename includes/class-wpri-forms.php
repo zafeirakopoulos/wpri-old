@@ -89,6 +89,7 @@ class WPRI_Form {
                                 if ($_POST[$element["name"].$option["id"]]!=NULL){
 
                                     $tmptmp = explode(",", $_POST[$element["name"].$option["id"]]);
+                                    error_log( $_POST[$element["name"].$option["id"]]);
                                     if (is_array($tmp)){
                                         array_push($tmp, array(  $relation["foreach"]["table"] => $tmptmp,$relation["select"]["table"] => $option["id"] ));
                                     }
