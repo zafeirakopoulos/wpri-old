@@ -87,7 +87,7 @@ class WPRI_Form {
 							$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 							foreach ($all_options as $option){
                                 if ($_POST[$element["name"].$option["id"]]!=NULL){
-                                    array_push($tmp, array(  $relation["foreach"]["table"] => $_POST[$element["name"].$option["id"]],$relation["select"]["table"] => $option["id"] ));                                    
+                                    array_push($tmp, array(  $relation["foreach"]["table"] => $_POST[$element["name"].$option["id"]],$relation["select"]["table"] => $option["id"] ));
                                 }
 							}
 							$multiplerelations[$element["name"]] = $tmp;
@@ -145,9 +145,9 @@ class WPRI_Form {
 							if (isset($element["all_locales"])!=true){
 								if (isset($element["localized"])){
 									foreach ($locales as $locale) {?>
-										<label class='col-sm-6 form-element-caption'> <?php echo $locale["name"] ?></label>
+										<label class='col-sm-6 form-element-caption'> <?php echo $locale["locale"] ?></label>
 										<div class='col-sm-6 form-element-value'>
-											<textarea id='<?php echo $element["id"]?>'
+											<textarea id='<?php echo $element["name"]?>'
 													  name='<?php echo $element["name"].$locale["id"] ?>'
 													  cols='80'
 													  rows='3'>
