@@ -300,7 +300,7 @@ public static function get_records($table, $where) {
 		array_push($values,$value);
 	}
 	$query = "SELECT * FROM " . self::table_name($table). " WHERE ". join(" AND ", $wherearray);
-	error_log($query);
+	// error_log($query);
 	$results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare($query, $values),"ARRAY_A");
 	return $results[0];
 }
