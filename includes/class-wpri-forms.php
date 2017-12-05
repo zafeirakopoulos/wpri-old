@@ -351,27 +351,6 @@ class WPRI_Form {
 	<?php }
 
 
-	public static function wpri_form_delete($form) {
-		$all_entries = WPRI_Database::get_all($form["table_name"]);
-		if (empty($all_entries)){
-			echo "<h2>No entries found.</h2>";
-		}else{
-		?>
-		<form name='id' method="post" action="">
-				  <?php foreach ( $all_entries as $item ) {
-					  echo "<div class='form-check'>";
-					  echo "<label class='form-check-label'>";
-					  echo "<input class='form-check-input' type='checkbox' name='ids[]' value='".$item["id"]."'>  ";
-					  echo $item[$form["display_element"]];
-					  echo "</label>";
-					  echo "</div>";
-  			  } ?>
-			<button type="submit" class="btn btn-primary">Delete selected</button>
-			<input type="hidden" name="type" value="delete"/>
-		</form>
-	<?php }
-	}
-
 	public static function wpri_form_show_existing($form) {
 		$all_entries = WPRI_Database::get_all($form["table_name"]);
 		if (empty($all_entries)){
