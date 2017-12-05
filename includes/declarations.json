@@ -449,6 +449,38 @@
             }
         ]
     },
+    "collaborator": {
+        "title" : "Collaborators",
+        "table_name" : "collaborator",
+        "name" :"collaborator",
+        "actions": {
+            "add" : "manage_options",
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "Information",
+                "elements" : [
+                    {
+                        "caption" : "Name" ,
+                        "name": "name",
+                        "value": "",
+                        "type": "text"
+                    },
+                    {
+                        "caption" : "Role" ,
+                        "name": "role",
+                        "value": "",
+                        "type": "select",
+                        "table" : "role",
+                        "column" : "id",
+                        "display_column" : "localized"
+                    }
+                ]
+            }
+        ]
+    },
     "project": {
         "title" : "Projects",
         "table_name" : "project",
@@ -495,6 +527,22 @@
                         "relation" : {
                             "foreach" : {
                                 "table" : "member",
+                                "column" : "id",
+                                "display_column" : "name"
+                            },
+                            "select":{
+                                "table" : "projectrole",
+                                "column" : "id",
+                                "display_column" : "projectrole"
+                            }
+                        },
+                        "caption" : "Collaborators participating in the project" ,
+                        "name": "collaborators",
+                        "value": "",
+                        "type": "multiple-select",
+                        "relation" : {
+                            "foreach" : {
+                                "table" : "collaborator",
                                 "column" : "id",
                                 "display_column" : "name"
                             },
