@@ -59,8 +59,8 @@ class WPRI_Report {
 		$writer->setAuthor('Some Author');
 		foreach($rows as $row)
 			$writer->writeSheetRow('Sheet1', $row);
-		$writer->writeToStdOut();
-		//$writer->writeToFile('example.xlsx');
+		// $writer->writeToStdOut();
+		$writer->writeToFile(plugin_dir_url( __FILE__ ).$name);
 		//echo $writer->writeToString();
 		// die(1);
  	}
