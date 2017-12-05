@@ -141,6 +141,12 @@ class WPRI {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-forms.php';
 
+		/**
+		 * The class responsible for posts functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-posts.php';
+
         //
 		// /**
 		//  * The class responsible for standards pages

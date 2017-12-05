@@ -927,6 +927,14 @@
     },
     "post_types":
     {
-
+        "wpri_news": {
+            "labels": {
+                  "name" : "News",
+                  "singular_name": "News"
+            },
+            "public" : true,
+            "has_archive" : true,
+            "rewrite" : {"slug" : "news"}
+        }
     }
 }
