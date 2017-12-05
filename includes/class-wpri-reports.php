@@ -24,21 +24,21 @@ class WPRI_Report {
 
 
 	public function wpri_reports() {
-		// $callback = function() use ($entity){
-        //     // TODO ?
-        // };
-		// add_menu_page( "wpri-reports-menu", "Reports", "manage_options", "wpri-reports",$callback);
-        //
-        // $menus =  array();
-        // $declarations = WPRI_Declarations::get_reports();
-        // foreach ($declarations as $entity_name => $entity) {
-        //     if (isset($entity["has_menu"])){
-        //         array_push($menus,$entity_name );
-        //     }
-        // }
-        // foreach ($menus as $menu_name){
-        //     new wpri_report_menu_factory($declarations[$menu_name]);
-        // }
+		$callback = function() use ($entity){
+            // TODO ?
+        };
+		add_menu_page( "wpri-reports-menu", "Reports", "manage_options", "wpri-reports",$callback);
+
+        $menus =  array();
+        $declarations = WPRI_Declarations::get_reports();
+        foreach ($declarations as $entity_name => $entity) {
+            if (isset($entity["has_menu"])){
+                array_push($menus,$entity_name );
+            }
+        }
+        foreach ($menus as $menu_name){
+            new wpri_report_menu_factory($declarations[$menu_name]);
+        }
 	}
 
 	public static function get_report() {
