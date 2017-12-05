@@ -398,8 +398,9 @@ public static function add_form($entity, $form) {
 	}
 
 	foreach (  $form["multirelations"]  as $name => $relation ) {
-		error_log(print_r(implode($relation)));
-		WPRI_Database::add_double_relation($entity["name"],$relation[0],$relation[1],$new_id,$relation) ;
+		error_log(print_r($relation[0]));
+		error_log(print_r($relation[1]));
+		// WPRI_Database::add_double_relation($entity["name"],$relation[0],$relation[1],$new_id,$relation) ;
 	}
 
 	if (!$success){
