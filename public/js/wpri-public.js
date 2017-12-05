@@ -48,7 +48,10 @@
     //
 	// }
 
+	function wpri_test() {
+	  alert('It works');
 
+	}
 		function wpri_get_report() {
 			jQuery.post(
  				wpri.ajaxurl,
