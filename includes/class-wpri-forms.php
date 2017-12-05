@@ -87,7 +87,7 @@ class WPRI_Form {
 							$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 							foreach ($all_options as $option){
                                 if ($_POST[$element["name"].$option["id"]]!=NULL){
-                                    array_push($tmp, array(  $relation["foreach"]["table"] => $_POST[$element["name"].$option["id"]],$relation["select"]["table"] => $option["id"] ));
+                                    array_push($tmp, array(  $relation["foreach"]["table"] => $_POST[$element["name"].$option["id"]], ));                                    
                                 }
 							}
 							$multiplerelations[$element["name"]] = $tmp;
@@ -95,7 +95,7 @@ class WPRI_Form {
 							$relations[$element["name"]] =  array( $relation["foreach"]["table"] => $_POST[$element["name"].$option["id"]] );
 						}
 					} elseif ($element["type"]== "select"){
-						$plain[$element["name"]] =  $_POST[$element["name"]] ;
+						$relations[$element["name"]] =  $_POST[$element["name"]] ;
 					} else{
 						$plain[$element["name"]] = $_POST[$element["name"]];
 					}
@@ -105,7 +105,6 @@ class WPRI_Form {
 			$to_add["plain"]=$plain;
 			$to_add["relations"]=$relations;
 			$to_add["multirelations"]=$multiplerelations;
-
 			$to_add["localized"]=$local;
 			$success = WPRI_Database::add_form($entity,$to_add);
 			if($success ) {
