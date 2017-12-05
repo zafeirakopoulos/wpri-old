@@ -43,6 +43,10 @@ class WPRI_Report {
 
 	public static function get_report() {
 
+		error_log("in get report");
+		$whatever = intval( $_POST['whatever'] );
+
+		$whatever += 10;
 
 		$filename = "example.xlsx";
 		header('Content-disposition: attachment; filename="'.XLSXWriter::sanitize_filename($filename).'"');
@@ -79,4 +83,5 @@ class wpri_report_menu_factory {
         };
     	add_submenu_page( "wpri-reports-menu", $entity["title"],$entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
     }
+
 }
