@@ -34,7 +34,7 @@
 	// function wpri_change_locale( locale ) {
 	// 	jQuery.post(
 	// 	    /*wpri_ajax.ajaxurl,*/
-	// 		wpri_ajax.session_url,
+	// 		wpri.session_url,
 	// 	    {
 	// 	        'action': 'change_locale',
 	// 	        'data':   {'locale' : locale}
@@ -58,7 +58,7 @@
 			    },
 			    function(response){
 				   // location.reload();
-			       alert('The server responded: ' + response);
+			       alert('The server responded: ');
 			    }
 			);
 
