@@ -389,6 +389,7 @@ public static function add_simple_relation($left, $right, $id, $rightvalues) {
 public static function add_double_relation($left, $middle, $right, $id, $relations) {
 
    foreach ( $relations as $relation ) {
+	   $success = 1;
 	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$middle."_".$right) , array(
 		   $left => $id,
 		   $middle => $relation[$middle],
@@ -421,7 +422,7 @@ public static function add_form($entity, $form) {
 
 	}
 
- 
+
 	if (!$success){
 		# TODO Delete what was added
 	}
