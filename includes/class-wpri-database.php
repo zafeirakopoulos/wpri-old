@@ -442,13 +442,13 @@ public static function add_form($entity, $form) {
 					if (isset($relation["select"]["table"])){
 						$success = $GLOBALS['wpdb']->query(
 							$GLOBALS['wpdb']->prepare(
-								"DELETE FROM " . self::table_name($entity["name"]."_".$relation["foreach"]["table"]."_".$relation["select"]["table"]). " WHERE ".$entity["table"]." = %d", $id
+								"DELETE FROM " . self::table_name($entity["name"]."_".$relation["foreach"]["table"]."_".$relation["select"]["table"]). " WHERE ".$entity["name"]." = %d", $id
 							)
 						);
 					} else {
 						$success = $GLOBALS['wpdb']->query(
 							$GLOBALS['wpdb']->prepare(
-								"DELETE FROM " . self::table_name($entity["name"]."_".$relation["foreach"]["table"]). " WHERE ".$entity["table"]." = %d", $id
+								"DELETE FROM " . self::table_name($entity["name"]."_".$relation["foreach"]["table"]). " WHERE ".$entity["name"]." = %d", $id
 							)
 						);
 					}
@@ -456,7 +456,7 @@ public static function add_form($entity, $form) {
 				if (isset($element["localized"])){
 					$success = $GLOBALS['wpdb']->query(
 						$GLOBALS['wpdb']->prepare(
-							"DELETE FROM " . self::table_name("locale_".$entity["name"]."_".$element["table"]). " WHERE ".$entity["table"]." = %d", $id
+							"DELETE FROM " . self::table_name("locale_".$entity["name"]."_".$element["name"]). " WHERE ".$entity["name"]." = %d", $id
 						)
 					);
 				}
