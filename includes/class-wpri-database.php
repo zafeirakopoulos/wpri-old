@@ -256,6 +256,9 @@ class WPRI_Database {
 ***************    Query Functions  *******************************************************
 *******************************************************************************************
 *******************************************************************************************/
+public static function get_all_members() {
+	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
+}
 
 public static function get_record($entity,$id) {
 	$results=  $GLOBALS['wpdb']->get_results(
