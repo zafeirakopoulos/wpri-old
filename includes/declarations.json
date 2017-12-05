@@ -292,6 +292,66 @@
             }
         ]
     },
+    "authornumber": {
+        "title" : "Author number",
+        "table_name" : "authornumber",
+        "name" :"authornumber",
+        "actions": {
+            "add" : "manage_options",
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "",
+                "elements" : [
+                    {
+                        "type": "INT",
+                        "name" : "authornumber",
+                        "caption" : "Author Number" ,
+                        "value": "1",
+                        "cols" : "2",
+                        "rows": "1"
+                    }
+                ]
+            }
+        ],
+        "default_values" : [
+            {
+                "authornumber" : 0,
+            },
+            {
+                "authornumber" : 1,
+            },
+            {
+                "authornumber" : 2,
+            },
+            {
+                "authornumber" : 3,
+            },
+            {
+                "authornumber" : 4,
+            },
+            {
+                "authornumber" : 5,
+            },
+            {
+                "authornumber" : 6,
+            },
+            {
+                "authornumber" : 7,
+            },
+            {
+                "authornumber" : 8,
+            },
+            {
+                "authornumber" : 9,
+            },
+            {
+                "authornumber" : 10,
+            }
+        ]
+    },
     "requirement": {
         "title" : "Requirement",
         "table_name" : "requirement",
