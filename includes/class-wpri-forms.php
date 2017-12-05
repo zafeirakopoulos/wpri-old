@@ -95,10 +95,12 @@ class WPRI_Form {
                             }
 						} else {
                             $tmp = explode(",", $_POST[$element["name"]];
-                            if (is_array($tmp)!=1){
-                                $tmp = array($tmp); 
+                            if (is_array($tmp)){
+                                $relations[$relation["foreach"]["table"]] = $tmp );
                             }
- 							$relations[$relation["foreach"]["table"]] = $tmp );
+                            else{
+                                $relations[$relation["foreach"]["table"]] = array($tmp) );
+                            }
 						}
 					} elseif ($element["type"]== "select"){
 						$relations[$element["name"]] =  $_POST[$element["name"]] ;
