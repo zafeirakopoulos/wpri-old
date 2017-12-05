@@ -43,6 +43,7 @@ class WPRI_Report {
 
 	public static function get_report($name) {
 		error_log(XLSXWriter::sanitize_filename($name));
+		error_log($name);
 		header('Content-disposition: attachment; filename="'.XLSXWriter::sanitize_filename($name).'"');
 		header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 		header('Content-Transfer-Encoding: binary');
