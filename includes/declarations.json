@@ -90,6 +90,88 @@
             }
         ]
     },
+    "pubtype": {
+        "title" : "Publication typr",
+        "table_name" : "pubtype",
+        "name" :"pubtype",
+        "actions": {
+            "add" : "manage_options",
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "",
+                "elements" : [
+                    {
+                        "type": "text",
+                        "name" : "pubtype",
+                        "caption" : "Publication type" ,
+                        "value": "",
+                        "cols" : "25",
+                        "rows": "1",
+                        "all_locales" : true
+                    }
+                ]
+            }
+        ],
+        "default_values" : [
+            {
+                "localized" : true,
+                "pubtype" : "SCI indexed International Journal",
+                "en_US" : "SCI indexed International Journal",
+                "tr_TR" : "SCI indexed International Journal"
+            },
+            {
+                "localized" : true,
+                "pubtype" : "SCI-E indexed International Journal",
+                "en_US" : "SCI-E indexed International Journal",
+                "tr_TR" : "SCI-E indexed International Journal"
+            },
+            {
+                "localized" : true,
+                "pubtype" : "International Journal",
+                "en_US" : "International Journal",
+                "tr_TR" : "International Journal"
+            },
+            {
+                "localized" : true,
+                "pubtype" : "SCI indexed National Journal",
+                "en_US" : "SCI indexed National Journal",
+                "tr_TR" : "SCI indexed National Journal"
+            },
+            {
+                "localized" : true,
+                "pubtype" : "National Journal",
+                "en_US" : "National Journal",
+                "tr_TR" : "National Journal"
+            },
+            {
+                "localized" : true,
+                "pubtype" : "SCI indexed International Conference Proceedings",
+                "en_US" : "SCI indexed International Conference Proceedings",
+                "tr_TR" : "SCI indexed International Conference Proceedings"
+            },
+            {
+                "localized" : true,
+                "pubtype" : "SCI indexed National Conference Proceedings",
+                "en_US" : "SCI indexed National Conference Proceedings",
+                "tr_TR" : "SCI indexed National Conference Proceedings"
+            },
+            {
+                "localized" : true,
+                "pubtype" : "International Conference Proceedings",
+                "en_US" : "International Conference Proceedings",
+                "tr_TR" : "International Conference Proceedings"
+            },
+            {
+                "localized" : true,
+                "pubtype" : "National Conference Proceedings",
+                "en_US" : "National Conference Proceedings",
+                "tr_TR" : "National Conference Proceedings"
+            }
+        ]
+    },
     "title": {
         "title" : "Titles",
         "table_name" : "title",
@@ -318,13 +400,13 @@
         ],
         "default_values" : [
             {
-                "authornumber" : "0"
+                "authornumber" : 0
             },
             {
-                "authornumber" : "1"
+                "authornumber" : 1
             },
             {
-                "authornumber" : "2"
+                "authornumber" : 2
             },
             {
                 "authornumber" : 3
@@ -710,6 +792,39 @@
                         "value": "Title in different locales",
                         "cols" : "50",
                         "rows": "2"
+                    }
+                ]
+            },
+            {
+                "title" : "Information",
+                "elements" : [
+                    {
+                        "caption" : "Publication type" ,
+                        "name": "pubtype",
+                        "value": "",
+                        "type": "select",
+                        "table" : "pubtype",
+                        "column" : "id",
+                        "display_column" : "pubtype"
+                    }
+                ]
+            },
+            {
+                "title" : "Bibliographic information",
+                "elements" : [
+                    {
+                        "caption" : "Bibtex" ,
+                        "name": "bibtex",
+                        "value": "",
+                        "type": "text",
+                        "cols" : "100",
+                        "rows": "10"
+                    },
+                    {
+                        "caption" : "Publication date" ,
+                        "name": "pubdate",
+                        "value": "",
+                        "type": "datetime"
                     }
                 ]
             }
