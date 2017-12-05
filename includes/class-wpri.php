@@ -217,7 +217,7 @@ class WPRI {
 		$plugin_admin = new WPRI_Admin( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		
+
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_menu' );
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_locale_menu' );
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_title_menu' );
@@ -233,6 +233,17 @@ class WPRI {
 		$this->loader->add_action( 'edit_user_profile', $plugin_admin, 'member_fields' );
 
 
+		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_institute_info_menu' );
+
+
+		$this->loader->	add_action( 'admin_menu', $plugin_report, 'settings_institute_info_menu' );
+
+		$plugin_report = new WPRI_Report( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->	add_action( 'admin_menu', $plugin_report, 'wpri_reports' );
+
+		$this->loader->	add_action( 'wp_ajax_wpri_get_report', $plugin_report, 'get_report' );
+
+		 
 	}
 
 	/**
@@ -256,8 +267,6 @@ class WPRI {
 		$plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->	add_action( 'admin_menu', $plugin_menu, 'wpri_menus' );
 
-		$plugin_report = new WPRI_Report( $this->get_plugin_name(), $this->get_version() );
-		$this->loader->	add_action( 'admin_menu', $plugin_report, 'wpri_reports' );
 
 		$plugin_post = new WPRI_Post( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->	add_action( 'init', $plugin_post, 'wpri_posts',1 );
