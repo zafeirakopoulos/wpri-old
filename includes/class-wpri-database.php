@@ -257,7 +257,7 @@ class WPRI_Database {
 *******************************************************************************************
 *******************************************************************************************/
 
-// TODO remove that. 
+// TODO remove that.
 				public static function get_roles() {
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
@@ -267,6 +267,11 @@ class WPRI_Database {
 					);
 				}
 
+				public static function add_member($member) {
+							$GLOBALS['wpdb']->insert( self::table_name("member")  , $member);
+							return $GLOBALS['wpdb']->insert_id;
+						}
+						
 public static function get_all_members() {
 	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
 }
