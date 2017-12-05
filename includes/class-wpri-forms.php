@@ -90,7 +90,7 @@ class WPRI_Form {
                                     array_push($tmp, array(  $relation["foreach"]["table"] => $_POST[$element["name"].$option["id"]],$relation["select"]["table"] => $option["id"] ));
                                 }
 							}
-                            if (empty(tmp)!=1){
+                            if (empty($tmp)!=1){
                                 $multiplerelations[$element["name"]] = $tmp;
                             }
 						} else {
