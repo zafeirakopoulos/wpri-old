@@ -353,6 +353,7 @@ public static function add_localized($table,$item,$names) {
 }
 
  public static function add_localized_relation($entityname, $elementame,$id,$names) {
+	 $success = 1;
 
 	foreach ( WPRI_Database::get_locales() as $locale ) {
 		$GLOBALS['wpdb']->insert( self::table_name("locale_".$entityname."_".$elementame) , array(
