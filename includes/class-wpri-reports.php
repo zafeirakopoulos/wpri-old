@@ -37,6 +37,7 @@ class WPRI_Report {
             }
         }
         foreach ($menus as $menu_name){
+			error_log("about to add submenu ".$menu_name);
             new wpri_report_menu_factory($declarations[$menu_name]);
         }
 	}
@@ -77,8 +78,7 @@ class wpri_report_menu_factory {
             // WPRI_Form::wpri_create_form($entity);
         };
 		add_submenu_page( "wpri-reports-menu", "test","test",  "manage_options", "wpri-report-test",$callback);
-		error_log("registering submenu");
-		error_log($entity["title"]);
+		error_log("registering submenu ".$entity["title"]);
     add_submenu_page( "wpri-reports-menu", $entity["title"],$entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
     }
 }
