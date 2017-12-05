@@ -75,7 +75,7 @@ class WPRI_Report {
 class wpri_report_menu_factory {
      public function __construct($entity) {
         $callback = function() use ($entity){
-			echo "<form> <input type='hidden' name='action' value='excel_report.xlsx'>
+			echo "<form method='get' action='excel_report.xlsx'>
 			<button class='navbar-btn' onclick='wpri_get_report(\"excel_report.xlsx\")'> report</button>
 			</form>";
         	};
