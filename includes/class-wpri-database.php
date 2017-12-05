@@ -256,6 +256,17 @@ class WPRI_Database {
 ***************    Query Functions  *******************************************************
 *******************************************************************************************
 *******************************************************************************************/
+
+// TODO remove that. 
+				public static function get_roles() {
+	 		 		return  $GLOBALS['wpdb']->get_results(
+						$GLOBALS['wpdb']->prepare(
+							"SELECT * FROM " . self::table_name("locale_role"). " WHERE locale= %d",
+							$_SESSION['locale']
+						)
+					);
+				}
+
 public static function get_all_members() {
 	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
 }
