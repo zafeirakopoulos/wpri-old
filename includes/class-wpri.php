@@ -226,13 +226,6 @@ class WPRI {
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_institute_info_menu' );
 
 
-		$plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
-		$this->loader->	add_action( 'admin_menu', $plugin_menu, 'wpri_menus' );
-
-		$plugin_report = new WPRI_Report( $this->get_plugin_name(), $this->get_version() );
-		$this->loader->	add_action( 'admin_menu', $plugin_report, 'wpri_reports' );
-
-
 		$this->loader->add_action( 'personal_options_update', $plugin_admin, 'save_member_fields' );
 		$this->loader->add_action( 'edit_user_profile_update', $plugin_admin, 'save_member_fields' );
 		$this->loader->add_action( 'show_user_profile', $plugin_admin, 'member_fields' );
@@ -264,13 +257,14 @@ class WPRI {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-		// $this->loader->add_filter( 'template_include',$plugin_public, 'page_template', 99 );
-		// $this->loader->add_filter( 'template_include',$plugin_public, 'front_page_template', 99 );
 		// $this->loader->add_filter( 'template_include',$plugin_public, 'session_page_template', 99 );
-		// $this->loader->add_filter( 'template_include',$plugin_public, 'single_template', 99 );
-        //
-        //
-		// $this->loader->add_action('init', new WPRI_News(),'create_news_posttype' , 1);
+
+		$plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->	add_action( 'admin_menu', $plugin_menu, 'wpri_menus' );
+
+		$plugin_report = new WPRI_Report( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->	add_action( 'admin_menu', $plugin_report, 'wpri_reports' );
+
 
 		$plugin_post = new WPRI_Post( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->	add_action( 'init', $plugin_post, 'wpri_posts',1 );
