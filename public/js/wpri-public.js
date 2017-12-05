@@ -52,7 +52,7 @@
 		function wpri_get_report( report_form ) {
 			jQuery.post(
 			    /*wpri_ajax.ajaxurl,*/
-				wpri_ajax.session_url,
+				ajaxurl.session_url,
 			    {
 			        'action': 'get_report',
 			        'data':   {'report_form' : report_form}

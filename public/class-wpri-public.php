@@ -119,37 +119,16 @@ class WPRI_Public {
 			)
 		);
 
-
+		wp_localize_script( $this->plugin_name, 'wpri', array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ) ,
+			'session_url' => site_url()."/session"
+			)
+		);
 		wp_enqueue_script( 'jquery');
-		 // wp_enqueue_script( 'jquery-ui-core');
-		wp_enqueue_script( 'jquery-ui-datepicker');
 
 
 	}
 
-
-	public function page_template( $template ) {
-
-		if ( is_page() ) {
-			$template = dirname( __FILE__ ) . '/templates/page.php';
-		}
-	    return $template;
-	}
-	public function front_page_template( $template ) {
-
-		if ( is_front_page() ) {
-			$template = dirname( __FILE__ ) . '/templates/front-page.php';
-		}
-	    return $template;
-	}
-
-	public function single_template( $template ) {
-
-		if ( is_single() ) {
-			$template = dirname( __FILE__ ) . '/templates/page.php';
-		}
-	    return $template;
-	}
 
 	public function session_page_template( $template ) {
 
@@ -169,19 +148,5 @@ class WPRI_Public {
 		session_destroy ();
 	}
 
-/*
-	function wpri_ajax_change_locale() {
-		// Handle request then generate response using WP_Ajax_Response
-		//$_SESSION['locale'] = "locale changed";
-		//echo "Locale hook <br><br><br><br><br><br> WORKS";
-		// Don't forget to stop execution afterward.
-		alert("Hello World");
-
-		function alert($msg) {
-		    echo "<script type='text/javascript'>alert('$msg');</script>";
-		}
-		wp_die();
-	}
-*/
 
 }
