@@ -421,9 +421,7 @@ public static function add_form($entity, $form) {
 
 	}
 
-	foreach (  $form["selectrelations"]  as $name => $relation ) {
-		WPRI_Database::add_simple_relation($entity["name"],$name,$new_id,$item) ;
-	}
+ 
 	if (!$success){
 		# TODO Delete what was added
 	}
