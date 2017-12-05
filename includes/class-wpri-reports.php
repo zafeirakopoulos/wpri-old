@@ -24,21 +24,21 @@ class WPRI_Reports {
 
 
 	public function wpri_reports() {
-		$callback = function() use ($entity){
-            // TODO ?
-        };
-		add_menu_page( "wpri-reports-menu", "Reports", "manage_options", "wpri-reports",$callback);
-
-        $menus =  array();
-        $declarations = WPRI_Declarations::get_reports();
-        foreach ($declarations as $entity_name => $entity) {
-            if (isset($entity["has_menu"])){
-                array_push($menus,$entity_name );
-            }
-        }
-        foreach ($menus as $menu_name){
-            new wpri_report_menu_factory($declarations[$menu_name]);
-        }
+		// $callback = function() use ($entity){
+        //     // TODO ?
+        // };
+		// add_menu_page( "wpri-reports-menu", "Reports", "manage_options", "wpri-reports",$callback);
+        //
+        // $menus =  array();
+        // $declarations = WPRI_Declarations::get_reports();
+        // foreach ($declarations as $entity_name => $entity) {
+        //     if (isset($entity["has_menu"])){
+        //         array_push($menus,$entity_name );
+        //     }
+        // }
+        // foreach ($menus as $menu_name){
+        //     new wpri_report_menu_factory($declarations[$menu_name]);
+        // }
 	}
 
 	public static function get_report() {
@@ -71,11 +71,11 @@ class WPRI_Reports {
  *
  * @author Zafeirakis Zafeirakopoulos
  */
-class wpri_report_menu_factory {
-     public function __construct($entity) {
-        $callback = function() use ($entity){
-            WPRI_Form::wpri_create_form($entity);
-        };
-        add_submenu_page( "wpri-reports-menu","wpri-report-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
-    }
-}
+// class wpri_report_menu_factory {
+//      public function __construct($entity) {
+//         $callback = function() use ($entity){
+//             WPRI_Form::wpri_create_form($entity);
+//         };
+//         add_submenu_page( "wpri-reports-menu","wpri-report-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
+//     }
+// }
