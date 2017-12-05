@@ -935,6 +935,24 @@
             "public" : true,
             "has_archive" : true,
             "rewrite" : {"slug" : "news"}
+        },
+        "wpri_highlights": {
+            "labels": {
+                  "name" : "Highlights",
+                  "singular_name": "Highlight"
+            },
+            "public" : true,
+            "has_archive" : true,
+            "rewrite" : {"slug" : "highlights"}
+        },
+        "wpri_blog": {
+            "labels": {
+                  "name" : "Blog",
+                  "singular_name": "Blog"
+            },
+            "public" : true,
+            "has_archive" : true,
+            "rewrite" : {"slug" : "blog"}
         }
     }
 }
