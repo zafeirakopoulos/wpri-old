@@ -87,7 +87,15 @@ class WPRI_Form {
 							$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 							foreach ($all_options as $option){
                                 if ($_POST[$element["name"].$option["id"]]!=NULL){
-                                    array_push($tmp, array(  $relation["foreach"]["table"] => $_POST[$element["name"].$option["id"]],$relation["select"]["table"] => $option["id"] ));
+
+                                    $tmptmp = explode(",", $_POST[$element["name"].$option["id"]]);
+                                    if (is_array($tmp)){
+                                        array_push($tmp, array(  $relation["foreach"]["table"] => $tmptmp,$relation["select"]["table"] => $option["id"] ));
+                                    }
+                                    else{
+                                        array_push($tmp, array(  $relation["foreach"]["table"] => array($tmptmp),$relation["select"]["table"] => $option["id"] ));
+                                    }
+
                                 }
 							}
                             if (empty($tmp)!=1){
@@ -102,7 +110,6 @@ class WPRI_Form {
                                 else{
                                     $relations[$relation["foreach"]["table"]] = array($tmp) ;
                                 }
-                                // error_log(print_r($relations[$relation["foreach"]["table"]]));
                             }
 						}
 					} elseif ($element["type"]== "select"){
