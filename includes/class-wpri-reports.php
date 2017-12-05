@@ -76,7 +76,6 @@ class wpri_report_menu_factory {
         $callback = function() use ($entity){
             // WPRI_Form::wpri_create_form($entity);
         };
-		add_submenu_page( "wpri-reports-menu", "test","test",  "manage_options", "wpri-report-test",$callback);
     	add_submenu_page( "wpri-reports-menu", $entity["title"],$entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
     }
 }
