@@ -318,13 +318,13 @@
         ],
         "default_values" : [
             {
-                "authornumber" : 0
+                "authornumber" : "0"
             },
             {
-                "authornumber" : 1
+                "authornumber" : "1"
             },
             {
-                "authornumber" : 2
+                "authornumber" : "2"
             },
             {
                 "authornumber" : 3
