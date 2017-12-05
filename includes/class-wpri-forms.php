@@ -101,7 +101,7 @@ class WPRI_Form {
                             else{
                                 $relations[$relation["foreach"]["table"]] = array($tmp) ;
                             }
-                            error(print_r($relations[$relation["foreach"]["table"]]));
+                            error_log(print_r($relations[$relation["foreach"]["table"]]));
 						}
 					} elseif ($element["type"]== "select"){
 						$relations[$element["name"]] =  $_POST[$element["name"]] ;
