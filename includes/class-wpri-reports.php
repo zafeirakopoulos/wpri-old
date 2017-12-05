@@ -71,11 +71,11 @@ class WPRI_Report {
  *
  * @author Zafeirakis Zafeirakopoulos
  */
-// class wpri_report_menu_factory {
-//      public function __construct($entity) {
-//         $callback = function() use ($entity){
-//             WPRI_Form::wpri_create_form($entity);
-//         };
-//         add_submenu_page( "wpri-reports-menu","wpri-report-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
-//     }
-// }
+class wpri_report_menu_factory {
+     public function __construct($entity) {
+        $callback = function() use ($entity){
+            WPRI_Form::wpri_create_form($entity);
+        };
+        add_submenu_page( "wpri-reports-menu","wpri-report-".$entity["title"]."-menu" , $entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
+    }
+}
