@@ -40,6 +40,8 @@ class WPRI_Menu {
             }
         }
         foreach ($menus as $menu_name){
+			error_log("about to add menu ".$menu_name);
+
             new wpri_menu_factory($declarations[$menu_name]);
         }
 	}
