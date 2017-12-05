@@ -369,12 +369,12 @@ public static function add_localized($table,$item,$names) {
 }
 
 # select
-public static function add_simple_relation($left, $right, $id, $relations) {
+public static function add_simple_relation($left, $right, $id, $rightvalues) {
 	$success = 1;
-	foreach ( $relations as $relation ) {
+	foreach ( $rightvalues as $value ) {
 	   $GLOBALS['wpdb']->insert( self::table_name($left."_".$right) , array(
 		   $left => $id,
-		   $right => $relation[$right]
+		   $right => $value
 	   ));
 	   $success = $success * $GLOBALS['wpdb']->insert_id;
 	}
