@@ -433,32 +433,59 @@ public static function add_form($entity, $form) {
 
 
 
+	public static function delete_record($id,$entity) {
+
+		foreach ($entity["groups"] as $group) {
+			foreach ($group["elements"] as $element) {
+				if ($element["type"]=="multiple-select"){
+					$relation = $element["relation"];
+					if (isset($relation["select"]["table"])){
+						$success = $GLOBALS['wpdb']->query(
+							$GLOBALS['wpdb']->prepare(
+								"DELETE FROM " . self::table_name($entity["table"]."_".$relation["foreach"]["table"]."_".$relation["select"]["table"]). " WHERE ".$entity["table"]." = %d", $id
+							)
+						);
+					} else {
+						$success = $GLOBALS['wpdb']->query(
+							$GLOBALS['wpdb']->prepare(
+								"DELETE FROM " . self::table_name($entity["table"]."_".$relation["foreach"]["table"]). " WHERE ".$entity["table"]." = %d", $id
+							)
+						);
+					}
+				}
+				if (isset($element["localized"])){
+					$success = $GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name("locale_".$entity["table"]."_".$element["table"]). " WHERE ".$entity["table"]." = %d", $id
+						)
+					);
+				}
+			}
+		 }
+
+		 $success = $GLOBALS['wpdb']->query(
+ 			$GLOBALS['wpdb']->prepare(
+ 				"DELETE FROM " . self::table_name($entity["table"]). " WHERE id = %d", $id
+ 			)
+ 		);
+		return $success;
+	}
+
+
 	public static function delete_localized($table,$id) {
-		foreach ( WPRI_Database::get_locales() as $locale ) {
+			foreach ( WPRI_Database::get_locales() as $locale ) {
 			$success = $GLOBALS['wpdb']->query(
 				$GLOBALS['wpdb']->prepare(
 					"DELETE FROM " . self::table_name("locale_".$table). " WHERE ".$table." = %d", $id
 				)
 			);
 		}
-
 		$success = $GLOBALS['wpdb']->query(
 			$GLOBALS['wpdb']->prepare(
 				"DELETE FROM " . self::table_name($table). " WHERE id = %d", $id
 			)
 		);
-
 		return $success;
 	}
-
-	public static function delete_record($id,$entity) {
-
-
-
-		return $success;
-	}
-
-
-
 
 }
