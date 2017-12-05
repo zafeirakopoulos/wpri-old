@@ -74,7 +74,7 @@ class WPRI_Report {
 class wpri_report_menu_factory {
      public function __construct($entity) {
         $callback = function() use ($entity){
-			echo "<button class='navbar-btn' onclick='wpri_get_report(1)'> report</button>";
+			echo "<button class='navbar-btn' onclick='wpri_get_report()'> report</button>";
         };
     	add_submenu_page( "wpri-reports-menu", $entity["title"],$entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
     }
