@@ -236,11 +236,11 @@ class WPRI {
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_institute_info_menu' );
 
 
- 
+
 		$plugin_report = new WPRI_Report( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->	add_action( 'admin_menu', $plugin_report, 'wpri_reports' );
 
-		$this->loader->	add_action( 'wp_ajax_wpri_get_report', $plugin_report, 'get_report' );
+		$this->loader->	add_action( 'wp_ajax_get_report', $plugin_report, 'get_report' );
 
 
 	}
