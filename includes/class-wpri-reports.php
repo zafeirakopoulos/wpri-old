@@ -20,7 +20,7 @@
  * @subpackage wpri/includes
  * @author     Zafeirakis Zafeirakopoulos
  */
-class WPRI_Reports {
+class WPRI_Report {
 
 
 	public function wpri_reports() {
