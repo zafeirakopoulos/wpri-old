@@ -828,7 +828,25 @@
                         "type": "datetime"
                     }
                 ]
-            }
+            },
+            {
+                "title" : "Project information",
+                "elements" : [
+                    {
+                        "caption" : "Publication is acknowleding funding from" ,
+                        "name": "project",
+                        "value": "",
+                        "type": "multiple-select",
+                        "relation" : {
+                            "foreach" : {
+                                "table" : "project",
+                                "column" : "id",
+                                "display_column" : "official_title"
+                            }
+                        }
+                    }
+                ]
+            },
         ]
     }
 }
