@@ -318,37 +318,37 @@
         ],
         "default_values" : [
             {
-                "authornumber" : 0,
+                "authornumber" : 0
             },
             {
-                "authornumber" : 1,
+                "authornumber" : 1
             },
             {
-                "authornumber" : 2,
+                "authornumber" : 2
             },
             {
-                "authornumber" : 3,
+                "authornumber" : 3
             },
             {
-                "authornumber" : 4,
+                "authornumber" : 4
             },
             {
-                "authornumber" : 5,
+                "authornumber" : 5
             },
             {
-                "authornumber" : 6,
+                "authornumber" : 6
             },
             {
-                "authornumber" : 7,
+                "authornumber" : 7
             },
             {
-                "authornumber" : 8,
+                "authornumber" : 8
             },
             {
-                "authornumber" : 9,
+                "authornumber" : 9
             },
             {
-                "authornumber" : 10,
+                "authornumber" : 10
             }
         ]
     },
