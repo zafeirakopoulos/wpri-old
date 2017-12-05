@@ -243,7 +243,7 @@ class WPRI_Database {
 							}
 							WPRI_Database::add_localized($entity_name, $element[$entity_name] , $names);
 						}else{
-							// WPRI_Database::add($entity_name, array( $entity_name => $element[$entity_name] ));
+							WPRI_Database::add($entity_name, array( $entity_name => $element[$entity_name] ));
 						}
 					}
 				}
