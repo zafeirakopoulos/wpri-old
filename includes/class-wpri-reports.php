@@ -62,7 +62,7 @@ class WPRI_Report {
 		$writer->writeToStdOut();
 		//$writer->writeToFile('example.xlsx');
 		//echo $writer->writeToString();
-		die(1);
+		// die(1);
  	}
 }
 
