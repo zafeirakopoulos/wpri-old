@@ -92,10 +92,7 @@ class WPRI_Form {
 							}
 							$multiplerelations[$element["name"]] = $tmp;
 						} else {
-                            error_log($_POST[$element["name"]]);
-							$relations[$relation["foreach"]["table"]] = explode(",", $_POST[$element["name"]] );
-                            error_log(print_r(explode(",", $_POST[$element["name"]])));
-
+ 							$relations[$relation["foreach"]["table"]] = explode(",", $_POST[$element["name"]] );
 						}
 					} elseif ($element["type"]== "select"){
 						$relations[$element["name"]] =  $_POST[$element["name"]] ;

@@ -504,15 +504,6 @@
                                 "display_column" : "projectrole"
                             }
                         }
-                    },
-                    {
-                        "caption" : "Principal investigator" ,
-                        "name": "PI",
-                        "value": "",
-                        "type": "select",
-                        "table" : "member",
-                        "column" : "id",
-                        "display_column" : "name"
                     }
                 ]
             },
