@@ -392,12 +392,11 @@ public static function add_double_relation($left, $middle, $right, $id, $relatio
 
    foreach ( $relations as $relation ) {
 	   $success = 1;
-	   foreach ( $relation[$right]  as $value ) {
-
+	   foreach ( $relation[$middle]  as $value ) {
 		   $GLOBALS['wpdb']->insert( self::table_name($left."_".$middle."_".$right) , array(
 			   $left => $id,
-			   $middle => $relation[$middle],
-			   $right => $value
+			   $middle => $value,
+			   $right =>$relation[$right]
 		   ));
 		   $success = $success * $GLOBALS['wpdb']->insert_id;
 	   }
