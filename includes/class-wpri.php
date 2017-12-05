@@ -207,7 +207,6 @@ class WPRI {
 
 		$plugin_admin = new WPRI_Admin( $this->get_plugin_name(), $this->get_version() );
 		$plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
-		$plugin_post = new WPRI_Post( $this->get_plugin_name(), $this->get_version() );
 
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
@@ -221,7 +220,6 @@ class WPRI {
 		$this->loader->	add_action( 'admin_menu', $plugin_admin, 'settings_institute_info_menu' );
 
 		$this->loader->	add_action( 'admin_menu', $plugin_menu, 'wpri_menus' );
-		$this->loader->	add_action( 'admin_menu', $plugin_post, 'wpri_posts' );
 
 
 
@@ -264,6 +262,8 @@ class WPRI {
         //
 		// $this->loader->add_action('init', new WPRI_News(),'create_news_posttype' , 1);
 
+		$plugin_post = new WPRI_Post( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->	add_action( 'init', $plugin_post, 'wpri_posts',1 );
 
 
 	}
