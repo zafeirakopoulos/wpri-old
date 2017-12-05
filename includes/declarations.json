@@ -767,6 +767,7 @@
         "table_name" : "publication",
         "has_menu": true,
         "name" :"publication",
+        "display_element": "official_title",
         "actions": {
             "add" : "manage_options",
             "remove" : ["admin"],
