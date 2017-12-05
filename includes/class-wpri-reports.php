@@ -41,12 +41,9 @@ class WPRI_Report {
         }
 	}
 
-	public static function get_report() {
+	public static function get_report($name) {
 
-		error_log("in get report");
-		$whatever = intval( $_POST['whatever'] );
-
-		$whatever += 10;
+		error_log("in get report ".$name );
 
 		$filename = "example.xlsx";
 		header('Content-disposition: attachment; filename="'.XLSXWriter::sanitize_filename($filename).'"');
@@ -78,8 +75,9 @@ class WPRI_Report {
 class wpri_report_menu_factory {
      public function __construct($entity) {
         $callback = function() use ($entity){
-			echo "<button class='navbar-btn' onclick='wpri_get_report(\"1\")'> report</button>";
-			echo "<button class='navbar-btn' onclick='wpri_test()'> report</button>";
+			echo "<form> <input type='hidden' name='action' value='excel_report'>
+			<button class='navbar-btn' onclick='wpri_get_report(\"excel_report\")'> report</button>
+			</form>";
         };
     	add_submenu_page( "wpri-reports-menu", $entity["title"],$entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
     }
