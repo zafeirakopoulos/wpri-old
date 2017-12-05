@@ -78,9 +78,8 @@ class wpri_report_menu_factory {
 			echo "<form> <input type='hidden' name='action' value='excel_report.xlsx'>
 			<button class='navbar-btn' onclick='wpri_get_report(\"excel_report.xlsx\")'> report</button>
 			</form>";
-        };
+        	};
 			// echo "	<button class='navbar-btn' onclick='wpri_get_report(\"excel_report.xlsx\")'> report</button>";
-        };
     	add_submenu_page( "wpri-reports-menu", $entity["title"],$entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
     }
 
