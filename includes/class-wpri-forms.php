@@ -330,7 +330,7 @@ class WPRI_Form {
 							}
 
 							foreach ( $all_entries as $item ) {
-								echo "<option name='".$item[0]["id"]."' value='".$item[0]["id"]."'>".$item[1]." select</option>";
+								echo "<option name='".$item[0]["id"]."' value='".$item[0]["id"]."'>".$item[1]."</option>";
 							}
 							echo "</select>";
 						}
