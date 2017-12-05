@@ -24,7 +24,7 @@ class WPRI_Report {
 
 
 	public function wpri_reports() {
-		$callback = function() use ($entity){
+		$callback = function() {
             // TODO ?
         };
 		add_menu_page( "wpri-reports-menu", "Reports", "manage_options", "wpri-reports",$callback);
