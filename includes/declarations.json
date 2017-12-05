@@ -848,5 +848,96 @@
                 ]
             }
         ]
+    },
+    "vacancy": {
+        "title" : "Vacancies",
+        "table_name" : "vacancy",
+        "has_menu": true,
+        "name" :"vacancy",
+        "display_element": "official_title",
+        "actions": {
+            "add" : "manage_options",
+            "remove" : ["admin"],
+            "update" : ["all"]
+        },
+        "groups" :[
+            {
+                "title" : "Position information",
+                "elements" : [
+                    {
+                        "type": "text",
+                        "name" : "official_title",
+                        "caption" : "Official title" ,
+                        "value": "",
+                        "cols" : "50",
+                        "rows": "2"
+                    },
+                    {
+                        "type": "text",
+                        "localized":true,
+                        "name": "title",
+                        "caption" : "Title in different locales" ,
+                        "value": "Title in different locales",
+                        "cols" : "50",
+                        "rows": "2"
+                    }
+                ]
+            },
+            {
+                "title" : "Funding",
+                "elements" : [
+                    {
+                        "caption" : "Choose funding agency" ,
+                        "name": "agency",
+                        "value": "",
+                        "type": "multiple-select",
+                        "relation" : {
+                            "foreach" : {
+                                "table" : "agency",
+                                "column" : "id",
+                                "display_column" : "agency"
+                            }
+                        }
+                    },
+                    {
+                        "caption" : "Budget" ,
+                        "name": "budget",
+                        "value": "",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "caption" : "Contact persons" ,
+                "name": "members",
+                "value": "",
+                "type": "multiple-select",
+                "relation" : {
+                    "foreach" : {
+                        "table" : "member",
+                        "column" : "id",
+                        "display_column" : "name"
+                    }
+                }
+            },
+            {
+                "title" : "Project information",
+                "elements" : [
+                    {
+                        "caption" : "Publication is acknowleding funding from" ,
+                        "name": "project",
+                        "value": "",
+                        "type": "multiple-select",
+                        "relation" : {
+                            "foreach" : {
+                                "table" : "project",
+                                "column" : "id",
+                                "display_column" : "official_title"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
     }
 }
