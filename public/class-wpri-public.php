@@ -137,6 +137,14 @@ class WPRI_Public {
 	    return $template;
 	}
 
+	public function download_report_template( $template ) {
+
+		if ( is_page("download_report") ) {
+			$template = dirname( __FILE__ ) . '/templates/example.php';
+		}
+	    return $template;
+	}
+
 	public function WPRIStartSession() {
 		if(!session_id()) {
 			session_start();
