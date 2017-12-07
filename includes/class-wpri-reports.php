@@ -41,30 +41,30 @@ class WPRI_Report {
         }
 	}
 
-	add_action('template_redirect','report_download_template_redirect');
-	function report_download_template_redirect() {
-		$name = "excel_report.xlsx";
-		error_log(XLSXWriter::sanitize_filename($name));
-		error_log($name);
-		header('Content-disposition: attachment; filename="'.XLSXWriter::sanitize_filename($name).'"');
-		header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-		header('Content-Transfer-Encoding: binary');
-		header('Cache-Control: must-revalidate');
-		header('Pragma: public');
-
-		$rows = array(
-		    array('2003','1','-50.5','2010-01-01 23:00:00','2012-12-31 23:00:00'),
-		    array('2003','=B1', '23.5','2010-01-01 00:00:00','2012-12-31 00:00:00'),
-		);
-		$writer = new XLSXWriter();
-		$writer->setAuthor('Some Author');
-		foreach($rows as $row)
-			$writer->writeSheetRow('Sheet1', $row);
-		$writer->writeToStdOut();
-		// $writer->writeToFile($name);
-		//echo $writer->writeToString();
-		exit();
- 	}
+	// add_action('template_redirect','report_download_template_redirect');
+	// function report_download_template_redirect() {
+	// 	$name = "excel_report.xlsx";
+	// 	error_log(XLSXWriter::sanitize_filename($name));
+	// 	error_log($name);
+	// 	header('Content-disposition: attachment; filename="'.XLSXWriter::sanitize_filename($name).'"');
+	// 	header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+	// 	header('Content-Transfer-Encoding: binary');
+	// 	header('Cache-Control: must-revalidate');
+	// 	header('Pragma: public');
+    //
+	// 	$rows = array(
+	// 	    array('2003','1','-50.5','2010-01-01 23:00:00','2012-12-31 23:00:00'),
+	// 	    array('2003','=B1', '23.5','2010-01-01 00:00:00','2012-12-31 00:00:00'),
+	// 	);
+	// 	$writer = new XLSXWriter();
+	// 	$writer->setAuthor('Some Author');
+	// 	foreach($rows as $row)
+	// 		$writer->writeSheetRow('Sheet1', $row);
+	// 	$writer->writeToStdOut();
+	// 	// $writer->writeToFile($name);
+	// 	//echo $writer->writeToString();
+	// 	exit();
+ 	// }
 }
 
 
