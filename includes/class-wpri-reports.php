@@ -66,10 +66,10 @@ class WPRI_Report {
 	// 	exit();
  	// }
 
-	public function download_report_page_template( $template ) {
+	public static function download_report_page_template( $template ) {
 
 		if ( is_page("download_report") ) {
-			$template = dirname( __FILE__ ) . '/templates/example.php';
+			$template = dirname( __PLUGIN__ ) . '/../public/templates/example.php';
 		}
 		return $template;
 	}
