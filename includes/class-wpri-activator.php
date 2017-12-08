@@ -31,7 +31,7 @@ class WPRI_Activator {
 	 */
 	public static function activate() {
 		# Create the standard pages for wpri.
-		// WPRI_Pages::create_pages();
+		WPRI_Pages::create_pages();
 
 		# Create the tables for wpri.
         $first_install = WPRI_Database::create_tables();

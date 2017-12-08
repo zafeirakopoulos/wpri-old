@@ -156,12 +156,12 @@ class WPRI {
 
 
 
-        //
-		// /**
-		//  * The class responsible for standards pages
-		//  * of the plugin.
-		//  */
-		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-pages.php';
+        
+		/**
+		 * The class responsible for standards pages
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-pages.php';
         //
 		// /**
 		//  * The class responsible for nes posts
