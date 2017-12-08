@@ -31,10 +31,10 @@ if ($_GET["id"]=="projects") {
     $collaborators=" ";
 
     foreach($projects as $project){
-        
+
         $title=$project["official_title"];
-        $status=   WPRI_Database::get_record("status",$project["status"]);
-        $agency=   WPRI_Database::get_record("agency",$project["agency"]);
+        $status=   WPRI_Database::get_record("status",$project["status"])["status"];
+        $agency=   WPRI_Database::get_record("agency",$project["agency"])["agency"];
         $budget=$project["budget"];
         $member=" ";
         $role=" ";
