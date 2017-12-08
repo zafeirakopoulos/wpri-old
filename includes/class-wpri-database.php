@@ -510,7 +510,7 @@ public static function add_form($entity, $form) {
    public static function get_double_relation($left, $middle, $right, $lid, $mid, $rid) {
 	   $values= array();
 	   $where = array();
-	   $query = "SELECT * FROM " . self::table_name($left."_".$middle."_".$right). " WHERE "
+	   $query = "SELECT * FROM " . self::table_name($left."_".$middle."_".$right). " WHERE ";
 	   if ($lid!=""){
 		   array_puch($where, $left." = %d");
 		   array_push($values,$lid);
