@@ -5,6 +5,8 @@
             echo "test";
 			// Start the Loop.
 			$project_ids= WPRI_Database::get_ids("project");
+            error_log(print_r($project_ids));
+
 			foreach ( $project_ids as $project_id ) {
 				$project = WPRI_Database::get_entity("project",$project_id);
                 error_log("project ".$project_id);
