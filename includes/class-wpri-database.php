@@ -496,10 +496,10 @@ public static function add_form($entity, $form) {
 
 	public static function get_relation($left, $right, $lid, $rid) {
  		if ($rid==""){
-			$query = "SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left."= %d";
+			$query = "SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left." = %d";
 			$value = $lid;
 		} else{
-			$query = "SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$right."= %d";
+			$query = "SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$right." = %d";
 			$value = $rid;
 		}
  		$results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare($query, $value),"ARRAY_A");
