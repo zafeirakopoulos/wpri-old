@@ -66,14 +66,14 @@ class WPRI_Report {
 	// 	exit();
  	// }
 
-	// public  function download_report_page_template( $template ) {
-    //
-	// 	if ( is_page("download_report") ) {
-	// 		error_log(dirname( __FILE__ ) . '/report.php');
-	// 		$template = dirname( __FILE__ ) . '/report.php';
-	// 	}
-	// 	return $template;
-	// }
+	public  function download_report_page_template( $template ) {
+
+		if ( is_page("download_report") ) {
+			error_log(dirname( __FILE__ ) . '/report.php');
+			$template = dirname( __FILE__ ) . '/report.php';
+		}
+		return $template;
+	}
 }
 
 
@@ -88,7 +88,7 @@ class wpri_report_menu_factory {
 			// echo "<form method='get' action='excel_report.xlsx'>
 			// <button class='navbar-btn' onclick='wpri_get_report(\"excel_report.xlsx\")'> report</button>
 			// </form>";
-			echo "<button class='navbar-btn' onclick='window.location.href = \"".dirname( __FILE__ )."/report.php\"'> report</button>";
+			echo "<button class='navbar-btn' onclick='window.location.href = \"report.php\"'> report</button>";
 
 			// echo '<button type="submit" onclick="window.open(\'excel_report.xlsx\')">Download!</button>';
 			// echo "	<button class='navbar-btn' onclick='wpri_get_report(\"excel_report.xlsx\")'> report</button>";
