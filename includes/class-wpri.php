@@ -152,7 +152,7 @@ class WPRI {
 		 * of the plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-reports.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'tools/xlsxwriter.class.php';
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'tools/xlsxwriter.class.php';
 
 
 
@@ -242,7 +242,7 @@ class WPRI {
 
 		// $this->loader->	add_action( 'wp_ajax_get_report', $plugin_report, 'get_report' );
 
-		$this->loader->add_filter( 'template_include',$plugin_report, 'download_report_page_template', 99 );
+		// $this->loader->add_filter( 'template_include',$plugin_report, 'download_report_page_template', 99 );
 
 	}
 
