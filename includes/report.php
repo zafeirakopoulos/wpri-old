@@ -46,14 +46,21 @@ if ($_GET["id"]=="projects") {
         foreach($members as $membr){
             $mem = WPRI_Database::get_record("member",$membr["member"]);
             $pr = WPRI_Database::get_record("projectrole",$membr["projectrole"]);
-
-            array_push($member,$mem["name"]."(".$pr["projectrole"].")");
+            array_push($member,$mem["name"]." (".$pr["projectrole"].")");
         }
         $member = join(",", $member);
+        $collaborators = WPRI_Database::get_double_relation("project","$collaborator", "projectrole", $project["id"],"","");
+        $collaborator= array();
+        foreach($collaborators as $collaborato){
+            $col = WPRI_Database::get_record("collaborator",$collaborato["collaborator"]);
+            $pr = WPRI_Database::get_record("projectrole",$collaborato["projectrole"]);
+            array_push($collaborator,$collaborato["name"]." (".$pr["projectrole"].")");
+        }
+        $collaborator = join(",", $collaborator);
         $role=" ";
         $collaborators=" ";
 
-        $writer->writeSheetRow($sheet_projects, array($title,$status,$agency,$budget,$member,$role,$collaborators));
+        $writer->writeSheetRow($sheet_projects, array($title,$status,$agency,$budget,$member,$role,$collaborator));
 
     }
  }
