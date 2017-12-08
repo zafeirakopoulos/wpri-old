@@ -36,11 +36,11 @@ if ($_GET["id"]=="projects") {
         $status=   WPRI_Database::get_record("status",$project["status"])["status"];
         $agencies = WPRI_Database::get_relation("project","agency", $project["id"],"");
         // error_log(print_r($agencies));
-        // $agency= array();
-        // foreach($agencies as $agenci){
-        //     array_push($agency, $agenci["agency"]);
-        // }
-        // $agency = join(",", $agency);
+        $agency= array();
+        foreach($agencies as $agenci){
+            array_push($agency, $agenci["agency"]);
+        }
+        $agency = join(",", $agency);
         $budget=$project["budget"];
         $member=" ";
         $role=" ";
