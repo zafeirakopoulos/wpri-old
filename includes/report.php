@@ -45,7 +45,9 @@ if ($_GET["id"]=="projects") {
         $member= array();
         foreach($members as $membr){
             $mem = WPRI_Database::get_record("member",$membr["member"]);
-            array_push($member,$mem["name"]."(".$mem["projectrole"].")");
+            $pr = WPRI_Database::get_record("projectrole",$membr["projectrole"]);
+
+            array_push($member,$mem["name"]."(".$pr["projectrole"].")");
         }
         $member = join(",", $member);
         $role=" ";
