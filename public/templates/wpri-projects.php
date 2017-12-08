@@ -1,7 +1,6 @@
 <div class='listing' id="projects" >
  		<div class='row'>
 			<?php
-            error_log("projects ");
             echo "test";
 			// Start the Loop.
 			$project_ids= WPRI_Database::get_ids("project");
