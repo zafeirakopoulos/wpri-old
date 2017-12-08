@@ -309,26 +309,7 @@ public static function get_records($table, $where) {
 	// TODO is [0] correct????
 }
 
-public static function get_localized($entity,$id) {
-		$results=  $GLOBALS['wpdb']->get_results(
-		$GLOBALS['wpdb']->prepare(
-			"SELECT * FROM " . self::table_name("locale_".$entity). " WHERE ".$entity." = %d AND locale= %d",
-			$id, $_SESSION['locale']
-		)
-	,"ARRAY_A");
-	return $results[0];
-}
 
-
-public static function get_all($entity) {
-	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name($entity),"ARRAY_A" );
-}
-
-
-
-public static function get_locales() {
-	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"),"ARRAY_A");
-}
 
 # item is an associative array
 public static function add($table,$item) {
@@ -494,6 +475,31 @@ public static function add_form($entity, $form) {
 		return $success;
 	}
 
+//**************************************************
+//  Get
+//**************************************************
+
+	public static function get_localized($entity,$id) {
+			$results=  $GLOBALS['wpdb']->get_results(
+			$GLOBALS['wpdb']->prepare(
+				"SELECT * FROM " . self::table_name("locale_".$entity). " WHERE ".$entity." = %d AND locale= %d",
+				$id, $_SESSION['locale']
+			)
+		,"ARRAY_A");
+		return $results[0];
+	}
+
+
+	public static function get_all($entity) {
+		return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name($entity),"ARRAY_A" );
+	}
+
+
+
+	public static function get_locales() {
+		return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"),"ARRAY_A");
+	}
+
 	public static function get_relation($left, $right, $lid, $rid) {
  		if ($rid==""){
 			$query = "SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left." = %d";
@@ -529,4 +535,49 @@ public static function add_form($entity, $form) {
 
 	 }
 
+
+	 public static function get_entity($entity_name, $id) {
+
+		 $entity = WPRI_Declarations::get_declarations()[$entity_name];
+
+		 $local = array();
+		 $relations = array();
+		 $multiplerelations = array();
+
+		 foreach ($entity["groups"] as $group ) {
+		 	foreach ($group["elements"] as $element ) {
+		 		if (isset($element["localized"]) ){
+		 			array_push($local, $element["name"]]);
+		 		}
+		 		elseif ($element["type"]== "multiple-select"){
+		 			$relation = $element["relation"];
+		 			if (isset($relation["select"])) {
+						array_push($multiplerelations, [$element["name"],$relation["foreach"]["table"],$relation["select"]["table"]]);
+ 		 			} else {
+						array_push($relations, $relation["foreach"]["table"]);
+		 			}
+		 		}
+		 	}
+		 }
+
+		 $results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
+			 "SELECT * FROM " . self::table_name($entity_name). " WHERE id = %d", $id) ,"ARRAY_A"
+		 );
+
+	 	foreach (  $local  as $localizedname) {
+	 		array_push($results, WPRI_Database::get_localized($localizedname,$id));
+	 	}
+
+	 	// foreach (  $relations  as $name => $items ) {
+	 	// 	WPRI_Database::get_relation($entity["name"],$name,$new_id,$items) ;
+	 	// }
+        //
+	 	// foreach (  $form["multirelations"]  as $name => $relation ) {
+	 	// 	 WPRI_Database::get_double_relation($entity["name"],array_keys($relation[0])[0],array_keys($relation[0])[1],$new_id,$relation) ;
+        //
+	 	// }
+
+	 	
+	 	return $results;
+	 }
 }
