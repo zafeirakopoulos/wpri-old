@@ -66,13 +66,13 @@ class WPRI_Report {
 	// 	exit();
  	// }
 
-	public function download_report_page_template( $template ) {
-
-		if ( is_page("download_report") ) {
-			$template = dirname( __FILE__ ) . '/report.php';
-		}
-		return $template;
-	}
+	// public function download_report_page_template( $template ) {
+    //
+	// 	if ( is_page("download_report") ) {
+	// 		$template = dirname( __FILE__ ) . '/report.php';
+	// 	}
+	// 	return $template;
+	// }
 }
 
 
