@@ -38,7 +38,7 @@ if ($_GET["id"]=="projects") {
         // error_log(print_r($agencies));
         $agency= array();
         foreach($agencies as $agenci){
-            array_push($agency, $agenci["agency"]);
+            array_push($agency, WPRI_Database::get_record("agency",$agenci["agency"])["agency"] );
         }
         $agency = join(",", $agency);
         $budget=$project["budget"];
