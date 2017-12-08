@@ -16,7 +16,7 @@ $writer->setAuthor('Some Author');
 if ($_GET["id"]=="projects") {
 
     $sheet1 = 'Projects';
-    $header = array("string","string","string","string","string","integer");
+    $header = array("string","string","string","string","string","integer"=>"GENERAL");
     $writer->writeSheetHeader($sheet1, $header, $col_options = ['suppress_row'=>true] );
     $header_format = array('font'=>'Arial','font-size'=>10,'font-style'=>'bold,italic', 'fill'=>'#eee','color'=>'#f00','fill'=>'#ffc', 'border'=>'top,bottom', 'halign'=>'center');
     $writer->writeSheetRow($sheet1, array("Title","Member","Role","Status","Collaboratos","Budget"),$header_format);
