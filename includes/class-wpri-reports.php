@@ -88,7 +88,7 @@ class wpri_report_menu_factory {
 			// <button class='navbar-btn' onclick='wpri_get_report(\"excel_report.xlsx\")'> report</button>
 			// </form>";
 
-			// echo '<button type="submit" onclick="window.open(\'excel_report.xlsx\')">Download!</button>';
+			 echo '<button type="submit" onclick="window.open(\'excel_report.xlsx\')">Download!</button>';
 			// echo "	<button class='navbar-btn' onclick='window.location.href = '".dirname( __FILE__ )."/report.php> report</button>";
 			};
     	add_submenu_page( "wpri-reports-menu", $entity["title"],$entity["title"], $entity["actions"]["add"], "wpri-report-".$entity["title"],$callback);
