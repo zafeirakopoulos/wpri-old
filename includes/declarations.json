@@ -625,17 +625,18 @@
                 }
             ]
         },
-                    "project": {
-                        "title" : "Projects",
-                        "table_name" : "project",
-                        "has_menu": true,
-                        "name" :"project",
-                        "display_element": "official_title",
-                        "actions": {
-                            "add" : "manage_options",
-                            "remove" : ["admin"],
-                            "update" : ["all"]
-                        },
+        "project": {
+            "title" : "Projects",
+            "table_name" : "project",
+            "has_menu": true,
+            "has_page": true,
+            "name" :"project",
+            "display_element": "official_title",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
             "groups" :[
                 {
                     "title" : "Project title",

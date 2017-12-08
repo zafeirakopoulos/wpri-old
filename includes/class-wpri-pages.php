@@ -48,7 +48,6 @@ class WPRI_Pages {
 				    'post_slug' => strtolower($page_title)
 			    );
 			 	if(!isset($page_check->ID) ){
-					error_log("creating page ".$page_title);
        				$page_id = wp_insert_post($page);
 			    }
 			//}
