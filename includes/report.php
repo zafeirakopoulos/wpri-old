@@ -39,7 +39,7 @@ if ($_GET["id"]=="projects") {
         $role=" ";
         $collaborators=" ";
 
-        $writer->writeSheetRow($sheet_projects, array($title,$status,$agency,$budget,$member,$role,$collaborators);
+        $writer->writeSheetRow($sheet_projects, array($title,$status,$agency,$budget,$member,$role,$collaborators));
 
     }
  }
