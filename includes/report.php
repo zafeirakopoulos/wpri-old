@@ -19,7 +19,7 @@ if ($_GET["id"]=="projects") {
     $header = array("string","string","string","string","string","integer");
     $writer->writeSheetHeader($sheet1, $header, $col_options = ['suppress_row'=>true] );
     $header_format = array('font'=>'Arial','font-size'=>10,'font-style'=>'bold,italic', 'fill'=>'#eee','color'=>'#f00','fill'=>'#ffc', 'border'=>'top,bottom', 'halign'=>'center');
-    $writer->writeSheetRow($sheet1, array("Title","Member","Role","Status","Collaboratos","Budget"));
+    $writer->writeSheetRow($sheet1, array("Title","Member","Role","Status","Collaboratos","Budget"),$header_format);
 
     $rows = array(
         array('2003','1','-50.5','2010-01-01 23:00:00','2012-12-31 23:00:00',"233233"),
