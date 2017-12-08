@@ -129,6 +129,29 @@ class WPRI_Public {
 	}
 
 
+	public function page_template( $template ) {
+
+		if ( is_page() ) {
+			$template = dirname( __FILE__ ) . '/templates/page.php';
+		}
+	    return $template;
+	}
+	public function front_page_template( $template ) {
+
+		if ( is_front_page() ) {
+			$template = dirname( __FILE__ ) . '/templates/front-page.php';
+		}
+	    return $template;
+	}
+
+	public function single_template( $template ) {
+
+		if ( is_single() ) {
+			$template = dirname( __FILE__ ) . '/templates/page.php';
+		}
+	    return $template;
+	}
+
 	public function session_page_template( $template ) {
 
 		if ( is_page("session") ) {
