@@ -65,7 +65,9 @@ if ($_GET["id"]=="projects") {
 
     }
  }
-else {}
+
+
+}
 
 $writer->writeToStdOut();
 exit(0);
