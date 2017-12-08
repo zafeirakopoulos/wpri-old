@@ -2,9 +2,9 @@
  		<div class='row'>
 			<?php
 			// Start the Loop.
-			$project_ids= WPRI_Database::get_project_ids();
+			$project_ids= WPRI_Database::get_ids("project");
 			foreach ( $project_ids as $project_id ) {
-				$project = WPRI_Database::get_project_short($project_id);
+				$project = WPRI_Database::get_entity("project",$project_id);
 				echo "<div class='col-sm-12 listing-thumb-frame'>";
 					echo "<a class='listing-thumb' href='".site_url()."/project?id=".$project_id."'>";
 						echo "<div class='col-xs-12 col-md-6 col-ld-12  listing-thumb'>"."picture"."</div>";
