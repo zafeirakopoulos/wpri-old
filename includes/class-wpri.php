@@ -156,7 +156,7 @@ class WPRI {
 
 
 
-        
+
 		/**
 		 * The class responsible for standards pages
 		 * of the plugin.
@@ -176,15 +176,15 @@ class WPRI {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-database.php';
 
 
-		// /**
-		//  * The class responsible for the template loader
-		//  */
-		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-template-loader.php';
-        //
-		// /**
-		//  * The class responsible template loading extending the previous one
-		//  */
-		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gamajo-template-loader.php';
+		/**
+		 * The class responsible for the template loader
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-template-loader.php';
+
+		/**
+		 * The class responsible template loading extending the previous one
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gamajo-template-loader.php';
 
 	}
 
