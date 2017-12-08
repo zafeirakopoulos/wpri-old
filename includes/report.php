@@ -41,6 +41,7 @@ if ($_GET["id"]=="projects") {
         }
         $agency = join(",", $agency);
         $budget=$project["budget"];
+
         $members = WPRI_Database::get_double_relation("project","member", "projectrole", $project["id"],"","");
         $member= array();
         foreach($members as $membr){
@@ -49,7 +50,8 @@ if ($_GET["id"]=="projects") {
             array_push($member,$mem["name"]." (".$pr["projectrole"].")");
         }
         $member = join(",", $member);
-        $collaborators = WPRI_Database::get_double_relation("project","$collaborator", "projectrole", $project["id"],"","");
+
+        $collaborators = WPRI_Database::get_double_relation("project","collaborator", "projectrole", $project["id"],"","");
         $collaborator= array();
         foreach($collaborators as $collaborato){
             $col = WPRI_Database::get_record("collaborator",$collaborato["collaborator"]);
@@ -58,7 +60,6 @@ if ($_GET["id"]=="projects") {
         }
         $collaborator = join(",", $collaborator);
         $role=" ";
-        $collaborators=" ";
 
         $writer->writeSheetRow($sheet_projects, array($title,$status,$agency,$budget,$member,$role,$collaborator));
 
