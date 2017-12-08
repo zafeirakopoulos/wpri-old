@@ -563,7 +563,7 @@ public static function add_form($entity, $form) {
 		 $results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
 			 "SELECT * FROM " . self::table_name($entity_name). " WHERE id = %d", $id) ,"ARRAY_A"
 		 );
-        
+
 	 	foreach (  $local  as $localizedname) {
 	 		array_push($results, WPRI_Database::get_localized($localizedname,$id));
 	 	}
@@ -579,5 +579,9 @@ public static function add_form($entity, $form) {
 
 
 	 	return $results;
+	 }
+
+	 public static function get_ids($entity) {
+		 return  $GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name($entity),"ARRAY_A");
 	 }
 }
