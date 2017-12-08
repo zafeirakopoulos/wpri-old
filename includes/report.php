@@ -15,19 +15,32 @@ $writer->setAuthor('Some Author');
 
 if ($_GET["id"]=="projects") {
 
-    $sheet1 = 'Projects';
-    $header = array("string","string","string","string","string","integer"=>"GENERAL");
-    $writer->writeSheetHeader($sheet1, $header, $col_options = ['suppress_row'=>true] );
+    $sheet_projects = 'Projects';
+    $header = array("string","string","string","integer"=>"GENERAL","string","string");
+    $writer->writeSheetHeader($sheet_projects, $header, $col_options = ['suppress_row'=>true] );
     $header_format = array('font'=>'Arial','font-size'=>10,'font-style'=>'bold,italic', 'fill'=>'#eee','color'=>'#f00','fill'=>'#ffc', 'border'=>'top,bottom', 'halign'=>'center');
-    $writer->writeSheetRow($sheet1, array("Title","Member","Role","Status","Collaboratos","Budget"),$header_format);
+    $writer->writeSheetRow($sheet_projects, array("Title","Status","Funding","Budget","Members","Collaborators"),$header_format);
 
-    $rows = array(
-        array('2003','1','-50.5','2010-01-01 23:00:00','2012-12-31 23:00:00',"233233"),
-        array('2003','=B1', '23.5','2010-01-01 00:00:00','2012-12-31 00:00:00',"2423423"),
-    );
+    $projects=  WPRI_Database::get_all("project");
+    $title=" ";
+    $status=" ";
+    $agency=" ";
+    $budget=0;
+    $member=" ";
+    $role=" ";
+    $collaborators=" ";
 
-    foreach($rows as $row){
-        $writer->writeSheetRow($sheet1, $row);
+    foreach($projects as $project){
+        $title=$project["official_title"];
+        $status=   WPRI_Database::get_record("status",$project["status"]);
+        $agency=   WPRI_Database::get_record("agency",$project["agency"]);
+        $budget=$project["budget"];
+        $member=" ";
+        $role=" ";
+        $collaborators=" ";
+
+        $writer->writeSheetRow($sheet_projects, array($title,$status,$agency,$budget,$member,$role,$collaborators);
+
     }
  }
 else {}
