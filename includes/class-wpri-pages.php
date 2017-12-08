@@ -34,6 +34,7 @@ class WPRI_Pages {
 
 
 	public static function create_pages() {
+		error_log("creating pages");
 
 		$pages_list = array("report","session");
 		foreach ($pages_list as $page_name){
