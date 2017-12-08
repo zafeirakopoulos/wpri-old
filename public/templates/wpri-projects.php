@@ -9,7 +9,7 @@
 
 			foreach ( $project_ids as $project_id ) {
 				$project = WPRI_Database::get_entity("project",$project_id);
-                error_log("project ".$project_id);
+                error_log("project ".print_r($project));
 				echo "<div class='col-sm-12 listing-thumb-frame'>";
 					echo "<a class='listing-thumb' href='".site_url()."/project?id=".$project_id."'>";
 						echo "<div class='col-xs-12 col-md-6 col-ld-12  listing-thumb'>"."picture"."</div>";
