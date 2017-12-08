@@ -31,6 +31,7 @@ if ($_GET["id"]=="projects") {
     $collaborators=" ";
 
     foreach($projects as $project){
+        
         $title=$project["official_title"];
         $status=   WPRI_Database::get_record("status",$project["status"]);
         $agency=   WPRI_Database::get_record("agency",$project["agency"]);
