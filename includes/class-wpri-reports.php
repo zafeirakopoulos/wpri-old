@@ -69,8 +69,8 @@ class WPRI_Report {
 	public static function download_report_page_template( $template ) {
 
 		if ( is_page("download_report") ) {
-			error_log(dirname( __FILE__ ) . 'report.php');
-			$template = dirname( __FILE__ ) . 'report.php';
+			error_log(dirname( __FILE__ ) . '/report.php');
+			$template = dirname( __FILE__ ) . '/report.php';
 		}
 		return $template;
 	}
