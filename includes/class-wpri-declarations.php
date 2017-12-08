@@ -44,13 +44,23 @@ class WPRI_Declarations {
 		return $declarations["post_types"];
 	}
 
-		public static function get_reports() {
-			ini_set("auto_detect_line_endings", true);
-			$jsonfilename = plugin_dir_path( dirname( __FILE__ ) ) . "includes/declarations.json";
-			$jsonfile = file($jsonfilename);
-			$jsonstring =  implode($jsonfile);
-			# Parse the json string as an associative array
-			$declarations = json_decode ($jsonstring , true );
-			return $declarations["reports"];
-		}
+	public static function get_reports() {
+		ini_set("auto_detect_line_endings", true);
+		$jsonfilename = plugin_dir_path( dirname( __FILE__ ) ) . "includes/declarations.json";
+		$jsonfile = file($jsonfilename);
+		$jsonstring =  implode($jsonfile);
+		# Parse the json string as an associative array
+		$declarations = json_decode ($jsonstring , true );
+		return $declarations["reports"];
+	}
+
+	public static function get_pages() {
+		ini_set("auto_detect_line_endings", true);
+		$jsonfilename = plugin_dir_path( dirname( __FILE__ ) ) . "includes/declarations.json";
+		$jsonfile = file($jsonfilename);
+		$jsonstring =  implode($jsonfile);
+		# Parse the json string as an associative array
+		$declarations = json_decode ($jsonstring , true );
+		return $declarations["pages"];
+	}
 }

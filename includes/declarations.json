@@ -967,5 +967,9 @@
                 "update" : ["all"]
             }
         }
-    }
+    },
+    "pages": [
+        "Faculty","Research","Projects","Publications","Contact","Positions",
+		"member","project","publication","position","session"
+    ]
 }

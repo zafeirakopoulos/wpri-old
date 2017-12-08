@@ -34,9 +34,8 @@ class WPRI_Pages {
 
 
 	public static function create_pages() {
-		error_log("creating pages");
 
-		$pages_list = array("report","session");
+		$pages_list = WPRI_Declarations::get_pages();
 		foreach ($pages_list as $page_name){
 			//if (isset($_GET['activated']) && is_admin()){
 			    $page_title = $page_name;
