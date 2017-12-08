@@ -559,6 +559,7 @@ public static function add_form($entity, $form) {
 		 		}
 		 	}
 		 }
+		 error_log(print_r($local));
 
 		 $results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
 			 "SELECT * FROM " . self::table_name($entity_name). " WHERE id = %d", $id) ,"ARRAY_A"
