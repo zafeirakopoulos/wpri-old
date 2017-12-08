@@ -259,6 +259,9 @@ class WPRI_Database {
 
 // TODO remove that.
 				public static function get_roles() {
+					if (!isset($_SESSION['locale'])){
+						$_SESSION['locale']=1;
+					}
 	 		 		return  $GLOBALS['wpdb']->get_results(
 						$GLOBALS['wpdb']->prepare(
 							"SELECT * FROM " . self::table_name("locale_role"). " WHERE locale= %d",
@@ -303,6 +306,7 @@ public static function get_records($table, $where) {
 	// error_log($query);
 	$results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare($query, $values),"ARRAY_A");
 	return $results[0];
+	// TODO is [0] correct????
 }
 
 public static function get_localized($entity,$id) {
@@ -489,5 +493,22 @@ public static function add_form($entity, $form) {
 		);
 		return $success;
 	}
+
+	public static function get_relation($left, $right, $lid, $rid) {
+ 		if ($rid==""){
+			$query = "SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left."=%";
+			$value = $lid;
+		} else{
+			$query = "SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$right."=%";
+			$value = $rid;
+		}
+ 		$results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare($query, $value),"ARRAY_A");
+		return $results;
+
+   	if (!$success){
+   		# TODO Delete what was added
+   	}
+   	return $success;
+   }
 
 }
