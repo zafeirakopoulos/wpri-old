@@ -507,4 +507,26 @@ public static function add_form($entity, $form) {
 
    }
 
+   public static function get_double_relation($left, $middle, $right, $lid, $mid, $rid) {
+	   $values= array();
+	   $where = array();
+	   $query = "SELECT * FROM " . self::table_name($left."_".$middle."_".$right). " WHERE "
+	   if ($lid!=""){
+		   array_puch($where, $left." = %d");
+		   array_push($values,$lid);
+	   }
+	   if ($mid!=""){
+		   array_puch($where, $middle." = %d");
+		   array_push($values,$mid);
+	   }
+	   if ($rid!=""){
+		   array_puch($where, $right." = %d");
+		   array_push($values,$rid);
+	   }
+	   $query =$query . join(" AND ", $where);
+	   $results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare($query, $values),"ARRAY_A");
+	   return $results;
+
+	 }
+
 }
