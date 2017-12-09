@@ -308,7 +308,8 @@ class WPRI_Admin {
 				$new_member_id = WPRI_Database::add_member(array(
 					'user' => $_POST["user"],
 					'name' => WPRI_Database::get_field("user","user_nicename",$_POST["user"]),
-					'role' => $_POST["role"]
+					'role' => $_POST["role"],
+					'position'=>$_POST["position"]
 				));
 				if($new_member_id) {
 					echo "<div class='updated'><p><strong>Added.</strong></p></div>";
@@ -361,14 +362,26 @@ class WPRI_Admin {
 			echo '</td></tr>';
 
 			// Change this to access rights (instead of position)
-			$roles = WPRI_Database::get_roles();
+			$roles = WPRI_Database::get_all("role");
 
 			echo '<tr>';
 			echo '<th><label>Role</label></th>';
 			echo '<td>';
 			echo '<select name="role">';
 			foreach ( $roles as $role ) {
-					echo '<option value='.$role->role.'>'.$role->name.'</option>';
+					echo '<option value='.$role["id"].'>'.$role["role"].'</option>';
+				}
+			echo '</select>';
+			echo '<span class="description">Choose a role.</span>';
+			echo '</td></tr>';
+
+			$positions = WPRI_Database::get_all("position");
+			echo '<tr>';
+			echo '<th><label>Position</label></th>';
+			echo '<td>';
+			echo '<select name="position">';
+			foreach ( $positions as $position ) {
+					echo '<option value='.$position["id"].'>'.$position["position"].'</option>';
 				}
 			echo '</select>';
 			echo '<span class="description">Choose a role.</span>';
