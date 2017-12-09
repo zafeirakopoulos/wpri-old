@@ -23,15 +23,13 @@
 
     foreach ( $faculty as $member_id ) {
         $member = $members[$member_id];
-		echo "  <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action flex-column align-items-start '>
-            <div class='row'>";
-
-            echo "<div class='col-xs-6 single'> <h1>".$member["title"]." ".$member['name']."</h1></div>
-            <div class='col-xs-2 single'>".get_avatar($member['user'])."</div>
-            <div class='col-xs-3 single'>
-                <div class='col-xs-3 single'>".$member['position']."</div>
-            </div>";
-			echo "</div></a>";
+		echo "<a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action flex-column align-items-start '>
+                <div class='col-xs-6 single'>
+                    <div class='col-xs-6 single'><h1>".$member["title"]." ".$member['name']."</h1></div>
+                    <div class='col-xs-2 single'>".get_avatar($member['user'])."</div>
+                    <div class='col-xs-4 single'>".$member['position']."</div>
+                </div>
+            </a>";
             //
 			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['position']."</div>";
 			// 	if (isset($member['website']) AND $member['website']!=""){
