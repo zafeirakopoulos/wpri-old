@@ -566,6 +566,7 @@ public static function add_form($entity, $form) {
 		 $local = array();
 		 $relations = array();
 		 $multiplerelations = array();
+		 $select = array();
 
 		 foreach ($entity["groups"] as $group ) {
 		 	foreach ($group["elements"] as $element ) {
@@ -581,7 +582,7 @@ public static function add_form($entity, $form) {
 		 			}
 		 		}
 				elseif ($element["type"]== "select"){
-					array_push($relations, $element["table"]);
+					array_push($select, $element["table"]);
 				}
 		 	}
 		 }
@@ -595,12 +596,8 @@ public static function add_form($entity, $form) {
 	 		$results[$localizedname] = WPRI_Database::get_localized_element($entity_name,$localizedname,$id);
 	 	}
 
-		error_log("relations: ".print_r($relations));
-
 	 	foreach (  $relations  as $name ) {
 			$tmp=array();
-			// error_log(print_r($declarations[$name]["groups"][0]["elements"][0]));
-
 			if (isset($declarations[$name]["groups"][0]["elements"][0]["all_locales"])){
 				error_log("in the if all_locales for ".$name);
 				foreach (WPRI_Database::get_relation($entity_name,$name,$id,"") as $row) {
@@ -613,6 +610,13 @@ public static function add_form($entity, $form) {
 			}
 			$results[$name]= $tmp;
 	 	}
+
+		foreach (  $select  as $selection ) {
+			if (isset($declarations[$selection]["groups"][0]["elements"][0]["all_locales"])){
+				error_log("in the if all_locales for ".$selection);
+				$results[$selection]=  WPRI_Database::get_localized($selection,$results[$selection]) ;
+			}
+		}
 
 	 	// foreach (  $form["multirelations"]  as $name => $relation ) {
 	 	// 	 WPRI_Database::get_double_relation($entity["name"],array_keys($relation[0])[0],array_keys($relation[0])[1],$new_id,$relation) ;
