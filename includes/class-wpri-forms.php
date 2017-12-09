@@ -196,7 +196,7 @@ class WPRI_Form {
 									<label class='col-sm-6 form-element-caption'> <?php echo $locale["name"] ?></label>
 									<div class='col-sm-6 form-element-value'>
 										<textarea id='<?php echo $element["id"]?>'
-												  name='<?php echo $element["name"].$locale["id"] ?>'
+												  name='<?php echo $element["name"]?>'
 												  cols='80'
 												  rows='3'>
 											 <?php echo $element["value"]?>
@@ -207,7 +207,7 @@ class WPRI_Form {
 							}
 						}
 						elseif ($element["type"]=="tinytext"){?>
-							<textarea id='<?php echo $element["id"]?>'
+							<textarea id='<?php echo $element["name"]?>'
 									  name='<?php echo $element["name"].$locale["id"] ?>'
 									  cols='40'
 									  rows='1'>
