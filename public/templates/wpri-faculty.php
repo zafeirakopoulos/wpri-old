@@ -49,7 +49,7 @@
 			echo "<a class='listing-thumb' href='".site_url()."/member?id=".$members[$member]["id"]."'>";
 				echo "<div class='col-xs-12 col-md-6 col-ld-12  listing-thumb'>".get_avatar( $members[$member]['user'])."</div>";
 			// echo "<div class='row'>";
-			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'><h1 class='listing'>".$member['title']." ".$member['name']."</h1> </div>";
+			echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'><h1 class='listing'>".get_user_meta($members[$member]["user"],"title",true)." ".$members[$member]['name']."</h1> </div>";
 			// echo "</div>";
 			// echo "</a>";
             //
