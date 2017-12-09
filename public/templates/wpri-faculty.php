@@ -23,8 +23,8 @@
 
     foreach ( $faculty as $member_id ) {
         $member = $members[$member_id];
-		echo "  <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action flex-column align-items-start'>";
-            echo "<div class='d-flex w-100 justify-content-between'> <h5 class='mb-1'>".$member["title"]." ".$member['name']."</h5><small>".get_avatar($member['user'])."</small></div>";
+		echo "  <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action'>";
+            echo "<div class='d-flex w-100 justify-content-between'> <h5 class='mb-1'>".$member["title"]." ".$member['name']."</h5><span>".get_avatar($member['user'])."</span></div>";
 			echo "</a>";
             //
 			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['position']."</div>";
