@@ -24,7 +24,7 @@
     foreach ( $faculty as $member_id ) {
         $member = $members[$member_id];
 		echo "  <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action'>";
-            echo "<span> <h5>".$member["title"]." ".$member['name']."</h5></span><span>".get_avatar($member['user'])."</span>";
+            echo "<div class='col-xs-9'> <h5>".$member["title"]." ".$member['name']."</h5></div><div class='col-xs-2'>".get_avatar($member['user'])."</div>";
 			echo "</a>";
             //
 			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['position']."</div>";
