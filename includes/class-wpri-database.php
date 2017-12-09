@@ -509,7 +509,6 @@ public static function add_form($entity, $form) {
 				$id, $_SESSION['locale']
 			)
 		,"ARRAY_A")[0];
-		error_log(print_r($results));
 		return $results["name"];
 	}
 
@@ -592,16 +591,16 @@ public static function add_form($entity, $form) {
 	 		$results[$localizedname] = WPRI_Database::get_localized_element($entity_name,$localizedname,$id);
 	 	}
 
-	 	// foreach (  $relations  as $name => $items ) {
-	 	// 	WPRI_Database::get_relation($entity["name"],$name,$new_id,$items) ;
-	 	// }
-        //
+	 	foreach (  $relations  as $name ) {
+			$results[$name]= WPRI_Database::get_relation($entity_name,$name,$id,"") ;
+	 	}
+
 	 	// foreach (  $form["multirelations"]  as $name => $relation ) {
 	 	// 	 WPRI_Database::get_double_relation($entity["name"],array_keys($relation[0])[0],array_keys($relation[0])[1],$new_id,$relation) ;
         //
 	 	// }
 
-
+		error_log(print_r($results));
 	 	return $results;
 	 }
 
