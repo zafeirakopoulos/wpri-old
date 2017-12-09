@@ -595,6 +595,8 @@ public static function add_form($entity, $form) {
 	 		$results[$localizedname] = WPRI_Database::get_localized_element($entity_name,$localizedname,$id);
 	 	}
 
+		error_log("relations: ".print_r($relations));
+
 	 	foreach (  $relations  as $name ) {
 			$tmp=array();
 			// error_log(print_r($declarations[$name]["groups"][0]["elements"][0]));
