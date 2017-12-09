@@ -489,6 +489,15 @@ public static function add_form($entity, $form) {
 		return $results[0]["name"];
 	}
 
+	public static function get_localized_element($entity,$element,$id) {
+			$results=  $GLOBALS['wpdb']->get_results(
+			$GLOBALS['wpdb']->prepare(
+				"SELECT * FROM " . self::table_name("locale_".$entity."_".$element). " WHERE ".$entity." = %d AND locale= %d",
+				$id, $_SESSION['locale']
+			)
+		,"ARRAY_A");
+		return $results[0]["name"];
+	}
 
 	public static function get_all($entity) {
 		return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name($entity),"ARRAY_A" );
@@ -547,7 +556,7 @@ public static function add_form($entity, $form) {
 		 foreach ($entity["groups"] as $group ) {
 		 	foreach ($group["elements"] as $element ) {
 		 		if (isset($element["localized"]) ){
-		 			array_push($local, $entity_name."_".$element["name"]);
+		 			array_push($local, [$entity_name,$element["name"]]);
 		 		}
 		 		elseif ($element["type"]== "multiple-select"){
 		 			$relation = $element["relation"];
@@ -568,7 +577,7 @@ public static function add_form($entity, $form) {
 	 	foreach (  $local  as $localizedname) {
 			error_log(print_r("localizedname:".$localizedname));
 
-	 		$results[$localizedname] = WPRI_Database::get_localized($localizedname,$id);
+	 		$results[$localizedname] = WPRI_Database::get_localized_element($localizedname[0],$localizedname[1],$id);
 	 	}
 
 	 	// foreach (  $relations  as $name => $items ) {
