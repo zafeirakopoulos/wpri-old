@@ -954,6 +954,15 @@
             "public" : true,
             "has_archive" : true,
             "rewrite" : {"slug" : "blog"}
+        },
+        "wpri_project_blog": {
+            "labels": {
+                  "name" : "Project Blog",
+                  "singular_name": "Project Blog"
+            },
+            "public" : true,
+            "has_archive" : true,
+            "rewrite" : {"slug" : "project-blog"}
         }
     },
     "reports":
