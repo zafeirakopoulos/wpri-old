@@ -686,7 +686,7 @@ public static function add_form($entity, $form) {
 
 			 foreach ($members as $member) {
 				   $result = array();
-
+				   $id = $member["id"];
 		 		   foreach (  $local  as $localizedname) {
 		 			   $results[$localizedname] = WPRI_Database::get_localized_element("member",$localizedname,$id);
 		 		   }
