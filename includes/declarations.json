@@ -763,6 +763,9 @@
                         }
                     ]
                 }
+            ],
+            "related" : [
+                "publication"
             ]
         },
         "publication": {
