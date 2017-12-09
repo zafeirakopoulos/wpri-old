@@ -827,7 +827,7 @@
                             "type": "text",
                             "name" : "title",
                             "caption" : "Title" ,
-                            "value": "ass appeared",
+                            "value": "as appeared",
                             "cols" : "50",
                             "rows": "2"
                         }
