@@ -569,7 +569,7 @@ public static function add_form($entity, $form) {
 		 foreach ($entity["groups"] as $group ) {
 		 	foreach ($group["elements"] as $element ) {
 		 		if (isset($element["localized"]) ){
-					error_log("about to push:".print_r($localizedname));
+					error_log("about to push:".print_r([$entity_name,$element["name"]]));
 
 		 			array_push($local, [$entity_name,$element["name"]]);
 		 		}
