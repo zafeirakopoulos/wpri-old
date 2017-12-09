@@ -503,13 +503,14 @@ public static function add_form($entity, $form) {
 	}
 
 	public static function get_localized_element($entity,$element,$id) {
-			$results=  $GLOBALS['wpdb']->get_results(
+		$results=  $GLOBALS['wpdb']->get_results(
 			$GLOBALS['wpdb']->prepare(
 				"SELECT * FROM " . self::table_name("locale_".$entity."_".$element). " WHERE ".$entity." = %d AND locale= %d",
 				$id, $_SESSION['locale']
 			)
 		,"ARRAY_A");
-		return $results[0]["name"];
+		error_log(print_r($results));
+		return $results["name"];
 	}
 
 	public static function get_all($entity) {
