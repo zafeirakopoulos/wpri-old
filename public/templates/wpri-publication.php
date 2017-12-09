@@ -33,7 +33,6 @@
 			echo "<a class=' single' href='".site_url()."/project?id=".$project_id."'>";
 			echo "<div class='row'>";
 				echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".
-				$project[title
 				WPRI_Database::get_localized_element("project","title",$project_id)
 				."</div>";
 			echo "</div>";
