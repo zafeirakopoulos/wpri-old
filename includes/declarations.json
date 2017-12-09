@@ -133,7 +133,7 @@
             ]
         },
         "pubtype": {
-            "title" : "Publication typr",
+            "title" : "Publication type",
             "table_name" : "pubtype",
             "name" :"pubtype",
             "actions": {
@@ -825,18 +825,9 @@
                     "elements" : [
                         {
                             "type": "text",
-                            "name" : "official_title",
-                            "caption" : "Official title" ,
-                            "value": "as appearing in the funding agency",
-                            "cols" : "50",
-                            "rows": "2"
-                        },
-                        {
-                            "type": "text",
-                            "localized":true,
-                            "name": "title",
-                            "caption" : "Title in different locales" ,
-                            "value": "Title in different locales",
+                            "name" : "title",
+                            "caption" : "Title" ,
+                            "value": "ass appeared",
                             "cols" : "50",
                             "rows": "2"
                         }
