@@ -19,7 +19,7 @@
 					$member = WPRI_Database::get_record("member",$member_row["member"]) ;
 					echo "<a class=' single' href='".site_url()."/member?id=".$member["id"]."'>";
 					echo "<div class='row'>";
-						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$member["name"]. "(".
+						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$member["name"]. " (".
 						WPRI_Database::get_localized("projectrole", $member_row["projectrole"]).")</div>";
 					echo "</div>";
 					echo "</a>";
@@ -29,16 +29,16 @@
 
 			<h2 class=" single">Publications:</h2>
 
-				<?php
-				$project_publications = WPRI_Database::get_project_publications($project_id);
-				foreach ($project_publications as $publication) {
-					$pub = WPRI_Database::get_publication($publication->pub);
-					echo "<a class=' single' href='".site_url()."/publication?id=".$pub->id."'>";
+			<?php
+				foreach ($project["publication"] as $publication_id) {
+					$publication = WPRI_Database::get_record("publication",$publication_id) ;
+					echo "<a class=' single' href='".site_url()."/publication?id=".$publication_id."'>";
 					echo "<div class='row'>";
-						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$pub->title."</div>";
+						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$publication["title"]."</div>";
 					echo "</div>";
 					echo "</a>";
-				}?>
+				}
+			?>
 
 		</div>
  </div><!-- #project -->
