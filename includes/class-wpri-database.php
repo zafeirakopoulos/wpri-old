@@ -652,4 +652,97 @@ public static function add_form($entity, $form) {
 		 }
 		 return $ids;
 	 }
+
+
+	 	 public static function get_members_full() {
+			 $declarations = WPRI_Declarations::get_declarations();
+			 $entity = $declarations["member"];
+			 $local = array();
+	 		 $relations = array();
+	 		 $multiplerelations = array();
+	 		 $select = array();
+
+	 		 foreach ($entity["groups"] as $group ) {
+	 		 	foreach ($group["elements"] as $element ) {
+	 		 		if (isset($element["localized"]) ){
+	 		 			$local[] = $element["name"];
+	 		 		}
+	 		 		elseif ($element["type"]== "multiple-select"){
+	 		 			$relation = $element["relation"];
+	 		 			if (isset($relation["select"])) {
+	 						$multiplerelations[] = array($element["name"],$relation["foreach"]["table"],$relation["select"]["table"]);
+	  		 			} else {
+	 						array_push($relations, $relation["foreach"]["table"]);
+	 		 			}
+	 		 		}
+	 				elseif ($element["type"]== "select"){
+	 					array_push($select, $element["table"]);
+	 				}
+	 		 	}
+	 		 }
+
+			 $results = array();
+			 $members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
+
+			 foreach ($members as $member) {
+				   $result = array();
+
+		 		   foreach (  $local  as $localizedname) {
+		 			   $results[$localizedname] = WPRI_Database::get_localized_element("member",$localizedname,$id);
+		 		   }
+
+		 		   foreach (  $relations  as $name ) {
+		 			   $tmp=array();
+		 			   if (isset($declarations[$name]["groups"][0]["elements"][0]["all_locales"])){
+		 				   // error_log("in the if all_locales for ".$name);
+		 				   foreach (WPRI_Database::get_relation("member",$name,$id,"") as $row) {
+		 					   $tmp[] = WPRI_Database::get_localized($name,$row[$name]) ;
+		 				   }
+		 			   } else{
+		 				   foreach (WPRI_Database::get_relation("member",$name,$id,"") as $row) {
+		 					   $tmp[] = $row[$name];
+		 				   }
+		 			   }
+		 			   $results[$name]= $tmp;
+		 		   }
+
+		 		   foreach (  $select  as $selection ) {
+		 			   if (isset($declarations[$selection]["groups"][0]["elements"][0]["all_locales"])){
+		 				   // error_log("in the if all_locales for ".$selection);
+		 				   $results[$selection]=  WPRI_Database::get_localized($selection,$results[$selection]) ;
+		 			   }
+		 		   }
+
+
+		 		   foreach ( $multiplerelations as $relation ) {
+		 				$results[$relation[0]] = WPRI_Database::get_double_relation("member",$relation[1],$relation[2],$id,"","") ;
+
+		 		   }
+
+		 		   if (isset($entity["related"])){
+		 			   foreach ( $entity["related"] as $related ) {
+		 				   $tmp=array();
+		 				   if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
+		 					   // error_log("in the if all_locales for ".$related);
+		 					   foreach (WPRI_Database::get_relation($related,"member","",$id) as $row) {
+		 						   $tmp[] = WPRI_Database::get_localized($related,$row[$related]) ;
+		 					   }
+		 				   } else{
+		 					   foreach (WPRI_Database::get_relation($related,"member","",$id) as $row) {
+		 						   $tmp[] = $row[$related];
+		 					   }
+		 				   }
+		 				   $results[$related]= $tmp;
+		 			   }
+		 		   }
+
+				   $results[$member["id"]] = $result;
+		 		}
+
+
+			 }
+
+
+
+
 }
