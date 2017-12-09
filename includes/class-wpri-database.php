@@ -560,7 +560,8 @@ public static function add_form($entity, $form) {
 
 	 public static function get_entity($entity_name, $id) {
 
-		 $entity = WPRI_Declarations::get_declarations()[$entity_name];
+		 $declarations = WPRI_Declarations::get_declarations();
+		 $entity = $declarations[$entity_name];
 
 		 $local = array();
 		 $relations = array();
@@ -592,7 +593,17 @@ public static function add_form($entity, $form) {
 	 	}
 
 	 	foreach (  $relations  as $name ) {
-			$results[$name]= WPRI_Database::get_relation($entity_name,$name,$id,"") ;
+			$tmp=array();
+			if (isset($declarations["name"]["localized"])){
+				foreach (WPRI_Database::get_relation($entity_name,$name,$id,"") as $row) {
+					$tmp[] = WPRI_Database::get_localized($name,$row[$name]) ;
+				}
+			} else{
+				foreach (WPRI_Database::get_relation($entity_name,$name,$id,"") as $row) {
+					$tmp[] = $row[$name];
+				}
+			}
+			$results[$name]= $tmp;
 	 	}
 
 	 	// foreach (  $form["multirelations"]  as $name => $relation ) {
