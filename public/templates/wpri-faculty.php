@@ -6,16 +6,17 @@
     $administrative = array();
     foreach ( $members as $member ) {
         if (in_array($member["position"],array(1,2,3))){
-            $faculty[] = $member;
+            $faculty[] = $member["id"];
         }
         if (in_array($member["position"],array(4,5))){
-            $assistants[] = $member;
+            $assistants[] = $member["id"];
         }
         if (in_array($member["position"],array(6))){
-            $administrative[] = $member;
+            $administrative[] = $member["id"];
         }
     }
 
+    $members = WPRI_Database::get_members_full();
     echo "<h1>Faculty</h1>";
 	foreach ( $faculty as $member ) {
 		echo "<div class='col-sm-12 listing-thumb-frame'>";
