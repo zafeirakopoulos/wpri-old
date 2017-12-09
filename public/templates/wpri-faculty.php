@@ -26,11 +26,11 @@
 		echo "  <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action flex-column align-items-start '>
             <div class='row'>";
 
-            echo "<div class='col-xs-12 single'> <h1>".$member["title"]." ".$member['name']."</h1></div>
-            <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-            <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-            <div class='col-xs-3 single'>".$member['position']."</div>
-            ";
+            echo "<div class='col-xs-6 single'> <h1>".$member["title"]." ".$member['name']."</h1></div>
+            <div class='col-xs-2 single'>".get_avatar($member['user'])."</div>
+            <div class='col-xs-3 single'>
+                <div class='col-xs-3 single'>".$member['position']."</div>
+            </div>";
 			echo "</div></a>";
             //
 			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['position']."</div>";
