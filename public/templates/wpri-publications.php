@@ -11,7 +11,7 @@
                             echo "<img src='clarivate.png' alt='SCI indexed' height='42' width='100'>";
                         }
                         echo "</div>";
-						echo "<div class='col-xs-11 listing-thumb'><h1 class='listing'>".$publication['official_title']."</h1> </div>";
+						echo "<div class='col-xs-11 listing-thumb'><h1 class='listing'>".$publication['title']."</h1> </div>";
 					echo "</a>";
 				echo "</div>";
 			}
