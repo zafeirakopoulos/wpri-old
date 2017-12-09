@@ -14,7 +14,11 @@
 				echo "<div class='col-xs-12 single'><h4 class='listing'>".$project['website']."</h4></div>";
 			}
 
-			echo "<div class='col-xs-12 single'><h4 class='listing'> Activity Period:".$project['startdate']."-".$project['enddate']."</h4> </div>";
+			echo "<div class='col-xs-12 single'><h4 class='listing'> Activity Period:".
+				mysql2date( 'F j, Y', $project['startdate'] )
+				."-".
+				mysql2date( 'F j, Y', $project['enddate'] )
+				."</h4> </div>";
 
 			echo "<div class='col-xs-12 single'><h4 class='listing'> Funded by:".join(",",$project['agency'])."</h4> </div>";
  			?>
