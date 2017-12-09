@@ -486,7 +486,7 @@ public static function add_form($entity, $form) {
 				$id, $_SESSION['locale']
 			)
 		,"ARRAY_A");
-		return $results[0];
+		return $results[0]["name"];
 	}
 
 
