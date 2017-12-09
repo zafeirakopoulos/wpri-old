@@ -219,7 +219,7 @@ class WPRI_Database {
 		$tables_to_drop = array_reverse($tables_to_drop);
 		// error_log("tables_to_drop ".implode($tables_to_drop));
 		// array_push($tables_to_drop,"vacancy_project");
- 
+
 	    foreach($tables_to_drop as $table_name){
 		    $GLOBALS['wpdb']->query( "DROP TABLE IF EXISTS  " . self::table_name($table_name) );
 	    }
@@ -621,6 +621,11 @@ public static function add_form($entity, $form) {
 
 	 	foreach ( $multiplerelations as $relation ) {
 	 		 $results[$relation[0]] = WPRI_Database::get_double_relation($entity_name,$relation[1],$relation[2],$id,"","") ;
+
+	 	}
+
+		foreach ( $entity["related"] as $related ) {
+	 		 $results[$related] = WPRI_Database::get_relation($related,$entity_name,"",$id) ;
 
 	 	}
 
