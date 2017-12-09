@@ -634,15 +634,6 @@
                             "table" : "role",
                             "column" : "id",
                             "display_column" : "localized"
-                        },
-                        {
-                            "caption" : "Position" ,
-                            "name": "position",
-                            "value": "",
-                            "type": "select",
-                            "table" : "position",
-                            "column" : "id",
-                            "display_column" : "localized"
                         }
                     ]
                 }
