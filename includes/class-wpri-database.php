@@ -568,13 +568,10 @@ public static function add_form($entity, $form) {
 
 		 foreach ($entity["groups"] as $group ) {
 		 	foreach ($group["elements"] as $element ) {
-		 		if (isset($element["localized"]) ){
-					error_log("entity to push:".$entity_name);
-					error_log("element to push:".$element["name"]);
+		 		if (isset($element["localized"]) ){ 
+					error_log("about to push:".print_r(array($entity_name,$element["name"]));
 
-					error_log("about to push:".print_r([$entity_name,$element["name"]]));
-
-		 			array_push($local, [$entity_name,$element["name"]]);
+		 			array_push($local, array($entity_name,$element["name"]));
 		 		}
 		 		elseif ($element["type"]== "multiple-select"){
 		 			$relation = $element["relation"];
