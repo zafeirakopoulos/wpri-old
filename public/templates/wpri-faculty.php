@@ -18,18 +18,18 @@
 
     $members = WPRI_Database::get_members_full();
     echo "<h1>Faculty</h1>";
-    
+
     echo "<div class='list-group'>";
 
     foreach ( $faculty as $member_id ) {
         $member = $members[$member_id];
 		echo "  <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action flex-column align-items-start '>
-            <div class='d-flex flex-row'>";
+            <div class='row'>";
 
-            echo "<div class='p-9'> <h2>".$member["title"]." ".$member['name']."</h2></div>
-            <div class='p-2'>".get_avatar($member['user'])."</div>
-            <div class='p-2'>".get_avatar($member['user'])."</div>
-            <div class='p-2'>".$member['position']."</div>
+            echo "<div class='col-xs-12'> <h2>".$member["title"]." ".$member['name']."</h2></div>
+            <div class='col-xs-3'>".get_avatar($member['user'])."</div>
+            <div class='col-xs-3'>".get_avatar($member['user'])."</div>
+            <div class='col-xs-3'>".$member['position']."</div>
             ";
 			echo "</div></a>";
             //
