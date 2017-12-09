@@ -586,7 +586,7 @@ public static function add_form($entity, $form) {
 			 "SELECT * FROM " . self::table_name($entity_name). " WHERE id = %d", $id) ,"ARRAY_A"
 		 )[0];
 
-		 error_log(print_r("local:".print_r($local)));
+		 error_log("local:".print_r($local));
 
 	 	foreach (  $local  as $localizedname) {
 	 		$results[$localizedname] = WPRI_Database::get_localized_element($localizedname[0],$localizedname[1],$id);
