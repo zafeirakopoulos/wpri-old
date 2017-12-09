@@ -5,21 +5,27 @@
 			$project_id=$_GET['id'];
 			$project = WPRI_Database::get_entity("project",$project_id);
 
-  				echo "<div class='col-sm-12 listing-thumb-frame'>";
- 						echo "<div class='col-xs-3  listing-thumb'>"."picture"."</div>";
-						echo "<div class='col-xs-9 listing-thumb'><h1 class='listing'>".$project['title']."</h1> </div>";
- 				echo "</div>";
+			echo "<div class='col-xs-3  single'>"."picture"."</div>";
+			echo "<div class='col-xs-9 single'><h1 class='listing'>".$project['title']."</h1> </div>";
+
+			echo "<div class='col-xs-12 single'><h1 class='listing'> Status:".$project['status']."</h1> </div>";
+			if (isset($project['website']) AND $project['website']!=""){
+				echo "<div class='col-xs-12 single'>".$project['website']."</div>";
+			}
+			echo "<div class='col-xs-12 single'><h1 class='listing'> Activity Period:".$project['startdate']."-".$project['enddate']."</h1> </div>";
+			echo "<div class='col-xs-12 single'><h1 class='listing'> Funded by:".join(",",$project['agency']."</h1> </div>";			
  			?>
 
 
-			<h2 class="single">Participants:</h2>
+			<h2 class="single">Participants</h2>
+			<h3 class="single">Institute members</h3>
 
 			<?php
 				foreach ($project["members"] as $member_row) {
 					$member = WPRI_Database::get_record("member",$member_row["member"]) ;
 					echo "<a class=' single' href='".site_url()."/member?id=".$member["id"]."'>";
 					echo "<div class='row'>";
-						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$member["name"]. " (".
+						echo "<div class='col-sm-12 single'>".$member["name"]. " (".
 						WPRI_Database::get_localized("projectrole", $member_row["projectrole"]).")</div>";
 					echo "</div>";
 					echo "</a>";
@@ -27,7 +33,20 @@
 			?>
 
 
-			<h2 class=" single">Publications:</h2>
+			<?php
+				if (!is_empty($project["collaborators"])){
+					echo "<h3 class='single'>Collaborators</h3>";
+					foreach ($project["collaborators"] as $collaborators_row) {
+						$member = WPRI_Database::get_record("collaborator",$collaborators_row["collaborator"]) ;
+						echo "<div class='col-sm-12 single'>".$member["name"]. " (".WPRI_Database::get_localized("projectrole", $collaborators_row["projectrole"]).")</div>";
+					}
+				}
+
+			?>
+
+
+
+			<h2 class=" single">Publications</h2>
 
 			<?php
 				foreach ($project["publication"] as $publication_id) {
