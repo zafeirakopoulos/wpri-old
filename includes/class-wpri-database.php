@@ -688,7 +688,7 @@ public static function add_form($entity, $form) {
 				   $result = array();
 				   $id = $member["id"];
 		 		   foreach (  $local  as $localizedname) {
-		 			   $results[$localizedname] = WPRI_Database::get_localized_element("member",$localizedname,$id);
+		 			   $result[$localizedname] = WPRI_Database::get_localized_element("member",$localizedname,$id);
 		 		   }
 
 		 		   foreach (  $relations  as $name ) {
@@ -703,19 +703,19 @@ public static function add_form($entity, $form) {
 		 					   $tmp[] = $row[$name];
 		 				   }
 		 			   }
-		 			   $results[$name]= $tmp;
+		 			   $result[$name]= $tmp;
 		 		   }
 
 		 		   foreach (  $select  as $selection ) {
 		 			   if (isset($declarations[$selection]["groups"][0]["elements"][0]["all_locales"])){
 		 				   // error_log("in the if all_locales for ".$selection);
-		 				   $results[$selection]=  WPRI_Database::get_localized($selection,$results[$selection]) ;
+		 				   $result[$selection]=  WPRI_Database::get_localized($selection,$results[$selection]) ;
 		 			   }
 		 		   }
 
 
 		 		   foreach ( $multiplerelations as $relation ) {
-		 				$results[$relation[0]] = WPRI_Database::get_double_relation("member",$relation[1],$relation[2],$id,"","") ;
+		 				$result[$relation[0]] = WPRI_Database::get_double_relation("member",$relation[1],$relation[2],$id,"","") ;
 
 		 		   }
 
@@ -732,7 +732,7 @@ public static function add_form($entity, $form) {
 		 						   $tmp[] = $row[$related];
 		 					   }
 		 				   }
-		 				   $results[$related]= $tmp;
+		 				   $result[$related]= $tmp;
 		 			   }
 		 		   }
 
