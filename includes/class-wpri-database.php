@@ -594,6 +594,8 @@ public static function add_form($entity, $form) {
 
 	 	foreach (  $relations  as $name ) {
 			$tmp=array();
+			error_log(print_r($declarations[$name]["groups"]["elements"]));
+
 			if (isset($declarations[$name]["groups"]["elements"][0][$name]) && isset($declarations[$name]["groups"]["elements"][0]["all_locales"])){
 				error_log("in the if all_locales");
 				foreach (WPRI_Database::get_relation($entity_name,$name,$id,"") as $row) {
