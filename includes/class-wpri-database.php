@@ -600,7 +600,7 @@ public static function add_form($entity, $form) {
 			// error_log(print_r($declarations[$name]["groups"][0]["elements"][0]));
 
 			if (isset($declarations[$name]["groups"][0]["elements"][0]["all_locales"])){
-				error_log("in the if all_locales");
+				error_log("in the if all_locales for ".$name);
 				foreach (WPRI_Database::get_relation($entity_name,$name,$id,"") as $row) {
 					$tmp[] = WPRI_Database::get_localized($name,$row[$name]) ;
 				}
