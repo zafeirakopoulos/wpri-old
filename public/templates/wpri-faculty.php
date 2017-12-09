@@ -35,7 +35,9 @@
                 <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                 <div class='col-xs-9 single'>".$member['position']."</div>
             </div>
-        </a>";
+        </a>
+        </hr>";
+
     $member = $members[$vicedirector];
     echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
             <div class='col-xs-12 single'>
@@ -43,7 +45,8 @@
                 <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                 <div class='col-xs-9 single'>".$member['position']."</div>
             </div>
-        </a>";
+        </a>
+        </hr>";
     foreach ( $faculty as $member_id ) {
         $member = $members[$member_id];
 		echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
@@ -52,7 +55,8 @@
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                     <div class='col-xs-9 single'>".$member['position']."</div>
                 </div>
-            </a>";
+            </a>
+            </hr>";
 	}
 
     echo "<h1>Assistants</h1>";
