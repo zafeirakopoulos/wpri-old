@@ -844,6 +844,14 @@
                             "table" : "pubtype",
                             "column" : "id",
                             "display_column" : "pubtype"
+                        },
+                        {
+                            "caption" : "Publication DOI" ,
+                            "name": "doi",
+                            "value": "",
+                            "type": "tinytext",
+                            "cols" : "30",
+                            "rows": "1"
                         }
                     ]
                 },
@@ -883,7 +891,34 @@
                             }
                         }
                     ]
+                },
+                {
+                    "title" : "Author information",
+                    "elements" : [
+                        {
+                            "caption" : "Authors that are members of the institute" ,
+                            "name": "member_authors",
+                            "value": "",
+                            "type": "multiple-select",
+                            "relation" : {
+                                "foreach" : {
+                                    "table" : "member",
+                                    "column" : "id",
+                                    "display_column" : "name"
+                                }
+                            }
+                        },
+                        {
+                            "caption" : "All authors (as appearing in the paper)" ,
+                            "name": "authors",
+                            "value": "",
+                            "type": "text",
+                            "cols" : "100",
+                            "rows": "2"
+                        }
+                    ]
                 }
+
             ]
         },
         "vacancy": {
