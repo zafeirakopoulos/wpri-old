@@ -624,20 +624,21 @@ public static function add_form($entity, $form) {
 
 	 	}
 
-		foreach ( $entity["related"] as $related ) {
-			$tmp=array();
-			if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
-				error_log("in the if all_locales for ".$related);
-				foreach (WPRI_Database::get_relation($related,$entity_name,"",$id) as $row) {
-					$tmp[] = WPRI_Database::get_localized($related,$row[$related]) ;
+		if (isset($entity["related"])){
+			foreach ( $entity["related"] as $related ) {
+				$tmp=array();
+				if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
+					error_log("in the if all_locales for ".$related);
+					foreach (WPRI_Database::get_relation($related,$entity_name,"",$id) as $row) {
+						$tmp[] = WPRI_Database::get_localized($related,$row[$related]) ;
+					}
+				} else{
+					foreach (WPRI_Database::get_relation($related,$entity_name,"",$id) as $row) {
+						$tmp[] = $row[$related];
+					}
 				}
-			} else{
-				foreach (WPRI_Database::get_relation($related,$entity_name,"",$id) as $row) {
-					$tmp[] = $row[$related];
-				}
+				$results[$related]= $tmp;
 			}
-			$results[$related]= $tmp;
-	
 	 	}
 
 		error_log(print_r($results));
