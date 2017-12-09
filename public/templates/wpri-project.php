@@ -9,10 +9,13 @@
 			echo "<div class='col-xs-9 single'><h1 class='listing'>".$project['title']."</h1> </div>";
 
 			echo "<div class='col-xs-12 single'><h1 class='listing'> Status:".$project['status']."</h1> </div>";
+
 			if (isset($project['website']) AND $project['website']!=""){
-				echo "<div class='col-xs-12 single'>".$project['website']."</div>";
+				echo "<div class='col-xs-12 single'><h1 class='listing'>".$project['website']."</h1></div>";
 			}
+
 			echo "<div class='col-xs-12 single'><h1 class='listing'> Activity Period:".$project['startdate']."-".$project['enddate']."</h1> </div>";
+
 			echo "<div class='col-xs-12 single'><h1 class='listing'> Funded by:".join(",",$project['agency'])."</h1> </div>";
  			?>
 
