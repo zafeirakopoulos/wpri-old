@@ -171,7 +171,7 @@ class WPRI_Admin {
 		echo '<td>';
 		echo '<select name="advisor">';
 			foreach ( WPRI_Database::get_all("member") as $member ) {
-				echo '<option value='.$member->id. ' ' . ( $member->id == get_usermeta($user,'advisor')? 'selected ' : ' ') .'>'.$member->name.'</option>';
+				echo '<option value='.$member["id"]. ' ' . ( $member["id"] == get_usermeta($user,'advisor')? 'selected ' : ' ') .'>'.$member["name"].'</option>';
 			}
 		echo '<option value=-1>Other</option>';
 		echo '</select>';
@@ -334,11 +334,11 @@ class WPRI_Admin {
 		 	foreach ( $all_members as $member ) {
 				echo '<form name="delete_member" method="post" action="">';
 				echo '<tr>';
-				echo '<td><label>' . $member->name . '</label></td>';
+				echo '<td><label>' . $member["name"] . '</label></td>';
 				// TODO get_member_name (from user)
-				echo '<td> <input type="submit" name="delete_button' . $member->id  . '" value="Delete" class="button" />';
+				echo '<td> <input type="submit" name="delete_button' . $member["id"]  . '" value="Delete" class="button" />';
 		    	echo '<input type="hidden" name="type" value="delete_member" />';
-		   		echo '<input type="hidden" name="member_id" value=' . $member->id . '/></td>';
+		   		echo '<input type="hidden" name="member_id" value=' . $member["id"] . '/></td>';
 				echo '</tr>';
 				echo '</form>';
 		    }
