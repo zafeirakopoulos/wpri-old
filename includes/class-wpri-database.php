@@ -618,10 +618,9 @@ public static function add_form($entity, $form) {
 			}
 		}
 
-		error_log("multirelations ".print_r($multiplerelations));
 
-	 	foreach ( $multiplerelations as $name => $relation ) {
-	 		 WPRI_Database::get_double_relation($entity["name"],array_keys($relation[0])[0],array_keys($relation[0])[1],$new_id,$relation) ;
+	 	foreach ( $multiplerelations as $relation ) {
+	 		 $results[$relation[0]] = WPRI_Database::get_double_relation($entity_name,$relation[1],$relation[2],$id,"","") ;
 
 	 	}
 
