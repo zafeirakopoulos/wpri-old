@@ -607,8 +607,9 @@ public static function add_form($entity, $form) {
 	 public static function get_ids($entity) {
 		 $ids =array();
 		 foreach ($GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name($entity),"ARRAY_A")[0] as $key => $value) {
-		 	array_push($ids,$value);
+		 	$ids[] = $value;
 		 }
+		 error_log($ids);
 		 return $ids;
 	 }
 }
