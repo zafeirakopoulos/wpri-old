@@ -452,10 +452,10 @@ public static function add_form($entity, $form) {
 	// 	);
 	// }
 
-	// public static function add_member($member) {
-	// 			$GLOBALS['wpdb']->insert( self::table_name("member")  , $member);
-	// 			return $GLOBALS['wpdb']->insert_id;
-	// 		}
+	public static function add_member($member) {
+				$GLOBALS['wpdb']->insert( self::table_name("member")  , $member);
+				return $GLOBALS['wpdb']->insert_id;
+			}
     //
 	// public static function get_all_members() {
 	// 	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
