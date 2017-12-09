@@ -127,17 +127,17 @@ class WPRI_Admin {
 		echo '<table class="form-table">';
 	 	echo '<tr>';
 		echo '<th><label">Office</label></th>';
-		echo '<td><textarea id="office" name="office" cols="10" rows="1">'.get_usermeta($user,'office').'</textarea>';
+		echo '<td><textarea id="office" name="office" cols="10" rows="1">'.get_user_meta($user,'office',true).'</textarea>';
 		echo '<span class="description">Your office number.</span>';
 		echo '</td></tr>';
 	 	echo '<tr>';
 		echo '<th><label">Phone</label></th>';
-		echo '<td><textarea id="phone" name="phone" cols="10" rows="1">'.get_usermeta($user,'phone').'</textarea>';
+		echo '<td><textarea id="phone" name="phone" cols="10" rows="1">'.get_user_meta($user,'phone',true).'</textarea>';
 		echo '<span class="description">Your phone number</span>';
 		echo '</td></tr>';
 		echo '<tr>';
 		echo '<th><label">Website</label></th>';
-		echo '<td><textarea id="website" name="website" cols="10" rows="1">'.get_usermeta($user,'website').'</textarea>';
+		echo '<td><textarea id="website" name="website" cols="10" rows="1">'.get_user_meta($user,'website',true).'</textarea>';
 		echo '<span class="description">Your website</span>';
 		echo '</td></tr>';
 
@@ -151,7 +151,7 @@ class WPRI_Admin {
 		echo '<td>';
 		echo '<select name="title">';
 			foreach ( WPRI_Database::get_all("title") as $title ) {
-				echo '<option value='.$title["id"]. ' ' . ( $title["title"] == get_usermeta($user,'title')? 'selected ' : ' ') .'>'.$title["title"].'</option>';
+				echo '<option value='.$title["id"]. ' ' . ( $title["title"] == get_user_meta($user,'title',true)? 'selected ' : ' ') .'>'.$title["title"].'</option>';
 			}
 		echo '</select>';
 		echo '<span class="description"></span>';
@@ -161,7 +161,7 @@ class WPRI_Admin {
 		echo '<td>';
 		echo '<select name="position">';
 			foreach ( WPRI_Database::get_all("position") as $position ) {
-				echo '<option value='.$position["id"]. ' ' . ( $position["position"] == get_usermeta($user,'position')? 'selected ' : ' ') .'>'.$position["position"].'</option>';
+				echo '<option value='.$position["id"]. ' ' . ( $position["position"] == get_user_meta($user,'position',true)? 'selected ' : ' ') .'>'.$position["position"].'</option>';
 			}
 		echo '</select>';
 		echo '<span class="description"></span>';
@@ -171,7 +171,7 @@ class WPRI_Admin {
 		echo '<td>';
 		echo '<select name="advisor">';
 			foreach ( WPRI_Database::get_all("member") as $member ) {
-				echo '<option value='.$member["id"]. ' ' . ( $member["id"] == get_usermeta($user,'advisor')? 'selected ' : ' ') .'>'.$member["name"].'</option>';
+				echo '<option value='.$member["id"]. ' ' . ( $member["id"] == get_user_meta($user,'advisor',true)? 'selected ' : ' ') .'>'.$member["name"].'</option>';
 			}
 		echo '<option value=-1>Other</option>';
 		echo '</select>';
