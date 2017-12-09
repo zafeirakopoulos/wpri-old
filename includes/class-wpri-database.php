@@ -742,7 +742,8 @@ public static function add_form($entity, $form) {
 				   $results[$member["id"]] = $result;
 		 		}
 
-
+				error_log(print_r($results));
+				return $results;
 			 }
 
 
