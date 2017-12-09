@@ -34,6 +34,46 @@
                 }
             ]
         },
+        "keyword": {
+            "title" : "Keyword",
+            "table_name" : "keyword",
+            "name" :"keyword",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "keyword",
+                            "caption" : "Keyword" ,
+                            "value": "",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "keyword" : "symbolic computation",
+                    "en_US" : "symbolic computation",
+                    "tr_TR" : "sembolik hesaplama"
+                },
+                {
+                    "localized" : true,
+                    "keyword" : "vision",
+                    "en_US" : "vision",
+                    "tr_TR" : "vision"
+                }
+            ]
+        },
         "position": {
             "title" : "Positions",
             "table_name" : "position",
