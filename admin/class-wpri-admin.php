@@ -241,51 +241,51 @@ class WPRI_Admin {
 	    if ( !current_user_can( 'edit_user', $user_id ) ) { return false; }else{
 
 		if(isset($_POST['office']) && $_POST['office'] != ""){
-		    update_usermeta( $user_id, 'office', $_POST['office'] );
+		    update_user_meta( $user_id, 'office', $_POST['office'] );
 		}
 
 		if(isset($_POST['phone']) && $_POST['phone'] != ""){
-		    update_usermeta( $user_id, 'phone', $_POST['phone'] );
+		    update_user_meta( $user_id, 'phone', $_POST['phone'] );
 		}
 
 
 		if(isset($_POST['title']) && $_POST['title'] != ""){
-		    update_usermeta( $user_id, 'title', $_POST['title'] );
+		    update_user_meta( $user_id, 'title', $_POST['title'] );
 		}
 
 		if(isset($_POST['position']) && $_POST['position'] != ""){
-		    update_usermeta( $user_id, 'position', $_POST['position'] );
+		    update_user_meta( $user_id, 'position', $_POST['position'] );
 		}
 
 		if(isset($_POST['advisor']) && $_POST['advisor'] != ""){
-		    update_usermeta( $user_id, 'advisor', $_POST['advisor'] );
+		    update_user_meta( $user_id, 'advisor', $_POST['advisor'] );
 		}
 
 		if(isset($_POST['bs_inst']) && $_POST['bs_inst'] != ""){
-		    update_usermeta( $user_id, 'bs_inst', $_POST['bs_inst'] );
+		    update_user_meta( $user_id, 'bs_inst', $_POST['bs_inst'] );
 		}
 
 		if(isset($_POST['bs_year']) && $_POST['bs_year'] != ""){
-		    update_usermeta( $user_id, 'bs_year', $_POST['bs_year'] );
+		    update_user_meta( $user_id, 'bs_year', $_POST['bs_year'] );
 		}
 
 		if(isset($_POST['ms_inst']) && $_POST['ms_inst'] != ""){
-		    update_usermeta( $user_id, 'ms_inst', $_POST['ms_inst'] );
+		    update_user_meta( $user_id, 'ms_inst', $_POST['ms_inst'] );
 		}
 
 		if(isset($_POST['ms_year']) && $_POST['ms_year'] != ""){
-		    update_usermeta( $user_id, 'ms_year', $_POST['ms_year'] );
+		    update_user_meta( $user_id, 'ms_year', $_POST['ms_year'] );
 		}
 		if(isset($_POST['phd_inst']) && $_POST['phd_inst'] != ""){
-		    update_usermeta( $user_id, 'phd_inst', $_POST['phd_inst'] );
+		    update_user_meta( $user_id, 'phd_inst', $_POST['phd_inst'] );
 		}
 
 		if(isset($_POST['phd_year']) && $_POST['phd_year'] != ""){
-		    update_usermeta( $user_id, 'phd_year', $_POST['phd_year'] );
+		    update_user_meta( $user_id, 'phd_year', $_POST['phd_year'] );
 		}
 
 		if(isset($_POST['projects[]']) && $_POST['projects[]'] != ""){
-		    update_usermeta( $user_id, 'projects[]', $_POST['projects[]'] );
+		    update_user_meta( $user_id, 'projects[]', $_POST['projects[]'] );
 		}
 	    }
 	}
