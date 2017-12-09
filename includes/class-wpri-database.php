@@ -685,8 +685,11 @@ public static function add_form($entity, $form) {
 			 $members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member"),"ARRAY_A" );
 
 			 foreach ($members as $member) {
-				   $result = array();
-				   $id = $member["id"];
+				 $id = $member["id"];
+			   		 $result=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
+			   			 "SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $id) ,"ARRAY_A"
+			   		 )[0];
+
 		 		   foreach (  $local  as $localizedname) {
 		 			   $result[$localizedname] = WPRI_Database::get_localized_element("member",$localizedname,$id);
 		 		   }
@@ -709,7 +712,7 @@ public static function add_form($entity, $form) {
 		 		   foreach (  $select  as $selection ) {
 		 			   if (isset($declarations[$selection]["groups"][0]["elements"][0]["all_locales"])){
 		 				   // error_log("in the if all_locales for ".$selection);
-		 				   $result[$selection]=  WPRI_Database::get_localized($selection,$results[$selection]) ;
+		 				   $result[$selection]=  WPRI_Database::get_localized($selection,$result[$selection]) ;
 		 			   }
 		 		   }
 
