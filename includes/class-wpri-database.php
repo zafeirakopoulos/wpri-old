@@ -682,7 +682,7 @@ public static function add_form($entity, $form) {
 	 		 }
 
 			 $results = array();
-			 $members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
+			 $members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member"),"ARRAY_A" );
 
 			 foreach ($members as $member) {
 				   $result = array();
