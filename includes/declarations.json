@@ -625,93 +625,6 @@
                 }
             ]
         },
-        "publication": {
-            "title" : "Publications",
-            "table_name" : "publication",
-            "has_menu": true,
-            "name" :"publication",
-            "display_element": "official_title",
-            "actions": {
-                "add" : "manage_options",
-                "remove" : ["admin"],
-                "update" : ["all"]
-            },
-            "groups" :[
-                {
-                    "title" : "Publication title",
-                    "elements" : [
-                        {
-                            "type": "text",
-                            "name" : "official_title",
-                            "caption" : "Official title" ,
-                            "value": "as appearing in the funding agency",
-                            "cols" : "50",
-                            "rows": "2"
-                        },
-                        {
-                            "type": "text",
-                            "localized":true,
-                            "name": "title",
-                            "caption" : "Title in different locales" ,
-                            "value": "Title in different locales",
-                            "cols" : "50",
-                            "rows": "2"
-                        }
-                    ]
-                },
-                {
-                    "title" : "Information",
-                    "elements" : [
-                        {
-                            "caption" : "Publication type" ,
-                            "name": "pubtype",
-                            "value": "",
-                            "type": "select",
-                            "table" : "pubtype",
-                            "column" : "id",
-                            "display_column" : "pubtype"
-                        }
-                    ]
-                },
-                {
-                    "title" : "Bibliographic information",
-                    "elements" : [
-                        {
-                            "caption" : "Bibtex" ,
-                            "name": "bibtex",
-                            "value": "",
-                            "type": "text",
-                            "cols" : "100",
-                            "rows": "10"
-                        },
-                        {
-                            "caption" : "Publication date" ,
-                            "name": "pubdate",
-                            "value": "",
-                            "type": "datetime"
-                        }
-                    ]
-                },
-                {
-                    "title" : "Project information",
-                    "elements" : [
-                        {
-                            "caption" : "Publication is acknowleding funding from" ,
-                            "name": "project",
-                            "value": "",
-                            "type": "multiple-select",
-                            "relation" : {
-                                "foreach" : {
-                                    "table" : "project",
-                                    "column" : "id",
-                                    "display_column" : "official_title"
-                                }
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
         "project": {
             "title" : "Projects",
             "table_name" : "project",
@@ -849,20 +762,89 @@
                             "type": "datetime"
                         }
                     ]
-                },
+                }
+            ]
+        },
+        "publication": {
+            "title" : "Publications",
+            "table_name" : "publication",
+            "has_menu": true,
+            "name" :"publication",
+            "display_element": "official_title",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
                 {
-                    "title" : "Publications",
+                    "title" : "Publication title",
                     "elements" : [
                         {
-                            "caption" : "Choose publications" ,
-                            "name": "publication",
+                            "type": "text",
+                            "name" : "official_title",
+                            "caption" : "Official title" ,
+                            "value": "as appearing in the funding agency",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "type": "text",
+                            "localized":true,
+                            "name": "title",
+                            "caption" : "Title in different locales" ,
+                            "value": "Title in different locales",
+                            "cols" : "50",
+                            "rows": "2"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Information",
+                    "elements" : [
+                        {
+                            "caption" : "Publication type" ,
+                            "name": "pubtype",
+                            "value": "",
+                            "type": "select",
+                            "table" : "pubtype",
+                            "column" : "id",
+                            "display_column" : "pubtype"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Bibliographic information",
+                    "elements" : [
+                        {
+                            "caption" : "Bibtex" ,
+                            "name": "bibtex",
+                            "value": "",
+                            "type": "text",
+                            "cols" : "100",
+                            "rows": "10"
+                        },
+                        {
+                            "caption" : "Publication date" ,
+                            "name": "pubdate",
+                            "value": "",
+                            "type": "datetime"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Project information",
+                    "elements" : [
+                        {
+                            "caption" : "Publication is acknowleding funding from" ,
+                            "name": "project",
                             "value": "",
                             "type": "multiple-select",
                             "relation" : {
                                 "foreach" : {
-                                    "table" : "publication",
+                                    "table" : "project",
                                     "column" : "id",
-                                    "display_column" : "title"
+                                    "display_column" : "official_title"
                                 }
                             }
                         }
