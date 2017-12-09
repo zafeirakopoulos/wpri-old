@@ -170,7 +170,7 @@ class WPRI_Admin {
 		echo '<th><label>Advisor</label></th>';
 		echo '<td>';
 		echo '<select name="advisor">';
-			foreach ( WPRI_Database::get_all_members() as $member ) {
+			foreach ( WPRI_Database::get_all("member") as $member ) {
 				echo '<option value='.$member->id. ' ' . ( $member->id == get_usermeta($user,'advisor')? 'selected ' : ' ') .'>'.$member->name.'</option>';
 			}
 		echo '<option value=-1>Other</option>';
@@ -329,7 +329,7 @@ class WPRI_Admin {
 			}
 
 			echo '<h3> Existing members: </h3>';
-			$all_members = WPRI_Database::get_all_members();
+			$all_members = WPRI_Database::get_all("member");
 			echo '<table>';
 		 	foreach ( $all_members as $member ) {
 				echo '<form name="delete_member" method="post" action="">';
