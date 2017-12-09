@@ -56,8 +56,8 @@
 		echo "<div class='row'>
         <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
                 <div class='col-xs-8 offset-xs-2 single'>
-                    <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
-                    <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
+                    <div class='col-xs-10 offset-xs-2 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
+                    <div class='col-xs-3 offset-xs-2 single'>".get_avatar($member['user'])."</div>
                     <div class='col-xs-9 single'>".$member['position']."</div>
                 </div>
             </a>
