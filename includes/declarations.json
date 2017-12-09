@@ -129,6 +129,12 @@
                     "position" : "Technician",
                     "en_US" : "Technician",
                     "tr_TR" : "Technician"
+                },
+                {
+                    "localized" : true,
+                    "position" : "Secretary",
+                    "en_US" : "Secretary",
+                    "tr_TR" : "Secretary"
                 }
             ]
         },
