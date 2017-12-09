@@ -309,7 +309,6 @@ class WPRI_Admin {
 					'user' => $_POST["user"],
 					'name' => WPRI_Database::get_field("user","user_nicename",$_POST["user"]),
 					'role' => $_POST["role"]
-					// 'position'=>$_POST["position"]
 				));
 				if($new_member_id) {
 					echo "<div class='updated'><p><strong>Added.</strong></p></div>";
