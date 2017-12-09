@@ -19,31 +19,18 @@
     $members = WPRI_Database::get_members_full();
     echo "<h1>Faculty</h1>";
 
-    echo "<div class='list-group'>";
 
     foreach ( $faculty as $member_id ) {
         $member = $members[$member_id];
-		echo "<a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action'>
+		echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
                 <div class='col-xs-6 single'>
                     <div class='col-xs-12 single'><h1>".$member["title"]." ".$member['name']."</h1></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                     <div class='col-xs-9 single'>".$member['position']."</div>
                 </div>
             </a>";
-            //
-			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['position']."</div>";
-			// 	if (isset($member['website']) AND $member['website']!=""){
-			// 		echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['website']."</div>";
-			// 	}
-			// 	else{
-			// 		echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>";
-			// 		echo "<a class='listing-thumb' href='".site_url()."/member?id=".$member_id."'>".site_url()."/member?id=".$member_id."</a>";
-			// 		echo "</div>";
-			// 	}
-			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['email']."</div>";
 	}
-    echo "</div>";
-    echo "<h1>Assistants</h1>";
+     echo "<h1>Assistants</h1>";
     foreach ( $assistants as $member_id ) {
         $member = $members[$member_id];
 		echo "<div class='col-sm-12 listing-thumb-frame'>";
