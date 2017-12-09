@@ -9,6 +9,7 @@
             $faculty[] = $member["id"];
         }
         if (in_array($member["position"],array(4,5))){
+            echo $member["id"];
             $assistants[] = $member["id"];
         }
         if (in_array($member["position"],array(6))){
@@ -24,7 +25,7 @@
         $member = $members[$member_id];
 		echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
                 <div class='col-xs-6 single'>
-                    <div class='col-xs-12 single'><h1>".$member["title"]." ".$member['name']."</h1></div>
+                    <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                     <div class='col-xs-9 single'>".$member['position']."</div>
                 </div>
