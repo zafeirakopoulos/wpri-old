@@ -219,7 +219,7 @@ class WPRI_Database {
 		$tables_to_drop = array_reverse($tables_to_drop);
 		// error_log("tables_to_drop ".implode($tables_to_drop));
 		// array_push($tables_to_drop,"vacancy_project");
-		array_push($tables_to_drop,"publication_project");
+		array_push($tables_to_drop,"project_publication");
 		array_push($tables_to_drop,"publication");
 		array_push($tables_to_drop,"project");
 		array_push($tables_to_drop,"status");
