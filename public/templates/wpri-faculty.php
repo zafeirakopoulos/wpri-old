@@ -7,10 +7,10 @@
     $director = 0;
     $vicedirector=0;
     foreach ( $members as $member ) {
-        if (in_array(get_user_meta($member["user"],"position",true)==1)) {
+        if (get_user_meta($member["user"],"position",true)==1) {
             $director  = $member["id"];
         }
-        if (in_array(get_user_meta($member["user"],"position",true)==2)) {
+        if (get_user_meta($member["user"],"position",true)==2) {
             $vicedirector  = $member["id"];
         }
         if (in_array(get_user_meta($member["user"],"position",true),array(3))){
