@@ -18,14 +18,17 @@
 
     $members = WPRI_Database::get_members_full();
     echo "<h1>Faculty</h1>";
+
+    echo "<div class='list-group'>";
+
     foreach ( $faculty as $member_id ) {
         $member = $members[$member_id];
-		echo "<div class='col-sm-12 listing-thumb-frame'>";
-			echo "<a class='listing-thumb' href='".site_url()."/member?id=".$member["id"]."'>";
-				echo "<div class='col-xs-12 col-md-6 col-ld-12  listing-thumb'>".get_avatar($member['user'])."</div>";
-			// echo "<div class='row'>";
-			echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'><h1 class='listing'>".$member["title"]." ".$member['name']."</h1> </div>";
-			echo "</div>";
+		echo "  <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action flex-column align-items-start'>";
+			echo "<a class='listing-thumb' href=''>";
+            echo "<div class='d-flex w-100 justify-content-between'>
+                  <h5 class='mb-1'>.$member["title"]." ".$member['name'].</h5>
+                  .get_avatar($member['user']).
+                </div>";
 			echo "</a>";
             //
 			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['position']."</div>";
