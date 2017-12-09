@@ -308,8 +308,8 @@ class WPRI_Admin {
 				$new_member_id = WPRI_Database::add_member(array(
 					'user' => $_POST["user"],
 					'name' => WPRI_Database::get_field("user","user_nicename",$_POST["user"]),
-					'role' => $_POST["role"],
-					'position'=>$_POST["position"]
+					'role' => $_POST["role"]
+					// 'position'=>$_POST["position"]
 				));
 				if($new_member_id) {
 					echo "<div class='updated'><p><strong>Added.</strong></p></div>";
@@ -375,17 +375,17 @@ class WPRI_Admin {
 			echo '<span class="description">Choose a role.</span>';
 			echo '</td></tr>';
 
-			$positions = WPRI_Database::get_all("position");
-			echo '<tr>';
-			echo '<th><label>Position</label></th>';
-			echo '<td>';
-			echo '<select name="position">';
-			foreach ( $positions as $position ) {
-					echo '<option value='.$position["id"].'>'.$position["position"].'</option>';
-				}
-			echo '</select>';
-			echo '<span class="description">Choose a role.</span>';
-			echo '</td></tr>';
+			// $positions = WPRI_Database::get_all("position");
+			// echo '<tr>';
+			// echo '<th><label>Position</label></th>';
+			// echo '<td>';
+			// echo '<select name="position">';
+			// foreach ( $positions as $position ) {
+			// 		echo '<option value='.$position["id"].'>'.$position["position"].'</option>';
+			// 	}
+			// echo '</select>';
+			// echo '<span class="description">Choose a role.</span>';
+			// echo '</td></tr>';
 
 		    echo '<td><input type="submit" name="add_button" value="Add" class="button-secondary" />';
 		    echo '<input type="hidden" name="type" value="add_member" /></td>';
