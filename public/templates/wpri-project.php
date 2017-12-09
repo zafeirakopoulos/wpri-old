@@ -35,7 +35,7 @@
 					$publication = WPRI_Database::get_record("publication",$publication_id) ;
 					echo "<a class=' single' href='".site_url()."/publication?id=".$publication_id."'>";
 					echo "<div class='row'>";
-						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$publication["official_title"]."</div>";
+						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$publication["title"]."</div>";
 					echo "</div>";
 					echo "</a>";
 				}
