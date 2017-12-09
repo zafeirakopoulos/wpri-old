@@ -581,7 +581,7 @@ public static function add_form($entity, $form) {
 		 			}
 		 		}
 				elseif ($element["type"]== "select"){
-					array_push($relations, $relation["foreach"]["table"]);
+					array_push($relations, $element["table"]);
 				}
 		 	}
 		 }
