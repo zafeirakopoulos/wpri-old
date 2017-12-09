@@ -846,7 +846,7 @@
                             "display_column" : "pubtype"
                         },
                         {
-                            "caption" : "Publication DOI" ,
+                            "caption" : "Publication DOI",
                             "name": "doi",
                             "value": "",
                             "type": "tinytext",
