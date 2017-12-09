@@ -13,7 +13,7 @@
 				echo "<div class='col-xs-12 single'>".$project['website']."</div>";
 			}
 			echo "<div class='col-xs-12 single'><h1 class='listing'> Activity Period:".$project['startdate']."-".$project['enddate']."</h1> </div>";
-			echo "<div class='col-xs-12 single'><h1 class='listing'> Funded by:".join(",",$project['agency'])."</h1> </div>";			
+			echo "<div class='col-xs-12 single'><h1 class='listing'> Funded by:".join(",",$project['agency'])."</h1> </div>";
  			?>
 
 
@@ -34,7 +34,7 @@
 
 
 			<?php
-				if (!is_empty($project["collaborators"])){
+				if (!empty($project["collaborators"])){
 					echo "<h3 class='single'>Collaborators</h3>";
 					foreach ($project["collaborators"] as $collaborators_row) {
 						$member = WPRI_Database::get_record("collaborator",$collaborators_row["collaborator"]) ;
