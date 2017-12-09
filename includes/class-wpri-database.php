@@ -576,7 +576,7 @@ public static function add_form($entity, $form) {
 		 		elseif ($element["type"]== "multiple-select"){
 		 			$relation = $element["relation"];
 		 			if (isset($relation["select"])) {
-						array_push($multiplerelations, [$element["name"],$relation["foreach"]["table"],$relation["select"]["table"]]);
+						$multiplerelations[] = array($element["name"],$relation["foreach"]["table"],$relation["select"]["table"]);
  		 			} else {
 						array_push($relations, $relation["foreach"]["table"]);
 		 			}
@@ -618,10 +618,12 @@ public static function add_form($entity, $form) {
 			}
 		}
 
-	 	// foreach (  $form["multirelations"]  as $name => $relation ) {
-	 	// 	 WPRI_Database::get_double_relation($entity["name"],array_keys($relation[0])[0],array_keys($relation[0])[1],$new_id,$relation) ;
-        //
-	 	// }
+		error_log("multirelations ".print_r($multiplerelations));
+
+	 	foreach ( $multiplerelations as $name => $relation ) {
+	 		 WPRI_Database::get_double_relation($entity["name"],array_keys($relation[0])[0],array_keys($relation[0])[1],$new_id,$relation) ;
+
+	 	}
 
 		error_log(print_r($results));
 	 	return $results;
