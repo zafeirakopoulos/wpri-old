@@ -508,7 +508,7 @@ public static function add_form($entity, $form) {
 				"SELECT * FROM " . self::table_name("locale_".$entity."_".$element). " WHERE ".$entity." = %d AND locale= %d",
 				$id, $_SESSION['locale']
 			)
-		,"ARRAY_A");
+		,"ARRAY_A")[0];
 		error_log(print_r($results));
 		return $results["name"];
 	}
