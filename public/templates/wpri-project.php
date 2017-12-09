@@ -31,6 +31,7 @@
 
 			<?php
 				foreach ($project["publication"] as $publication_id) {
+					error_log("pub id:".$publication_id);
 					$publication = WPRI_Database::get_record("publication",$publication_id) ;
 					echo "<a class=' single' href='".site_url()."/publication?id=".$publication_id."'>";
 					echo "<div class='row'>";
