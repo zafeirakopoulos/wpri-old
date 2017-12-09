@@ -738,8 +738,8 @@ public static function add_form($entity, $form) {
 		 				   $result[$related]= $tmp;
 		 			   }
 		 		   }
-				   $result["title"]= get_user_meta($member["user"],"title",true);
-				   $result["position"]= get_user_meta($member["user"],"position",true);
+				   $result["title"]= WPRI_Database::get_localized("title",get_user_meta($member["user"],"title",true)) ;
+				   $result["position"]= WPRI_Database::get_localized("position",get_user_meta($member["user"],"position",true));
 				   $result["name"]= get_user_meta($member["user"],"first_name",true)." ".get_user_meta($member["user"],"last_name",true);
 
 
