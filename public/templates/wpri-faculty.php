@@ -29,33 +29,39 @@
     echo "<h1>Faculty</h1>";
 
     $member = $members[$director];
-    echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
-            <div class='col-xs-8 offset-xs-2 single'>
-                <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
-                <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-                <div class='col-xs-9 single'>".$member['position']."</div>
-            </div>
-        </a>
-        <hr/>";
-
-    $member = $members[$vicedirector];
-    echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
-            <div class='col-xs-8 offset-xs-2 single'>
-                <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
-                <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-                <div class='col-xs-9 single'>".$member['position']."</div>
-            </div>
-        </a>
-        <hr/>";
-    foreach ( $faculty as $member_id ) {
-        $member = $members[$member_id];
-		echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
+    echo "<div class='row'>
+            <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
                 <div class='col-xs-8 offset-xs-2 single'>
                     <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                     <div class='col-xs-9 single'>".$member['position']."</div>
                 </div>
             </a>
+            </div>
+        <hr/>";
+
+    $member = $members[$vicedirector];
+    echo "<div class='row'>
+            <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
+                <div class='col-xs-8 offset-xs-2 single'>
+                    <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
+                    <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
+                    <div class='col-xs-9 single'>".$member['position']."</div>
+                </div>
+            </a>
+        </div>
+        <hr/>";
+    foreach ( $faculty as $member_id ) {
+        $member = $members[$member_id];
+		echo "<div class='row'>
+        <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
+                <div class='col-xs-8 offset-xs-2 single'>
+                    <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
+                    <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
+                    <div class='col-xs-9 single'>".$member['position']."</div>
+                </div>
+            </a>
+            </div>
             <hr/>";
 	}
 
