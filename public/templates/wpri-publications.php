@@ -8,11 +8,11 @@
 				echo "<div class='col-sm-12 listing-thumb-frame'>";
 					echo "<a class='listing-thumb' href='".site_url()."/publication?id=".$publication_id."'>";
 						echo "<div class='col-xs-1  listing-thumb'>";
-                        if (in_array($publication['type'],aray(1,2,4,6,7))) {
+                        if (in_array($publication['pubtype'],aray(1,2,4,6,7))) {
                             echo "<img src='clarivate.png' alt='SCI indexed' height='42' width='100'>";
                         }
                         echo "</div>";
-						echo "<div class='col-xs-11 listing-thumb'><h1 class='listing'>".$publication['title']."</h1> </div>";
+						echo "<div class='col-xs-11 listing-thumb'><h1 class='listing'>".$publication['official_title']."</h1> </div>";
 					echo "</div>";
 					echo "</a>";
 				echo "</div>";
