@@ -813,7 +813,7 @@
             "table_name" : "publication",
             "has_menu": true,
             "name" :"publication",
-            "display_element": "official_title",
+            "display_element": "title",
             "actions": {
                 "add" : "manage_options",
                 "remove" : ["admin"],
