@@ -19,7 +19,8 @@
 					$member = WPRI_Database::get_record("member",$member_row["member"]) ;
 					echo "<a class=' single' href='".site_url()."/member?id=".$member["id"]."'>";
 					echo "<div class='row'>";
-						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$member["name"]. "(". $member_row["projectrole"].")</div>";
+						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$member["name"]. "(".
+						WPRI_Database::get_localized("projectrole", $member_row["projectrole"]).")</div>";
 					echo "</div>";
 					echo "</a>";
 				}
