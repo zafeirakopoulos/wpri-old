@@ -253,61 +253,9 @@ class WPRI_Database {
 
 /******************************************************************************************
 *******************************************************************************************
-***************    Query Functions  *******************************************************
+***************    ADD Functions  *******************************************************
 *******************************************************************************************
 *******************************************************************************************/
-
-// TODO remove that.
-				public static function get_roles() {
-					if (!isset($_SESSION['locale'])){
-						$_SESSION['locale']=1;
-					}
-	 		 		return  $GLOBALS['wpdb']->get_results(
-						$GLOBALS['wpdb']->prepare(
-							"SELECT * FROM " . self::table_name("locale_role"). " WHERE locale= %d",
-							$_SESSION['locale']
-						)
-					);
-				}
-
-				public static function add_member($member) {
-							$GLOBALS['wpdb']->insert( self::table_name("member")  , $member);
-							return $GLOBALS['wpdb']->insert_id;
-						}
-
-public static function get_all_members() {
-	return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
-}
-
-public static function get_record($entity,$id) {
-	$results=  $GLOBALS['wpdb']->get_results(
-		$GLOBALS['wpdb']->prepare("SELECT * FROM " . self::table_name($entity). " WHERE id= %d ", $id)
-	,"ARRAY_A");
-	return $results[0];
-}
-
-public static function get_field($table,$field,$id) {
-	$results=  $GLOBALS['wpdb']->get_results(
-		$GLOBALS['wpdb']->prepare("SELECT ".$field." FROM " . self::table_name($table). " WHERE id= %d ", $id)
-	,"ARRAY_A");
-	return $results[0][$field];
-}
-
-
-public static function get_records($table, $where) {
-	$values = array();
-	$wherearray = array();
-	foreach ($where as $key => $value) {
-		# gettype
-		array_push($wherearray," ".$key."= %d ");
-		array_push($values,$value);
-	}
-	$query = "SELECT * FROM " . self::table_name($table). " WHERE ". join(" AND ", $wherearray);
-	// error_log($query);
-	$results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare($query, $values),"ARRAY_A");
-	return $results[0];
-	// TODO is [0] correct????
-}
 
 
 
@@ -419,6 +367,13 @@ public static function add_form($entity, $form) {
 }
 
 
+/******************************************************************************************
+*******************************************************************************************
+***************    DELETE Functions  *******************************************************
+*******************************************************************************************
+*******************************************************************************************/
+
+
 
 	public static function delete_record($id,$entity) {
 
@@ -475,9 +430,67 @@ public static function add_form($entity, $form) {
 		return $success;
 	}
 
-//**************************************************
-//  Get
-//**************************************************
+
+	/******************************************************************************************
+	*******************************************************************************************
+	***************    GET Functions  *******************************************************
+	*******************************************************************************************
+	*******************************************************************************************/
+
+
+
+// TODO remove that.
+	public static function get_roles() {
+		if (!isset($_SESSION['locale'])){
+			$_SESSION['locale']=1;
+		}
+	 		return  $GLOBALS['wpdb']->get_results(
+			$GLOBALS['wpdb']->prepare(
+				"SELECT * FROM " . self::table_name("locale_role"). " WHERE locale= %d",
+				$_SESSION['locale']
+			)
+		);
+	}
+
+	public static function add_member($member) {
+				$GLOBALS['wpdb']->insert( self::table_name("member")  , $member);
+				return $GLOBALS['wpdb']->insert_id;
+			}
+
+	public static function get_all_members() {
+		return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member") );
+	}
+
+	public static function get_record($entity,$id) {
+		$results=  $GLOBALS['wpdb']->get_results(
+			$GLOBALS['wpdb']->prepare("SELECT * FROM " . self::table_name($entity). " WHERE id= %d ", $id)
+		,"ARRAY_A");
+		return $results[0];
+	}
+
+	public static function get_field($table,$field,$id) {
+		$results=  $GLOBALS['wpdb']->get_results(
+			$GLOBALS['wpdb']->prepare("SELECT ".$field." FROM " . self::table_name($table). " WHERE id= %d ", $id)
+		,"ARRAY_A");
+		return $results[0][$field];
+	}
+
+
+	public static function get_records($table, $where) {
+		$values = array();
+		$wherearray = array();
+		foreach ($where as $key => $value) {
+			# gettype
+			array_push($wherearray," ".$key."= %d ");
+			array_push($values,$value);
+		}
+		$query = "SELECT * FROM " . self::table_name($table). " WHERE ". join(" AND ", $wherearray);
+		// error_log($query);
+		$results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare($query, $values),"ARRAY_A");
+		return $results[0];
+		// TODO is [0] correct????
+	}
+
 
 	public static function get_localized($entity,$id) {
 			$results=  $GLOBALS['wpdb']->get_results(
@@ -568,14 +581,12 @@ public static function add_form($entity, $form) {
 		 		}
 		 	}
 		 }
-		 error_log(print_r($local));
 
 		 $results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
 			 "SELECT * FROM " . self::table_name($entity_name). " WHERE id = %d", $id) ,"ARRAY_A"
 		 )[0];
 
 	 	foreach (  $local  as $localizedname) {
-			error_log(print_r("localizedname:".$localizedname));
 
 	 		$results[$localizedname] = WPRI_Database::get_localized_element($localizedname[0],$localizedname[1],$id);
 	 	}
