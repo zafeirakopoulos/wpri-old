@@ -568,9 +568,7 @@ public static function add_form($entity, $form) {
 
 		 foreach ($entity["groups"] as $group ) {
 		 	foreach ($group["elements"] as $element ) {
-		 		if (isset($element["localized"]) ){ 
-					error_log("about to push:".print_r(array($entity_name,$element["name"]));
-
+		 		if (isset($element["localized"]) ){
 		 			array_push($local, array($entity_name,$element["name"]));
 		 		}
 		 		elseif ($element["type"]== "multiple-select"){
