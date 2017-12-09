@@ -6,11 +6,9 @@
 			$project = WPRI_Database::get_entity("project",$project_id);
 
   				echo "<div class='col-sm-12 listing-thumb-frame'>";
-					echo "<a class='listing-thumb' href='".site_url()."/project?id=".$project_id."'>";
-						echo "<div class='col-xs-3  listing-thumb'>"."picture"."</div>";
+ 						echo "<div class='col-xs-3  listing-thumb'>"."picture"."</div>";
 						echo "<div class='col-xs-9 listing-thumb'><h1 class='listing'>".$project['title']."</h1> </div>";
-					echo "</a>";
-				echo "</div>";
+ 				echo "</div>";
  			?>
 
 
@@ -18,7 +16,7 @@
 
 			<?php
 				foreach ($project["members"] as $member_row) {
-					$member = WPRI_Database::get_record("member",$member_row["memeber"]) ;
+					$member = WPRI_Database::get_record("member",$member_row["member"]) ;
 					echo "<a class=' single' href='".site_url()."/member?id=".$member["id"]."'>";
 					echo "<div class='row'>";
 						echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$member["name"]. "(". $member_row["projectrole"].")</div>";
