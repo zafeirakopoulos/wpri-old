@@ -150,8 +150,8 @@ class WPRI_Admin {
 		echo '<th><label>Academic Title</label></th>';
 		echo '<td>';
 		echo '<select name="title">';
-			foreach ( WPRI_Database::get_titles() as $title ) {
-				echo '<option value='.$title->title. ' ' . ( $title->title == get_usermeta($user,'title')? 'selected ' : ' ') .'>'.$title->name.'</option>';
+			foreach ( WPRI_Database::get_all("title") as $title ) {
+				echo '<option value='.$title["id"]. ' ' . ( $title["title"] == get_usermeta($user,'title')? 'selected ' : ' ') .'>'.$title["title"].'</option>';
 			}
 		echo '</select>';
 		echo '<span class="description"></span>';
@@ -160,8 +160,8 @@ class WPRI_Admin {
 		echo '<th><label>Position</label></th>';
 		echo '<td>';
 		echo '<select name="position">';
-			foreach ( WPRI_Database::get_positions() as $position ) {
-				echo '<option value='.$position->position. ' ' . ( $position->position == get_usermeta($user,'position')? 'selected ' : ' ') .'>'.$position->name.'</option>';
+			foreach ( WPRI_Database::get_all("position") as $position ) {
+				echo '<option value='.$position["id"]. ' ' . ( $position["position"] == get_usermeta($user,'position')? 'selected ' : ' ') .'>'.$position["position"]'</option>';
 			}
 		echo '</select>';
 		echo '<span class="description"></span>';
