@@ -26,7 +26,11 @@
 		echo "  <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action flex-column align-items-start '>
             <div class='d-flex flex-row'>";
 
-            echo "<div class='p-9'> <h2>".$member["title"]." ".$member['name']."</h2></div><div class='p-2'>".get_avatar($member['user'])."</div>";
+            echo "<div class='p-9'> <h2>".$member["title"]." ".$member['name']."</h2></div>
+            <div class='p-2'>".get_avatar($member['user'])."</div>
+            <div class='p-2'>".get_avatar($member['user'])."</div>
+            <div class='p-2'>".$member['position']."</div>
+            ";
 			echo "</div></a>";
             //
 			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['position']."</div>";
