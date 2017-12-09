@@ -569,7 +569,7 @@ public static function add_form($entity, $form) {
 		 foreach ($entity["groups"] as $group ) {
 		 	foreach ($group["elements"] as $element ) {
 		 		if (isset($element["localized"]) ){
-		 			array_push($local, array($entity_name,$element["name"]));
+		 			$local[] = array($entity_name,$element["name"]);
 		 		}
 		 		elseif ($element["type"]== "multiple-select"){
 		 			$relation = $element["relation"];
