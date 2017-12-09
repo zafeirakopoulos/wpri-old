@@ -18,23 +18,33 @@
 
     $members = WPRI_Database::get_members_full();
     echo "<h1>Faculty</h1>";
-    ?>
-    <div class='list-group'>
-        <?php
-        foreach ( $faculty as $member_id ) {
-            $member = $members[$member_id];
-            ?>
-    		<a href='<?php site_url()."/member?id=".$member["id"]?>' class='list-group-item list-group-item-action flex-column align-items-start'>
-                <div class='d-flex flex-row'>
-                    <div class='p-9'> <h2><?php $member["title"]." ".$member['name']?></h2></div>
-                    <div class='p-2'><?php get_avatar($member['user'])?></div>
-                    <div class='p-2'><?php get_avatar($member['user'])?></div>
-                    <div class='p-2'><?php $member['position']?></div>
-                </div>
-            </a>
-    	<?php } ?>
-    </div>
-    <?php
+    
+    echo "<div class='list-group'>";
+
+    foreach ( $faculty as $member_id ) {
+        $member = $members[$member_id];
+		echo "  <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action flex-column align-items-start '>
+            <div class='d-flex flex-row'>";
+
+            echo "<div class='p-9'> <h2>".$member["title"]." ".$member['name']."</h2></div>
+            <div class='p-2'>".get_avatar($member['user'])."</div>
+            <div class='p-2'>".get_avatar($member['user'])."</div>
+            <div class='p-2'>".$member['position']."</div>
+            ";
+			echo "</div></a>";
+            //
+			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['position']."</div>";
+			// 	if (isset($member['website']) AND $member['website']!=""){
+			// 		echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['website']."</div>";
+			// 	}
+			// 	else{
+			// 		echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>";
+			// 		echo "<a class='listing-thumb' href='".site_url()."/member?id=".$member_id."'>".site_url()."/member?id=".$member_id."</a>";
+			// 		echo "</div>";
+			// 	}
+			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['email']."</div>";
+	}
+    echo "</div>";
     echo "<h1>Assistants</h1>";
     foreach ( $assistants as $member_id ) {
         $member = $members[$member_id];
