@@ -569,7 +569,7 @@ public static function add_form($entity, $form) {
 		 foreach ($entity["groups"] as $group ) {
 		 	foreach ($group["elements"] as $element ) {
 		 		if (isset($element["localized"]) ){
-		 			$local[] = array($entity_name,$element["name"]);
+		 			$local[] = $element["name"];
 		 		}
 		 		elseif ($element["type"]== "multiple-select"){
 		 			$relation = $element["relation"];
@@ -589,7 +589,7 @@ public static function add_form($entity, $form) {
 		 error_log("local:".print_r($local));
 
 	 	foreach (  $local  as $localizedname) {
-	 		$results[$localizedname] = WPRI_Database::get_localized_element($localizedname[0],$localizedname[1],$id);
+	 		$results[$localizedname] = WPRI_Database::get_localized_element($entity_name,$localizedname[1],$id);
 	 	}
 
 	 	// foreach (  $relations  as $name => $items ) {
