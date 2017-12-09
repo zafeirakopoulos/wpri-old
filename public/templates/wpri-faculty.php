@@ -44,7 +44,7 @@
 			// 	}
 			// 	echo "<div class='col-xs-12 col-md-6 col-ld-12 listing-thumb'>".$member['email']."</div>";
 	}
-
+    echo "</div>;
     echo "<h1>Assistants</h1>";
     foreach ( $assistants as $member_id ) {
         $member = $members[$member_id];
