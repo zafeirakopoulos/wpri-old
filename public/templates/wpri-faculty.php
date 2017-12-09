@@ -5,14 +5,14 @@
     $assistants = array();
     $administrative = array();
     foreach ( $members as $member ) {
-        if (in_array($member["position"],array(1,2,3))){
+        if (in_array(get_user_meta($member["user"],"position",true),array(1,2,3))){
             $faculty[] = $member["id"];
         }
-        if (in_array($member["position"],array(4,5))){
+        if (in_array(get_user_meta($member["user"],"position",true),array(4,5))){
             echo $member["id"];
             $assistants[] = $member["id"];
         }
-        if (in_array($member["position"],array(6))){
+        if (in_array(get_user_meta($member["user"],"position",true),array(6))){
             $administrative[] = $member["id"];
         }
     }
