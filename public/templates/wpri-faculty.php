@@ -26,7 +26,7 @@
 		echo "  <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item list-group-item-action flex-column align-items-start'>";
 			echo "<a class='listing-thumb' href=''>";
             echo "<div class='d-flex w-100 justify-content-between'>
-                  <h5 class='mb-1'>.$member["title"]." ".$member['name'].</h5>
+                  <h5 class='mb-1'>".$member["title"]." ".$member['name']."</h5>
                   .get_avatar($member['user']).
                 </div>";
 			echo "</a>";
