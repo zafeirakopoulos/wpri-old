@@ -73,14 +73,12 @@
 	    );
 
 	    $loop = new WP_Query( $args );
+		<ul class="list-group">
 
 	    while ( $loop->have_posts() ) : $loop->the_post();
-	        echo "<div class='row'>";
-	            echo "<a class='' href='".site_url()."/blog/".$post->post_name."'>";
-	                echo "<div class='col-sm-12 col-md-12 col-lg-12  '>".the_title()."</div>";
-	            echo "</a>";
-	        echo "</div>";
-
+			echo "<a class='list-group-item' href='".site_url()."/blog/".$post->post_name."/?member=".$member_id."'>".the_title()."</div></a>";
 	    endwhile;
-	?>
+		?>
+		</ul>
+
 </div>
