@@ -18,10 +18,8 @@
 	<h1> Contact </h1>
 	<div class='row'>
 		<div class='col-xs-12 col-sm-4 '>
-			<p>
 				<h3>Office</h3> <br>
 				<h3><?php echo $member['office'];?></h3>
-			</p>
 		</div>
 		<div class='col-xs-12 col-sm-4 '>
 			<p>
