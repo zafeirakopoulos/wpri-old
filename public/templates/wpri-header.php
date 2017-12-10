@@ -30,7 +30,7 @@
 	?>
 
  		<div class="masthead container">
-
+			<div class="col-xs-12 "><h1 class="site-title">Institute of Information Technologies</h1></div>
 			<nav class="navbar navbar-default">
 			  <div class="container-fluid">
 				  <a class="navbar-brand" href="#">
