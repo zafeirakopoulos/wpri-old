@@ -688,7 +688,7 @@ public static function add_form($entity, $form) {
 				   $results[$member["id"]] = WPRI_Database::get_member_full_precomputed_entity($member["id"],$local,$relations ,$multiplerelations, $select);
 		 		}
 
-				error_log(print_r($results));
+				// error_log(print_r($results));
 				return $results;
 			 }
 
@@ -819,7 +819,7 @@ public static function add_form($entity, $form) {
 				   $result["office"]= get_user_meta($result["user"],"office",true);
 				   $result["phone"]= get_user_meta($result["user"],"phone",true);
 
-	 				error_log(print_r($result));
+	 				// error_log(print_r($result));
 	 				return $result;
 	 			 }
 
@@ -882,7 +882,7 @@ public static function add_form($entity, $form) {
 				   $result["position"]= WPRI_Database::get_localized("position",get_user_meta($result["user"],"position",true));
 				   $result["name"]= get_user_meta($result["user"],"first_name",true)." ".get_user_meta($result["user"],"last_name",true);
 
-	 				error_log(print_r($result));
+	 				// error_log(print_r($result));
 	 				return $result;
 	 			 }
 
