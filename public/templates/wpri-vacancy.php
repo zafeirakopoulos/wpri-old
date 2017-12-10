@@ -37,7 +37,7 @@
 	<h2 class=" single">Contacts:</h2>
 	<ul class="list-group">
 	<?php
-		foreach ($position["members"] as $member_id) {
+		foreach ($position["member"] as $member_id) {
 			$member = WPRI_Database::get_record("member",$member_id) ;
 			echo "<a class='list-group-item' href='".site_url()."/member?id=".$member["id"]."'>". $member["name"]."</a>";
 		}
