@@ -797,7 +797,7 @@ public static function add_form($entity, $form) {
 				   $result["email"]= get_user_meta($result["user"],"email",true);
 				   $result["website"]= get_user_meta($result["user"],"website",true);
 				   $result["advisor"]= get_user_meta($result["user"],"advisor",true);
-				   $result["undegrad"]= array(
+				   $result["undergrad"]= array(
 					   "university" => get_user_meta($result["user"],"bs_uni",true),
 					   "program" => get_user_meta($result["user"],"bs_prog",true),
 					   "year" => get_user_meta($result["user"],"bs_year",true),
