@@ -163,7 +163,7 @@ h1.site-title{
   ********** Single  **********
   *****************************/
 
- 
+
   .list-group-item {
     margin-top: 0;
     font-family: var(--font-family);
@@ -179,4 +179,11 @@ h1.site-title{
   }
   a.list-group-item:hover {
     color: var(--main-focus-color);
+  }
+
+  h3.single {
+    margin-top: 0;
+    font-family: var(--font-family);
+    font-weight: normal;
+    color: var(--main-color);
   }
