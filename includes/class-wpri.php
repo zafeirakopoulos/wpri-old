@@ -243,7 +243,7 @@ class WPRI {
 
 		// $this->loader->	add_action( 'wp_ajax_get_report', $plugin_report, 'get_report' );
 
-		$this->loader->add_filter( 'template_include',$plugin_report, 'download_report_page_template', 1 );
+		$this->loader->add_filter( 'template_include',$plugin_report, 'download_report_page_template', 99 );
 
 	}
 
@@ -283,6 +283,8 @@ class WPRI {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 	    // $this->loader->add_filter( 'template_include',$plugin_public, 'session_page_template', 99 );
+		$plugin_report = new WPRI_Report( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->add_filter( 'template_include',$plugin_report, 'download_report_page_template', 99 );
 
 	}
 
