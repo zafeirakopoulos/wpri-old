@@ -16,5 +16,10 @@
 	            </div>
 	          <hr/>";
 		?>
+			<hr/>
+			<h1> Education </h1>
+				<ul>
+				</ul>
+
 	</div>
-</div> 
+</div>

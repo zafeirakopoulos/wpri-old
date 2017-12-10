@@ -185,6 +185,10 @@ class WPRI_Admin {
 
 	    echo '<h2>Undergraduate</h2>';
 	    echo '<table class="form-table">';
+		echo '<th><label">Title</label></th>';
+		echo '<td><textarea id="bs_title" name="bs_title" cols="70" rows="1"></textarea>';
+		echo '<span class="description">BSc, BA, etc.</span>';
+		echo '</td></tr>';
 		echo '<tr>';
 		echo '<th><label">University</label></th>';
 		echo '<td><textarea id="bs_inst" name="bs_uni" cols="70" rows="1"></textarea>';
@@ -206,6 +210,10 @@ class WPRI_Admin {
 
 	    echo '<h2>Masters</h2>';
 	    echo '<table class="form-table">';
+		echo '<th><label">Title</label></th>';
+		echo '<td><textarea id="ms_title" name="ms_title" cols="70" rows="1"></textarea>';
+		echo '<span class="description">MSc, MBA, etc .</span>';
+		echo '</td></tr>';
 	 	echo '<tr>';
 		echo '<th><label">University</label></th>';
 		echo '<td><textarea id="ms_inst" name="ms_uni" cols="70" rows="1"></textarea>';
@@ -227,7 +235,12 @@ class WPRI_Admin {
 
 	    echo '<h2>PhD</h2>';
 	    echo '<table class="form-table">';
-	 	echo '<tr>';
+		echo '<tr>';
+		echo '<th><label">Title</label></th>';
+		echo '<td><textarea id="phd_title" name="phd_title" cols="70" rows="1"></textarea>';
+		echo '<span class="description">Dr. or PhD .</span>';
+		echo '</td></tr>';
+		echo '<tr>';
 		echo '<th><label">University</label></th>';
 		echo '<td><textarea id="phd_inst" name="phd_uni" cols="70" rows="1"></textarea>';
 		echo '<span class="description">Write uni/dept name.</span>';
@@ -279,6 +292,9 @@ class WPRI_Admin {
 		    update_user_meta( $user_id, 'advisor', $_POST['advisor'] );
 		}
 
+		if(isset($_POST['bs_title']) && $_POST['bs_title'] != ""){
+		    update_user_meta( $user_id, 'bs_title', $_POST['bs_title'] );
+		}
 		if(isset($_POST['bs_uni']) && $_POST['bs_uni'] != ""){
 		    update_user_meta( $user_id, 'bs_uni', $_POST['bs_uni'] );
 		}
@@ -290,6 +306,9 @@ class WPRI_Admin {
 		    update_user_meta( $user_id, 'bs_year', $_POST['bs_year'] );
 		}
 
+		if(isset($_POST['ms_title']) && $_POST['ms_title'] != ""){
+		    update_user_meta( $user_id, 'ms_title', $_POST['ms_title'] );
+		}
 		if(isset($_POST['ms_uni']) && $_POST['ms_uni'] != ""){
 		    update_user_meta( $user_id, 'ms_uni', $_POST['ms_uni'] );
 		}
@@ -298,6 +317,10 @@ class WPRI_Admin {
 		}
 		if(isset($_POST['ms_year']) && $_POST['ms_year'] != ""){
 		    update_user_meta( $user_id, 'ms_year', $_POST['ms_year'] );
+		}
+
+		if(isset($_POST['phd_title']) && $_POST['phd_title'] != ""){
+			update_user_meta( $user_id, 'phd_title', $_POST['phd_title'] );
 		}
 		if(isset($_POST['phd_uni']) && $_POST['phd_uni'] != ""){
 		    update_user_meta( $user_id, 'phd_uni', $_POST['phd_uni'] );
