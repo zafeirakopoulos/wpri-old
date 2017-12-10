@@ -2,6 +2,8 @@
 	$template_loader = new WPRI_Template_Loader;
 	$template_loader->get_template_part( 'wpri', 'header' );
 ?>
+<div class="main-content-container">
+
 <div class="single" id="front" >
 
  	<div class="row">
@@ -41,6 +43,7 @@
             ?>
         </div> <!-- /.col -->
 	</div> <!-- /.row -->
+</div> <!-- /.row -->
 </div> <!-- /.row -->
 
 <?php
