@@ -30,12 +30,12 @@
 	?>
 
  		<div class="masthead container">
-			<div class="row">
-				<div class="col-xs-2 "><img width="150px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png"></div>
- 				<div class="col-xs-8 "><h1 class="site-title">Institute of Information Technologies</h1></div>
-			</div>
+
 			<nav class="navbar navbar-default">
 			  <div class="container-fluid">
+				  <a class="navbar-brand" href="#">
+				    <img src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png" width="30" height="30" alt="">
+				  </a>
 			    <div class="navbar-header">
 			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 			        <span class="sr-only">Toggle navigation</span>
