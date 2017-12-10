@@ -40,18 +40,16 @@
 	<hr/>
 
 	<h1> Publications </h1>
-	<div class='row'>
+	<ul class="list-group">
 		<?php
 		foreach ($member["publication"] as $publication_id) {
 			$publication = WPRI_Database::get_record("publication",$publication_id) ;
-			echo "<a class=' single' href='".site_url()."/publication?id=".$publication_id."'>";
-			echo "<div class='row'>";
-				echo "<div class='col-sm-12  single'>".$publication["title"]."</div>";
-			echo "</div>";
+			echo "<a class='list-group-item single' href='".site_url()."/publication?id=".$publication_id."'>";
+			echo $publication["title"];
 			echo "</a>";
 		}
 		?>
-	</div>
+	</ul>
 	<hr/>
 
 	<h1> Projects </h1>
