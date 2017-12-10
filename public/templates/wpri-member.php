@@ -14,7 +14,6 @@
             </a>
         </div>
 	</div>
-	<hr/>
 
 	<h1> Contact </h1>
 	<div class='row'>
@@ -37,7 +36,6 @@
 			</p>
 		</div>
 	</div>
-	<hr/>
 
 	<h1> Publications </h1>
 	<ul class="list-group">
@@ -50,7 +48,6 @@
 		}
 		?>
 	</ul>
-	<hr/>
 
 	<h1> Projects </h1>
 		<ul class="list-group">
@@ -63,7 +60,6 @@
 		}
 		?>
 		</ul>
-	<hr/>
 
 		<h1> Education </h1>
 			<ul class="list-group">
@@ -72,8 +68,7 @@
 				<li class="list-group-item"> <?php echo $member["phd"]["year"].": ".$member["phd"]["title"]." from ".$member["phd"]["university"]." (".$member["phd"]["program"].")"?>
 
 			</ul>
-		<hr/>
-
+ 
 	<h1> Posts </h1>
 
 	<?php $args = array(
