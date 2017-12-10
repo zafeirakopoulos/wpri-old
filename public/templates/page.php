@@ -48,8 +48,9 @@ $template_loader->get_template_part( 'wpri', 'header' );
             */
             ?>
         </div> <!-- /.col -->
+        <hr class="vr">
+
         <div class="col-xs-12 col-md-3">
-            <hr class="vr">
 
             <?php
                 $template_loader->get_template_part( 'sidebar', 'news' );

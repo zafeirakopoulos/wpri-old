@@ -140,7 +140,7 @@
 
  .vr {
          border:         none;
-         border-left:    1px solid hsla(200, 10%, 50%,100);
+         border-left:    1px solid hsla(200, 10%, 50%,10);
          height:         100%;
          width:          1px;
  }
