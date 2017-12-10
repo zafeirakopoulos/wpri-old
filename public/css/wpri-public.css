@@ -198,23 +198,14 @@
   */
 
  .bte-footer {
-   padding: 40px 0;
-   color: var(--main-color);
+    color: var(--main-color);
    text-align: center;
    background-color: var(--main-background-color);
- }
-
-footer.bte-footer{
-    border-top: 1px solid #e5e5e5;
-}
-
- .bte-footer p:last-child {
-   margin-bottom: 0;
- }
- p.bte-footer {
-   color: var(--main-color);
    font-size:15px;
+
  }
+
+ 
  /*
   * Menu
   */
