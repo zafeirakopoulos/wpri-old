@@ -17,6 +17,7 @@
 
      --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
      --main-color : orange;
+     --main-focus-color : red;
      --alt-color : purple;
 
 
@@ -82,10 +83,12 @@
 
 .locale-picker {
     background-color: var(--main-background-color);
+    color: var(--main-color);
     font-size: var(--medium-font-size);
 }
 .locale-picker:hover {
     background-color: var(--main-background-color);
+    color: var(--main-focus-color);
     font-size: var(--medium-font-size);
 }
 /* navbar */
