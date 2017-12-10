@@ -43,7 +43,6 @@
 	<div class='row'>
 		<?php
 		foreach ($member["publication"] as $publication_id) {
-			error_log("pub id:".$publication_id);
 			$publication = WPRI_Database::get_record("publication",$publication_id) ;
 			echo "<a class=' single' href='".site_url()."/publication?id=".$publication_id."'>";
 			echo "<div class='row'>";
@@ -55,6 +54,20 @@
 	</div>
 	<hr/>
 
+	<h1> Projects </h1>
+	<div class='row'>
+		<?php
+		foreach ($member["project"] as $proj) {
+			$project = WPRI_Database::get_record("project",$proj[0]) ;
+			echo "<a class=' single' href='".site_url()."/project?id=".$proj[0]."'>";
+			echo "<div class='row'>";
+				echo "<div class='col-sm-12  single'>".$project["title"]."(".$proj[1].")</div>";
+			echo "</div>";
+			echo "</a>";
+		}
+		?>
+	</div>
+	<hr/>
 
 		<h1> Education </h1>
 			<ul>
