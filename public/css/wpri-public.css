@@ -76,12 +76,12 @@
     color: var(--main-color);
     text-align: center;
     width: 100%;
+    border : 0px;
     font-size: var(--large-font-size);
   }
 
   .locale-picker {
       background-color: var(--main-background-color);
       color: var(--main-color);
-      border : 0px;
       font-size: var(--medium-font-size);
   }
