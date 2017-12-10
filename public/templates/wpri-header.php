@@ -32,7 +32,7 @@
 <div class="masthead container">
 	<div class="row">
 	    <div class="col-xs-2 " style="margin-top:25px;"><img width="150px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png"></div>
-	    <div class="col-xs-9 "><h1 class="site-title">Institute of Information Technologies</h1><br>
+	    <div class="col-xs-10 "><h1 class="site-title">Institute of Information Technologies</h1><br>
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -44,7 +44,7 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="<?php echo get_permalink( get_page_by_path('#'))?>">Home</a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('home'))?>">Home</a></li>
 					<li><a href="<?php echo get_permalink( get_page_by_path('faculty'))?>">People</a></li>
 					<li><a href="<?php echo get_permalink( get_page_by_path('research'))?>">Research</a></li>
 					<li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Projects</a></li>
