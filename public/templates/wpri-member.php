@@ -61,7 +61,7 @@
 			$project = WPRI_Database::get_record("project",$proj[0]) ;
 			echo "<a class=' single' href='".site_url()."/project?id=".$proj[0]."'>";
 			echo "<div class='row'>";
-				echo "<div class='col-sm-12  single'>".$project["official_title"]."(".$proj[1].")</div>";
+				echo "<div class='col-sm-12  single'>".$project["official_title"]." (".$proj[1].")</div>";
 			echo "</div>";
 			echo "</a>";
 		}
@@ -71,8 +71,11 @@
 
 		<h1> Education </h1>
 			<ul>
+				<li> <?php echo $member["bs_year"].": ".$member["bs_title"]." from ".$member["bs_uni"]." (".$member["bs_prog"].")"?>
 			</ul>
 		<hr/>
+
+	<h1> Posts </h1>
 
 	<?php $args = array(
 	      'author__in'     => array($member['user']),
