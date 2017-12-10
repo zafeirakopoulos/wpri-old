@@ -773,9 +773,35 @@ public static function add_form($entity, $form) {
  		 				   $result[$related]= $tmp;
  		 			   }
  		 		   }
+
  				   $result["title"]= WPRI_Database::get_localized("title",get_user_meta($result["user"],"title",true)) ;
  				   $result["position"]= WPRI_Database::get_localized("position",get_user_meta($result["user"],"position",true));
  				   $result["name"]= get_user_meta($result["user"],"first_name",true)." ".get_user_meta($result["user"],"last_name",true);
+				   $result["email"]= get_user_meta($result["user"],"email",true);
+				   $result["website"]= get_user_meta($result["user"],"website",true);
+				   $result["advisor"]= get_user_meta($result["user"],"advisor",true);
+				   $result["undegrad"]= array(
+					   "university" => get_user_meta($result["user"],"bs_uni",true);
+					   "program" => get_user_meta($result["user"],"bs_prog",true);
+					   "year" => get_user_meta($result["user"],"bs_year",true);
+					   "title" => get_user_meta($result["user"],"bs_title",true);
+
+				   );
+				   $result["masters"]= array(
+					   "university" => get_user_meta($result["user"],"ms_uni",true);
+					   "program" => get_user_meta($result["user"],"ms_prog",true);
+					   "year" => get_user_meta($result["user"],"ms_year",true);
+					   "title" => get_user_meta($result["user"],"ms_title",true);
+				   );
+				   $result["phd"]= array(
+					   "university" => get_user_meta($result["user"],"phd_uni",true);
+					   "program" => get_user_meta($result["user"],"phd_prog",true);
+					   "year" => get_user_meta($result["user"],"phd_year",true);
+					   "title" => get_user_meta($result["user"],"phd_title",true);
+
+				   );
+				   $result["office"]= get_user_meta($result["user"],"office",true);
+				   $result["phone"]= get_user_meta($result["user"],"phone",true);
 
 	 				error_log(print_r($result));
 	 				return $result;
