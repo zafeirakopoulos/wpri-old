@@ -3,7 +3,7 @@
 
 		<?php
 		$position_id=$_GET['id'];
-		$position = WPRI_Database::get_entity("position",$position_id);
+		$position = WPRI_Database::get_entity("vacancy",$position_id);
 
 		?>
 		<div class='row'>
