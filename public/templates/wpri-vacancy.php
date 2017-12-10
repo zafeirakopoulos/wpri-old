@@ -43,6 +43,15 @@
 		}
 	?>
 
+	<h2 class=" single">Related Projects:</h2>
+	<ul class="list-group">
+	<?php
+		foreach ($position["project"] as $project_id) {
+			$project = WPRI_Database::get_record("project",$project_id) ;
+			echo "<a class='list-group-item' href='".site_url()."/project?id=".$project["id"]."'>". $project["official_title"]."</a>";
+		}
+	?>
+
 
 
 
