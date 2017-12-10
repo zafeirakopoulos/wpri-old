@@ -198,9 +198,17 @@ h1.site-title{
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--main-color);
-    font-size: var(--normal-font-size);
   }
 
+  h1.single {
+    font-size: var(--title-font-size);
+  }
+  h2.single {
+    font-size: var(--large-font-size);
+  }
   h3.single {
     font-size: var(--normal-font-size);
+  }
+  h4.single {
+    font-size: var(--small-font-size);
   }
