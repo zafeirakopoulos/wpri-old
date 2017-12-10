@@ -1056,6 +1056,15 @@
                             "rows": "2"
                         },
                         {
+                            "type": "text",
+                            "localized":true,
+                            "name": "description",
+                            "caption" : "Job description" ,
+                            "value": "Job description",
+                            "cols" : "100",
+                            "rows": "5"
+                        },
+                        {
                             "caption" : "Contact persons" ,
                             "name": "members",
                             "value": "",
@@ -1071,26 +1080,49 @@
                     ]
                 },
                 {
-                    "title" : "Funding",
+                    "title" : "Requirements",
                     "elements" : [
                         {
-                            "caption" : "Choose funding agency" ,
-                            "name": "agency",
+                            "caption" : "Choose requirements" ,
+                            "name": "requirements",
                             "value": "",
                             "type": "multiple-select",
                             "relation" : {
                                 "foreach" : {
-                                    "table" : "agency",
+                                    "table" : "requirement",
                                     "column" : "id",
-                                    "display_column" : "agency"
+                                    "display_column" : "requirement"
                                 }
                             }
                         },
                         {
-                            "caption" : "Budget" ,
-                            "name": "budget",
-                            "value": "",
+                            "caption" : "ALES" ,
+                            "name": "ales",
+                            "value": "60",
                             "type": "text"
+                        },
+                        {
+                            "caption" : "YDS" ,
+                            "name": "ales",
+                            "value": "60",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "title" : "Dates",
+                    "elements" : [
+                        {
+                            "caption" : "Application deadline" ,
+                            "name": "deadline",
+                            "value": "",
+                            "type": "datetime"
+                        },
+                        {
+                            "caption" : "Starting date" ,
+                            "name": "startingdate",
+                            "value": "",
+                            "type": "datetime"
                         }
                     ]
                 }
