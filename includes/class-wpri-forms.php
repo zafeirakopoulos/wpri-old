@@ -214,9 +214,13 @@ class WPRI_Form {
 								 <?php echo $element["value"]?>
 							</textarea>
 						<?php }
-						elseif ($element["type"]=="radio"){?>
-							<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
-							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
+						elseif ($element["type"]=="INT"){?>
+                            <textarea id='<?php echo $element["name"]?>'
+                                      name='<?php echo $element["name"] ?>'
+                                      cols='12'
+                                      rows='1'>
+                                 <?php echo $element["value"]?>
+                            </textarea>
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
 							$relation = $element["relation"];
