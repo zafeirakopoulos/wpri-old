@@ -34,7 +34,7 @@
                 <div class='col-xs-8 offset-xs-2 single'>
                     <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-                    <div class='col-xs-9 single'>".$member['position']."</div>
+                    <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
                 </div>
             </a>
             </div>
@@ -46,7 +46,7 @@
                 <div class='col-xs-8 offset-xs-2 single'>
                     <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-                    <div class='col-xs-9 single'>".$member['position']."</div>
+                    <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
                 </div>
             </a>
         </div>
@@ -58,7 +58,7 @@
                 <div class='col-xs-8 offset-xs-2 single'>
                     <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-                    <div class='col-xs-9 single'>".$member['position']."</div>
+                    <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
                 </div>
             </a>
             </div>
