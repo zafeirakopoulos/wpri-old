@@ -222,7 +222,7 @@
         },
         "studentstatus": {
             "title" : "Student status",
-            "table_name" : "pubtstudentstatusype",
+            "table_name" : "studentstatus",
             "name" :"studentstatus",
             "actions": {
                 "add" : "manage_options",
@@ -248,21 +248,67 @@
             "default_values" : [
                 {
                     "localized" : true,
-                    "pubtype" : "ongoing",
+                    "studentstatus" : "ongoing",
                     "en_US" : "ongoing",
                     "tr_TR" : "ongoing"
                 },
                 {
                     "localized" : true,
-                    "pubtype" : "graduate",
+                    "studentstatus" : "graduate",
                     "en_US" : "graduate",
                     "tr_TR" : "graduate"
                 },
                 {
                     "localized" : true,
-                    "pubtype" : "dropout",
+                    "studentstatus" : "dropout",
                     "en_US" : "dropout",
                     "tr_TR" : "dropout"
+                }
+            ]
+        },
+        "studentlevel": {
+            "title" : "Student level",
+            "table_name" : "studentlevel",
+            "name" :"studentlevel",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "studentlevel",
+                            "caption" : "Student level" ,
+                            "value": "",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "studentlevel" : "Undergrad",
+                    "en_US" : "Undergrad",
+                    "tr_TR" : "Lisans"
+                },
+                {
+                    "localized" : true,
+                    "studentlevel" : "Masters",
+                    "en_US" : "Masters",
+                    "tr_TR" : "Yuksek lisans"
+                },
+                {
+                    "localized" : true,
+                    "studentlevel" : "Doctorate",
+                    "en_US" : "Doctorate",
+                    "tr_TR" : "Doctora"
                 }
             ]
         },
@@ -1022,6 +1068,75 @@
                                 }
                             }
                         }
+                    ]
+                },
+                {
+                    "title" : "Funding",
+                    "elements" : [
+                        {
+                            "caption" : "Choose funding agency" ,
+                            "name": "agency",
+                            "value": "",
+                            "type": "multiple-select",
+                            "relation" : {
+                                "foreach" : {
+                                    "table" : "agency",
+                                    "column" : "id",
+                                    "display_column" : "agency"
+                                }
+                            }
+                        },
+                        {
+                            "caption" : "Budget" ,
+                            "name": "budget",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        "student": {
+            "title" : "Student",
+            "table_name" : "student",
+            "has_menu": true,
+            "name" :"student",
+            "display_element": "name",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "name",
+                            "caption" : "Name" ,
+                            "value": "",
+                            "cols" : "50",
+                            "rows": "1"
+                        },
+                        {
+                            "caption" : "Student level" ,
+                            "name": "studentlevel",
+                            "value": "",
+                            "type": "select",
+                            "table" : "studentlevel",
+                            "column" : "id",
+                            "display_column" : "studentlevel"
+                        },
+                        {
+                            "caption" : "Student status" ,
+                            "name": "studentstatus",
+                            "value": "",
+                            "type": "select",
+                            "table" : "studentstatus",
+                            "column" : "id",
+                            "display_column" : "studentstatus"
+                        },
                     ]
                 },
                 {
