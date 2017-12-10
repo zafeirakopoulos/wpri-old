@@ -78,6 +78,36 @@
 
       }
 
+  h1.site-title{
+      font-size: var(--site-title-font-size,30px);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin-top: 35px;
+  }
+
+
+  body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--main-color);
+  }
+
+  h1, .h1,
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,
+  h5, .h5,
+  h6, .h6 {
+    margin-top: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: var(--main-color);
+  }
+
+
+  /*
+   * OLD
+   */
+
+
 .alt-background{
     background-color: var(--alt-background-color);
 }
@@ -459,11 +489,7 @@ button.locale-picker:hover{
     width: 100%;
 }
 
-h1.site-title{
-    font-size: var(--site-title-font-size,30px);
-    font-family: Georgia, "Times New Roman", Times, serif;
-    margin-top: 35px;
-}
+
 
 /*
 * Divider
