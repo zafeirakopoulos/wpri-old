@@ -7,18 +7,17 @@
 	// 	echo $key." = ".$value;
 	// }
 
-
 	if ($post->post_type=="wpri_news"){
- 		get_the_content();
+ 		echo get_the_content();
 	}
 	elseif ($post->post_type=="wpri_highlights") {
-		get_the_content();
+		echo get_the_content();
 	}
 	elseif ($post->post_type=="wpri_blog") {
-		get_the_content();
+		echo get_the_content();
 	}
 	elseif ($post->post_type=="wpri_project_blog") {
-		get_the_content();
+		echo get_the_content();
 	}
 
 
