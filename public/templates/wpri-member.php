@@ -38,11 +38,11 @@
 	</div>
 
 	<h1> Publications </h1>
-	<ul class="list-group">
+	<ul class="list-group single">
 		<?php
 		foreach ($member["publication"] as $publication_id) {
 			$publication = WPRI_Database::get_record("publication",$publication_id) ;
-			echo "<a class='list-group-item single' href='".site_url()."/publication?id=".$publication_id."'>";
+			echo "<a class='list-group-item' href='".site_url()."/publication?id=".$publication_id."'>";
 			echo $publication["title"];
 			echo "</a>";
 		}
@@ -50,11 +50,11 @@
 	</ul>
 
 	<h1> Projects </h1>
-		<ul class="list-group">
+		<ul class="list-group single">
 		<?php
 		foreach ($member["project"] as $proj) {
 			$project = WPRI_Database::get_record("project",$proj[0]) ;
-			echo "<a class='list-group-item single' href='".site_url()."/project?id=".$proj[0]."'>";
+			echo "<a class='list-group-item' href='".site_url()."/project?id=".$proj[0]."'>";
  			echo $project["official_title"]." (".$proj[1].")";
 			echo "</a>";
 		}
@@ -68,7 +68,7 @@
 				<li class="list-group-item"> <?php echo $member["phd"]["year"].": ".$member["phd"]["title"]." from ".$member["phd"]["university"]." (".$member["phd"]["program"].")"?>
 
 			</ul>
- 
+
 	<h1> Posts </h1>
 
 	<?php $args = array(
