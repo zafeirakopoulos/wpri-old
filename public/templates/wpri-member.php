@@ -61,7 +61,7 @@
 			$project = WPRI_Database::get_record("project",$proj[0]) ;
 			echo "<a class=' single' href='".site_url()."/project?id=".$proj[0]."'>";
 			echo "<div class='row'>";
-				echo "<div class='col-sm-12  single'>".$project["title"]."(".$proj[1].")</div>";
+				echo "<div class='col-sm-12  single'>".$project["official_title"]."(".$proj[1].")</div>";
 			echo "</div>";
 			echo "</a>";
 		}
