@@ -24,7 +24,7 @@
 		</div>
 
 
- 	<h2 class=" single">Requirements:</h2>
+ 	<h2 class=" single">Requirements</h2>
 
 		<?php
 		foreach ($position['requirement'] as $requirement) {
@@ -34,7 +34,7 @@
 		}?>
 
 
-	<h2 class=" single">Contacts:</h2>
+	<h2 class=" single">Contacts</h2>
 	<ul class="list-group">
 	<?php
 		foreach ($position["member"] as $member_id) {
@@ -43,7 +43,7 @@
 		}
 	?>
 
-	<h2 class=" single">Related Projects:</h2>
+	<h2 class=" single">Related Projects</h2>
 	<ul class="list-group">
 	<?php
 		foreach ($position["project"] as $project_id) {
