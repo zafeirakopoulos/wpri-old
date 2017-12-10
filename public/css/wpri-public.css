@@ -200,15 +200,15 @@ h1.site-title{
     color: var(--main-color);
   }
 
-  h1.single {
+  .single  h1{
     font-size: var(--title-font-size);
   }
-  h2.single {
+  .single h2 {
     font-size: var(--large-font-size);
   }
-  h3.single {
+  .single h3 {
     font-size: var(--normal-font-size);
   }
-  h4.single {
+  .single h4 {
     font-size: var(--small-font-size);
   }
