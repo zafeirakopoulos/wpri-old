@@ -220,6 +220,52 @@
                 }
             ]
         },
+        "studentstatus": {
+            "title" : "Student status",
+            "table_name" : "pubtstudentstatusype",
+            "name" :"studentstatus",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "studentstatus",
+                            "caption" : "Student status" ,
+                            "value": "",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "pubtype" : "ongoing",
+                    "en_US" : "ongoing",
+                    "tr_TR" : "ongoing"
+                },
+                {
+                    "localized" : true,
+                    "pubtype" : "graduate",
+                    "en_US" : "graduate",
+                    "tr_TR" : "graduate"
+                },
+                {
+                    "localized" : true,
+                    "pubtype" : "dropout",
+                    "en_US" : "dropout",
+                    "tr_TR" : "dropout"
+                }
+            ]
+        },
         "title": {
             "title" : "Titles",
             "table_name" : "title",
