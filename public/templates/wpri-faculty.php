@@ -26,7 +26,7 @@
     }
 
     $members = WPRI_Database::get_members_full();
-    echo "<h1>Faculty</h1>";
+    echo "<h1 class='single'>Faculty</h1>";
 
     $member = $members[$director];
     echo "<div class='row'>
@@ -65,7 +65,7 @@
             <hr/>";
 	}
 
-    echo "<h1>Assistants</h1>";
+    echo "<h1 class='single'>Assistants</h1>";
     foreach ( $assistants as $member_id ) {
         $member = $members[$member_id];
         echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
@@ -77,7 +77,7 @@
             </a>";
 	}
 
-    echo "<h1>Administrative personel</h1>";
+    echo "<h1 class='single'>Administrative personel</h1>";
     foreach ( $administrative as $member_id ) {
         $member = $members[$member_id];
         echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
