@@ -9,6 +9,7 @@
      --site-title-font-size : 30px;
      --small-font-size : 10px;
      --medium-font-size : 13px;
+     --normal-font-size : 14px;
      --large-font-size : 16px;
      --title-font-size : 18px;
 
@@ -169,6 +170,7 @@ h1.site-title{
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--main-color);
+    font-size: var(--normal-font-size);
   }
 
   a.list-group-item {
@@ -176,6 +178,7 @@ h1.site-title{
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--main-color);
+    font-size: var(--normal-font-size);
   }
   a.list-group-item:hover {
     color: var(--main-focus-color);
@@ -186,4 +189,5 @@ h1.site-title{
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--main-color);
+    font-size: var(--normal-font-size);
   }
