@@ -42,13 +42,12 @@ $template_loader->get_template_part( 'wpri', 'header' );
             if ( is_single() ) {
                 $template_loader->get_template_part( 'wpri', 'single' );
             }
-            /* For the blogs
                 if ( have_posts() ) : while ( have_posts() ) : the_post();
 
                     get_template_part( 'content', get_post_format() );
 
                 endwhile; endif;
-            */
+
             ?>
         </div> <!-- /.col -->
         <!-- <hr class="vr"> -->
