@@ -82,10 +82,12 @@
 
 .locale-picker {
     background-color: var(--main-background-color);
-
     font-size: var(--medium-font-size);
 }
-
+.locale-picker:hover {
+    background-color: var(--main-background-color);
+    font-size: var(--medium-font-size);
+}
 /* navbar */
 .navbar-default {
     background-color: var(--main-background-color);
