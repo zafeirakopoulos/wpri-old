@@ -16,23 +16,25 @@
         <hr/>
 
 		<h1> Contact </h1>
-			<div class='col-xs-3 single'>
-				<p>
-					Office <br>
-					<?php echo $member['office'];?>
-				</p>
-			</div>
-			<div class='col-xs-3 single'>
-				<p>
-					Phone <br>
-					<?php echo $member['phone'];?>
-				</p>
-			</div>
-			<div class='col-xs-3 single'>
-				<p>
-					email <br>
-					<?php echo $member['email'];?>
-				</p>
+			<div class='row'>
+				<div class='col-xs-4 single'>
+					<p>
+						Office <br>
+						<?php echo $member['office'];?>
+					</p>
+				</div>
+				<div class='col-xs-4 single'>
+					<p>
+						Phone <br>
+						<?php echo $member['phone'];?>
+					</p>
+				</div>
+				<div class='col-xs-4 single'>
+					<p>
+						email <br>
+						<?php echo $member['email'];?>
+					</p>
+				</div>
 			</div>
 		<hr/>
 
