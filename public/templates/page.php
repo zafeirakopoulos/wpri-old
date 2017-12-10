@@ -23,6 +23,9 @@ $template_loader->get_template_part( 'wpri', 'header' );
             if ( is_page( 'contact' ) ) {
                 $template_loader->get_template_part( 'wpri', 'contact' );
             }
+            if ( is_page( 'research' ) ) {
+                $template_loader->get_template_part( 'wpri', 'research' );
+            }
             if ( is_page( 'positions' ) ) {
                 $template_loader->get_template_part( 'wpri', 'positions' );
             }
