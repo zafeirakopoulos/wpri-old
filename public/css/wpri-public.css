@@ -31,6 +31,7 @@
   h1.site-title{
       font-size: var(--site-title-font-size,30px);
       font-family: var(--font-family);
+      color: var(--main-color);
       margin-top: 35px;
   }
 
@@ -128,4 +129,18 @@
 .navbar-default .navbar-nav > .dropdown > a .caret {
     border-top-color: #777;
     border-bottom-color: #777;
+}
+
+
+  /****************************
+  ********** Footer  **********
+  *****************************/
+
+.footer {
+    background-color: var(--main-background-color);
+    color: var(--main-color);
+    text-align: center;
+    width: 100%;
+    border : 0px;
+    font-size: var(--large-font-size);
 }
