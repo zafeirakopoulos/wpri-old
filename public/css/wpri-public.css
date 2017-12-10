@@ -189,7 +189,7 @@ h1.site-title{
     color: var(--main-focus-color);
   }
 
-  .single h1, .single h2, .single h3, .single h4, .single h5, .single p {
+  .single h1, .single h2, .single h3, .single h4, .single p {
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
@@ -208,9 +208,7 @@ h1.site-title{
   .single h4 {
     font-size: var(--small-font-size);
   }
-  .single h5 {
-    font-size: var(--super-title-font-size);
-  }
+
   .single p {
     font-size: var(--normal-font-size);
   }
