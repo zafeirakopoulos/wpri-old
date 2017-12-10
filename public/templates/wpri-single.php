@@ -3,42 +3,31 @@
 	<?php
 	$post = get_post(get_the_ID());
 
-	// foreach ($post as $key => $value) {
-	// 	echo $key." = ".$value;
-	// }
+
 	echo "<h1 class='single'>";
 	the_title();
 	echo "</h1><br>";
 
  	if ($post->post_type=="wpri_news"){
-		echo $post->post_type;
-
-		echo 	"<div class='entry'>";
-		echo apply_filters('the_content', $post->post_content);;
-		echo "</div>";
-	}
+  		echo apply_filters('the_content', $post->post_content);;
+ 	}
 	elseif ($post->post_type=="wpri_highlights") {
-		echo 	"<div class='entry'>";
-		the_content();
-		echo "</div>";	}
+		echo apply_filters('the_content', $post->post_content);;
+	}
 	elseif ($post->post_type=="wpri_blog") {
-		echo $post->post_type;
+		echo apply_filters('the_content', $post->post_content);;
 
-		echo 	"<div class='entry'>";
-		the_content();
-		echo "</div>";
 	}
 	elseif ($post->post_type=="wpri_project_blog") {
-		echo 	"<div class='entry'>";
-		the_content();
-		echo "</div>";
+		echo apply_filters('the_content', $post->post_content);;
+
 	}
 
 
 	?>
 	<div>
      <?php
-			 previous_post_link( '%link', '%title', TRUE );
+			echo previous_post_link( '%link', '%title', TRUE );
 			 echo next_post_link('%link', 'Next Post >>', $in_same_term = true, $excluded_terms = '', $taxonomy = $post->post_type);
 		?>
 	</div>
