@@ -1,19 +1,18 @@
 
     <footer class="bte-footer">
         <div class="row">
-
-        	<div class="col-sm-2 col-sm-offset-3">
-                <img height="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png">
-            </div>
-    		<div class="col-sm-4">
-                <p class="bte-footer">
-                    Gebze Technical University <br>
-                    Computer Engineering Building <br>
-                    Gebze – Kocaeli – Turkey <br>
-                    +90 (262) 605 2203 <br>
-                    bte {at} gtu.edu.tr
-                </p>
-            </div>
+            <div class="col-sm-3 bte-footer">
+                    Gebze Technical University
+             </div>
+             <div class="col-sm-3 bte-footer">
+                       Institute of Information Technologies
+               </div>
+               <div class="col-sm-3 bte-footer">
+                          Gebze – Kocaeli – Turkey
+               </div>
+               <div class="col-sm-3 bte-footer">
+                          +90 (262) 605 2203 
+               </div>
        </div>
 
 </footer>
