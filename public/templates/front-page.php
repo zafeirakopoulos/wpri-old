@@ -2,7 +2,7 @@
 	$template_loader = new WPRI_Template_Loader;
 	$template_loader->get_template_part( 'wpri', 'header' );
 ?>
-
+ Ths is the front page
 	<div class="row">
 
 		<div class="col-sm-8 bte-main">
