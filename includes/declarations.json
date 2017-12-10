@@ -1032,7 +1032,7 @@
                     "title" : "Project information",
                     "elements" : [
                         {
-                            "caption" : "Publication is acknowleding funding from" ,
+                            "caption" : "Publication is acknowledging funding from" ,
                             "name": "project",
                             "value": "",
                             "type": "multiple-select",
