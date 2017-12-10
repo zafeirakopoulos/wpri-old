@@ -1,4 +1,4 @@
-<div class='listing' id="projects" >
+<div class='single' id="projects" >
     <h1 class="single"> Projects </h1>
 
  			<?php
