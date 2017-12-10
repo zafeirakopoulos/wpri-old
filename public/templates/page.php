@@ -29,8 +29,8 @@ $template_loader->get_template_part( 'wpri', 'header' );
             if ( is_page( 'positions' ) ) {
                 $template_loader->get_template_part( 'wpri', 'vacancies' );
             }
-            if ( is_page( 'position' ) ) {
-                $template_loader->get_template_part( 'wpri', 'position' );
+            if ( is_page( 'vacancy' ) ) {
+                $template_loader->get_template_part( 'wpri', 'vacancy' );
             }
             if ( is_page( 'publications' ) ) {
                 $template_loader->get_template_part( 'wpri', 'publications' );
