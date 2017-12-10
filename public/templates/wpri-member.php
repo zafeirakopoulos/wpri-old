@@ -38,9 +38,18 @@
 			</div>
 		<hr/>
 
-		<h1> Education </h1>
-			<ul>
-			</ul>
+		<h1> Publications </h1>
+			<?php
+			foreach ($project["publication"] as $publication_id) {
+				error_log("pub id:".$publication_id);
+				$publication = WPRI_Database::get_record("publication",$publication_id) ;
+				echo "<a class=' single' href='".site_url()."/publication?id=".$publication_id."'>";
+				echo "<div class='row'>";
+					echo "<div class='col-sm-12  single'>".$publication["title"]."</div>";
+				echo "</div>";
+				echo "</a>";
+			}
+			?>
 		<hr/>
 
 
