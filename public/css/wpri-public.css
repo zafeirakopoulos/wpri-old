@@ -199,7 +199,6 @@ h1.site-title{
   .single  h1{
     font-size: var(--title-font-size);
     font-weight: bold;
-
   }
   .single h2 {
     font-size: var(--large-font-size);
