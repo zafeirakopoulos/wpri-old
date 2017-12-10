@@ -32,7 +32,7 @@
     echo "<div class='row'>
             <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
                 <div class='col-xs-8 offset-xs-2 single'>
-                    <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
+                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                     <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
                 </div>
@@ -44,7 +44,7 @@
     echo "<div class='row'>
             <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
                 <div class='col-xs-8 offset-xs-2 single'>
-                    <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
+                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                     <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
                 </div>
@@ -56,7 +56,7 @@
 		echo "<div class='row'>
         <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
                 <div class='col-xs-8 offset-xs-2 single'>
-                    <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
+                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                     <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
                 </div>
@@ -65,24 +65,24 @@
             <hr/>";
 	}
 
-    echo "<h5 class='single'>Assistants</h5>";
+    echo "<h1 class='single'>Assistants</h1>";
     foreach ( $assistants as $member_id ) {
         $member = $members[$member_id];
         echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
                 <div class='col-xs-12 single'>
-                    <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
+                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                     <div class='col-xs-9 single'>".$member['position']."</div>
                 </div>
             </a>";
 	}
 
-    echo "<h5 class='single'>Administrative personel</h5>";
+    echo "<h1 class='single'>Administrative personel</h1>";
     foreach ( $administrative as $member_id ) {
         $member = $members[$member_id];
         echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
                 <div class='col-xs-12 single'>
-                    <div class='col-xs-12 single'><h1 class='single'>".$member["title"]." ".$member['name']."</h1></div>
+                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
                     <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
                     <div class='col-xs-9 single'>".$member['position']."</div>
                 </div>
