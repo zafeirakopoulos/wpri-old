@@ -7,9 +7,9 @@
 		<div class='row'>
 	        <a href='<?php echo site_url()."/member?id=".$member["id"];?>' class=''>
                 <div class='col-xs-8 offset-xs-2 '>
-                    <div class='col-xs-12 '><h1 class=''><?php echo $member["title"]." ".$member['name'];?></h1></div>
+                    <div class='col-xs-12 '><h1><?php echo $member["title"]." ".$member['name'];?></h1></div>
                     <div class='col-xs-3 '><?php echo get_avatar($member['user']);?></div>
-                    <div class='col-xs-9 '><?php echo $member['position'];?></div>
+                    <div class='col-xs-9 '><h3><?php echo $member['position'];?></h3></div>
                 </div>
             </a>
         </div>
@@ -19,20 +19,20 @@
 	<div class='row'>
 		<div class='col-xs-12 col-sm-4 '>
 			<p>
-				Office <br>
-				<?php echo $member['office'];?>
+				<h3>Office</h3> <br>
+				<h3><?php echo $member['office'];?></h3>
 			</p>
 		</div>
 		<div class='col-xs-12 col-sm-4 '>
 			<p>
-				Phone <br>
-				<?php echo $member['phone'];?>
+				<h3>Phone</h3> <br>
+				<h3><?php echo $member['phone'];?></h3>
 			</p>
 		</div>
 		<div class='col-xs-12 col-sm-4 '>
 			<p>
-				email <br>
-				<?php echo $member['email'];?>
+				<h3>email</h3> <br>
+				<h3><?php echo $member['email'];?></h3>
 			</p>
 		</div>
 	</div>
