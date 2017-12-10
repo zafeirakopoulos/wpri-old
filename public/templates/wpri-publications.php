@@ -1,4 +1,5 @@
 <div class='listing' id="publications" >
+    <h1 class="single"> Publications </h1>
     <ul class="list-group">
 			<?php
 			$publication_ids = WPRI_Database::get_ids("publication");
