@@ -32,7 +32,6 @@
 				echo "</ul>";
 
 				?>
-			</div>
 		</div>
 
 		<div class="col-xs-12 col-md-3">
@@ -42,6 +41,7 @@
             ?>
         </div> <!-- /.col -->
 	</div> <!-- /.row -->
+</div> <!-- /.row -->
 
 <?php
 	$template_loader->get_template_part( 'wpri', 'footer' );
