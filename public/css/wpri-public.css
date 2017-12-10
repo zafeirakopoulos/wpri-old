@@ -462,7 +462,7 @@ button.locale-picker:hover{
 h1.site-title{
     font-size: var(--site-title-font-size,30px);
     font-family: Georgia, "Times New Roman", Times, serif;
-    margin-top: 25px;
+    margin-top: 35px;
 }
 
 /*
