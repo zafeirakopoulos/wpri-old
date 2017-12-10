@@ -13,9 +13,9 @@
 		echo apply_filters('the_content', $post->post_content);;
 	}
 	elseif ($post->post_type=="wpri_blog") {
-		$member = WPRI_Database::get_member_full($member_id);
+		$member = WPRI_Database::get_member_full($_GET["member"]);
 		echo "<h1 class='single'>";
-		echo echo $member["title"]." ".$member['name']."'s blog";
+		echo  $member["title"]." ".$member['name']."'s blog";
 		echo "</h1><br>";
 
 		echo "<h2 class='single'>";
