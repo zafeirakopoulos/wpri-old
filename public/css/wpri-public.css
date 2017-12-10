@@ -6,10 +6,12 @@
 
  :root {
 	 --site-title-font-size : 30px;
-         --main-background-color : #FBB117;
+         /*--main-background-color : #FBB117;*/
+         --main-background-color : lightgray;
+
          --secondary-background-color : white;
          --alt-background-color : lightgray;
-         --main-color : drakgray;
+         --main-color : darkgray;
          --secondary-color : yellow;
 	 --hr-color:gray;
 	 --hr-font-size: 25px;
@@ -205,7 +207,7 @@
 
  }
 
- 
+
  /*
   * Menu
   */
