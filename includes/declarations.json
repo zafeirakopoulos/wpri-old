@@ -1136,6 +1136,15 @@
                             "table" : "studentstatus",
                             "column" : "id",
                             "display_column" : "studentstatus"
+                        },
+                        {
+                            "caption" : "Student advisor" ,
+                            "name": "advisor",
+                            "value": "",
+                            "type": "select",
+                            "table" : "member",
+                            "column" : "id",
+                            "display_column" : "name"
                         }
                     ]
                 }
@@ -1210,6 +1219,7 @@
                             "display_column" : "code"
                         },
                         {
+                            "caption" : "Year" ,
                             "type": "INT",
                             "name": "year",
                             "caption" : "Year" ,
