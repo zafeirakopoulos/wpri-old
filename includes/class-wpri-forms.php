@@ -165,7 +165,7 @@ class WPRI_Form {
 							if (isset($element["all_locales"])!=true){
 								if (isset($element["localized"])){
 									foreach ($locales as $locale) {?>
-										<label class='col-sm-6 form-element-caption'> <?php echo $locale["locale"] ?></label>
+										<label class='col-sm-6 form-element-caption'> <?php echo $locale["locale"] ?></label><br>
 										<div class='col-sm-6 form-element-value'>
 											<textarea id='<?php echo $element["name"]?>'
 													  name='<?php echo $element["name"].$locale["id"] ?>'
