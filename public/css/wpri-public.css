@@ -193,7 +193,7 @@ h1.site-title{
     color: var(--main-focus-color);
   }
 
-  h1,h2,h3,h4.single {
+  .single h1,h2,h3,h4 {
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
