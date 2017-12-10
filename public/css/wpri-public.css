@@ -8,42 +8,14 @@
      /* fonts */
 	 --site-title-font-size : 30px;
      --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-     --main-font-color : orange;
-     --alt-font-color : purple;
+     --main-color : orange;
+     --alt-color : purple;
 
 
      /* background */
      --main-background-color : lightgray;
      --alt-background-color : lightgray;
 
-    /* listing */
-
-
-         --listing-color: var(--main-color);
-         --listing-font-size: 25px;
-         --listing-border: 0px;
-         --listing-padding:20px;
-         --listing-margin-right:5px;
-         --listing-margin-left:5px;
-         --listing-margin-bottom:10px;
-         --listing-margin-top:10px;
-
-         --h1-page-title-font-size:25px;
-
-         --listing-margin-right:5px;
-         --listing-margin-left:5px;
-         --listing-margin-bottom:5px;
-         --listing-margin-top:5px;
-
-         --single-padding:15px;
-         --single-margin-right:5px;
-         --single-margin-left:5px;
-         --single-margin-bottom:5px;
-         --single-margin-top:5px;
-         --single-border: var(--standard-border);
-         --single-background-color:var(--secondary-background-color);
-         --single-font-size:20px;
-         --single-increased-font-size:21px;
 
       }
 
@@ -95,9 +67,16 @@
       font-size: 15px;
   }
 
-  button.locale-picker:hover{
-      background-color: var(--main-background-color);
-      color: var(--main-color);
-      border : 0px;
-      font-size: 15px;
+
+
+  /****************************
+  ********** Header  **********
+  *****************************/
+
+  .masthead {
+    background-color: var(--main-background-color);
+    -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+            box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+    text-align: center;
+    width: 100%;
   }
