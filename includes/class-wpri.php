@@ -147,12 +147,6 @@ class WPRI {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-posts.php';
 
-		/**
-		 * The class responsible for reports functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-reports.php';
-		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'tools/xlsxwriter.class.php';
 
 
 
@@ -185,6 +179,13 @@ class WPRI {
 		 * The class responsible template loading extending the previous one
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gamajo-template-loader.php';
+
+		/**
+		 * The class responsible for reports functionality
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpri-reports.php';
+		// require_once plugin_dir_path( dirname( __FILE__ ) ) . 'tools/xlsxwriter.class.php';
 
 	}
 
