@@ -759,18 +759,37 @@ public static function add_form($entity, $form) {
 
  		 		   if (isset($entity["related"])){
  		 			   foreach ( $entity["related"] as $related ) {
- 		 				   $tmp=array();
- 		 				   if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
- 		 					   // error_log("in the if all_locales for ".$related);
- 		 					   foreach (WPRI_Database::get_relation($related,"member","",$id) as $row) {
- 		 						   $tmp[] = WPRI_Database::get_localized($related,$row[$related]) ;
- 		 					   }
- 		 				   } else{
- 		 					   foreach (WPRI_Database::get_relation($related,"member","",$id) as $row) {
- 		 						   $tmp[] = $row[$related];
- 		 					   }
- 		 				   }
- 		 				   $result[$related]= $tmp;
+						   if (is_array($related)){
+							   $left = $related[0];
+							   $right = $related[1];
+							   error_log($left);
+							   error_log($right);
+							   $tmp=array();
+							   if (isset($declarations[$right]["groups"][0]["elements"][0]["all_locales"])){
+								   // error_log("in the if all_locales for ".$related);
+								   foreach (WPRI_Database::get_double_relation($left,"member",$right,"",$id,"") as $row) {
+									   $tmp[] = array($row[$left],WPRI_Database::get_localized($right,$row[$right]));
+								   }
+							   } else{
+								   foreach (WPRI_Database::get_double_relation($left,"member",$right,"",$id,"") as $row) {
+									   $tmp[] = array($row[$left],$row[$right]);
+								   }
+							   }
+							   $result[$left] = $tmp;
+						   } else{
+	 		 				   $tmp=array();
+	 		 				   if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
+	 		 					   // error_log("in the if all_locales for ".$related);
+	 		 					   foreach (WPRI_Database::get_relation($related,"member","",$id) as $row) {
+	 		 						   $tmp[] = WPRI_Database::get_localized($related,$row[$related]) ;
+	 		 					   }
+	 		 				   } else{
+	 		 					   foreach (WPRI_Database::get_relation($related,"member","",$id) as $row) {
+	 		 						   $tmp[] = $row[$related];
+	 		 					   }
+	 		 				   }
+	 		 				   $result[$related]= $tmp;
+						   }
  		 			   }
  		 		   }
 
@@ -785,7 +804,6 @@ public static function add_form($entity, $form) {
 					   "program" => get_user_meta($result["user"],"bs_prog",true),
 					   "year" => get_user_meta($result["user"],"bs_year",true),
 					   "title" => get_user_meta($result["user"],"bs_title",true)
-
 				   );
 				   $result["masters"]= array(
 					   "university" => get_user_meta($result["user"],"ms_uni",true),
