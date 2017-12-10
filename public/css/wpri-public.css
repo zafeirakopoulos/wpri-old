@@ -167,12 +167,7 @@ h1.site-title{
     color: var(--main-color);
   }
 
-p  {
-  margin-top: 0;
-  font-family: var(--font-family);
-  font-weight: normal;
-  color: var(--main-color);
-}
+ 
 
   /****************************
   ********** Single  **********
