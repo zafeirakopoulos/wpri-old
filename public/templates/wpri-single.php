@@ -6,9 +6,11 @@
 	// foreach ($post as $key => $value) {
 	// 	echo $key." = ".$value;
 	// }
+	echo "<h1 class='single'>";
 	the_title();
-	echo $post->post_type;
-	if ($post->post_type=="wpri_news"){
+	echo "</h1><br>";
+
+ 	if ($post->post_type=="wpri_news"){
 		echo $post->post_type;
 
 		echo 	"<div class='entry'>";
