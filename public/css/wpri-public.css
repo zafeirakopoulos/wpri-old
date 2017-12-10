@@ -81,6 +81,8 @@
 }
 
 .locale-picker {
+    background-color: var(--main-background-color);
+
     font-size: var(--medium-font-size);
 }
 
