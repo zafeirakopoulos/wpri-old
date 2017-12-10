@@ -29,6 +29,9 @@ class WPRI_Report {
 			echo "<div class='col-xs-3'><button class='btn btn-primary' onclick='window.location.href = \"../report?id=projects\"'> Projects</button></div>";
 			echo "<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=2\"'> report 2</button></div>";
 			echo "<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=3\"'> report3</button></div>";
+			echo "<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=3\"'> report7</button></div>";
+			echo "</div><br>";
+			echo "<div class='row'";
 			echo "<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=2\"'> report4</button></div>";
 			echo "<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=3\"'> report5</button></div>";
 			echo "<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=2\"'> report6</button></div>";
