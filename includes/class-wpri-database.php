@@ -762,8 +762,6 @@ public static function add_form($entity, $form) {
 						   if (is_array($related)){
 							   $left = $related[0];
 							   $right = $related[1];
-							   error_log($left);
-							   error_log($right);
 							   $tmp=array();
 							   if (isset($declarations[$right]["groups"][0]["elements"][0]["all_locales"])){
 								   // error_log("in the if all_locales for ".$related);
