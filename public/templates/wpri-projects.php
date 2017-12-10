@@ -4,12 +4,17 @@
 			$project_ids= WPRI_Database::get_ids("project");
  			foreach ( $project_ids as $project_id ) {
 				$project = WPRI_Database::get_entity("project",$project_id);
- 				echo "<div class='col-sm-12 listing-thumb-frame'>";
-					echo "<a class='listing-thumb' href='".site_url()."/project?id=".$project_id."'>";
-						echo "<div class='col-xs-3  listing-thumb'>"."picture"."</div>";
-						echo "<div class='col-xs-9 listing-thumb'><h1 class='listing'>".$project['title']."</h1> </div>";
-					echo "</a>";
-				echo "</div>";
+
+                echo "<div class='row'>
+                        <a href='".site_url()."/project?id=".$project_id."' class='single'>
+                            <div class='col-xs-8 offset-xs-2 single'>
+                                <div class='col-xs-12 single'><h1 class='single'>".$project['title']."</h1></div>
+                                <div class='col-xs-3 single'>".$project["picture"]."</div>
+                                <div class='col-xs-9 single'>".$project['funding']."</div>
+                            </div>
+                        </a>
+                        </div>
+                    <hr/>";
 			}
  			?>
 		</div>
