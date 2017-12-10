@@ -18,16 +18,16 @@
 	<h1> Contact </h1>
 	<div class='row'>
 		<div class='col-xs-12 col-sm-4 '>
-				<h3>Office</h3> <br>
-				<h3><?php echo $member['office'];?></h3>
+				<h5>Office</h5> <br>
+				<h5><?php echo $member['office'];?></h5>
 		</div>
 		<div class='col-xs-12 col-sm-4 '>
-				<h3>Phone</h3> <br>
-				<h3><?php echo $member['phone'];?></h3>
+				<h5>Phone</h5> <br>
+				<h5><?php echo $member['phone'];?></h5>
 		</div>
 		<div class='col-xs-12 col-sm-4 '>
-				<h3>email</h3> <br>
-				<h3><?php echo $member['email'];?></h3>
+				<h5>email</h5> <br>
+				<h5><?php echo $member['email'];?></h5>
 		</div>
 	</div>
 
