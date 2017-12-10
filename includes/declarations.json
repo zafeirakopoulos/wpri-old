@@ -1130,6 +1130,19 @@
                             }
                         },
                         {
+                            "caption" : "Related projects" ,
+                            "name": "project",
+                            "value": "",
+                            "type": "multiple-select",
+                            "relation" : {
+                                "foreach" : {
+                                    "table" : "project",
+                                    "column" : "id",
+                                    "display_column" : "official_title"
+                                }
+                            }
+                        },
+                        {
                             "caption" : "Vacancy type" ,
                             "name": "vacancytype",
                             "value": "",
