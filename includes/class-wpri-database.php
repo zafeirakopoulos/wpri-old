@@ -781,23 +781,23 @@ public static function add_form($entity, $form) {
 				   $result["website"]= get_user_meta($result["user"],"website",true);
 				   $result["advisor"]= get_user_meta($result["user"],"advisor",true);
 				   $result["undegrad"]= array(
-					   "university" => get_user_meta($result["user"],"bs_uni",true);
-					   "program" => get_user_meta($result["user"],"bs_prog",true);
-					   "year" => get_user_meta($result["user"],"bs_year",true);
-					   "title" => get_user_meta($result["user"],"bs_title",true);
+					   "university" => get_user_meta($result["user"],"bs_uni",true),
+					   "program" => get_user_meta($result["user"],"bs_prog",true),
+					   "year" => get_user_meta($result["user"],"bs_year",true),
+					   "title" => get_user_meta($result["user"],"bs_title",true)
 
 				   );
 				   $result["masters"]= array(
-					   "university" => get_user_meta($result["user"],"ms_uni",true);
-					   "program" => get_user_meta($result["user"],"ms_prog",true);
-					   "year" => get_user_meta($result["user"],"ms_year",true);
-					   "title" => get_user_meta($result["user"],"ms_title",true);
+					   "university" => get_user_meta($result["user"],"ms_uni",true),
+					   "program" => get_user_meta($result["user"],"ms_prog",true),
+					   "year" => get_user_meta($result["user"],"ms_year",true),
+					   "title" => get_user_meta($result["user"],"ms_title",true)
 				   );
 				   $result["phd"]= array(
-					   "university" => get_user_meta($result["user"],"phd_uni",true);
-					   "program" => get_user_meta($result["user"],"phd_prog",true);
-					   "year" => get_user_meta($result["user"],"phd_year",true);
-					   "title" => get_user_meta($result["user"],"phd_title",true);
+					   "university" => get_user_meta($result["user"],"phd_uni",true),
+					   "program" => get_user_meta($result["user"],"phd_prog",true),
+					   "year" => get_user_meta($result["user"],"phd_year",true),
+					   "title" => get_user_meta($result["user"],"phd_title",true)
 
 				   );
 				   $result["office"]= get_user_meta($result["user"],"office",true);
