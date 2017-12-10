@@ -1140,6 +1140,80 @@
                     ]
                 }
             ]
+        },
+        "course": {
+            "title" : "Courses",
+            "table_name" : "course",
+            "name" :"course",
+            "display_element": "official_title",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "Course title",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "official_title",
+                            "caption" : "Official title" ,
+                            "value": "as appearing in the curriculum",
+                            "cols" : "100",
+                            "rows": "1"
+                        },
+                        {
+                            "type": "text",
+                            "localized":true,
+                            "name": "title",
+                            "caption" : "Title in different locales" ,
+                            "value": "Title in different locales",
+                            "cols" : "100",
+                            "rows": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        "courseoffering": {
+            "title" : "Course Offering",
+            "table_name" : "courseoffering",
+            "has_menu": true,
+            "name" :"courseoffering",
+            "display_element": "title",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "Course info",
+                    "elements" : [
+                        {
+                            "caption" : "Course" ,
+                            "name": "course",
+                            "value": "",
+                            "type": "select",
+                            "table" : "course",
+                            "column" : "id",
+                            "display_column" : "official_title"
+                        },
+                        {
+                            "type": "INT",
+                            "name": "year",
+                            "caption" : "Year" ,
+                            "value": "2018",
+                            "cols" : "4",
+                            "rows": "1"
+                        }
+                    ]
+                }
+            ],
+            "related" : [
+                "member"
+            ]
         }
     },
     "post_types":
