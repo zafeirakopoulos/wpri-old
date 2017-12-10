@@ -22,7 +22,8 @@
 				<h3 class="single"><?php echo $member['office'];?></h3>
 		</div>
 		<div class='col-xs-12 col-sm-4 '>
-				<h3 class="single">Phone<?php echo $member['phone'];?></h3>
+				<h3 class="single">Phone</h3> <br>
+				<h3 class="single"><?php echo $member['phone'];?></h3>
 		</div>
 		<div class='col-xs-12 col-sm-4 '>
 				<h3 class="single">email</h3> <br>
@@ -75,7 +76,7 @@
 
 	    while ( $loop->have_posts() ) : $loop->the_post();
 	        echo "<div class='row'>";
-	            echo "<a class='' href='".site_url()."/news/".$post->post_name."'>";
+	            echo "<a class='' href='".site_url()."/blog/".$post->post_name."'>";
 	                echo "<div class='col-sm-12 col-md-12 col-lg-12  '>".the_title()."</div>";
 	            echo "</a>";
 	        echo "</div>";
