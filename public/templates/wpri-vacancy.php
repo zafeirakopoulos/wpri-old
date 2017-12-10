@@ -11,11 +11,11 @@
 		</div>
 		<div class='row'>
 			<div class='col-sm-2 col-md-2 col-lg-2 single'>Position:</div>
-			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['postype'];?> </div>
+			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['vacancytype'];?> </div>
 			<div class='col-sm-2 col-md-2 col-lg-2 single'>Application deadline: </div>
 			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['deadline'];?> </div>
 			<div class='col-sm-2 col-md-2 col-lg-2 single'>Starting date:</div>
-			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['startdate'];?> </div>
+			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['startingdate'];?> </div>
 
 		</div>
 		<h2 class=" single">Job description</h2>
@@ -27,7 +27,7 @@
  	<h2 class=" single">Requirements:</h2>
 
 		<?php
-		foreach ($position['requirements'] as $requirement) {
+		foreach ($position['requirement'] as $requirement) {
 			echo "<div class='row'>";
 				echo "<div class='col-sm-12 col-md-12 col-lg-12 single'>".$requirement."</div>";
 			echo "</div>";
