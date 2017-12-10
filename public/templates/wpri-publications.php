@@ -1,4 +1,4 @@
-<div class='listing' id="publications" >
+<div class='single' id="publications" >
     <h1 class="single"> Publications </h1>
     <ul class="list-group">
 			<?php
