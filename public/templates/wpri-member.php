@@ -55,9 +55,8 @@
 	<hr/>
 
 	<h1> Projects </h1>
-	<div class='row'>
-		<?php
 		<ul class="list-group">
+		<?php
 		foreach ($member["project"] as $proj) {
 			$project = WPRI_Database::get_record("project",$proj[0]) ;
 			echo "<a class='list-group-item single' href='".site_url()."/project?id=".$proj[0]."'>";
@@ -66,7 +65,6 @@
 		}
 		?>
 		</ul>
-	</div>
 	<hr/>
 
 		<h1> Education </h1>
