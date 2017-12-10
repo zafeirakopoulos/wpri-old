@@ -132,7 +132,7 @@ h1.site-title{
 *****************************/
 
 .main-content-container{
-    width: 80%;
+    width: 90%;
 }
 
 
@@ -156,3 +156,10 @@ h1.site-title{
   /****************************
   ********** Single  **********
   *****************************/
+
+  .single {
+    margin-top: 0;
+    font-family: var(--font-family);
+    font-weight: normal;
+    color: var(--main-color);
+  }
