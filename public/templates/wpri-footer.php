@@ -11,10 +11,9 @@
                           Gebze – Kocaeli – Turkey
                </div>
                <div class="col-sm-3 bte-footer">
-                          +90 (262) 605 2203 
+                          +90 (262) 605 2203
                </div>
        </div>
-
 </footer>
 
 <?php wp_footer(); ?>
