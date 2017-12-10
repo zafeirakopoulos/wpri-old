@@ -36,7 +36,7 @@
 			</div>
 			<nav class="navbar navbar-default masthead">
 			  <div class="container-fluid">
-			    <div class="navbar-header">
+			    <div class="navbar-header masthead">
 			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 			        <span class="sr-only">Toggle navigation</span>
 			        <span class="icon-bar"></span>
@@ -45,7 +45,7 @@
 			      </button>
 			    </div>
 			    <div id="navbar" class="navbar-collapse collapse">
-			      <ul class="nav navbar-nav">
+			      <ul class="nav navbar-nav masthead">
 			          <li><a href="<?php echo get_permalink( get_page_by_path('faculty'))?>">People</a></li>
 			          <li><a href="<?php echo get_permalink( get_page_by_path('research'))?>">Research</a></li>
 					  <li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Projects</a></li>
@@ -53,7 +53,7 @@
 					  <li><a href="<?php echo get_permalink( get_page_by_path('positions'))?>">Open Positions</a></li>
 					  <li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>">Contact</a></li>
 			      </ul>
-			      <ul class="nav navbar-nav navbar-right">
+			      <ul class="nav navbar-nav navbar-right masthead">
 					  <li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('1')"> English</button></li>
 					  <li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('2')"> Turkish</button></li>
 			      </ul>
