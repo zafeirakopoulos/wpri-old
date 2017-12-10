@@ -148,6 +148,11 @@ h1.site-title{
 
 .main-content-container{
     width: 90%;
+    margin-top: 0;
+    font-family: var(--font-family);
+    font-weight: normal;
+    color: var(--main-color);
+    font-size: var(--normal-font-size);
 }
 
 
