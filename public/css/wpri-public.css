@@ -3,9 +3,6 @@
  * included in this file.
  */
 
- .main-content-container{
-     width: 100%;
- }
 
  :root {
      /* fonts */
@@ -134,11 +131,14 @@ h1.site-title{
 ********** Body  **********
 *****************************/
 
+.main-content-container{
+    width: 80%;
+}
+
 
   body {
       font-family: var(--font-family);
       color: var(--main-color);
-      width : 80%;
   }
 
   h1, .h1,
