@@ -11,18 +11,25 @@
 	if ($post->post_type=="wpri_news"){
 		echo $post->post_type;
 
- 		the_content();
+		echo 	"<div class='entry'>";
+		the_content();
+		echo "</div>";
 	}
 	elseif ($post->post_type=="wpri_highlights") {
+		echo 	"<div class='entry'>";
 		the_content();
-	}
+		echo "</div>";	}
 	elseif ($post->post_type=="wpri_blog") {
 		echo $post->post_type;
 
+		echo 	"<div class='entry'>";
 		the_content();
+		echo "</div>";
 	}
 	elseif ($post->post_type=="wpri_project_blog") {
+		echo 	"<div class='entry'>";
 		the_content();
+		echo "</div>";
 	}
 
 
