@@ -183,3 +183,6 @@ h1.site-title{
     font-weight: normal;
     color: var(--main-color);
   }
+  a.list-group-item :hover {
+    color: var(--main-focus-color);
+  }
