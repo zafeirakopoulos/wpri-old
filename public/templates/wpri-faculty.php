@@ -1,4 +1,4 @@
-<div class='listing' id="faculty" >
+<div class='single' id="faculty" >
 	<?php
 	$members= WPRI_Database::get_all("member");
     $faculty = array();
