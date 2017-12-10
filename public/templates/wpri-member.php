@@ -70,8 +70,10 @@
 	<hr/>
 
 		<h1> Education </h1>
-			<ul>
-				<li> <?php echo $member["bs_year"].": ".$member["bs_title"]." from ".$member["bs_uni"]." (".$member["bs_prog"].")"?>
+			<ul class="list-group">
+				<li class="list-group-item"> <?php echo $member["bs_year"].": ".$member["bs_title"]." from ".$member["bs_uni"]." (".$member["bs_prog"].")"?>
+				<li class="list-group-item"> <?php echo $member["ms_year"].": ".$member["ms_title"]." from ".$member["ms_uni"]." (".$member["ms_prog"].")"?>
+				<li class="list-group-item"> <?php echo $member["phd_year"].": ".$member["phd_title"]." from ".$member["phd_uni"]." (".$member["phd_prog"].")"?>
 			</ul>
 		<hr/>
 
