@@ -60,6 +60,7 @@ h1.site-title{
     font-family: var(--font-family);
     color: var(--main-color);
     margin-top: 35px;
+    margin-bottom: 2px;
 }
 
 .masthead {
