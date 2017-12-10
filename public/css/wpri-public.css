@@ -163,13 +163,7 @@ h1.site-title{
   ********** Single  **********
   *****************************/
 
-  .single {
-    margin-top: 0;
-    font-family: var(--font-family);
-    font-weight: normal;
-    color: var(--main-color);
-  }
-
+ 
   .list-group-item {
     margin-top: 0;
     font-family: var(--font-family);
