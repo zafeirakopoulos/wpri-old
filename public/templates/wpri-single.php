@@ -6,7 +6,7 @@
 	// foreach ($post as $key => $value) {
 	// 	echo $key." = ".$value;
 	// }
-
+	the_title();
 	echo $post->post_type;
 	if ($post->post_type=="wpri_news"){
 		echo $post->post_type;
