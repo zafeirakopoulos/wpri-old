@@ -633,7 +633,7 @@ public static function add_form($entity, $form) {
 			}
 	 	}
 
-		// error_log(print_r($results));
+		error_log(print_r($results));
 	 	return $results;
 	 }
 
