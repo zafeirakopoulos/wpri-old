@@ -14,7 +14,23 @@
 			<br>
 			With national and international collaborations, personnel movement and creation of policies, GTU IIT positions itself as the center of attraction.
 		</p>
-		</div> <!-- /.blog-main -->
+
+		<h1 class='single'>Highlights</h1><br>
+		<?php $args = array(
+			  'posts_per_page' => 20,
+			  'post_type' => 'wpri_highlights'
+			);
+
+			$loop = new WP_Query( $args );
+			echo "<ul class='list-group'>";
+
+			while ( $loop->have_posts() ) : $loop->the_post();
+				echo "<a class='list-group-item' href='".site_url()."/blog/".$post->post_name."'>".get_the_title()."</a>";
+			endwhile;
+			echo "</ul>";
+
+			?>
+		</div>
 
 		<div class="col-xs-12 col-md-3">
 
