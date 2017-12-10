@@ -170,7 +170,14 @@ h1.site-title{
     color: var(--main-color);
   }
 
-  a, .list-group-item {
+  .list-group-item {
+    margin-top: 0;
+    font-family: var(--font-family);
+    font-weight: normal;
+    color: var(--main-color);
+  }
+
+  a.list-group-item {
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
