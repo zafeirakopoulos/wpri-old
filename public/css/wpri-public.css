@@ -6,10 +6,15 @@
  .main-content-container{
      width: 100%;
  }
- 
+
  :root {
      /* fonts */
-	 --site-title-font-size : 30px;
+     --site-title-font-size : 30px;
+     --small-font-size : 10px;
+     --medium-font-size : 13px;
+     --large-font-size : 16px;
+     --title-font-size : 18px;
+
      --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
      --main-color : orange;
      --alt-color : purple;
@@ -59,16 +64,6 @@
     }
   }
 
-  /****************************
-  ********** Locale  **********
-  *****************************/
-
-  .locale-picker {
-      background-color: var(--main-background-color);
-      color: var(--main-color);
-      border : 0px;
-      font-size: 15px;
-  }
 
 
 
@@ -83,4 +78,14 @@
             box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
     text-align: center;
     width: 100%;
+    font-size: var(--large-font-size);
+  }
+
+  .locale-picker {
+      background-color: var(--main-background-color);
+      color: var(--main-color);
+      -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+              box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+      border : 0px;
+      font-size: var(--medium-font-size);
   }
