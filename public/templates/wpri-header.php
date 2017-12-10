@@ -31,8 +31,8 @@
 
  		<div class="bte-masthead container">
 			<div class="row">
-				<div class="col-sd-2 "><img width="100px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png"></div>
- 				<div class="col-sd-8 "><h1 class="site-title">Institute of Information Technologies</h1></div>
+				<div class="col-xs-2 "><img width="200px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png"></div>
+ 				<div class="col-xs-8 "><h1 class="site-title">Institute of Information Technologies</h1></div>
 			</div>
 			<nav class="navbar navbar-default">
 			  <div class="container-fluid">
