@@ -6,39 +6,36 @@
 			$project = WPRI_Database::get_entity("project",$project_id);
 
 			echo "<div class='col-xs-3  single'>"."picture"."</div>";
-			echo "<div class='col-xs-9 single'><h4 class='listing'>".$project['title']."</h4> </div>";
+			echo "<div class='col-xs-9 single'><h3 class='single'>".$project['title']."</h3> </div>";
 
-			echo "<div class='col-xs-12 single'><h4 class='listing'> Status:".$project['status']."</h4> </div>";
+			echo "<div class='col-xs-12 single'><h3 class='single'> Status:".$project['status']."</h3> </div>";
 
 			if (isset($project['website']) AND $project['website']!=""){
-				echo "<div class='col-xs-12 single'><h4 class='listing'>".$project['website']."</h4></div>";
+				echo "<div class='col-xs-12 single'><h3 class='single'>".$project['website']."</h3></div>";
 			}
 
-			echo "<div class='col-xs-12 single'><h4 class='listing'> Activity Period:".
+			echo "<div class='col-xs-12 single'><h3 class='single''> Activity Period:".
 				mysql2date( 'F j, Y', $project['startdate'] )
 				."-".
 				mysql2date( 'F j, Y', $project['enddate'] )
-				."</h4> </div>";
+				."</h3> </div>";
 
-			echo "<div class='col-xs-12 single'><h4 class='listing'> Funded by:".join(",",$project['agency'])."</h4> </div>";
+			echo "<div class='col-xs-12 single'><h3 class='single'> Funded by:".join(",",$project['agency'])."</h3> </div>";
  			?>
 
 
 			<h2 class="single">Participants</h2>
 			<h3 class="single">Institute members</h3>
-
+			<ul class="list-group">
 			<?php
 				foreach ($project["members"] as $member_row) {
 					$member = WPRI_Database::get_record("member",$member_row["member"]) ;
-					echo "<a class=' single' href='".site_url()."/member?id=".$member["id"]."'>";
-					echo "<div class='row'>";
-						echo "<div class='col-sm-12 single'>".$member["name"]. " (".
-						WPRI_Database::get_localized("projectrole", $member_row["projectrole"]).")</div>";
-					echo "</div>";
-					echo "</a>";
+					echo "<a class='list-group-item' href='".site_url()."/member?id=".$member["id"]."'>";
+ 					echo $member["name"]. " (".WPRI_Database::get_localized("projectrole", $member_row["projectrole"]).")";
+ 					echo "</a>";
 				}
 			?>
-
+			</ul>
 
 			<?php
 				if (!empty($project["collaborators"])){
