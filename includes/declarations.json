@@ -1216,12 +1216,18 @@
                             "value": "2018",
                             "cols" : "4",
                             "rows": "1"
+                        },
+                        {
+                            "caption" : "Instructor" ,
+                            "name": "member",
+                            "value": "",
+                            "type": "select",
+                            "table" : "member",
+                            "column" : "id",
+                            "display_column" : "name"
                         }
                     ]
                 }
-            ],
-            "related" : [
-                "member"
             ]
         }
     },
