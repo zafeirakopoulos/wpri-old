@@ -1,15 +1,15 @@
-<div class='single' id="member" >
+<div id="member" >
 	<div class='row'>
 		<?php
 		$member_id=$_GET['id'];
 		$member = WPRI_Database::get_member_full($member_id);
 		?>
 		<div class='row'>
-	        <a href='<?php echo site_url()."/member?id=".$member["id"];?>' class='single'>
-                <div class='col-xs-8 offset-xs-2 single'>
-                    <div class='col-xs-12 single'><h1 class='single'><?php echo $member["title"]." ".$member['name'];?></h1></div>
-                    <div class='col-xs-3 single'><?php echo get_avatar($member['user']);?></div>
-                    <div class='col-xs-9 single'><?php echo $member['position'];?></div>
+	        <a href='<?php echo site_url()."/member?id=".$member["id"];?>' class=''>
+                <div class='col-xs-8 offset-xs-2 '>
+                    <div class='col-xs-12 '><h1 class=''><?php echo $member["title"]." ".$member['name'];?></h1></div>
+                    <div class='col-xs-3 '><?php echo get_avatar($member['user']);?></div>
+                    <div class='col-xs-9 '><?php echo $member['position'];?></div>
                 </div>
             </a>
         </div>
@@ -17,19 +17,19 @@
 
 	<h1> Contact </h1>
 	<div class='row'>
-		<div class='col-xs-12 col-sm-4 single'>
+		<div class='col-xs-12 col-sm-4 '>
 			<p>
 				Office <br>
 				<?php echo $member['office'];?>
 			</p>
 		</div>
-		<div class='col-xs-12 col-sm-4 single'>
+		<div class='col-xs-12 col-sm-4 '>
 			<p>
 				Phone <br>
 				<?php echo $member['phone'];?>
 			</p>
 		</div>
-		<div class='col-xs-12 col-sm-4 single'>
+		<div class='col-xs-12 col-sm-4 '>
 			<p>
 				email <br>
 				<?php echo $member['email'];?>
@@ -38,7 +38,7 @@
 	</div>
 
 	<h1> Publications </h1>
-	<ul class="list-group single">
+	<ul class="list-group ">
 		<?php
 		foreach ($member["publication"] as $publication_id) {
 			$publication = WPRI_Database::get_record("publication",$publication_id) ;
@@ -81,8 +81,8 @@
 
 	    while ( $loop->have_posts() ) : $loop->the_post();
 	        echo "<div class='row'>";
-	            echo "<a class='single' href='".site_url()."/news/".$post->post_name."'>";
-	                echo "<div class='col-sm-12 col-md-12 col-lg-12  single'>".the_title()."</div>";
+	            echo "<a class='' href='".site_url()."/news/".$post->post_name."'>";
+	                echo "<div class='col-sm-12 col-md-12 col-lg-12  '>".the_title()."</div>";
 	            echo "</a>";
 	        echo "</div>";
 
