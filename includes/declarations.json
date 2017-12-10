@@ -1144,6 +1144,7 @@
         "course": {
             "title" : "Courses",
             "table_name" : "course",
+            "has_menu": true,
             "name" :"course",
             "display_element": "official_title",
             "actions": {
