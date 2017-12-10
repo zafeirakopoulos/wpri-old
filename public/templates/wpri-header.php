@@ -29,13 +29,11 @@
 		}
 	?>
 
- 		<div class="masthead container">
-			<div class="row">
-			    <div class="col-xs-2 "><img width="150px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png"></div>
-			    <div class="col-xs-8 "><h1 class="site-title">Institute of Information Technologies</h1></div>
-			</div>
+<div class="masthead container">
+	<div class="row">
+	    <div class="col-xs-2 "><img width="150px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png"></div>
+	    <div class="col-xs-8 "><h1 class="site-title">Institute of Information Technologies</h1><br>
 			<nav class="navbar navbar-default">
-
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
@@ -44,7 +42,7 @@
 						<span class="icon-bar"></span>
 					</button>
 				</div>
-			    <div id="navbar" class="navbar-collapse collapse">
+				<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="<?php echo get_permalink( get_page_by_path('faculty'))?>">People</a></li>
 					<li><a href="<?php echo get_permalink( get_page_by_path('research'))?>">Research</a></li>
@@ -57,6 +55,10 @@
 					<li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('1')"> English</button></li>
 					<li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('2')"> Turkish</button></li>
 				</ul>
-			    </div><!--/.nav-collapse -->
+				</div><!--/.nav-collapse -->
 			</nav>
+
 		</div>
+	</div>
+
+</div>
