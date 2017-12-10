@@ -220,6 +220,58 @@
                 }
             ]
         },
+        "vacancytype": {
+            "title" : "Vacancy type",
+            "table_name" : "vacancytype",
+            "name" :"vacancytype",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "vacancytype",
+                            "caption" : "Vacancy type" ,
+                            "value": "",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "vacancytype" : "Research Assistant",
+                    "en_US" : "Research Assistant",
+                    "tr_TR" : "Research Assistant"
+                },
+                {
+                    "localized" : true,
+                    "vacancytype" : "Project Assistant",
+                    "en_US" : "Project Assistant",
+                    "tr_TR" : "Project Assistant"
+                },
+                {
+                    "localized" : true,
+                    "vacancytype" : "Technician",
+                    "en_US" : "Technician",
+                    "tr_TR" : "Technician"
+                },
+                {
+                    "localized" : true,
+                    "vacancytype" : "Faculty",
+                    "en_US" : "Faculty",
+                    "tr_TR" : "Faculty"
+                }
+            ]
+        },
         "studentstatus": {
             "title" : "Student status",
             "table_name" : "studentstatus",
@@ -1076,6 +1128,15 @@
                                     "display_column" : "name"
                                 }
                             }
+                        },
+                        {
+                            "caption" : "Vacancy type" ,
+                            "name": "vacancytype",
+                            "value": "",
+                            "type": "select",
+                            "table" : "vacancytype",
+                            "column" : "id",
+                            "display_column" : "vacancytype"
                         }
                     ]
                 },
