@@ -10,7 +10,7 @@
                             <div class='col-xs-8 offset-xs-2 single'>
                                 <div class='col-xs-12 single'><h1 class='single'>".$project['title']."</h1></div>
                                 <div class='col-xs-3 single'>".$project["picture"]."</div>
-                                <div class='col-xs-9 single'>".join(",",$project['agency'])."</div>
+                                <div class='col-xs-9 single'>Funded by: ".join(",",$project['agency'])."</div>
                             </div>
                         </a>
                         </div>
