@@ -7,6 +7,8 @@
 	// 	echo $key." = ".$value;
 	// }
 
+	echo $post->post_type;
+	echo $post->title;
 	if ($post->post_type=="wpri_news"){
  		echo get_the_content();
 	}
