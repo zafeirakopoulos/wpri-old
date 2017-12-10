@@ -4,9 +4,7 @@
 	$post = get_post(get_the_ID());
 
 
-	echo "<h1 class='single'>";
-	the_title();
-	echo "</h1><br>";
+
 
  	if ($post->post_type=="wpri_news"){
   		echo apply_filters('the_content', $post->post_content);;
@@ -15,6 +13,14 @@
 		echo apply_filters('the_content', $post->post_content);;
 	}
 	elseif ($post->post_type=="wpri_blog") {
+		$member = WPRI_Database::get_member_full($member_id);
+		echo "<h1 class='single'>";
+		echo echo $member["title"]." ".$member['name']."'s blog";
+		echo "</h1><br>";
+
+		echo "<h2 class='single'>";
+		the_title();
+		echo "</h2><br>";
 		echo apply_filters('the_content', $post->post_content);;
 
 	}
