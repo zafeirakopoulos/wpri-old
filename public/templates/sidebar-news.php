@@ -1,4 +1,4 @@
-<div>
+<div class='wpri-sidebar-frame'>
 	<h1 class='wpri-sidebar'> News </h1>
 		<ul class="list-group">
 			<?php
