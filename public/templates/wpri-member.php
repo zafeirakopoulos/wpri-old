@@ -71,9 +71,10 @@
 
 		<h1> Education </h1>
 			<ul class="list-group">
-				<li class="list-group-item"> <?php echo $member["bs_year"].": ".$member["bs_title"]." from ".$member["bs_uni"]." (".$member["bs_prog"].")"?>
-				<li class="list-group-item"> <?php echo $member["ms_year"].": ".$member["ms_title"]." from ".$member["ms_uni"]." (".$member["ms_prog"].")"?>
-				<li class="list-group-item"> <?php echo $member["phd_year"].": ".$member["phd_title"]." from ".$member["phd_uni"]." (".$member["phd_prog"].")"?>
+				<li class="list-group-item"> <?php echo $member["undergrad"]["year"].": ".$member["undergrad"]["title"]." from ".$member["undergrad"]["university"]." (".$member["undergrad"]["program"]].")"?>
+				<li class="list-group-item"> <?php echo $member["masters"]["year"].": ".$member["masters"]["title"]." from ".$member["masters"]["university"]." (".$member["masters"]["program"]].")"?>
+				<li class="list-group-item"> <?php echo $member["phd"]["year"].": ".$member["phd"]["title"]." from ".$member["phd"]["university"]." (".$member["phd"]["program"]].")"?>
+
 			</ul>
 		<hr/>
 
