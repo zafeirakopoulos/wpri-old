@@ -14,7 +14,7 @@
 		echo $post->post_type;
 
 		echo 	"<div class='entry'>";
-		the_content();
+		echo $post->post_content ;
 		echo "</div>";
 	}
 	elseif ($post->post_type=="wpri_highlights") {
