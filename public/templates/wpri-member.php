@@ -50,11 +50,11 @@
 	</ul>
 
 	<h1> Projects </h1>
-		<ul class="list-group single">
+		<ul class="list-group">
 		<?php
 		foreach ($member["project"] as $proj) {
 			$project = WPRI_Database::get_record("project",$proj[0]) ;
-			echo "<a class='list-group-item' href='".site_url()."/project?id=".$proj[0]."'>";
+			echo "<a class='list-group-item single' href='".site_url()."/project?id=".$proj[0]."'>";
  			echo $project["official_title"]." (".$proj[1].")";
 			echo "</a>";
 		}
