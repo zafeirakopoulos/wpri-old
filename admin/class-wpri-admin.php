@@ -185,10 +185,15 @@ class WPRI_Admin {
 
 	    echo '<h2>Undergraduate</h2>';
 	    echo '<table class="form-table">';
-	 	echo '<tr>';
-		echo '<th><label">Institution</label></th>';
-		echo '<td><textarea id="bs_inst" name="bs_inst" cols="70" rows="1"></textarea>';
-		echo '<span class="description">Write uni/dept name.</span>';
+		echo '<tr>';
+		echo '<th><label">University</label></th>';
+		echo '<td><textarea id="bs_inst" name="bs_uni" cols="70" rows="1"></textarea>';
+		echo '<span class="description">Write uni.</span>';
+		echo '</td></tr>';
+		echo '<tr>';
+		echo '<th><label">Program</label></th>';
+		echo '<td><textarea id="bs_inst" name="bs_prog" cols="70" rows="1"></textarea>';
+		echo '<span class="description">Write program.</span>';
 		echo '</td></tr>';
 	 	echo '<tr>';
 		echo '<th><label">Year</label></th>';
@@ -202,9 +207,14 @@ class WPRI_Admin {
 	    echo '<h2>Masters</h2>';
 	    echo '<table class="form-table">';
 	 	echo '<tr>';
-		echo '<th><label">Institution</label></th>';
-		echo '<td><textarea id="ms_inst" name="ms_inst" cols="70" rows="1"></textarea>';
+		echo '<th><label">University</label></th>';
+		echo '<td><textarea id="ms_inst" name="ms_uni" cols="70" rows="1"></textarea>';
 		echo '<span class="description">Write uni/dept name.</span>';
+		echo '</td></tr>';
+		echo '<tr>';
+		echo '<th><label">Program</label></th>';
+		echo '<td><textarea id="bs_inst" name="ms_prog" cols="70" rows="1"></textarea>';
+		echo '<span class="description">Write program.</span>';
 		echo '</td></tr>';
 	 	echo '<tr>';
 		echo '<th><label">Year</label></th>';
@@ -218,9 +228,14 @@ class WPRI_Admin {
 	    echo '<h2>PhD</h2>';
 	    echo '<table class="form-table">';
 	 	echo '<tr>';
-		echo '<th><label">Institution</label></th>';
-		echo '<td><textarea id="phd_inst" name="phd_inst" cols="70" rows="1"></textarea>';
+		echo '<th><label">University</label></th>';
+		echo '<td><textarea id="phd_inst" name="phd_uni" cols="70" rows="1"></textarea>';
 		echo '<span class="description">Write uni/dept name.</span>';
+		echo '</td></tr>';
+		echo '<tr>';
+		echo '<th><label">Program</label></th>';
+		echo '<td><textarea id="bs_inst" name="phd_prog" cols="70" rows="1"></textarea>';
+		echo '<span class="description">Write program.</span>';
 		echo '</td></tr>';
 	 	echo '<tr>';
 		echo '<th><label">Year</label></th>';
@@ -261,25 +276,32 @@ class WPRI_Admin {
 		    update_user_meta( $user_id, 'advisor', $_POST['advisor'] );
 		}
 
-		if(isset($_POST['bs_inst']) && $_POST['bs_inst'] != ""){
-		    update_user_meta( $user_id, 'bs_inst', $_POST['bs_inst'] );
+		if(isset($_POST['bs_uni']) && $_POST['bs_uni'] != ""){
+		    update_user_meta( $user_id, 'bs_uni', $_POST['bs_uni'] );
+		}
+		if(isset($_POST['bs_prog']) && $_POST['bs_prog'] != ""){
+			update_user_meta( $user_id, 'bs_prog', $_POST['bs_prog'] );
 		}
 
 		if(isset($_POST['bs_year']) && $_POST['bs_year'] != ""){
 		    update_user_meta( $user_id, 'bs_year', $_POST['bs_year'] );
 		}
 
-		if(isset($_POST['ms_inst']) && $_POST['ms_inst'] != ""){
-		    update_user_meta( $user_id, 'ms_inst', $_POST['ms_inst'] );
+		if(isset($_POST['ms_uni']) && $_POST['ms_uni'] != ""){
+		    update_user_meta( $user_id, 'ms_uni', $_POST['ms_uni'] );
 		}
-
+		if(isset($_POST['ms_prog']) && $_POST['ms_prog'] != ""){
+			update_user_meta( $user_id, 'ms_prog', $_POST['ms_prog'] );
+		}
 		if(isset($_POST['ms_year']) && $_POST['ms_year'] != ""){
 		    update_user_meta( $user_id, 'ms_year', $_POST['ms_year'] );
 		}
-		if(isset($_POST['phd_inst']) && $_POST['phd_inst'] != ""){
-		    update_user_meta( $user_id, 'phd_inst', $_POST['phd_inst'] );
+		if(isset($_POST['phd_uni']) && $_POST['phd_uni'] != ""){
+		    update_user_meta( $user_id, 'phd_uni', $_POST['phd_uni'] );
 		}
-
+		if(isset($_POST['phd_prog']) && $_POST['phd_prog'] != ""){
+			update_user_meta( $user_id, 'phd_prog', $_POST['phd_prog'] );
+		}
 		if(isset($_POST['phd_year']) && $_POST['phd_year'] != ""){
 		    update_user_meta( $user_id, 'phd_year', $_POST['phd_year'] );
 		}
