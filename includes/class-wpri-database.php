@@ -85,7 +85,6 @@ class WPRI_Database {
 				}
 				$sql = $sql . ");";
 
-			    // error_log($sql);
 				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 			}
 			# Create locale_* tables for all_locales elements
@@ -106,7 +105,6 @@ class WPRI_Database {
 				$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
 				$sql = $sql .  "FOREIGN KEY (". $element["name"] .") REFERENCES ".self::table_name($element["name"])."(id)";
 				$sql = $sql . ");";
-				// error_log($sql);
 				$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 			}
 
@@ -122,7 +120,6 @@ class WPRI_Database {
 						$sql = $sql .  "FOREIGN KEY (locale) REFERENCES ".self::table_name("locale")."(id),";
 						$sql = $sql .  "FOREIGN KEY (". $entity_name .") REFERENCES ".self::table_name($entity_name)."(id)";
 						$sql = $sql . ");";
-						// error_log($sql);
 						$GLOBALS['wpdb']->query( $GLOBALS['wpdb']->query( $sql ) );
 					}
 				}
@@ -217,7 +214,6 @@ class WPRI_Database {
 		}
 
 		$tables_to_drop = array_reverse($tables_to_drop);
-		// error_log("tables_to_drop ".implode($tables_to_drop));
 		// array_push($tables_to_drop,"vacancy_project");
 
 	    foreach($tables_to_drop as $table_name){
@@ -485,7 +481,6 @@ public static function add_form($entity, $form) {
 			array_push($values,$value);
 		}
 		$query = "SELECT * FROM " . self::table_name($table). " WHERE ". join(" AND ", $wherearray);
-		// error_log($query);
 		$results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare($query, $values),"ARRAY_A");
 		return $results[0];
 		// TODO is [0] correct????
@@ -599,7 +594,6 @@ public static function add_form($entity, $form) {
 	 	foreach (  $relations  as $name ) {
 			$tmp=array();
 			if (isset($declarations[$name]["groups"][0]["elements"][0]["all_locales"])){
-				// error_log("in the if all_locales for ".$name);
 				foreach (WPRI_Database::get_relation($entity_name,$name,$id,"") as $row) {
 					$tmp[] = WPRI_Database::get_localized($name,$row[$name]) ;
 				}
@@ -613,7 +607,6 @@ public static function add_form($entity, $form) {
 
 		foreach (  $select  as $selection ) {
 			if (isset($declarations[$selection]["groups"][0]["elements"][0]["all_locales"])){
-				// error_log("in the if all_locales for ".$selection);
 				$results[$selection]=  WPRI_Database::get_localized($selection,$results[$selection]) ;
 			}
 		}
@@ -628,7 +621,6 @@ public static function add_form($entity, $form) {
 			foreach ( $entity["related"] as $related ) {
 				$tmp=array();
 				if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
-					// error_log("in the if all_locales for ".$related);
 					foreach (WPRI_Database::get_relation($related,$entity_name,"",$id) as $row) {
 						$tmp[] = WPRI_Database::get_localized($related,$row[$related]) ;
 					}
@@ -641,7 +633,7 @@ public static function add_form($entity, $form) {
 			}
 	 	}
 
-		error_log(print_r($results));
+		// error_log(print_r($results));
 	 	return $results;
 	 }
 
@@ -764,7 +756,6 @@ public static function add_form($entity, $form) {
 							   $right = $related[1];
 							   $tmp=array();
 							   if (isset($declarations[$right]["groups"][0]["elements"][0]["all_locales"])){
-								   // error_log("in the if all_locales for ".$related);
 								   foreach (WPRI_Database::get_double_relation($left,"member",$right,"",$id,"") as $row) {
 									   $tmp[] = array($row[$left],WPRI_Database::get_localized($right,$row[$right]));
 								   }
@@ -777,7 +768,6 @@ public static function add_form($entity, $form) {
 						   } else{
 	 		 				   $tmp=array();
 	 		 				   if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
-	 		 					   // error_log("in the if all_locales for ".$related);
 	 		 					   foreach (WPRI_Database::get_relation($related,"member","",$id) as $row) {
 	 		 						   $tmp[] = WPRI_Database::get_localized($related,$row[$related]) ;
 	 		 					   }
