@@ -1146,7 +1146,7 @@
             "table_name" : "course",
             "has_menu": true,
             "name" :"course",
-            "display_element": "official_title",
+            "display_element": "code",
             "actions": {
                 "add" : "manage_options",
                 "remove" : ["admin"],
@@ -1156,6 +1156,14 @@
                 {
                     "title" : "Course title",
                     "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "code",
+                            "caption" : "Course code" ,
+                            "value": "as appearing in the curriculum",
+                            "cols" : "10",
+                            "rows": "1"
+                        },
                         {
                             "type": "text",
                             "name" : "official_title",
@@ -1182,7 +1190,7 @@
             "table_name" : "courseoffering",
             "has_menu": true,
             "name" :"courseoffering",
-            "display_element": "title",
+            "display_element": "course",
             "actions": {
                 "add" : "manage_options",
                 "remove" : ["admin"],
@@ -1190,7 +1198,7 @@
             },
             "groups" :[
                 {
-                    "title" : "Course info",
+                    "title" : "",
                     "elements" : [
                         {
                             "caption" : "Course" ,
@@ -1199,7 +1207,7 @@
                             "type": "select",
                             "table" : "course",
                             "column" : "id",
-                            "display_column" : "official_title"
+                            "display_column" : "code"
                         },
                         {
                             "type": "INT",
