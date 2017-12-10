@@ -6,15 +6,18 @@
 
  :root {
 	 --site-title-font-size : 30px;
+     --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     --main-color : orange;
+
+
          /*--main-background-color : #FBB117;*/
          --main-background-color : lightgray;
 
          --secondary-background-color : white;
          --alt-background-color : lightgray;
-         --main-color : darkgray;
          --secondary-color : yellow;
-	 --hr-color:gray;
-	 --hr-font-size: 25px;
+    	 --hr-color:gray;
+    	 --hr-font-size: 25px;
 
          --standard-border: 2px solid gray ;
          --standard-round-corners :  25px;
@@ -80,14 +83,14 @@
 
   h1.site-title{
       font-size: var(--site-title-font-size,30px);
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: var(--font-family);
       margin-top: 35px;
   }
 
 
   body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: var(--main-color);
+      font-family: var(--font-family);
+      color: var(--main-color);
   }
 
   h1, .h1,
@@ -97,7 +100,7 @@
   h5, .h5,
   h6, .h6 {
     margin-top: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: var(--font-family);
     font-weight: normal;
     color: var(--main-color);
   }
