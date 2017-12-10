@@ -17,14 +17,14 @@
 
 
      --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-     --main-color : orange;
+     --main-color : blue;
      --main-focus-color : red;
      --alt-color : purple;
 
 
      /* background */
      --main-background-color : lightgray;
-     --alt-background-color : lightgray;
+     --alt-background-color : black;
 
 
       }
