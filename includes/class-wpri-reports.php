@@ -31,7 +31,7 @@ class WPRI_Report {
 			<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=2\"'> report 2</button></div>
 			<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=3\"'> report3</button></div>
 			<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=3\"'> report7</button></div>
-			</div>
+		</div><br>
 			<div class='row'>
 			<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=2\"'> report4</button></div>
 			<div class='col-xs-3'><button class='col-xs-3 btn btn-primary' onclick='window.location.href = \"../report?id=3\"'> report5</button></div>
