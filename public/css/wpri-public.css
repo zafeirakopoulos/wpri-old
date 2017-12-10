@@ -71,15 +71,24 @@
   ********** Header  **********
   *****************************/
 
-  .masthead {
+.masthead {
     background-color: var(--main-background-color);
     color: var(--main-color);
     text-align: center;
     width: 100%;
     border : 0px;
     font-size: var(--large-font-size);
-  }
+}
 
-  .locale-picker {
-      font-size: var(--medium-font-size);
-  }
+.navbar {
+    background-color: var(--main-background-color);
+    color: var(--main-color);
+    text-align: center;
+    width: 100%;
+    border : 0px;
+    font-size: var(--large-font-size);
+}
+
+.locale-picker {
+    font-size: var(--medium-font-size);
+}
