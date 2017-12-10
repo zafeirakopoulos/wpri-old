@@ -30,7 +30,10 @@
 	?>
 
  		<div class="masthead container">
-			<div class="col-xs-12 "><h1 class="site-title">Institute of Information Technologies</h1></div>
+			<div class="row">
+			    <div class="col-xs-2 "><img width="150px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png"></div>
+			    <div class="col-xs-8 "><h1 class="site-title">Institute of Information Technologies</h1></div>
+			</div>
 			<nav class="navbar navbar-default">
 				<a class="navbar-brand" href="#">
 					<img width="150px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png" >
