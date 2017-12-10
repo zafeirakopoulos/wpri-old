@@ -138,7 +138,13 @@
  }
 
 
-
+ .vr {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 0;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    height : 100%;
+ }
 
  /*
   * BTE name and description
@@ -296,7 +302,6 @@ footer.bte-footer{
   margin-left: var(--small-margin-left,5px);
   margin-bottom:var(--small-margin-bottom,10px);
   margin-top:var(--small-margin-top,10px);
-   border-right: 1px dashed #333;
   height : 100%;
 }
 
