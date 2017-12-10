@@ -39,7 +39,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
                 $template_loader->get_template_part( 'wpri', 'publication' );
             }
 
-            if ( is_single() && !is_page( 'report' )) {
+            if ( is_single() ) {
                 $template_loader->get_template_part( 'wpri', 'single' );
             }
                 if ( have_posts() ) : while ( have_posts() ) : the_post();
