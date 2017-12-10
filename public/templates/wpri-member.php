@@ -76,7 +76,7 @@
 		echo "<ul class='list-group'>";
 
 	    while ( $loop->have_posts() ) : $loop->the_post();
-			echo "<a class='list-group-item' href='".site_url()."/blog/".$post->post_name."/?member=".$member_id."'>".the_title()."</a>";
+			echo "<a class='list-group-item' href='".site_url()."/blog/".$post->post_name."/?member=".$member_id."'>".get_the_title()."</a>";
 	    endwhile;
 		echo "</ul>";
 
