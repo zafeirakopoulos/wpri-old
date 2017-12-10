@@ -1,5 +1,5 @@
 
-    <footer class="bte-footer">
+    <footer class="footer">
         <div class="row">
             <div class="col-sm-3 bte-footer">
                     Gebze Technical University
