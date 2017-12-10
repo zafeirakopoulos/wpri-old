@@ -207,6 +207,7 @@ class WPRI_Form {
 							}
 						}
 						elseif ($element["type"]=="tinytext"){?>
+                            <label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
 							<textarea id='<?php echo $element["name"]?>'
 									  name='<?php echo $element["name"] ?>'
 									  cols='40'
@@ -215,6 +216,7 @@ class WPRI_Form {
 							</textarea>
 						<?php }
 						elseif ($element["type"]=="INT"){?>
+                            <label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
                             <textarea id='<?php echo $element["name"]?>'
                                       name='<?php echo $element["name"] ?>'
                                       cols='12'
