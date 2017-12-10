@@ -639,7 +639,8 @@
                 }
             ],
             "related":[
-                "publication"
+                "publication",
+                ["project","projectrole"]
             ]
         },
         "collaborator": {
