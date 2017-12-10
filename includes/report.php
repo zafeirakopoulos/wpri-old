@@ -3,7 +3,7 @@ include_once("xlsxwriter.class.php");
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 error_reporting(E_ALL & ~E_NOTICE);
-error_log("in reoprt");
+
 $filename = $_GET['id'].".xlsx";
 header('Content-disposition: attachment; filename="'.XLSXWriter::sanitize_filename($filename).'"');
 header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
