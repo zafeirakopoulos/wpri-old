@@ -307,7 +307,7 @@ footer.bte-footer{
 h1.wpri-sidebar{
     font-size: var(--large-font-size,25px);
 }
-.wpri-sidebar-frame {
+/*.wpri-sidebar-frame {
   background-color: var(--sidebar-background-color);
   margin-right: var(--listing-margin-right,5px);
   margin-left: var(--listing-margin-left,5px);
@@ -315,7 +315,7 @@ h1.wpri-sidebar{
   margin-top:var(--listing-margin-top,10px);
   border : var(--sidebar-border);
   border-radius: var(--standard-round-corners);
-}
+}*/
 
 @media only screen and (min-width: 1024px) {
   /* define mobile specific styles come here */
