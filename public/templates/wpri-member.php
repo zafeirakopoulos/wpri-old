@@ -57,15 +57,15 @@
 	<h1> Projects </h1>
 	<div class='row'>
 		<?php
+		<ul class="list-group">
 		foreach ($member["project"] as $proj) {
 			$project = WPRI_Database::get_record("project",$proj[0]) ;
-			echo "<a class=' single' href='".site_url()."/project?id=".$proj[0]."'>";
-			echo "<div class='row'>";
-				echo "<div class='col-sm-12  single'>".$project["official_title"]." (".$proj[1].")</div>";
-			echo "</div>";
+			echo "<a class='list-group-item single' href='".site_url()."/project?id=".$proj[0]."'>";
+ 			echo $project["official_title"]." (".$proj[1].")";
 			echo "</a>";
 		}
 		?>
+		</ul>
 	</div>
 	<hr/>
 
