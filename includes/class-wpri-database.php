@@ -685,8 +685,106 @@ public static function add_form($entity, $form) {
 			 $members = $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("member"),"ARRAY_A" );
 
 			 foreach ($members as $member) {
-				 $id = $member["id"];
-			   		 $result=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
+				   $results[$member["id"]] = WPRI_Database::get_member_full_precomputed_entity($member["id"],$local,$relations ,$multiplerelations, $select);
+		 		}
+
+				error_log(print_r($results));
+				return $results;
+			 }
+
+
+	 	 	 public static function get_member_full($id) {
+	 			 $declarations = WPRI_Declarations::get_declarations();
+	 			 $entity = $declarations["member"];
+	 			 $local = array();
+	 	 		 $relations = array();
+	 	 		 $multiplerelations = array();
+	 	 		 $select = array();
+
+	 	 		 foreach ($entity["groups"] as $group ) {
+	 	 		 	foreach ($group["elements"] as $element ) {
+	 	 		 		if (isset($element["localized"]) ){
+	 	 		 			$local[] = $element["name"];
+	 	 		 		}
+	 	 		 		elseif ($element["type"]== "multiple-select"){
+	 	 		 			$relation = $element["relation"];
+	 	 		 			if (isset($relation["select"])) {
+	 	 						$multiplerelations[] = array($element["name"],$relation["foreach"]["table"],$relation["select"]["table"]);
+	 	  		 			} else {
+	 	 						array_push($relations, $relation["foreach"]["table"]);
+	 	 		 			}
+	 	 		 		}
+	 	 				elseif ($element["type"]== "select"){
+	 	 					array_push($select, $element["table"]);
+	 	 				}
+	 	 		 	}
+	 	 		 }
+
+
+ 			   	 $result=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
+ 			   			 "SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $id) ,"ARRAY_A"
+ 			   		 )[0];
+
+ 		 		   foreach (  $local  as $localizedname) {
+ 		 			   $result[$localizedname] = WPRI_Database::get_localized_element("member",$localizedname,$id);
+ 		 		   }
+
+ 		 		   foreach (  $relations  as $name ) {
+ 		 			   $tmp=array();
+ 		 			   if (isset($declarations[$name]["groups"][0]["elements"][0]["all_locales"])){
+ 		 				   // error_log("in the if all_locales for ".$name);
+ 		 				   foreach (WPRI_Database::get_relation("member",$name,$id,"") as $row) {
+ 		 					   $tmp[] = WPRI_Database::get_localized($name,$row[$name]) ;
+ 		 				   }
+ 		 			   } else{
+ 		 				   foreach (WPRI_Database::get_relation("member",$name,$id,"") as $row) {
+ 		 					   $tmp[] = $row[$name];
+ 		 				   }
+ 		 			   }
+ 		 			   $result[$name]= $tmp;
+ 		 		   }
+
+ 		 		   foreach (  $select  as $selection ) {
+ 		 			   if (isset($declarations[$selection]["groups"][0]["elements"][0]["all_locales"])){
+ 		 				   // error_log("in the if all_locales for ".$selection);
+ 		 				   $result[$selection]=  WPRI_Database::get_localized($selection,$result[$selection]) ;
+ 		 			   }
+ 		 		   }
+
+
+ 		 		   foreach ( $multiplerelations as $relation ) {
+ 		 				$result[$relation[0]] = WPRI_Database::get_double_relation("member",$relation[1],$relation[2],$id,"","") ;
+
+ 		 		   }
+
+ 		 		   if (isset($entity["related"])){
+ 		 			   foreach ( $entity["related"] as $related ) {
+ 		 				   $tmp=array();
+ 		 				   if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
+ 		 					   // error_log("in the if all_locales for ".$related);
+ 		 					   foreach (WPRI_Database::get_relation($related,"member","",$id) as $row) {
+ 		 						   $tmp[] = WPRI_Database::get_localized($related,$row[$related]) ;
+ 		 					   }
+ 		 				   } else{
+ 		 					   foreach (WPRI_Database::get_relation($related,"member","",$id) as $row) {
+ 		 						   $tmp[] = $row[$related];
+ 		 					   }
+ 		 				   }
+ 		 				   $result[$related]= $tmp;
+ 		 			   }
+ 		 		   }
+ 				   $result["title"]= WPRI_Database::get_localized("title",get_user_meta($result["user"],"title",true)) ;
+ 				   $result["position"]= WPRI_Database::get_localized("position",get_user_meta($result["user"],"position",true));
+ 				   $result["name"]= get_user_meta($result["user"],"first_name",true)." ".get_user_meta($result["user"],"last_name",true);
+
+	 				error_log(print_r($result));
+	 				return $result;
+	 			 }
+
+
+	 	 	 public static function get_member_full_precomputed_entity($id,$local,$relations ,$multiplerelations, $select) {
+
+			   	 $result=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
 			   			 "SELECT * FROM " . self::table_name("member"). " WHERE id = %d", $id) ,"ARRAY_A"
 			   		 )[0];
 
@@ -738,19 +836,13 @@ public static function add_form($entity, $form) {
 		 				   $result[$related]= $tmp;
 		 			   }
 		 		   }
-				   $result["title"]= WPRI_Database::get_localized("title",get_user_meta($member["user"],"title",true)) ;
-				   $result["position"]= WPRI_Database::get_localized("position",get_user_meta($member["user"],"position",true));
-				   $result["name"]= get_user_meta($member["user"],"first_name",true)." ".get_user_meta($member["user"],"last_name",true);
+				   $result["title"]= WPRI_Database::get_localized("title",get_user_meta($result["user"],"title",true)) ;
+				   $result["position"]= WPRI_Database::get_localized("position",get_user_meta($result["user"],"position",true));
+				   $result["name"]= get_user_meta($result["user"],"first_name",true)." ".get_user_meta($result["user"],"last_name",true);
 
-
-				   $results[$member["id"]] = $result;
-		 		}
-
-				error_log(print_r($results));
-				return $results;
-			 }
-
-
+	 				error_log(print_r($result));
+	 				return $result;
+	 			 }
 
 
 }
