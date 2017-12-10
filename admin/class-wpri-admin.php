@@ -263,6 +263,9 @@ class WPRI_Admin {
 		    update_user_meta( $user_id, 'phone', $_POST['phone'] );
 		}
 
+		if(isset($_POST['website']) && $_POST['website'] != ""){
+		    update_user_meta( $user_id, 'website', $_POST['website'] );
+		}
 
 		if(isset($_POST['title']) && $_POST['title'] != ""){
 		    update_user_meta( $user_id, 'title', $_POST['title'] );
