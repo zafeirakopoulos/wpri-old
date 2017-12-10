@@ -38,7 +38,7 @@ class WPRI_Post {
 		foreach ($declarations as $name => $options) {
 			register_post_type( $name , $options);
 		}
-		flush_rewrite_rules( false );
+		// flush_rewrite_rules( false );
 	}
 
 }
