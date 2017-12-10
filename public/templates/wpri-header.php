@@ -32,32 +32,30 @@
  		<div class="masthead container">
 			<div class="col-xs-12 "><h1 class="site-title">Institute of Information Technologies</h1></div>
 			<nav class="navbar navbar-default">
-			  <div class="container-fluid">
-				  <a class="navbar-brand" href="#">
-				    <img src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png" width="30" height="30" alt="">
-				  </a>
-			    <div class="navbar-header">
-			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			      </button>
-			    </div>
+				<a class="navbar-brand" href="#">
+					<img width="150px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png" >
+				</a>
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
 			    <div id="navbar" class="navbar-collapse collapse">
-			      <ul class="nav navbar-nav">
-			          <li><a href="<?php echo get_permalink( get_page_by_path('faculty'))?>">People</a></li>
-			          <li><a href="<?php echo get_permalink( get_page_by_path('research'))?>">Research</a></li>
-					  <li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Projects</a></li>
-					  <li><a href="<?php echo get_permalink( get_page_by_path('publications'))?>">Publications</a></li>
-					  <li><a href="<?php echo get_permalink( get_page_by_path('positions'))?>">Open Positions</a></li>
-					  <li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>">Contact</a></li>
-			      </ul>
-			      <ul class="nav navbar-nav navbar-right">
-					  <li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('1')"> English</button></li>
-					  <li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('2')"> Turkish</button></li>
-			      </ul>
+				<ul class="nav navbar-nav">
+					<li><a href="<?php echo get_permalink( get_page_by_path('faculty'))?>">People</a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('research'))?>">Research</a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Projects</a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('publications'))?>">Publications</a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('positions'))?>">Open Positions</a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>">Contact</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('1')"> English</button></li>
+					<li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('2')"> Turkish</button></li>
+				</ul>
 			    </div><!--/.nav-collapse -->
-			  </div><!--/.container-fluid -->
 			</nav>
 		</div>
