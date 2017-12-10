@@ -86,8 +86,8 @@
 
 /* navbar */
 .navbar-default {
-    background-color: var(--main-background-color);;
-    border-color: #E7E7E7;
+    background-color: var(--main-background-color);
+    border-color: var(--main-background-color);
 }
 /* Title */
 .navbar-default .navbar-brand {
