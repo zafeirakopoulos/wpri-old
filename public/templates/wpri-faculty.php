@@ -27,7 +27,7 @@
 
     $members = WPRI_Database::get_members_full();
 
-    echo "<h1 class='single'>Faculty</h1>";
+    echo "<h1 class='single bold'>Faculty</h1>";
     $member = $members[$director];
     echo "<div class='row'>
             <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
