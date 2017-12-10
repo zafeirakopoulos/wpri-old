@@ -22,8 +22,7 @@
 				<h3 class="single"><?php echo $member['office'];?></h3>
 		</div>
 		<div class='col-xs-12 col-sm-4 '>
-				<h3 class="single">Phone</h3> <br>
-				<h3 class="single"><?php echo $member['phone'];?></h3>
+				<h3 class="single">Phone<?php echo $member['phone'];?></h3>
 		</div>
 		<div class='col-xs-12 col-sm-4 '>
 				<h3 class="single">email</h3> <br>
