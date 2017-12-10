@@ -1136,30 +1136,6 @@
                             "table" : "studentstatus",
                             "column" : "id",
                             "display_column" : "studentstatus"
-                        },
-                    ]
-                },
-                {
-                    "title" : "Funding",
-                    "elements" : [
-                        {
-                            "caption" : "Choose funding agency" ,
-                            "name": "agency",
-                            "value": "",
-                            "type": "multiple-select",
-                            "relation" : {
-                                "foreach" : {
-                                    "table" : "agency",
-                                    "column" : "id",
-                                    "display_column" : "agency"
-                                }
-                            }
-                        },
-                        {
-                            "caption" : "Budget" ,
-                            "name": "budget",
-                            "value": "",
-                            "type": "text"
                         }
                     ]
                 }
