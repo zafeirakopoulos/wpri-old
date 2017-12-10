@@ -11,18 +11,18 @@
 	if ($post->post_type=="wpri_news"){
 		echo $post->post_type;
 
- 		echo get_the_content();
+ 		the_content();
 	}
 	elseif ($post->post_type=="wpri_highlights") {
-		echo get_the_content();
+		the_content();
 	}
 	elseif ($post->post_type=="wpri_blog") {
 		echo $post->post_type;
 
-		echo get_the_content();
+		the_content();
 	}
 	elseif ($post->post_type=="wpri_project_blog") {
-		echo get_the_content();
+		the_content();
 	}
 
 
