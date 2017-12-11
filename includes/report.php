@@ -80,9 +80,11 @@ if ($_GET["report"]=="projects") {
     foreach($projects as $project){
 
         if ($_GET["yearly"]=="1") {
+
             $start = new DateTime($project["startdate"]);
-            $end = new DateTime($project["enddate");
-            if ($start->format('y')<= 2017 || $end->format('y')>= 2017){
+            $end = new DateTime($project["enddate"]);
+            error_log($end->format('y'));
+            if (($start->format('y')<= 2017) || ($end->format('y')>= 2017)){
                 error_log("we have a candidate".$project["id"]);
             }
         } else{
