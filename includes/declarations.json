@@ -742,6 +742,94 @@
                 }
             ]
         },
+        "semester": {
+            "title" : "Semester",
+            "table_name" : "semester",
+            "name" :"semester",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "tinytext",
+                            "name" : "semester",
+                            "caption" : "Semester" ,
+                            "value": "Summer 2018",
+                            "cols" : "25",
+                            "rows": "1",
+                            "all_locales" : true
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "localized" : true,
+                    "semester" : "Summer 2016",
+                    "en_US" : "Summer 2016",
+                    "tr_TR" : "Summer 2016"
+                },
+                {
+                    "localized" : true,
+                    "semester" : "Winter 2016",
+                    "en_US" : "Winter 2016",
+                    "tr_TR" : "Winter 2016"
+                },
+                {
+                    "localized" : true,
+                    "semester" : "Summer 2017",
+                    "en_US" : "Summer 2017",
+                    "tr_TR" : "Summer 2017"
+                },
+                {
+                    "localized" : true,
+                    "semester" : "Winter 2017",
+                    "en_US" : "Winter 2017",
+                    "tr_TR" : "Winter 2017"
+                },
+                {
+                    "localized" : true,
+                    "semester" : "Summer 2018",
+                    "en_US" : "Summer 2018",
+                    "tr_TR" : "Summer 2018"
+                },
+                {
+                    "localized" : true,
+                    "semester" : "Winter 2019",
+                    "en_US" : "Winter 2019",
+                    "tr_TR" : "Winter 2019"
+                },
+                {
+                    "localized" : true,
+                    "semester" : "Summer 2019",
+                    "en_US" : "Summer 2019",
+                    "tr_TR" : "Summer 2019"
+                },
+                {
+                    "localized" : true,
+                    "semester" : "Winter 2020",
+                    "en_US" : "Winter 2020",
+                    "tr_TR" : "Winter 2020"
+                },
+                {
+                    "localized" : true,
+                    "semester" : "Summer 2021",
+                    "en_US" : "Summer 2021",
+                    "tr_TR" : "Summer 2021"
+                },
+                {
+                    "localized" : true,
+                    "semester" : "Winter 2021",
+                    "en_US" : "Winter 2021",
+                    "tr_TR" : "Winter 2021"
+                },
+            ]
+        },
         "member": {
             "title" : "Members",
             "table_name" : "member",
@@ -1332,13 +1420,13 @@
                             "display_column" : "code"
                         },
                         {
-                            "caption" : "Year" ,
-                            "type": "INT",
-                            "name": "year",
-                            "caption" : "Year" ,
-                            "value": "2018",
-                            "cols" : "4",
-                            "rows": "1"
+                            "caption" : "Semester" ,
+                            "name": "semester",
+                            "value": "",
+                            "type": "select",
+                            "table" : "semester",
+                            "column" : "id",
+                            "display_column" : "semester"
                         },
                         {
                             "caption" : "Instructor" ,
