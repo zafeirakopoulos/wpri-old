@@ -101,7 +101,7 @@ class WPRI_Report {
 
 	    foreach($projects as $project){
 			$add = (!$personal);
-
+			error_log("add".$add);
 	        $start = new DateTime($project["startdate"]);
 	        $end = new DateTime($project["enddate"]);
 
