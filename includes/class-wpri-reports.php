@@ -95,7 +95,6 @@ class WPRI_Report {
 	    $agency=" ";
 	    $budget=0;
 	    $member=" ";
-	    $role=" ";
 	    $collaborators=" ";
 
 		$rows = array();
@@ -139,10 +138,9 @@ class WPRI_Report {
 	                array_push($collaborator,$collaborato["name"]." (".$pr["projectrole"].")");
 	            }
 	            $collaborator = join(",", $collaborator);
-	            $role=" ";
 	        }
-			$rows[] = array($title,$status,$agency,$budget,$member,$role,$collaborator);
-				error_log(join(",",array($title,$status,$agency,$budget,$member,$role,$collaborator)));
+			$rows[] = array($title,$status,$agency,$budget,$member,$collaborator);
+				error_log(join(",",array($title,$status,$agency,$budget,$member,$collaborator)));
 	    }
 		return $rows;
 	}
