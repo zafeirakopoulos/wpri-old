@@ -141,6 +141,8 @@ h1.site-title{
     width: 100%;
     border : 0px;
     font-size: var(--large-font-size);
+    position: fixed;
+    bottom: 0;
 }
 
 /****************************
