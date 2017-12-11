@@ -103,6 +103,7 @@ $id = $_GET['id'];
 
 if ($_GET["report"]=="general") {
     foreach (WPRI_Report::write_project_sheet($personal, $annual, $year, $id) as $row) {
+        error_log(print_r($row));
         $writer->writeSheetRow($sheet_project, $row);
     }
 
@@ -110,6 +111,8 @@ if ($_GET["report"]=="general") {
     // TODO
 } elseif ($_GET["report"]=="projects") {
     foreach (WPRI_Report::write_project_sheet($personal, $annual, $year, $id) as $row) {
+        error_log(print_r($row));
+
         $writer->writeSheetRow($sheet_project, $row);
     }
 }
