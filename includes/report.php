@@ -108,7 +108,7 @@ if ($_GET["report"]=="projects") {
         $collaborator = join(",", $collaborator);
         $role=" ";
 
-        $writer->writeSheetRow($sheet_projects, array($title,$status,$agency,$budget,$member,$role,$collaborator));
+        $writer->writeSheetRow($sheet, array($title,$status,$agency,$budget,$member,$role,$collaborator));
 
     }
  }
