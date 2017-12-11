@@ -148,6 +148,10 @@ h1.site-title{
 ********** Body  **********
 *****************************/
 
+.main-background-container{
+    width: 100%;
+    background-color: var(--alt-background-color);
+}
 .main-content-container{
     width: 90%;
     margin-top: 0;
