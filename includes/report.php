@@ -22,6 +22,7 @@ if ($_GET['yearly']=="1"){
 $filename[] =  $_GET['report'];
 $filename = join("_", $filename);
 $filename = $filename.".xlsx";
+error_log($filename);
 
 /**********************************
 *********** SETUP  ****************
