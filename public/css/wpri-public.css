@@ -18,13 +18,13 @@
 
 
      --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-     --main-color : #000099;
+     --main-color : #D98310;
      --main-focus-color : red;
-     --alt-color : purple;
+     --alt-color : #328CC1;
 
 
      /* background */
-     --main-background-color : lightgray;
+     --main-background-color : #0B3C5D;
      --alt-background-color : black;
 
 
@@ -141,7 +141,7 @@ h1.site-title{
     width: 100%;
     border : 0px;
     font-size: var(--large-font-size);
- 
+
 }
 
 /****************************
