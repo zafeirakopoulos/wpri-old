@@ -51,7 +51,7 @@ class WPRI_Post {
 				}
 			}
 	    	if ($locale==$atts["locale"]){
-				return $conent;
+				return $content;
 			}
 			return "";
 	}
