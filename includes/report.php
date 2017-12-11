@@ -17,7 +17,7 @@ if ($_GET['type']=="personal"){
     $filename[] =  str_replace(' ', '', $members[$_GET['id']]["name"]); ;
 }
 if ($_GET['annual']=="1"){
-    $filename[] =  $_GET['year'];
+    $filename[] =  $_GET['y'];
 }
 $filename[] =  $_GET['report'];
 $filename = join("_", $filename);
