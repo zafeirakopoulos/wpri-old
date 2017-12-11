@@ -153,18 +153,18 @@ class WPRI_Report {
 	   $pubtype=" ";
 	   $member=" ";
 	   $authors=" ";
-	   $year=" ";
+	   $pubdate=" ";
 	   $venue=" ";
 
 	   $rows = array();
 
 	   foreach($publications as $publication){
 		   $add = (!$personal);
+		   $pubdate=$publication["pubdate"];
 
-		   if (!$annual || ($start->format('y')== $year)) {
+		   if (!$annual || ($pubdate->format('y')== $year)) {
 			   $title=$publication["title"];
 			   $authors=$publication["authors"];
-  			   $year=$publication["pubdate"];
 			   $pubtype=   WPRI_Database::get_record("pubtype",$publication["pubtype"])["pubtype"];
 
 			   $members = WPRI_Database::get_relation("publication","member", $publication["id"],"");
@@ -182,7 +182,7 @@ class WPRI_Report {
 
 
 			   if ($add){
-				   $rows[] = array(	$title,$pubtype,$member,$authors,$year,$venue);
+				   $rows[] = array(	$title,$pubtype,$member,$authors,$pubdate,$venue);
 			   }
 
 		   }
