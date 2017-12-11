@@ -5,7 +5,7 @@
 
 
 
-
+	echo "<br>";
  	if ($post->post_type=="wpri_news"){
 			echo "<h1 class='single'>";
 			the_title();
