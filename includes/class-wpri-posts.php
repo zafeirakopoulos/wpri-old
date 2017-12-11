@@ -56,7 +56,7 @@ class WPRI_Post {
 		// }
 
 
-			 	function filter_locale( $atts , $content ){
+			 	function filter_locale( $tag , $content ){
 						$all_locales = WPRI_Database::get_locales();
 						foreach ($all_locales as $loc) {
 							if ($loc["id"]==$_SESSION['locale']){
