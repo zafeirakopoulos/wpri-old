@@ -41,9 +41,10 @@ class WPRI_Report {
 
 				<h3>Personal</h3>
 					<div class='row'>
-					<?php foreach (WPRI_Database::get_all("member") as $member): ?>
-						<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly_personal&id=<?php echo $member["id"] ?>"'> <?php echo $member["name"] ?></button></div>
-					<?php endforeach; ?>
+					<?php foreach (WPRI_Database::get_all("member") as $member){
+						echo "<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = \"../report?type=yearly_personal&id=".$member["id"]."\">".$member["name"]."</button></div>";						
+					}
+					?>
 					</div>
 			<br>
 			<h2>Total</h2>
