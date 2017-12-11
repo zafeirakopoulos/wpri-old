@@ -87,7 +87,7 @@ class WPRI_Report {
 		return $template;
 	}
 
-	public static function write_project_sheet($writer, $sheet, $personal, $annual, $year, $id){
+	public static function write_project_sheet($personal, $annual, $year, $id){
 
 	    $projects=  WPRI_Database::get_all("project");
 	    $title=" ";
