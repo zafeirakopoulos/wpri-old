@@ -48,7 +48,6 @@ class WPRI_Post {
 						$locale = $loc["locale"];
 					}
 				}
-				error_log($tag);
 		    	if ($locale==$tag){
 					return $content;
 				}
