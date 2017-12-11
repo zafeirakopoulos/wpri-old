@@ -161,7 +161,7 @@ class WPRI_Report {
 	   foreach($publications as $publication){
 		   $add = (!$personal);
 		   $pubdate=$publication["pubdate"];
-
+		   error_log($pubdate);
 		   if (!$annual || ($pubdate->format('y')== $year)) {
 			   $title=$publication["title"];
 			   $authors=$publication["authors"];
