@@ -153,7 +153,7 @@ h1.site-title{
     background-color: var(--alt-background-color);
 }
 .main-content-container{
-    width: 90%;
+    width: 80%;
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
