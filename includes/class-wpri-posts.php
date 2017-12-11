@@ -39,27 +39,34 @@ class WPRI_Post {
 			register_post_type( $name , $options);
 		}
 		flush_rewrite_rules( false );
+
+
+		function zaf_short( $atts ){
+
+				return "jjjjd";
+		}
+	 	function filter_locale( $atts ){
+				$all_locales = WPRI_Database::get_locales();
+				foreach ($all_locales as $loc) {
+					if ($loc["id"]==$_SESSION['locale']){
+						$locale = $loc["locale"];
+					}
+				}
+		    	if ($locale==$atts["locale"]){
+					return $content;
+				}
+				return "";
+		}
+
 		add_shortcode( 'lang', 'filter_locale' );
 		add_shortcode( 'zaf', 'zaf_short' );
 
+		function footag_func( $atts ) {
+			return "foo = {$atts['foo']}";
+		}
+		add_shortcode( 'footag', 'footag_func' );
+	}
 
-	}
-	function zaf_short( $atts ){
-
-			return "jjjjd";
-	}
- 	function filter_locale( $atts ){
-			$all_locales = WPRI_Database::get_locales();
-			foreach ($all_locales as $loc) {
-				if ($loc["id"]==$_SESSION['locale']){
-					$locale = $loc["locale"];
-				}
-			}
-	    	if ($locale==$atts["locale"]){
-				return $content;
-			}
-			return "";
-	}
 
 	// function filter_locale( $content ) {
     //
