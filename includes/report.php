@@ -22,7 +22,6 @@ if ($_GET['annual']=="1"){
 $filename[] =  $_GET['report'];
 $filename = join("_", $filename);
 $filename = $filename.".xlsx";
-error_log($filename);
 
 /**********************************
 *********** SETUP  ****************
@@ -81,10 +80,10 @@ if ($_GET["report"]=="projects") {
     foreach($projects as $project){
         $start = new DateTime($project["startdate"]);
         $end = new DateTime($project["enddate"]);
-        error_log($start->format('y'));
-        error_log("today ".date('y'));
 
-        if (($_GET["annual"]!="1") || (($start->format('y')<= date('y')) && ($end->format('y')>= date('y')))) {
+
+        // if (($_GET["annual"]!="1") || (($start->format('y')<= date('y')) && ($end->format('y')>= date('y')))) {
+        if (($_GET["annual"]!="1") || (($start->format('y')<= $_GET["y"]) && ($end->format('y')>= $_GET["y"]))) {
             $title=$project["official_title"];
             $status=   WPRI_Database::get_record("status",$project["status"])["status"];
             $agencies = WPRI_Database::get_relation("project","agency", $project["id"],"");
