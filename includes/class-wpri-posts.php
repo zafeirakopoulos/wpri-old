@@ -44,8 +44,7 @@ class WPRI_Post {
 	}
 
 	function filter_locale( $content ) {
-		error_log("input:".$content);
-
+ 
 		$all_locales = WPRI_Database::get_locales();
 		foreach ($all_locales as $loc) {
 			if ($loc["id"]==$_SESSION['locale']){
@@ -55,7 +54,6 @@ class WPRI_Post {
 		$regex = "#&lt;$locale&gt;(.*?)&lt;/$locale&gt;#";
 
 		preg_match($regex, $content , $matches);
-		error_log(print_r($matches));
 
 		return $matches[1];
 	}
