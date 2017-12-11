@@ -768,7 +768,7 @@
             ],
             "default_values" : [
                 {
-                    "journal" : "Journal of Symbolic Computation",
+                    "journal" : "Journal of Symbolic Computation"
                 }
             ]
         },
