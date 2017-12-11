@@ -876,5 +876,19 @@ public static function add_form($entity, $form) {
 	 				return $result;
 	 			 }
 
+		 public static function get_full_entity_within_activity_period($entity, $date_constraints) {
+			 $where = array();
+			 foreach ($date_constraints as $key => $value) {
+			 	$where[] = "$key>$value[0] AND $key<$value[1]";
+			 }
+			 $where = join("AND", $where);
+			 $ids =array();
+			 foreach ($GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name($entity). "WHERE ".$where,"ARRAY_A") as $key => $value) {
+			 	$ids[] = $value["id"];
+			 }
+			 error_log(print_r($ids));
+			 return $ids;
+		 }
+
 
 }
