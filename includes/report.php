@@ -98,22 +98,29 @@ if (isset($_GET['personal']) && $_GET['personal']==1){
 } else{
     $personal = false;
 }
-$year = $_GET['y'];
+if ($_GET['y']=="0"){
+    $year = date('y');
+} else {
+    $year = $_GET['y'];
+}
 $id = $_GET['id'];
 
 if ($_GET["report"]=="general") {
     foreach (WPRI_Report::write_project_sheet($personal, $annual, $year, $id) as $row) {
-        error_log(print_r($row));
         $writer->writeSheetRow($sheet_projects, $row);
     }
 
-
+    foreach (WPRI_Report::write_publications_sheet($personal, $annual, $year, $id) as $row) {
+        $writer->writeSheetRow($sheet_publications, $row);
+    }
     // TODO
 } elseif ($_GET["report"]=="projects") {
     foreach (WPRI_Report::write_project_sheet($personal, $annual, $year, $id) as $row) {
-        error_log($row[0]);
-
         $writer->writeSheetRow($sheet_projects, $row);
+    }
+} elseif ($_GET["report"]=="publications") {
+    foreach (WPRI_Report::write_publications_sheet($personal, $annual, $year, $id) as $row) {
+        $writer->writeSheetRow($sheet_publications, $row);
     }
 }
  /**********************************
