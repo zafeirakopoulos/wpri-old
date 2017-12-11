@@ -29,18 +29,39 @@ class WPRI_Report {
 			<br>
 			<h1>Reports</h1>
 			<br>
-			<div class='row'>
-			<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?id=projects"'> Projects</button></div>
-			<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?id=2"'> report 2</button></div>
-			<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?id=3"'> report3</button></div>
-			<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?id=3"'> report7</button></div>
-			</div>
-			<div class='row'>
-			<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?id=2"'> report4</button></div>
-			<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?id=3"'> report5</button></div>
-			<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?id=2"'> report6</button></div>
-			<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?id=3"'> report7</button></div>
-			</div>
+			<h2>Yearly</h2>
+
+				<h3>Institute</h3>
+					<div class='row'>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly_projects"'> Projects</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly_publications"'> Publications</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly_courses"'> Courses</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly_students"'> Students</button></div>
+					</div>
+
+				<h3>Personal</h3>
+					<div class='row'>
+					<?php foreach (WPRI_Database::get_all("member") as $member): ?>
+						<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly_personal&id=<?php echo $member["id"] ?>"'> <?php echo $member["name"] ?></button></div>
+					<?php endforeach; ?>
+					</div>
+			<br>
+			<h2>Total</h2>
+
+				<h3>Institute</h3>
+
+
+				<h3>Personal</h3>
+
+			<br>
+			<h2>Specific</h2>
+				<div class='row'>
+				<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=projects"'> Projects</button></div>
+				<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=publications"'> Publications</button></div>
+				<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=courses"'> Courses</button></div>
+				<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=students"'> Students</button></div>
+				</div>
+
 			<?php };
 		add_menu_page( "Reports Management", "Reports", "manage_options", "wpri-reports-menu",$callback);
 	}
