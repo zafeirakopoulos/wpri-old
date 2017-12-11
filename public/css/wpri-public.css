@@ -20,12 +20,12 @@
      --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
      --main-color : #D98310;
      --main-focus-color : red;
-     --alt-color : #328CC1;
+     --alt-color : yellow;
 
 
      /* background */
      --main-background-color : #0B3C5D;
-     --alt-background-color : black;
+     --alt-background-color : #328CC1;
 
 
       }
