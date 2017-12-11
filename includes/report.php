@@ -112,6 +112,7 @@ if ($_GET["report"]=="general") {
     }
 
     foreach (WPRI_Report::write_publications_sheet($personal, $annual, $year, $id) as $row) {
+        error_log($row[0].$row[1].$row[2].$row[3].$row[4]);
         $writer->writeSheetRow($sheet_publications, $row);
     }
     // TODO
