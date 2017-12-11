@@ -150,7 +150,6 @@ h1.site-title{
 
 .main-content-container{
     width: 100%;
-    min-height:100%;
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
@@ -162,6 +161,7 @@ h1.site-title{
 
 
   body {
+      min-height:100%;
       font-family: var(--font-family);
       color: var(--alt-color);
   }
