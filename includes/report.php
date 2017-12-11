@@ -79,6 +79,16 @@ if ($_GET["report"]=="projects") {
 
     foreach($projects as $project){
 
+        if ($_GET["yearly"]=="1") {
+            $start = new DateTime($project["startdate"]);
+            $end = new DateTime($project["enddate");
+            if ($start->format('y')<= 2017 || $end->format('y')>= 2017){
+                error_log("we have a candidate".$project["id"]);
+            }
+        } else{
+
+        }
+
         $title=$project["official_title"];
         $status=   WPRI_Database::get_record("status",$project["status"])["status"];
         $agencies = WPRI_Database::get_relation("project","agency", $project["id"],"");
