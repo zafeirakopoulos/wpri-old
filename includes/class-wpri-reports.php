@@ -102,9 +102,9 @@ class WPRI_Report {
 
 	    foreach($projects as $project){
 			$add = (!$personal);
-			if ($add){
-				error_log($project["official_title"]);
-			}
+			// if ($add){
+			// 	error_log($project["official_title"]);
+			// }
 	        $start = new DateTime($project["startdate"]);
 	        $end = new DateTime($project["enddate"]);
 
@@ -142,7 +142,7 @@ class WPRI_Report {
 	            $role=" ";
 	        }
 			$rows[] = array($title,$status,$agency,$budget,$member,$role,$collaborator);
-
+				error_log(join(",",array($title,$status,$agency,$budget,$member,$role,$collaborator)));
 	    }
 		return $rows;
 	}
