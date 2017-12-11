@@ -138,9 +138,9 @@ class WPRI_Report {
 	                array_push($collaborator,$collaborato["name"]." (".$pr["projectrole"].")");
 	            }
 	            $collaborator = join(",", $collaborator);
+				$rows[] = array($title,$status,$agency,$budget,$member,$collaborator);
+
 	        }
-			$rows[] = array($title,$status,$agency,$budget,$member,$collaborator);
-				error_log(join(",",array($title,$status,$agency,$budget,$member,$collaborator)));
 	    }
 		return $rows;
 	}
