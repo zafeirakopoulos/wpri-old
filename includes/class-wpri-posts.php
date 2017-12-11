@@ -40,10 +40,14 @@ class WPRI_Post {
 		}
 		flush_rewrite_rules( false );
 		add_shortcode( 'lang', 'filter_locale' );
+		add_shortcode( 'zaf', 'zaf_short' );
 
 
 	}
+	function zaf_short( $atts ){
 
+			return "jjjjd";
+	}
  	function filter_locale( $atts ){
 			$all_locales = WPRI_Database::get_locales();
 			foreach ($all_locales as $loc) {
