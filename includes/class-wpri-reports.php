@@ -1,4 +1,5 @@
 <?php
+include_once("xlsxwriter.class.php");
 
 /**
  * Declarations of entities and relations.
@@ -84,5 +85,70 @@ class WPRI_Report {
 			$template = dirname( __FILE__ ) . '/report.php';
 		}
 		return $template;
+	}
+
+	public static function write_project_sheet($sheet, $personal, $annual, $year, $id){
+
+	    $projects=  WPRI_Database::get_all("project");
+	    $title=" ";
+	    $status=" ";
+	    $agency=" ";
+	    $budget=0;
+	    $member=" ";
+	    $role=" ";
+	    $collaborators=" ";
+
+
+	    foreach($projects as $project){
+			$add = (!$personal);
+
+	        $start = new DateTime($project["startdate"]);
+	        $end = new DateTime($project["enddate"]);
+
+	        if (!$annual || (($start->format('y')<= $year) && ($end->format('y')>= $year))) {
+	            $title=$project["official_title"];
+	            $status=   WPRI_Database::get_record("status",$project["status"])["status"];
+	            $agencies = WPRI_Database::get_relation("project","agency", $project["id"],"");
+	            $agency= array();
+	            foreach($agencies as $agenci){
+	                array_push($agency, WPRI_Database::get_record("agency",$agenci["agency"])["agency"] );
+	            }
+	            $agency = join(",", $agency);
+	            $budget=$project["budget"];
+
+	            $members = WPRI_Database::get_double_relation("project","member", "projectrole", $project["id"],"","");
+	            $member= array();
+	            foreach($members as $membr){
+	                $mem = WPRI_Database::get_record("member",$membr["member"]);
+					if ($membr["id"]==$id){
+						$add = true;
+					}
+	                $pr = WPRI_Database::get_record("projectrole",$membr["projectrole"]);
+	                array_push($member,$mem["name"]." (".$pr["projectrole"].")");
+	            }
+	            $member = join(",", $member);
+
+	            $collaborators = WPRI_Database::get_double_relation("project","collaborator", "projectrole", $project["id"],"","");
+	            $collaborator= array();
+	            foreach($collaborators as $collaborato){
+	                $col = WPRI_Database::get_record("collaborator",$collaborato["collaborator"]);
+	                $pr = WPRI_Database::get_record("projectrole",$collaborato["projectrole"]);
+	                array_push($collaborator,$collaborato["name"]." (".$pr["projectrole"].")");
+	            }
+	            $collaborator = join(",", $collaborator);
+	            $role=" ";
+
+	            $writer->writeSheetRow($sheet, array($title,$status,$agency,$budget,$member,$role,$collaborator));
+	        }
+	    }
+	}
+
+	public static function write_publications_sheet($sheet, $personal, $annual, $year, $id){
+	}
+
+	public static function write_students_sheet($sheet, $personal, $annual, $year, $id){
+	}
+
+	public static function write_courses_sheet($sheet, $personal, $annual, $year, $id){
 	}
 }
