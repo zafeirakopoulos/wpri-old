@@ -16,7 +16,7 @@ $filename =  array();
 if ($_GET['type']=="personal"){
     $filename[] =  str_replace(' ', '', $members[$_GET['id']]["name"]); ;
 }
-if ($_GET['yearly']=="1"){
+if ($_GET['annual']=="1"){
     $filename[] =  $_GET['year'];
 }
 $filename[] =  $_GET['report'];
@@ -84,7 +84,7 @@ if ($_GET["report"]=="projects") {
         error_log($start->format('y'));
         error_log("today ".date('y'));
 
-        if (($_GET["yearly"]!="1") || (($start->format('y')<= date('y')) && ($end->format('y')>= date('y')))) {
+        if (($_GET["annual"]!="1") || (($start->format('y')<= date('y')) && ($end->format('y')>= date('y')))) {
             $title=$project["official_title"];
             $status=   WPRI_Database::get_record("status",$project["status"])["status"];
             $agencies = WPRI_Database::get_relation("project","agency", $project["id"],"");
