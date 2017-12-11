@@ -35,6 +35,12 @@ class WPRI_Report {
 					<div class='row'>
 					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly&year=2017"'> 2017</button></div>
 					</div>
+					<div class='row'>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly_projects&year=2017"'> Projects</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly_publications&year=2017"'> Publications</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly_courses&year=2017"'> Courses</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=yearly_students&year=2017"'> Students</button></div>
+					</div>
 
 				<h3>Personal</h3>
 					<div class='row'>
