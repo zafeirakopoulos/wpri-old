@@ -34,7 +34,7 @@ class WPRI_Report {
 
 				<h3>Institute</h3>
 					<div class='row'>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=0&report=general&y=17"'> 2017</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=1&report=general&y=17"'> 2017</button></div>
 					</div>
 					<div class='row'>
 					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=1&y=0&report=projects"'> Projects</button></div>
@@ -161,8 +161,9 @@ class WPRI_Report {
 	   foreach($publications as $publication){
 		   $add = (!$personal);
 		   $pubdate=$publication["pubdate"];
-		   error_log($pubdate);
-		   if (!$annual || ($pubdate->format('y')== $year)) {
+		   $pdate = new DateTime($pubdate);
+
+		   if (!$annual || ($pdate->format('y')== $year)) {
 			   $title=$publication["title"];
 			   $authors=$publication["authors"];
 			   $pubtype=   WPRI_Database::get_record("pubtype",$publication["pubtype"])["pubtype"];
