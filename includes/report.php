@@ -5,6 +5,7 @@ ini_set('log_errors', 1);
 error_reporting(E_ALL & ~E_NOTICE);
 
 $members = WPRI_Database::get_all("member");
+error_log($members);
 
 $filename =  array();
 
