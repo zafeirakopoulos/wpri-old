@@ -73,7 +73,6 @@ class WPRI_Post {
 		foreach ($all_locales as $loc) {
 			add_shortcode( $loc["locale"], 'filter_locale' );
 			}
-		}
 
 	}
 
