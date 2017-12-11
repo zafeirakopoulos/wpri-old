@@ -6,6 +6,11 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 $members = WPRI_Database::get_members_full();
 
+
+/**********************************
+*********** FILENAME **************
+**********************************/
+
 $filename =  array();
 
 if ($_GET['type']=="personal"){
@@ -18,7 +23,9 @@ $filename[] =  $_GET['report'];
 $filename = join("_", $filename);
 $filename = $filename.".xlsx";
 
-error_log($filename);
+/**********************************
+*********** SETUP  ****************
+**********************************/
 
 header('Content-disposition: attachment; filename="'.XLSXWriter::sanitize_filename($filename).'"');
 header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
@@ -26,15 +33,40 @@ header('Content-Transfer-Encoding: binary');
 header('Cache-Control: must-revalidate');
 header('Pragma: public');
 $writer = new XLSXWriter();
-$writer->setAuthor('Some Author');
+$writer->setAuthor('BTE');
 
-if ($_GET["id"]=="projects") {
+/**********************************
+*********** FORMAT ****************
+**********************************/
 
-    $sheet_projects = 'Projects';
+$header_format = array('font'=>'Arial','font-size'=>13,'font-style'=>'bold,italic', 'fill'=>'#eee','color'=>'#f00','fill'=>'#ffc', 'border'=>'top,bottom', 'halign'=>'center');
+
+if ($_GET["report"]=="projects") {
+    $sheet = 'Projects';
     $header = array("string","string","string","integer"=>"GENERAL","string","string");
-    $writer->writeSheetHeader($sheet_projects, $header, $col_options = ['suppress_row'=>true] );
-    $header_format = array('font'=>'Arial','font-size'=>10,'font-style'=>'bold,italic', 'fill'=>'#eee','color'=>'#f00','fill'=>'#ffc', 'border'=>'top,bottom', 'halign'=>'center');
-    $writer->writeSheetRow($sheet_projects, array("Title","Status","Funding","Budget","Members","Collaborators"),$header_format);
+    $column_titles= array("Title","Status","Funding","Budget","Members","Collaborators");
+} elseif ($_GET["report"]=="students") {
+    $sheet = 'Students';
+    $header = array("string","string","string","string","string","integer"=>"GENERAL");
+    $column_titles= array("Name","Advisor","Status","Level","Graduate","Graduation year");
+} elseif ($_GET["report"]=="courses") {
+    $sheet = 'Courses';
+    $header = array("string","string","string","string");
+    $column_titles= array("Code","Name","Instructor","Semester");
+} elseif ($_GET["report"]=="publications") {
+    $sheet = 'Publications';
+    $header = array("string","string","string","string","integer"=>"GENERAL","string");
+    $column_titles= array("Title","Type","Member","Authors","Year","Venue");
+}
+
+$writer->writeSheetHeader($sheet, $header, $col_options = ['suppress_row'=>true] );
+$writer->writeSheetRow($sheet,$column_titles ,$header_format);
+
+/**********************************
+*********** CONTENT ***************
+**********************************/
+
+if ($_GET["report"]=="projects") {
 
     $projects=  WPRI_Database::get_all("project");
     $title=" ";
@@ -81,6 +113,9 @@ if ($_GET["id"]=="projects") {
     }
  }
 
+ /**********************************
+ *********** OUTPUT  ***************
+ **********************************/
 
 $writer->writeToStdOut();
 exit(0);
