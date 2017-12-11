@@ -40,56 +40,25 @@ class WPRI_Post {
 		}
 		flush_rewrite_rules( false );
 
-        //
-	 	// function filter_locale( $atts , $content ){
-		// 		$all_locales = WPRI_Database::get_locales();
-		// 		foreach ($all_locales as $loc) {
-		// 			if ($loc["id"]==$_SESSION['locale']){
-		// 				$locale = $loc["locale"];
-		// 			}
-		// 		}
-		// 		error_log($atts["locale"]);
-		//     	if ($locale==$atts["locale"]){
-		// 			return $content;
-		// 		}
-		// 		return "";
-		// }
 
-
-			 	function filter_locale( $atts , $content,$tag ){
-						$all_locales = WPRI_Database::get_locales();
-						foreach ($all_locales as $loc) {
-							if ($loc["id"]==$_SESSION['locale']){
-								$locale = $loc["locale"];
-							}
-						}
-						error_log($tag);
-				    	if ($locale==$tag){
-							return $content;
-						}
-						return "";
+	 	function filter_locale( $atts , $content,$tag ){
+				$all_locales = WPRI_Database::get_locales();
+				foreach ($all_locales as $loc) {
+					if ($loc["id"]==$_SESSION['locale']){
+						$locale = $loc["locale"];
+					}
 				}
+				error_log($tag);
+		    	if ($locale==$tag){
+					return $content;
+				}
+				return "";
+		}
 		$all_locales = WPRI_Database::get_locales();
 		foreach ($all_locales as $loc) {
 			add_shortcode( $loc["locale"], 'filter_locale' );
 			}
 
 	}
-
-
-	// function filter_locale( $content ) {
-    //
-	// 	$all_locales = WPRI_Database::get_locales();
-	// 	foreach ($all_locales as $loc) {
-	// 		if ($loc["id"]==$_SESSION['locale']){
-	// 			$locale = $loc["locale"];
-	// 		}
-	// 	}
-	// 	$regex = "#&lt;$locale&gt;(.*?)&lt;/$locale&gt;#";
-    //
-	// 	preg_match($regex, $content , $matches);
-    //
-	// 	return $matches[1];
-	// }
 
 }
