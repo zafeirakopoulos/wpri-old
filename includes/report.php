@@ -80,8 +80,10 @@ if ($_GET["report"]=="projects") {
     foreach($projects as $project){
         $start = new DateTime($project["startdate"]);
         $end = new DateTime($project["enddate"]);
-        if (($_GET["yearly"]!="1") || (($start->format('y')<= $_GET["year"]) && ($end->format('y')>= $_GET["year"]))) {
+        error_log($start->format('y'));
+        error_log("today ".date('y'));
 
+        if (($_GET["yearly"]!="1") || (($start->format('y')<= $_GET["year"]) && ($end->format('y')>= $_GET["year"]))) {
             $title=$project["official_title"];
             $status=   WPRI_Database::get_record("status",$project["status"])["status"];
             $agencies = WPRI_Database::get_relation("project","agency", $project["id"],"");
