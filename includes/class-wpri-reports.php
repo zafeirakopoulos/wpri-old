@@ -88,12 +88,7 @@ class WPRI_Report {
 	}
 
 	public static function write_project_sheet($personal, $annual, $year, $id){
-		if ($personal){
-			error_log("personal true");
-		} else {
-			error_log("personal false");
 
-		}
 	    $projects=  WPRI_Database::get_all("project");
 	    $title=" ";
 	    $status=" ";
@@ -151,6 +146,48 @@ class WPRI_Report {
 	}
 
 	public static function write_publications_sheet( $personal, $annual, $year, $id){
+
+
+	   $publications=  WPRI_Database::get_all("publication");
+	   $title=" ";
+	   $pubtype=" ";
+	   $member=" ";
+	   $authors=" ";
+	   $year=" ";
+	   $venue=" ";
+
+	   $rows = array();
+
+	   foreach($publications as $publication){
+		   $add = (!$personal);
+
+		   if (!$annual || ($start->format('y')== $year)) {
+			   $title=$publication["title"];
+			   $authors=$publication["authors"];
+  			   $year=$publication["pubdate"];
+			   $pubtype=   WPRI_Database::get_record("pubtype",$publication["pubtype"])["pubtype"];
+
+			   $members = WPRI_Database::get_relation("publication","member", $publication["id"],"");
+			   $member= array();
+			   foreach($members as $membr){
+				   $mem = WPRI_Database::get_record("member",$membr["member"]);
+				   if ($membr["id"]==$id){
+					   $add = true;
+				   }
+				   array_push($member,$mem["name"]);
+			   }
+			   $member = join(",", $member);
+
+			   $venue=" ";
+
+
+			   if ($add){
+				   $rows[] = array(	$title,$pubtype,$member,$authors,$year,$venue);
+			   }
+
+		   }
+	   }
+	   return $rows;
 	}
 
 	public static function write_students_sheet($personal, $annual, $year, $id){
