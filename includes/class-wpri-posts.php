@@ -41,10 +41,6 @@ class WPRI_Post {
 		flush_rewrite_rules( false );
 
 
-		function zaf_short( $atts ){
-
-				return "jjjjd";
-		}
 	 	function filter_locale( $atts ){
 				$all_locales = WPRI_Database::get_locales();
 				foreach ($all_locales as $loc) {
@@ -59,12 +55,7 @@ class WPRI_Post {
 		}
 
 		add_shortcode( 'lang', 'filter_locale' );
-		add_shortcode( 'zaf', 'zaf_short' );
 
-		function footag_func( $atts ) {
-			return "foo = {$atts['foo']}";
-		}
-		add_shortcode( 'footag', 'footag_func' );
 	}
 
 
