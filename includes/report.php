@@ -77,14 +77,14 @@ if ($_GET["report"]=="general") {
     $writer->writeSheetHeader($sheet_projects, $header_projects, $col_options = ['suppress_row'=>true] );
     $writer->writeSheetRow($sheet_projects,$column_titles_projects ,$header_format);
 
+    $writer->writeSheetHeader($sheet_publications, $header_publications, $col_options = ['suppress_row'=>true] );
+    $writer->writeSheetRow($sheet_publications,$column_titles_publications ,$header_format);
+
     $writer->writeSheetHeader($sheet_students, $header_students, $col_options = ['suppress_row'=>true] );
     $writer->writeSheetRow($sheet_students,$column_titles_students ,$header_format);
 
     $writer->writeSheetHeader($sheet_courses, $header_courses, $col_options = ['suppress_row'=>true] );
     $writer->writeSheetRow($sheet_courses,$column_titles_courses ,$header_format);
-
-    $writer->writeSheetHeader($sheet_publications, $header_publications, $col_options = ['suppress_row'=>true] );
-    $writer->writeSheetRow($sheet_publications,$column_titles_publications ,$header_format);
 } elseif ($_GET["report"]=="projects") {
     $writer->writeSheetHeader($sheet_projects, $header_projects, $col_options = ['suppress_row'=>true] );
     $writer->writeSheetRow($sheet_projects,$column_titles_projects ,$header_format);
@@ -112,7 +112,6 @@ if ($_GET["report"]=="general") {
     }
 
     foreach (WPRI_Report::write_publications_sheet($personal, $annual, $year, $id) as $row) {
-        error_log($row[0].$row[1].$row[2].$row[3].$row[4]);
         $writer->writeSheetRow($sheet_publications, $row);
     }
     // TODO
