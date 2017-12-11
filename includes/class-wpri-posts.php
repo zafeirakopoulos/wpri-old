@@ -53,12 +53,11 @@ class WPRI_Post {
 			}
 		}
 		$regex = "#&lt;$locale&gt;(.*?)&lt;/$locale&gt;#";
-		error_log($regex);
- 
+
 		preg_match($regex, $content , $matches);
 		error_log(print_r($matches));
 
-		return join("",$matches);
+		return $matches[1];
 	}
 
 }
