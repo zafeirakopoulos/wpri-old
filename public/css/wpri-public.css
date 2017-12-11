@@ -83,7 +83,8 @@ h1.site-title{
 }
 .locale-picker:hover {
     background-color: var(--main-background-color);
-    color: var(--main-focus-color);
+    /*color: var(--main-focus-color);*/
+    font-weight : bold;
     font-size: var(--medium-font-size);
 }
 /* navbar */
@@ -98,7 +99,8 @@ h1.site-title{
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: var(--main-focus-color);
+    /*color: var(--main-focus-color);*/
+    font-weight : bold;
     font-size: var(--menu-font-size);
 }
 /* Link */
@@ -108,7 +110,8 @@ h1.site-title{
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: var(--main-focus-color);
+    /*color: var(--main-focus-color);*/
+    font-weight : bold;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
