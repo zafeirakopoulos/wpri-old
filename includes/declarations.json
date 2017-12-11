@@ -798,7 +798,7 @@
             ],
             "default_values" : [
                 {
-                    "conference" : "International Symbosium on Symbolic and Algebraic Computation",
+                    "conference" : "International Symbosium on Symbolic and Algebraic Computation"
                 }
             ]
         },
