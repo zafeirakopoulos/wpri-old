@@ -59,6 +59,7 @@ class WPRI_Post {
 			add_shortcode( $loc["locale"], 'filter_locale' );
 			}
 
+		add_filter( 'the_title', 'do_shortcode' );
 	}
 
 }
