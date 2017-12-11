@@ -50,7 +50,7 @@ class WPRI_Post {
 				$locale = $loc["locale"];
 			}
 		}
-		$regex = "#<$locale>(.*?)</$locale>#";
+		$regex = "#&lt;$locale&gt;(.*?)&lt;/$locale&gt;#";
 		error_log($regex);
 		error_log($content);
 
