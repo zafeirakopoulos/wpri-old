@@ -1,5 +1,4 @@
 <?php
-include_once("xlsxwriter.class.php");
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 error_reporting(E_ALL & ~E_NOTICE);
@@ -41,82 +40,65 @@ $writer->setAuthor('BTE');
 
 $header_format = array('font'=>'Arial','font-size'=>13,'font-style'=>'bold,italic', 'fill'=>'#eee','color'=>'#f00','fill'=>'#ffc', 'border'=>'top,bottom', 'halign'=>'center');
 
-if ($_GET["report"]=="projects") {
-    $sheet = 'Projects';
-    $header = array("string","string","string","integer"=>"GENERAL","string","string");
-    $column_titles= array("Title","Status","Funding","Budget","Members","Collaborators");
+$sheet_projects = 'Projects';
+$header_projects = array("string","string","string","integer"=>"GENERAL","string","string");
+$column_titles_projects= array("Title","Status","Funding","Budget","Members","Collaborators");
+
+$sheet_students = 'Students';
+$header_students = array("string","string","string","string","string","integer"=>"GENERAL");
+$column_titles_students= array("Name","Advisor","Status","Level","Graduate","Graduation year");
+
+$sheet_courses = 'Courses';
+$header_courses = array("string","string","string","string");
+$column_titles_courses= array("Code","Name","Instructor","Semester");
+
+$sheet_publications = 'Publications';
+$header_publications = array("string","string","string","string","integer"=>"GENERAL","string");
+$column_titles_publications= array("Title","Type","Member","Authors","Year","Venue");
+
+if ($_GET["report"]=="general") {
+    $writer->writeSheetHeader($sheet_projects, $header_projects, $col_options = ['suppress_row'=>true] );
+    $writer->writeSheetRow($sheet_projects,$column_titles_projects ,$header_format);
+
+    $writer->writeSheetHeader($sheet_students, $header_students, $col_options = ['suppress_row'=>true] );
+    $writer->writeSheetRow($sheet_students,$column_titles_students ,$header_format);
+
+    $writer->writeSheetHeader($sheet_courses, $header_courses, $col_options = ['suppress_row'=>true] );
+    $writer->writeSheetRow($sheet_courses,$column_titles_courses ,$header_format);
+
+    $writer->writeSheetHeader($sheet_publications, $header_publications, $col_options = ['suppress_row'=>true] );
+    $writer->writeSheetRow($sheet_publications,$column_titles_publications ,$header_format);
+} elseif ($_GET["report"]=="projects") {
+    $writer->writeSheetHeader($sheet_projects, $header_projects, $col_options = ['suppress_row'=>true] );
+    $writer->writeSheetRow($sheet_projects,$column_titles_projects ,$header_format);
 } elseif ($_GET["report"]=="students") {
-    $sheet = 'Students';
-    $header = array("string","string","string","string","string","integer"=>"GENERAL");
-    $column_titles= array("Name","Advisor","Status","Level","Graduate","Graduation year");
+    $writer->writeSheetHeader($sheet_students, $header_students, $col_options = ['suppress_row'=>true] );
+    $writer->writeSheetRow($sheet_students,$column_titles_students ,$header_format);
 } elseif ($_GET["report"]=="courses") {
-    $sheet = 'Courses';
-    $header = array("string","string","string","string");
-    $column_titles= array("Code","Name","Instructor","Semester");
+    $writer->writeSheetHeader($sheet_courses, $header_courses, $col_options = ['suppress_row'=>true] );
+    $writer->writeSheetRow($sheet_courses,$column_titles_courses ,$header_format);
 } elseif ($_GET["report"]=="publications") {
-    $sheet = 'Publications';
-    $header = array("string","string","string","string","integer"=>"GENERAL","string");
-    $column_titles= array("Title","Type","Member","Authors","Year","Venue");
+    $writer->writeSheetHeader($sheet_publications, $header_publications, $col_options = ['suppress_row'=>true] );
+    $writer->writeSheetRow($sheet_publications,$column_titles_publications ,$header_format);
 }
 
-$writer->writeSheetHeader($sheet, $header, $col_options = ['suppress_row'=>true] );
-$writer->writeSheetRow($sheet,$column_titles ,$header_format);
+
 
 /**********************************
 *********** CONTENT ***************
 **********************************/
 
-if ($_GET["report"]=="projects") {
+$annual = $_GET['annual'];
+$personal = $_GET['personal'];
+$year = $_GET['y'];
+$id = $_GET['id'];
 
-    $projects=  WPRI_Database::get_all("project");
-    $title=" ";
-    $status=" ";
-    $agency=" ";
-    $budget=0;
-    $member=" ";
-    $role=" ";
-    $collaborators=" ";
-
-    foreach($projects as $project){
-        $start = new DateTime($project["startdate"]);
-        $end = new DateTime($project["enddate"]);
-
-
-        // if (($_GET["annual"]!="1") || (($start->format('y')<= date('y')) && ($end->format('y')>= date('y')))) {
-        if (($_GET["annual"]!="1") || (($start->format('y')<= $_GET["y"]) && ($end->format('y')>= $_GET["y"]))) {
-            $title=$project["official_title"];
-            $status=   WPRI_Database::get_record("status",$project["status"])["status"];
-            $agencies = WPRI_Database::get_relation("project","agency", $project["id"],"");
-            $agency= array();
-            foreach($agencies as $agenci){
-                array_push($agency, WPRI_Database::get_record("agency",$agenci["agency"])["agency"] );
-            }
-            $agency = join(",", $agency);
-            $budget=$project["budget"];
-
-            $members = WPRI_Database::get_double_relation("project","member", "projectrole", $project["id"],"","");
-            $member= array();
-            foreach($members as $membr){
-                $mem = WPRI_Database::get_record("member",$membr["member"]);
-                $pr = WPRI_Database::get_record("projectrole",$membr["projectrole"]);
-                array_push($member,$mem["name"]." (".$pr["projectrole"].")");
-            }
-            $member = join(",", $member);
-
-            $collaborators = WPRI_Database::get_double_relation("project","collaborator", "projectrole", $project["id"],"","");
-            $collaborator= array();
-            foreach($collaborators as $collaborato){
-                $col = WPRI_Database::get_record("collaborator",$collaborato["collaborator"]);
-                $pr = WPRI_Database::get_record("projectrole",$collaborato["projectrole"]);
-                array_push($collaborator,$collaborato["name"]." (".$pr["projectrole"].")");
-            }
-            $collaborator = join(",", $collaborator);
-            $role=" ";
-
-            $writer->writeSheetRow($sheet, array($title,$status,$agency,$budget,$member,$role,$collaborator));
-        }
-    }
- }
+if ($_GET["report"]=="general") {
+    WPRI_Report::write_project_sheet($sheet_project, $personal, $annual, $year, $id);
+    // TODO
+} elseif ($_GET["report"]=="projects") {
+    WPRI_Report::write_project_sheet($sheet_project, $personal, $annual, $year, $id);
+}
 
  /**********************************
  *********** OUTPUT  ***************
