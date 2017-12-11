@@ -43,19 +43,19 @@ class WPRI_Post {
 
 	}
 
- 	function filter_locale( $atts ){
-			$all_locales = WPRI_Database::get_locales();
-			foreach ($all_locales as $loc) {
-				if ($loc["id"]==$_SESSION['locale']){
-					$locale = $loc["locale"];
-				}
-			}
-	    	if ($locale==$atts["locale"]){
-				return $content;
-			}
-			return "";
-	}
-	add_shortcode( 'lang', 'filter_locale' );
+ 	// function filter_locale( $atts ){
+	// 		$all_locales = WPRI_Database::get_locales();
+	// 		foreach ($all_locales as $loc) {
+	// 			if ($loc["id"]==$_SESSION['locale']){
+	// 				$locale = $loc["locale"];
+	// 			}
+	// 		}
+	//     	if ($locale==$atts["locale"]){
+	// 			return $content;
+	// 		}
+	// 		return "";
+	// }
+	// add_shortcode( 'lang', 'filter_locale' );
 
 	// function filter_locale( $content ) {
     //
