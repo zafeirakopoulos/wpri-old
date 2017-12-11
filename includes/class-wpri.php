@@ -271,7 +271,7 @@ class WPRI {
 
 		$plugin_post = new WPRI_Post( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->	add_action( 'init', $plugin_post, 'wpri_posts',1 );
-		$this->loader->add_filter( 'the_content',$plugin_post, 'filter_locale', 99 );
+		// $this->loader->add_filter( 'the_content',$plugin_post, 'filter_locale', 99 );
 
 		$this->loader->add_filter( 'template_include',$plugin_public, 'page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'front_page_template', 99 );
