@@ -191,7 +191,9 @@ h1.site-title{
     font-size: var(--normal-font-size);
   }
   a.list-group-item:hover {
-    color: var(--main-focus-color);
+    background-color: var(--alt-color);
+    color: var(--main-background-color);
+
   }
 
   .single h1, .single h2, .single h3, .single h4, .single p {
