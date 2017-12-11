@@ -43,7 +43,6 @@ class WPRI_Report {
 					<div class='row'>
 					<?php foreach (WPRI_Database::get_all("member") as $member){
 						echo "<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = \"../report?type=yearly_personal&id=".$member["id"]."\"'>".$member["name"]."</button></div>";
-						error_log("<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = \"../report?type=yearly_personal&id=".$member["id"]."\";>".$member["name"]."</button></div>");
 					}
 					?>
 					</div>
@@ -51,17 +50,24 @@ class WPRI_Report {
 			<h2>Total</h2>
 
 				<h3>Institute</h3>
-
+					<div class='row'>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=projects"'> Projects</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=publications"'> Publications</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=courses"'> Courses</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=students"'> Students</button></div>
+					</div>
 
 				<h3>Personal</h3>
-
+					<div class='row'>
+					<?php foreach (WPRI_Database::get_all("member") as $member){
+						echo "<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = \"../report?type=personal&id=".$member["id"]."\"'>".$member["name"]."</button></div>";
+					}
+					?>
+					</div>
 			<br>
-			<h2>Specific</h2>
+			<h2>Other</h2>
 				<div class='row'>
 				<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=projects"'> Projects</button></div>
-				<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=publications"'> Publications</button></div>
-				<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=courses"'> Courses</button></div>
-				<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=students"'> Students</button></div>
 				</div>
 
 			<?php };
