@@ -53,6 +53,8 @@ class WPRI_Post {
 		$regex = "#<$locale>(.*?)</$locale>#";
 		error_log($regex);
 		preg_match($regex, $content , $matches);
+		error_log(print_r($matches));
+
 		$content = join("",$matches);
 		return $content;
 	}
