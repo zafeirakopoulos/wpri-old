@@ -39,6 +39,18 @@ class WPRI_Post {
 			register_post_type( $name , $options);
 		}
 		flush_rewrite_rules( false );
+
+
+	}
+
+	function filter_locale( $content ) {
+		$all_locales = WPRI_Database::get_locales();
+		$locale = $all_locales[$_SESSION['locale']]["locale"];
+		$regex = "#<$locale>(.*?)</$locale>#";
+		error_log($regex);
+		preg_match($regex, $content , $matches);
+		$content = join("",$matches);
+		return $content;
 	}
 
 }
