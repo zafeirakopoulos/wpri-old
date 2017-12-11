@@ -98,6 +98,7 @@ class WPRI_Report {
 	    $role=" ";
 	    $collaborators=" ";
 
+		$rows = array();
 
 	    foreach($projects as $project){
 			$add = (!$personal);
@@ -139,10 +140,11 @@ class WPRI_Report {
 	            }
 	            $collaborator = join(",", $collaborator);
 	            $role=" ";
-
-	            $writer->writeSheetRow($sheet, array($title,$status,$agency,$budget,$member,$role,$collaborator));
 	        }
+			$rows[] = array($title,$status,$agency,$budget,$member,$role,$collaborator);
+
 	    }
+		return $rows;
 	}
 
 	public static function write_publications_sheet($writer, $sheet, $personal, $annual, $year, $id){
