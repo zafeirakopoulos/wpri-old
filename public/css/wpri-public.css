@@ -179,6 +179,8 @@ h1.site-title{
     font-weight: normal;
     color: var(--alt-color);
     font-size: var(--normal-font-size);
+    background-color: var(--main-background-color);
+
   }
 
   a.list-group-item {
