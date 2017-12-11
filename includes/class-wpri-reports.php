@@ -34,19 +34,19 @@ class WPRI_Report {
 
 				<h3>Institute</h3>
 					<div class='row'>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&annual=0&report=projects&y=19"'> 2017</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=0&report=projects&y=19"'> 2017</button></div>
 					</div>
 					<div class='row'>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&annual=1&y=17&report=projects"'> Projects</button></div>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&annual=1&y=17&report=publications"'> Publications</button></div>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&annual=1&y=17&report=courses"'> Courses</button></div>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&annual=1&y=17&report=students"'> Students</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=1&y=17&report=projects"'> Projects</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=1&y=17&report=publications"'> Publications</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=1&y=17&report=courses"'> Courses</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=1&y=17&report=students"'> Students</button></div>
 					</div>
 
 				<h3>Personal</h3>
 					<div class='row'>
 					<?php foreach (WPRI_Database::get_all("member") as $member){
-						echo "<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = \"../report?type=personal&annual=1&y=17&report=general&id=".$member["id"]."\"'>".$member["name"]."</button></div>";
+						echo "<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = \"../report?personal=1&annual=1&y=17&report=general&id=".$member["id"]."\"'>".$member["name"]."</button></div>";
 					}
 					?>
 					</div>
@@ -55,10 +55,10 @@ class WPRI_Report {
 
 				<h3>Institute</h3>
 					<div class='row'>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&annual=0&report=projects"'> Projects</button></div>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&annual=0&report=publications"'> Publications</button></div>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&annual=0&report=courses"'> Courses</button></div>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&annual=0&report=students"'> Students</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=0&report=projects"'> Projects</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=0&report=publications"'> Publications</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=0&report=courses"'> Courses</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?personal=0&annual=0&report=students"'> Students</button></div>
 					</div>
 
 				<h3>Personal</h3>
