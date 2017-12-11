@@ -4,7 +4,22 @@ ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 error_reporting(E_ALL & ~E_NOTICE);
 
-$filename = $_GET['id'].".xlsx";
+$members = WPRI_Database::get_all_members();
+
+$filename =  array();
+
+if ($_GET['type']=="personal"){
+    $filename[] =  $filename.$members[$_GET['id']]["name"];
+}
+if ($_GET['yearly']=="1"){
+    $filename[] =  $filename.$_GET['year'];
+}
+$filename[] =  $filename.$_GET['report'];
+$filename = join("_", $filename);
+$filename = $filename.".xlsx";
+
+error_log($filename);
+
 header('Content-disposition: attachment; filename="'.XLSXWriter::sanitize_filename($filename).'"');
 header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 header('Content-Transfer-Encoding: binary');
