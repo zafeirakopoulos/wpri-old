@@ -88,8 +88,16 @@ if ($_GET["report"]=="general") {
 *********** CONTENT ***************
 **********************************/
 
-$annual = $_GET['annual'];
-$personal = $_GET['personal'];
+if (isset($_GET['annual']) && $_GET['annual']==1){
+    $annual = true;
+} else{
+    $annual = false;
+}
+if (isset($_GET['personal']) && $_GET['personal']==1){
+    $personal = true;
+} else{
+    $personal = false;
+}
 $year = $_GET['y'];
 $id = $_GET['id'];
 
