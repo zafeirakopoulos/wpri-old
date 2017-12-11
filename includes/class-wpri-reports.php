@@ -88,7 +88,12 @@ class WPRI_Report {
 	}
 
 	public static function write_project_sheet($personal, $annual, $year, $id){
+		if ($personal){
+			error_log("personal true");
+		} else {
+			error_log("personal false");
 
+		}
 	    $projects=  WPRI_Database::get_all("project");
 	    $title=" ";
 	    $status=" ";
@@ -145,12 +150,12 @@ class WPRI_Report {
 		return $rows;
 	}
 
-	public static function write_publications_sheet($writer, $sheet, $personal, $annual, $year, $id){
+	public static function write_publications_sheet( $personal, $annual, $year, $id){
 	}
 
-	public static function write_students_sheet($writer, $sheet, $personal, $annual, $year, $id){
+	public static function write_students_sheet($personal, $annual, $year, $id){
 	}
 
-	public static function write_courses_sheet($writer, $sheet, $personal, $annual, $year, $id){
+	public static function write_courses_sheet( $personal, $annual, $year, $id){
 	}
 }
