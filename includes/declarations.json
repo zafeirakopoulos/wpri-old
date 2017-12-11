@@ -742,6 +742,66 @@
                 }
             ]
         },
+        "journal": {
+            "title" : "Journal",
+            "table_name" : "journal",
+            "name" :"journal",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "journal",
+                            "caption" : "Journal" ,
+                            "value": " ",
+                            "cols" : "125",
+                            "rows": "1"
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "journal" : "Journal of Symbolic Computation",
+                }
+            ]
+        },
+        "conference": {
+            "title" : "Conference",
+            "table_name" : "conference",
+            "name" :"conference",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "conference",
+                            "caption" : "Conference/Workshop name" ,
+                            "value": " ",
+                            "cols" : "200",
+                            "rows": "1"
+                        }
+                    ]
+                }
+            ],
+            "default_values" : [
+                {
+                    "conference" : "International Symbosium on Symbolic and Algebraic Computation",
+                }
+            ]
+        },
         "semester": {
             "title" : "Semester",
             "table_name" : "semester",
@@ -1094,6 +1154,24 @@
                             "type": "tinytext",
                             "cols" : "30",
                             "rows": "1"
+                        },
+                        {
+                            "caption" : "Journal" ,
+                            "name": "journal",
+                            "value": "",
+                            "type": "select",
+                            "table" : "journal",
+                            "column" : "id",
+                            "display_column" : "journal"
+                        },
+                        {
+                            "caption" : "Conference" ,
+                            "name": "conference",
+                            "value": "",
+                            "type": "select",
+                            "table" : "conference",
+                            "column" : "id",
+                            "display_column" : "conference"
                         }
                     ]
                 },
