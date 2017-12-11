@@ -161,7 +161,6 @@ h1.site-title{
 
 
   body {
-      min-height:100%;
       font-family: var(--font-family);
       color: var(--alt-color);
   }
