@@ -9,7 +9,7 @@ $members = WPRI_Database::get_members_full();
 $filename =  array();
 
 if ($_GET['type']=="personal"){
-    $filename[] =  $members[$_GET['id']]["name"];
+    $filename[] =  str_replace(' ', '', $members[$_GET['id']]["name"]); ;
 }
 if ($_GET['yearly']=="1"){
     $filename[] =  $_GET['year'];
