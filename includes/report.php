@@ -6,17 +6,34 @@ error_reporting(E_ALL & ~E_NOTICE);
 $members = WPRI_Database::get_members_full();
 
 
+if (isset($_GET['annual']) && $_GET['annual']==1){
+    $annual = true;
+} else{
+    $annual = false;
+}
+if (isset($_GET['personal']) && $_GET['personal']==1){
+    $personal = true;
+} else{
+    $personal = false;
+}
+if ($_GET['y']=="0"){
+    $year = date('y');
+} else {
+    $year = $_GET['y'];
+}
+$id = $_GET['id'];
+
 /**********************************
 *********** FILENAME **************
 **********************************/
 
 $filename =  array();
 
-if ($_GET['personal']=="1"){
-    $filename[] =  str_replace(' ', '', $members[$_GET['id']]["name"]); ;
+if ($personal){
+    $filename[] =  str_replace(' ', '', $members[$id]["name"]); ;
 }
-if ($_GET['annual']=="1"){
-    $filename[] =  $_GET['y'];
+if ($annual){
+    $filename[] =  $year;
 }
 $filename[] =  $_GET['report'];
 $filename = join("_", $filename);
@@ -88,22 +105,6 @@ if ($_GET["report"]=="general") {
 *********** CONTENT ***************
 **********************************/
 
-if (isset($_GET['annual']) && $_GET['annual']==1){
-    $annual = true;
-} else{
-    $annual = false;
-}
-if (isset($_GET['personal']) && $_GET['personal']==1){
-    $personal = true;
-} else{
-    $personal = false;
-}
-if ($_GET['y']=="0"){
-    $year = date('y');
-} else {
-    $year = $_GET['y'];
-}
-$id = $_GET['id'];
 
 if ($_GET["report"]=="general") {
     foreach (WPRI_Report::write_project_sheet($personal, $annual, $year, $id) as $row) {
