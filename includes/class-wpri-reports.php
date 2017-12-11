@@ -33,7 +33,7 @@ class WPRI_Report {
 
 				<h3>Institute</h3>
 					<div class='row'>
-					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&yearly=0&report=projects"'> 2017</button></div>
+					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&yearly=0&report=projects&year=19"'> 2017</button></div>
 					</div>
 					<div class='row'>
 					<div class='col-xs-12 col-md-6 col-lg-3'><button class='btn btn-primary' style='width:50%;margin-top:10px' onclick='window.location.href = "../report?type=institute&yearly=1&year=17&report=projects"'> Projects</button></div>
