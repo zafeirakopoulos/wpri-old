@@ -245,6 +245,24 @@ h1.site-title{
         color: var(--main-color);
         background-color: var(--main-background-color);
     }
+
+    h1.list-item{
+        color: var(--main-color);
+        background-color: var(--main-background-color);
+    }
+    h2.list-item{
+        color: var(--main-color);
+        background-color: var(--main-background-color);
+    }
+    h3.list-item{
+        color: var(--main-color);
+        background-color: var(--main-background-color);
+    }
+    h4.list-item{
+        color: var(--main-color);
+        background-color: var(--main-background-color);
+    }
+
   .outfont  {
     font-size: 35px;
     color: red;
