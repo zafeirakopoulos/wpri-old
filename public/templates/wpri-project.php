@@ -24,8 +24,8 @@
  			?>
 
 
-			<h2 class="single">Participants</h2>
-			<h3 class="single">Institute members</h3>
+			<h2 class="outside">Participants</h2>
+			<h3 class="outside">Institute members</h3>
 			<ul class="list-group">
 			<?php
 				foreach ($project["members"] as $member_row) {
@@ -50,7 +50,7 @@
 
 
 
-			<h2 class=" single">Publications</h2>
+			<h2 class="outside">Publications</h2>
 
 			<?php
 				foreach ($project["publication"] as $publication_id) {
