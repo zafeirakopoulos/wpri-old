@@ -18,13 +18,13 @@
 			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['startingdate'];?> </div>
 
 		</div>
-		<h2 class=" single">Job description</h2>
+		<h2 class="outfont">Job description</h2>
 		<div class='row'>
 			<div class='col-sm-12 col-md-12 col-lg-12 single'> <?php echo $position['description'];?> </div>
 		</div>
 
 
- 	<h2 class=" single">Requirements</h2>
+ 	<h2 class="outfont">Requirements</h2>
 
 		<?php
 		foreach ($position['requirement'] as $requirement) {
@@ -34,7 +34,7 @@
 		}?>
 
 
-	<h2 class=" single">Contacts</h2>
+	<h2 class="outfont">Contacts</h2>
 	<ul class="list-group">
 	<?php
 		foreach ($position["member"] as $member_id) {
@@ -43,7 +43,7 @@
 		}
 	?>
 
-	<h2 class=" single">Related Projects</h2>
+	<h2 class="outfont">Related Projects</h2>
 	<ul class="list-group">
 	<?php
 		foreach ($position["project"] as $project_id) {
