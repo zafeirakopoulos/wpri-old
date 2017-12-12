@@ -28,42 +28,45 @@
     $members = WPRI_Database::get_members_full();
 
     echo "<h1 class='outside'>Faculty</h1>";
-    $member = $members[$director];
-    echo "<div class='row'>
-            <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
-                <div class='col-xs-8 offset-xs-2 single'>
-                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
-                    <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-                    <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
-                </div>
-            </a>
-            </div>
-        <hr/>";
+	<ul class="list-group">
 
-    $member = $members[$vicedirector];
-    echo "<div class='row'>
-            <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
-                <div class='col-xs-8 offset-xs-2 single'>
-                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
-                    <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-                    <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
-                </div>
-            </a>
-        </div>
-        <hr/>";
-    foreach ( $faculty as $member_id ) {
-        $member = $members[$member_id];
-		echo "<div class='row'>
-        <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
-                <div class='col-xs-8 offset-xs-2 single'>
-                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
-                    <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-                    <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
-                </div>
-            </a>
-            </div>
-            <hr/>";
-	}
+	    $member = $members[$director];
+	    echo "<div class='row'>
+	            <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
+	                <div class='col-xs-8 offset-xs-2 single'>
+	                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
+	                    <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
+	                    <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
+	                </div>
+	            </a>
+	            </div>
+	        <hr/>";
+
+	    $member = $members[$vicedirector];
+	    echo "<div class='row'>
+	            <a href='".site_url()."/member?id=".$member["id"]."' class='single'>
+	                <div class='col-xs-8 offset-xs-2 single'>
+	                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
+	                    <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
+	                    <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
+	                </div>
+	            </a>
+	        </div>
+	        <hr/>";
+	    foreach ( $faculty as $member_id ) {
+	        $member = $members[$member_id];
+			echo "<div class='row'>
+	        <a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item'>
+	                <div class='col-xs-8 offset-xs-2 single'>
+	                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
+	                    <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
+	                    <div class='col-xs-9 single'><h3 class='single'>".$member['position']."</h3></div>
+	                </div>
+	            </a>
+	            </div>
+	            <hr/>";
+		}
+	</ul>
 
     echo "<h1 class='single'>Assistants</h1>";
     foreach ( $assistants as $member_id ) {
