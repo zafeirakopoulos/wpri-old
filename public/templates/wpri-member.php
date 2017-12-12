@@ -15,7 +15,7 @@
         </div>
 	</div>
 
-	<h1> Contact </h1>
+	<h1 class="outfont"> Contact </h1>
 	<div class='row'>
 		<div class='col-xs-12 col-sm-4 '>
 				<h3 class="single">Office</h3> <br>
@@ -32,39 +32,7 @@
 		</div>
 	</div>
 
-	<h1> Publications </h1>
-	<ul class="list-group ">
-		<?php
-		foreach ($member["publication"] as $publication_id) {
-			$publication = WPRI_Database::get_record("publication",$publication_id) ;
-			echo "<a class='list-group-item' href='".site_url()."/publication?id=".$publication_id."'>";
-			echo $publication["title"];
-			echo "</a>";
-		}
-		?>
-	</ul>
-
-	<h1> Projects </h1>
-		<ul class="list-group">
-		<?php
-		foreach ($member["project"] as $proj) {
-			$project = WPRI_Database::get_record("project",$proj[0]) ;
-			echo "<a class='list-group-item' href='".site_url()."/project?id=".$proj[0]."'>";
- 			echo $project["official_title"]." (".$proj[1].")";
-			echo "</a>";
-		}
-		?>
-		</ul>
-
-		<h1> Education </h1>
-			<ul class="list-group">
-				<li class="list-group-item"> <?php echo $member["undergrad"]["year"].": ".$member["undergrad"]["title"]." from ".$member["undergrad"]["university"]." (".$member["undergrad"]["program"].")"?>
-				<li class="list-group-item"> <?php echo $member["masters"]["year"].": ".$member["masters"]["title"]." from ".$member["masters"]["university"]." (".$member["masters"]["program"].")"?>
-				<li class="list-group-item"> <?php echo $member["phd"]["year"].": ".$member["phd"]["title"]." from ".$member["phd"]["university"]." (".$member["phd"]["program"].")"?>
-
-			</ul>
-
-	<h1> Posts </h1>
+	<h1 class="outfont"> Posts </h1>
 
 	<?php $args = array(
 	      'author__in'     => array($member['user']),
@@ -81,5 +49,39 @@
 		echo "</ul>";
 
 		?>
+
+	<h1 class="outfont"> Publications </h1>
+	<ul class="list-group ">
+		<?php
+		foreach ($member["publication"] as $publication_id) {
+			$publication = WPRI_Database::get_record("publication",$publication_id) ;
+			echo "<a class='list-group-item' href='".site_url()."/publication?id=".$publication_id."'>";
+			echo $publication["title"];
+			echo "</a>";
+		}
+		?>
+	</ul>
+
+	<h1 class="outfont"> Projects </h1>
+		<ul class="list-group">
+		<?php
+		foreach ($member["project"] as $proj) {
+			$project = WPRI_Database::get_record("project",$proj[0]) ;
+			echo "<a class='list-group-item' href='".site_url()."/project?id=".$proj[0]."'>";
+ 			echo $project["official_title"]." (".$proj[1].")";
+			echo "</a>";
+		}
+		?>
+		</ul>
+
+		<h1 class="outfont"> Education </h1>
+			<ul class="list-group">
+				<li class="list-group-item"> <?php echo $member["undergrad"]["year"].": ".$member["undergrad"]["title"]." from ".$member["undergrad"]["university"]." (".$member["undergrad"]["program"].")"?>
+				<li class="list-group-item"> <?php echo $member["masters"]["year"].": ".$member["masters"]["title"]." from ".$member["masters"]["university"]." (".$member["masters"]["program"].")"?>
+				<li class="list-group-item"> <?php echo $member["phd"]["year"].": ".$member["phd"]["title"]." from ".$member["phd"]["university"]." (".$member["phd"]["program"].")"?>
+
+			</ul>
+
+
 
 </div>
