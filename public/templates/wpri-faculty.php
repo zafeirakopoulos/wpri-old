@@ -72,11 +72,7 @@
     foreach ( $assistants as $member_id ) {
         $member = $members[$member_id];
         echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
-                <div class='col-xs-12 single'>
-                    <div class='col-xs-12 single'><h2 class='single'>".$member["title"]." ".$member['name']."</h2></div>
-                    <div class='col-xs-3 single'>".get_avatar($member['user'])."</div>
-                    <div class='col-xs-9 single'>".$member['position']."</div>
-                </div>
+                <h2 class='single'>".$member["title"]." ".$member['name']."</h2>".get_avatar($member['user'])."</div>".$member['position']."
             </a>";
 	}
 
