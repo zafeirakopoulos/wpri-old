@@ -1,7 +1,7 @@
 <div class=" single">
 	<!-- <div class="row"> -->
 		<!-- <div class='col-sm-12 col-md-12 col-lg-12 single'> -->
-			<h1 class="single">Research</h1>
+			<h1 class="outfont">Research</h1>
 			<ul class="list-group">
 				<li class="list-group-item"> Cybersecurity – Digital Forensics</li>
 				<li class="list-group-item"> Big Data – Cloud Computing</li>
