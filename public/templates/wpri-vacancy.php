@@ -11,12 +11,9 @@
 
 			<div class='col-sm-12 col-md-12 col-lg-12 '><h1 class='list-item'> <?php echo $position['official_title'];?></h1> </div>
 
-			<div class='col-sm-2 col-md-2 col-lg-2 '>Position:</div>
-			<div class='col-sm-2 col-md-2 col-lg-2 '> <?php echo $position['vacancytype'];?> </div>
-			<div class='col-sm-2 col-md-2 col-lg-2 '>Application deadline: </div>
-			<div class='col-sm-2 col-md-2 col-lg-2 '> <?php echo $position['deadline'];?> </div>
-			<div class='col-sm-2 col-md-2 col-lg-2 '>Starting date:</div>
-			<div class='col-sm-2 col-md-2 col-lg-2 '> <?php echo $position['startingdate'];?> </div>
+			<div class='col-xs-12 col-md-4 col-lg-4 '>Position: <?php echo $position['vacancytype'];?> </div>
+			<div class='col-xs-12 col-md-4 col-lg-4 '>Application deadline:  <?php echo $position['deadline'];?> </div>
+			<div class='col-xs-12 col-md-4 col-lg-4 '>Starting date: <?php echo $position['startingdate'];?> </div>
 			</div>
 
 		<h2 class="outfont">Job description</h2>
