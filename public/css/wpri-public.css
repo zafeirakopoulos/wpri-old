@@ -230,9 +230,8 @@ h1.site-title{
     }
 
   .outside  {
-    margin-top: 0;
-    font-family: var(--font-family);
-    font-weight: normal;
+      font-size: 35px;
+
     color: black;
   }
 
