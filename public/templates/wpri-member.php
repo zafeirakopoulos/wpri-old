@@ -25,11 +25,11 @@
 				<h3 class="list-item-alt">Office</h3> <br>
 				<h3 class="list-item-alt"><?php echo $member['office'];?></h3>
 		</div>
-		<div class='col-xs-12 col-sm-4 list-group-item'>
+		<div class='col-xs-12 col-sm-4 list-group-item-alt'>
 				<h3 class="list-item-alt">Phone</h3> <br>
 				<h3 class="list-item-alt"><?php echo $member['phone'];?></h3>
 		</div>
-		<div class='col-xs-12 col-sm-4 list-group-item'>
+		<div class='col-xs-12 col-sm-4 list-group-item-alt'>
 				<h3 class="list-item-alt">email</h3> <br>
 				<h3 class="list-item-alt"><?php echo $member['email'];?></h3>
 			</p>
