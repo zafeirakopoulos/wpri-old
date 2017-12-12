@@ -229,18 +229,17 @@ h1.site-title{
         color: var(--main-background-color);
     }
 
-  .outside  {
-      font-size: 35px;
-
+  .outfont  {
+    font-size: 35px;
     color: black;
   }
 
- .single h1, .single h2, .single h3, .single h4, .single p {
+ /*.single h1, .single h2, .single h3, .single h4, .single p {
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--main-color);
-  }
+  }*/
 
   .single  h1{
     font-size: var(--title-font-size);
