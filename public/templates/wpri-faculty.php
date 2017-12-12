@@ -49,7 +49,7 @@
 	echo "</ul>";
 
 
-    echo "<h1 class='single'>Assistants</h1>";
+    echo "<h1 class='outside'>Assistants</h1>";
 	echo "<ul class='list-group'>";
     foreach ( $assistants as $member_id ) {
 		$member = $members[$member_id];
@@ -59,7 +59,7 @@
 	}
 	echo "</ul>";
 
-    echo "<h1 class='single'>Administrative personel</h1>";
+    echo "<h1 class='outside'>Administrative personel</h1>";
 	echo "<ul class='list-group'>";
 
     foreach ( $administrative as $member_id ) {
