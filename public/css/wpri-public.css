@@ -35,7 +35,7 @@
       html, body
       {
           /*height: 100%;*/
-          background-color: var(--main-background-color);
+          background-color: var(--alt-background-color);
       }
       /*.main-background-container
       {
