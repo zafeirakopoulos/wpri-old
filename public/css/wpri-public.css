@@ -25,7 +25,8 @@
 
      /* background */
      --main-background-color : #0B3C5D;
-     --alt-background-color : #88BBD6;
+     --alt-background-color : #D5D5D5;
+     /*--alt-background-color : #88BBD6;*/
      /*--alt-background-color : #0375B4;*/
 
 
@@ -275,7 +276,7 @@ h1.site-title{
  .list-item-alt{
          color: var(--main-background-color);
  }
- 
+
   .outfont  {
     color: var(--main-background-color);
   }
