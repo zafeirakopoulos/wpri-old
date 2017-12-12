@@ -18,7 +18,7 @@
 
 		<h2 class="outfont">Job description</h2>
 		<ul class='list-group'>
-			<li class='list-group-item-alt'> <?php echo $position['description'];?> </li>
+			<div class='list-group-item-alt'> <?php echo $position['description'];?> </div>
 		</ul>
 
 
