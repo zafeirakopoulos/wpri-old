@@ -26,12 +26,9 @@
 
  	<h2 class="outfont">Requirements</h2>
 	<ul class='list-group'>
-
 		<?php
 		foreach ($position['requirement'] as $requirement) {
-			echo "<div class='list-group-item'>";
-				echo "<div class='col-sm-12 col-md-12 col-lg-12 list-item'>".$requirement."</div>";
-			echo "</div>";
+			echo "<li class='list-group-item'>".$requirement."</li>";
 		}?>
 	</ul>
 
