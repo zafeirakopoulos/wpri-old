@@ -10,7 +10,7 @@
     		<div class='col-sm-3 col-md-3 col-lg-3 '> <?php echo "publication picture"?> </div>
     		<div class='col-sm-12 '><h3 class="list-item"> <?php echo $publication['authors'];?> </h3></div>
     		<div class='col-sm-3 col-md-3 col-lg-4 '><h3 class="list-item">DOI number<br> <?php echo $publication['doi'];?>  </h3></div>
-    		<div class='col-sm-3 col-md-3 col-lg-4 '><h3 class=" list-item">Publication type<br> <?php echo $publication["pubtype"];?> </h3> </div>
+    		<div class='col-sm-3 col-md-3 col-lg-5 '><h3 class=" list-item">Publication type<br> <?php echo $publication["pubtype"];?> </h3> </div>
     		<div class='col-sm-12 col-md-12 col-lg-12 wordwrap '><h3 class=" list-item"> <?php echo $publication['bibtex'];?>  </h3></div>
         </div>
     </ul>
