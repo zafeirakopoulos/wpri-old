@@ -8,10 +8,10 @@
 		<ul class="list-group">
 
 	        <a href='<?php echo site_url()."/member?id=".$member["id"];?>' class=''>
-                <div class='col-xs-12  list-group-item '>
-                    <div class='col-xs-12'><h1 class='list-item'  ><?php echo $member["title"]." ".$member['name'];?></h1></div>
+                <div class='col-xs-8  list-group-item '>
+                    <div class='col-xs-12'><h1 class='list-item' ><?php echo $member["title"]." ".$member['name'];?></h1></div>
                     <div class='col-xs-3 '><?php echo get_avatar($member['user']);?></div>
-                    <div class='col-xs-9 '><h3 class="single"><?php echo $member['position'];?></h3></div>
+                    <div class='col-xs-9 '><h3 class='list-item'><?php echo $member['position'];?></h3></div>
                 </div>
             </a>
 		</ul>
@@ -22,16 +22,16 @@
 
 	<h1 class="outfont"> Contact </h1>
  		<div class='col-xs-12 col-sm-4 list-group-item'>
-				<h3 class="single">Office</h3> <br>
-				<h3 class="single"><?php echo $member['office'];?></h3>
+				<h3 class="list-item">Office</h3> <br>
+				<h3 class="list-item"><?php echo $member['office'];?></h3>
 		</div>
 		<div class='col-xs-12 col-sm-4 list-group-item'>
-				<h3 class="single">Phone</h3> <br>
-				<h3 class="single"><?php echo $member['phone'];?></h3>
+				<h3 class="list-item">Phone</h3> <br>
+				<h3 class="list-item"><?php echo $member['phone'];?></h3>
 		</div>
 		<div class='col-xs-12 col-sm-4 list-group-item'>
-				<h3 class="single">email</h3> <br>
-				<h3 class="single"><?php echo $member['email'];?></h3>
+				<h3 class="list-item">email</h3> <br>
+				<h3 class="list-item"><?php echo $member['email'];?></h3>
 			</p>
 		</div>
 	</ul>
