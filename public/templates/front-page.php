@@ -10,7 +10,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
         <div class="col-xs-12 col-md-9">
             <ul class="list-group">
                 <div class="list-group-item-alt">
-                    <h2>
+                    <h2 class="list-group-item-alt">
          			   Gebze Technical University Institute of Information Technologies (GTU IIT) conducts qualified research and development activities at national and international level with an industrial perspective.
         			   <br>
         			   The institute aims to be in cooperation with other departments, especially the GTU computer engineering department, domestic and foreign universities, public institutions, research centers and IT companies. IIT brings together researchers and resources from different disciplines aiming at collaboration.
