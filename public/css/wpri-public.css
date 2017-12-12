@@ -34,13 +34,8 @@
 
       html, body
       {
-          /*height: 100%;*/
           background-color: var(--alt-background-color);
       }
-      /*.main-background-container
-      {
-          height: 75%;
-      }*/
 
   /****************************
   ********** Sidebar **********
@@ -54,7 +49,7 @@
     }
 
     .footer {
-        position: absolute;
+        position: fixed;
         bottom: 0px;
 
     }
