@@ -199,6 +199,15 @@ h1.site-title{
     background-color: var(--main-background-color);
 
   }
+  .list-group-item-alt{
+    margin-top: 0;
+    font-family: var(--font-family);
+    font-weight: normal;
+    color: var(--main-background-color);
+    /*font-size: var(--normal-font-size);*/
+    /*background-color: var(--main-background-color);*/
+
+  }
 
   a.list-group-item {
     margin-top: 0;
