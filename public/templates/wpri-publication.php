@@ -6,12 +6,12 @@
 		?>
     <ul class="list-group">
         <div class=' col-xs-8   list-group-item'>
-    		<div class='col-sm-12 col-md-12 col-lg-12 single'><h1 class=" single"> <?php echo $publication['title'];?></h1> </div>
-    		<div class='col-sm-3 col-md-3 col-lg-3 single'> <?php echo "publication picture"?> </div>
-    		<div class='col-sm-12 single'><h3 class=" single"> <?php echo $publication['authors'];?> </h3></div>
-    		<div class='col-sm-3 col-md-3 col-lg-4 single'><h3 class=" single">DOI number<br> <?php echo $publication['doi'];?>  </h3></div>
-    		<div class='col-sm-3 col-md-3 col-lg-4 single'><h3 class=" single">Publication type<br> <?php echo $publication["pubtype"];?> </h3> </div>
-    		<div class='col-sm-12 col-md-12 col-lg-12 wordwrap single'><h3 class=" single"> <?php echo $publication['bibtex'];?>  </h3></div>
+    		<div class='col-sm-12 col-md-12 col-lg-12'><h1 class="list-item"> <?php echo $publication['title'];?></h1> </div>
+    		<div class='col-sm-3 col-md-3 col-lg-3 '> <?php echo "publication picture"?> </div>
+    		<div class='col-sm-12 '><h3 class="list-item"> <?php echo $publication['authors'];?> </h3></div>
+    		<div class='col-sm-3 col-md-3 col-lg-4 '><h3 class="list-item">DOI number<br> <?php echo $publication['doi'];?>  </h3></div>
+    		<div class='col-sm-3 col-md-3 col-lg-4 '><h3 class=" list-item">Publication type<br> <?php echo $publication["pubtype"];?> </h3> </div>
+    		<div class='col-sm-12 col-md-12 col-lg-12 wordwrap '><h3 class=" list-item"> <?php echo $publication['bibtex'];?>  </h3></div>
         </div>
     </ul>
 	<h2 class="outfont">Authors</h2>
