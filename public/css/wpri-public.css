@@ -229,7 +229,7 @@ h1.site-title{
         color: var(--main-background-color);
     }
 
-  .outside h1, .outside h2, .outside h3, .outside h4, .outside p {
+  .outside  {
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
