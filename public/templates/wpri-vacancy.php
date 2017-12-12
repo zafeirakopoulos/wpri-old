@@ -9,14 +9,14 @@
 		<ul class='list-group'>
 			<div class='list-group-item'>
 
-			<div class='col-sm-12 col-md-12 col-lg-12 single'><h1 class=" single"> <?php echo $position['official_title'];?></h1> </div>
+			<div class='col-sm-12 col-md-12 col-lg-12 '><h1 class=" single"> <?php echo $position['official_title'];?></h1> </div>
 
-			<div class='col-sm-2 col-md-2 col-lg-2 single'>Position:</div>
-			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['vacancytype'];?> </div>
-			<div class='col-sm-2 col-md-2 col-lg-2 single'>Application deadline: </div>
-			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['deadline'];?> </div>
-			<div class='col-sm-2 col-md-2 col-lg-2 single'>Starting date:</div>
-			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['startingdate'];?> </div>
+			<div class='col-sm-2 col-md-2 col-lg-2 '>Position:</div>
+			<div class='col-sm-2 col-md-2 col-lg-2 '> <?php echo $position['vacancytype'];?> </div>
+			<div class='col-sm-2 col-md-2 col-lg-2 '>Application deadline: </div>
+			<div class='col-sm-2 col-md-2 col-lg-2 '> <?php echo $position['deadline'];?> </div>
+			<div class='col-sm-2 col-md-2 col-lg-2 '>Starting date:</div>
+			<div class='col-sm-2 col-md-2 col-lg-2 '> <?php echo $position['startingdate'];?> </div>
 			</div>
 
 		<h2 class="outfont">Job description</h2>
