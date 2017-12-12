@@ -3,6 +3,10 @@
  * included in this file.
  */
 
+html, body, .main-background-container, .main-content-container
+{
+    height: 100%;
+}
 
  :root {
      /* fonts */
