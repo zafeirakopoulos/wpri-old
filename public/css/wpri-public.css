@@ -210,7 +210,11 @@ h1.site-title{
   a.list-group-item:hover {
     background-color: var(--main-color);
     color: var(--main-background-color);
+  }
 
+  h1.list-item:hover, h2.list-item:hover, h3.list-item:hover, h4.list-item:hover {
+    background-color: var(--main-color);
+    color: var(--main-background-color);
   }
 
   .single h1, .single h2, .single h3, .single h4, .single p {
