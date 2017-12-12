@@ -1,5 +1,5 @@
 <div class='single' id="project" >
- 		<div class='row'>
+ 		<ul class='list-group'>
 			<?php
 
 			$project_id=$_GET['id'];
@@ -22,7 +22,7 @@
 
 			echo "<div class='col-xs-12 single'><h3 class='single'> Funded by:".join(",",$project['agency'])."</h3> </div>";
  			?>
-
+</ul>
 
 			<h2 class="outfont">Participants</h2>
 			<h3 class="outfont">Institute members</h3>
@@ -60,7 +60,6 @@
 				}
 			?>
 
-		</div>
 </div><!-- #project -->
 
 
