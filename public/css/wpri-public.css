@@ -217,7 +217,7 @@ h1.site-title{
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
-    color: var(--alt-color);
+    color: var(--main-color);
   }
 
   .single  h1{
