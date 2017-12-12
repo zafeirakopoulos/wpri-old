@@ -58,7 +58,7 @@
 		        echo "<a href='".site_url()."/member?id=".$member["id"]."' class='single'>
 		                <h2 class='single'>".$member["title"]." ".$member['name']."</h2>".get_avatar($member['user']).$member['position']."
 		            </a>";
-			}
+			
 		}
 	echo "</ul>";
 
