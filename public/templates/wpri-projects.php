@@ -23,7 +23,7 @@
                             <div><h2 class='single'>".$project['title']."</h2></div>
                             <div>".$project["picture"]."</div>
                             <div><h3 class='single'>Funded by: ".join(",",$project['agency'])."</h3></div>
-                        </div>"" ;
+                        </div>" ;
                     echo "</a>";
 			}
  			?>
