@@ -11,7 +11,7 @@
 		<div class='col-sm-3 col-md-3 col-lg-4 single'><h3 class=" single">Publication type<br> <?php echo $publication["pubtype"];?> </h3> </div>
 		<div class='col-sm-12 col-md-12 col-lg-12 wordwrap single'><h3 class=" single"> <?php echo $publication['bibtex'];?>  </h3></div>
 
-	<h2 class=" single">Authors</h2>
+	<h2 class="outfont">Authors</h2>
     <ul class="list-group">
 	<?php
 		foreach ($publication['member'] as $member_id) {
@@ -20,7 +20,7 @@
 		}?>
     </ul>
 
-	<h2 class=" single">Projects</h2>
+	<h2 class="outfont">Projects</h2>
     <ul class="list-group">
 		<?php
 		foreach ($publication['project'] as $project_id) {

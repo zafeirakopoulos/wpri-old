@@ -1,5 +1,5 @@
 <div class='wpri-sidebar-frame'>
-	<h1 class='wpri-sidebar'> News </h1>
+	<h1 class='outfont'> News </h1>
 		<ul class="list-group news-list">
 			<?php
 				$args = array( 'post_type' => 'wpri_news', 'posts_per_page' => 10 );
