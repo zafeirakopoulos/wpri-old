@@ -194,7 +194,7 @@ h1.site-title{
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
-    color: var(--alt-color);
+    color: var(--main-color);
     font-size: var(--normal-font-size);
     background-color: var(--main-background-color);
 
@@ -204,7 +204,7 @@ h1.site-title{
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
-    color: var(--alt-color);
+    color: var(--main-color);
     font-size: var(--normal-font-size);
   }
   a.list-group-item:hover {
