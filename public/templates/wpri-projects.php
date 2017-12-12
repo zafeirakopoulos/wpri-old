@@ -21,7 +21,7 @@
                     echo "<a class='list-group-item' href='".site_url()."/project?id=".$project_id."'>";
                         // echo"<div'>";
                         echo "<h2 class='list-item'>".$project['title']."</h2><br>";
-                        echo "<h3>Funded by: ".join(",",$project['agency'])."</h3>";
+                        echo "<h3 class='list-item'>Funded by: ".join(",",$project['agency'])."</h3>";
                         // echo "<div>".$project["picture"]."</div>";
                     echo "</a>";
 			}
