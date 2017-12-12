@@ -5,6 +5,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
 <!-- <div class="container" style="background-image: url('http://bte.gtu.edu.tr/wp-content/uploads/2016/03/bg2.jpg'); "> -->
 <div class="main-background-container">
 <div class="container main-content-container">
+    <br>
     <div class="row">
         <div class="col-xs-12 col-md-9">
             <ul class="list-group">
