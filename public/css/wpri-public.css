@@ -212,35 +212,35 @@ h1.site-title{
     color: var(--main-background-color);
   }
 
-  a.list-group-item:hover h1.list-item{
-     background-color: var(--main-color);
-     color: var(--main-background-color);
-   }
-    a.list-group-item:hover h2.list-item{
-      background-color: var(--main-color);
-      color: var(--main-background-color);
-    }
-    a.list-group-item:hover h3.list-item{
-       background-color: var(--main-color);
-       color: var(--main-background-color);
-     }
-     a.list-group-item:hover h4.list-item{
+    a.list-group-item:hover h1.list-item{
         background-color: var(--main-color);
         color: var(--main-background-color);
-      }
-
- .single h1, .single h2, .single h3, .single h4, .single p {
-    margin-top: 0;
-    font-family: var(--font-family);
-    font-weight: normal;
-    color: var(--main-color);
-  }
+    }
+    a.list-group-item:hover h2.list-item{
+        background-color: var(--main-color);
+        color: var(--main-background-color);
+    }
+    a.list-group-item:hover h3.list-item{
+        background-color: var(--main-color);
+        color: var(--main-background-color);
+    }
+    a.list-group-item:hover h4.list-item{
+        background-color: var(--main-color);
+        color: var(--main-background-color);
+    }
 
   .outside h1, .outside h2, .outside h3, .outside h4, .outside p {
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
     color: black;
+  }
+
+ .single h1, .single h2, .single h3, .single h4, .single p {
+    margin-top: 0;
+    font-family: var(--font-family);
+    font-weight: normal;
+    color: var(--main-color);
   }
 
   .single  h1{
