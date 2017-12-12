@@ -5,7 +5,7 @@
 			$project_id=$_GET['id'];
 			$project = WPRI_Database::get_entity("project",$project_id);
 
-            echo "<div class='col-xs-8  list-group-item '>";
+            echo "<div class='col-xs-8  list-group-item-alt '>";
 
 			echo "<div class='col-xs-9'><h2 class='list-item'>".$project['title']."</h2> </div>";
 
