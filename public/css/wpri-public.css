@@ -229,6 +229,22 @@ h1.site-title{
         color: var(--main-background-color);
     }
 
+    a.list-group-item h1.list-item{
+        color: var(--main-color);
+        background-color: var(--main-background-color);
+    }
+    a.list-group-item h2.list-item{
+        color: var(--main-color);
+        background-color: var(--main-background-color);
+    }
+    a.list-group-item h3.list-item{
+        color: var(--main-color);
+        background-color: var(--main-background-color);
+    }
+    a.list-group-item h4.list-item{
+        color: var(--main-color);
+        background-color: var(--main-background-color);
+    }
   .outfont  {
     font-size: 35px;
     color: black;
