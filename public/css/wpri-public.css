@@ -3,11 +3,14 @@
  * included in this file.
  */
 
-html, body, .main-background-container
+html, body
 {
     height: 100%;
 }
-
+.main-background-container
+{
+    height: 90%;
+}
  :root {
      /* fonts */
      --site-title-font-size : 30px;
