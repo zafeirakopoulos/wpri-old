@@ -229,14 +229,14 @@ h1.site-title{
         color: var(--main-background-color);
       }
 
- .single h2, .single h3, .single h4, .single p {
+ .single h1, .single h2, .single h3, .single h4, .single p {
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--main-color);
   }
 
-  .single h1  {
+  .outside h1, .outside h2, .outside h3, .outside h4, .outside p {
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
