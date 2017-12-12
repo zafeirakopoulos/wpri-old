@@ -28,7 +28,7 @@
     $members = WPRI_Database::get_members_full();
 
     echo "<h1 class='outside'>Faculty</h1>";
-	<ul class="list-group">
+	echo "<ul class='list-group'>";
 
 	    $member = $members[$director];
 	    echo "<div class='row'>
@@ -66,7 +66,7 @@
 	            </div>
 	            <hr/>";
 		}
-	</ul>
+	echo "</ul>";
 
     echo "<h1 class='single'>Assistants</h1>";
     foreach ( $assistants as $member_id ) {
