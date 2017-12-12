@@ -272,6 +272,10 @@ h1.site-title{
         background-color: var(--main-background-color);
     }
 
+ .list-item-alt{
+         color: var(--main-background-color);
+ }
+ 
   .outfont  {
     color: var(--main-background-color);
   }
