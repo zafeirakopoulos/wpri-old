@@ -7,7 +7,6 @@
 
             echo "<div class='col-xs-8  list-group-item '>";
 
-			echo "<div class='col-xs-3'>"."picture"."</div>";
 			echo "<div class='col-xs-9'><h2 class='list-item'>".$project['title']."</h2> </div>";
 
 			echo "<div class='col-xs-12'><h3 class='list-item'> Status: ".$project['status']."</h3> </div>";
@@ -22,7 +21,8 @@
 				mysql2date( 'F j, Y', $project['enddate'] )
 				."</h3> </div>";
 
-			echo "<div class='col-xs-12 single'><h3 class='list-item'> Funded by:".join(",",$project['agency'])."</h3> </div>";
+			echo "<div class='col-xs-12 single'><h3 class='list-item'> Funded by: ".join(",",$project['agency'])."</h3> </div>";
+            echo "<div class='col-xs-3'>"."picture"."</div>";
             echo "</div>";
  			?>
 </ul>
