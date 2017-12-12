@@ -3,7 +3,7 @@
  * included in this file.
  */
 
-html, body, .main-background-container, .main-content-container
+html, body
 {
     height: 100%;
 }
