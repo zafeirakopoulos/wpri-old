@@ -5,8 +5,8 @@
 			$project_id=$_GET['id'];
 			$project = WPRI_Database::get_entity("project",$project_id);
 
-			echo "<div class='col-xs-3  single'>"."picture"."</div>";
-			echo "<div class='col-xs-9 single'><h1 class='single'>".$project['title']."</h1> </div>";
+			echo "<div class='col-xs-3 single'>"."picture"."</div>";
+			echo "<div class='col-xs-9 single'><h2 class='single'>".$project['title']."</h2> </div>";
 
 			echo "<div class='col-xs-12 single'><h3 class='single'> Status:".$project['status']."</h3> </div>";
 
