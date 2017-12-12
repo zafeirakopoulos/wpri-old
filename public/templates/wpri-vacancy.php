@@ -7,9 +7,9 @@
 
 		?>
 		<ul class='list-group'>
-			<div class='col-sm-12 list-group-item'>
+			<div class='col-sm-12 list-group-item-alt'>
 
-			<div class='col-sm-12 col-md-12 col-lg-12 '><h1 class='list-item'> <?php echo $position['official_title'];?></h1> </div>
+			<div class='col-sm-12 col-md-12 col-lg-12 '><h1 class='list-item-alt'> <?php echo $position['official_title'];?></h1> </div>
 
 			<div class='col-xs-12 col-md-4 col-lg-4 '>Position: <?php echo $position['vacancytype'];?> </div>
 			<div class='col-xs-12 col-md-4 col-lg-4 '>Application deadline:  <?php echo $position['deadline'];?> </div>
@@ -18,7 +18,7 @@
 
 		<h2 class="outfont">Job description</h2>
 		<ul class='list-group'>
-			<li class='list-group-item'> <?php echo $position['description'];?> </li>
+			<li class='list-group-item-alt'> <?php echo $position['description'];?> </li>
 		</ul>
 
 
