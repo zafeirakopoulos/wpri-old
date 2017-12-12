@@ -4,7 +4,7 @@
 
 			$project_id=$_GET['id'];
 			$project = WPRI_Database::get_entity("project",$project_id);
-
+            echo "<li class='list-group-item'>";
 			echo "<div class='col-xs-3 single'>"."picture"."</div>";
 			echo "<div class='col-xs-9 single'><h2 class='single'>".$project['title']."</h2> </div>";
 
@@ -21,6 +21,8 @@
 				."</h3> </div>";
 
 			echo "<div class='col-xs-12 single'><h3 class='single'> Funded by:".join(",",$project['agency'])."</h3> </div>";
+            echo "</li>";
+
  			?>
 </ul>
 
