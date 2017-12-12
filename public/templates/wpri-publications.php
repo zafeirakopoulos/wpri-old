@@ -1,5 +1,5 @@
 <div class='single' id="publications" >
-    <h1 class="single"> Publications </h1>
+    <h1 class="outside"> Publications </h1>
     <ul class="list-group">
 			<?php
 			$publication_ids = WPRI_Database::get_ids("publication");
