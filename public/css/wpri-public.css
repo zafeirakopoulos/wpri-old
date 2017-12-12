@@ -51,7 +51,10 @@
     .footer {
         position: fixed;
         bottom: 0px;
-
+    }
+    .masthead {
+        position: fixed;
+        top: 0px;
     }
   }
 
