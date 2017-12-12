@@ -264,7 +264,7 @@ h1.site-title{
     }
 
   .outfont  {
-    font-size: 35px;
+    font-size: var(--normal-font-size);
     color: var(--main-background-color);
   }
 
