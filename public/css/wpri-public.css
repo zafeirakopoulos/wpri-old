@@ -19,7 +19,7 @@
 
      --font-family: "Palatino", Helvetica, Arial, sans-serif;
      --main-color : #D98310;
-     --main-focus-color : red;
+     --main-focus-color : orange;
      --alt-color : #494E6B;
 
 
@@ -265,7 +265,7 @@ h1.site-title{
 
   .outfont  {
     font-size: 35px;
-    color: red;
+    color: var(--main-background-color);
   }
 
  /*.single h1, .single h2, .single h3, .single h4, .single p {
