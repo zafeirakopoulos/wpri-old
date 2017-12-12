@@ -11,7 +11,7 @@
                 <div class='col-xs-8  list-group-item '>
                     <div class='col-xs-12'><h1 class='list-item' ><?php echo $member["title"]." ".$member['name'];?></h1></div>
                     <div class='col-xs-3 '><?php echo get_avatar($member['user']);?></div>
-                    <div class='col-xs-9 '><h3 class='list-item'><?php echo $member['position'];?></h3></div>
+                    <div class='col-xs-9 '><h3><?php echo $member['position'];?></h3></div>
                 </div>
             </a>
 		</ul>
