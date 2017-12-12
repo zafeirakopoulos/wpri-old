@@ -1,5 +1,5 @@
 <div class='single' id="projects" >
-    <h1 class="single"> Projects </h1>
+    <h1 class="outfont"> Projects </h1>
         <ul class="list-group">
 
  			<?php

@@ -15,7 +15,7 @@ $template_loader->get_template_part( 'wpri', 'header' );
 			   <br>
 			   With national and international collaborations, personnel movement and creation of policies, GTU IIT positions itself as the center of attraction.
 
-		   <h1 class='single'>Highlights</h1><br>
+		   <h1 class='outfont'>Highlights</h1><br>
 		   <?php $args = array(
 				 'posts_per_page' => 20,
 				 'post_type' => 'wpri_highlights'
