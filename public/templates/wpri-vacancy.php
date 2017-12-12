@@ -6,22 +6,22 @@
 		$position = WPRI_Database::get_entity("vacancy",$position_id);
 
 		?>
-		<div class='row'>
+		<ul class='list-group'>
+			<div class='list-group-item'>
+
 			<div class='col-sm-12 col-md-12 col-lg-12 single'><h1 class=" single"> <?php echo $position['official_title'];?></h1> </div>
-		</div>
-		<div class='row'>
+
 			<div class='col-sm-2 col-md-2 col-lg-2 single'>Position:</div>
 			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['vacancytype'];?> </div>
 			<div class='col-sm-2 col-md-2 col-lg-2 single'>Application deadline: </div>
 			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['deadline'];?> </div>
 			<div class='col-sm-2 col-md-2 col-lg-2 single'>Starting date:</div>
 			<div class='col-sm-2 col-md-2 col-lg-2 single'> <?php echo $position['startingdate'];?> </div>
+			</div>
+		</ul>
 
-		</div>
 		<h2 class="outfont">Job description</h2>
-		<div class='row'>
 			<div class='col-sm-12 col-md-12 col-lg-12 single'> <?php echo $position['description'];?> </div>
-		</div>
 
 
  	<h2 class="outfont">Requirements</h2>
