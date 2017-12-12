@@ -8,8 +8,8 @@
 		<ul class="list-group">
 
 	        <a href='<?php echo site_url()."/member?id=".$member["id"];?>' class=''>
-                <div class='col-xs-8 offset-xs-2 list-group-item '>
-                    <div class='col-xs-12'><h1><?php echo $member["title"]." ".$member['name'];?></h1></div>
+                <div class='col-xs-12  list-group-item '>
+                    <div class='col-xs-12'><h1 class='list-item'  ><?php echo $member["title"]." ".$member['name'];?></h1></div>
                     <div class='col-xs-3 '><?php echo get_avatar($member['user']);?></div>
                     <div class='col-xs-9 '><h3 class="single"><?php echo $member['position'];?></h3></div>
                 </div>
