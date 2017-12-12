@@ -56,7 +56,7 @@
 	    foreach ( $faculty as $member_id ) {
 	        $member = $members[$member_id];
 		        echo "<a href='".site_url()."/member?id=".$member["id"]."' class='list-group-item'>
-		                <h2 class='single'>".$member["title"]." ".$member['name']."</h2>".get_avatar($member['user']).$member['position']."
+		                <h2 class='list-item'>".$member["title"]." ".$member['name']."</h2>".get_avatar($member['user']).$member['position']."
 		            </a>";
 
 		}
