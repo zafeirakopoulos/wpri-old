@@ -3,14 +3,7 @@
  * included in this file.
  */
 
-html, body
-{
-    height: 100%;
-}
-.main-background-container
-{
-    height: 75%;
-}
+
  :root {
      /* fonts */
      --site-title-font-size : 30px;
@@ -39,7 +32,16 @@ html, body
 
 
 
+      html, body
+      {
+          height: 100%;
+          background-color: var(--main-background-color);
 
+      }
+      /*.main-background-container
+      {
+          height: 75%;
+      }*/
 
   /****************************
   ********** Sidebar **********
