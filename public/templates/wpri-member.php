@@ -1,5 +1,5 @@
 <div class="single" id="member" >
-	<div class='row'>
+	<!-- <div class='row'> -->
 		<?php
 		$member_id=$_GET['id'];
 		$member = WPRI_Database::get_member_full($member_id);
@@ -17,7 +17,7 @@
 		</ul>
 
         <!-- </div> -->
-	</div>
+	<!-- </div> -->
 	<ul class="list-group">
 
 	<h1 class="outfont"> Contact </h1>
