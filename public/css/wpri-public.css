@@ -3,7 +3,7 @@
  * included in this file.
  */
 
-html, body, .main-background-container
+html, body
 {
     height: 100%;
 }
@@ -145,7 +145,9 @@ h1.site-title{
     width: 100%;
     border : 0px;
     font-size: var(--large-font-size);
-
+    position : fixed;
+    margin-bottom: 0px;
+    bottom : 0 px;
 }
 
 /****************************
