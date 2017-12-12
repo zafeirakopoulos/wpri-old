@@ -14,6 +14,7 @@
             </a>
         <!-- </div> -->
 	</div>
+	<ul class="list-group">
 
 	<h1 class="outfont"> Contact </h1>
  		<div class='col-xs-12 col-sm-4 list-group-item'>
@@ -29,7 +30,7 @@
 				<h3 class="single"><?php echo $member['email'];?></h3>
 			</p>
 		</div>
-
+	</ul>
 	<h1 class="outfont"> Posts </h1>
 
 	<?php $args = array(
