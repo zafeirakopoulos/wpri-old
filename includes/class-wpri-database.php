@@ -460,10 +460,10 @@ public static function update_form($id, $entity, $form) {
 						)
 					);
 				} else{
-				// 	$GLOBALS['wpdb']->prepare(
-				// 			"DELETE FROM " . self::table_name($related."_".$entity["name"]). " WHERE ".$entity["name"]." = %d", $id
-				// 		)
-				// 	);
+					$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name($related."_".$entity["name"]). " WHERE ".$entity["name"]." = %d", $id
+						)
+					);
 				}
 		}
 	}
