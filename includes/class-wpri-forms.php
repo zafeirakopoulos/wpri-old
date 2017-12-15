@@ -52,7 +52,7 @@ class WPRI_Form {
 		   			</div>
 					<div class="tab-pane" id="add">
 						<?php
-					    WPRI_Form::wpri_form_add($form);
+					    WPRI_Form::wpri_form_add_update($form);
 					   ?>
 		   			</div>
 			 	</div>
