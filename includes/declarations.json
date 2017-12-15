@@ -1115,7 +1115,8 @@
                 }
             ],
             "related" : [
-                "publication"
+                "publication",
+                "vacancy"
             ]
         },
         "publication": {
