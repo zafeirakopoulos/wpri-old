@@ -455,6 +455,7 @@ public static function update_form($id, $entity, $form) {
 			foreach ( $entity["related"] as $related ) {
 				if (is_array($related)){
 					$tablename = $related[0]."_".$entity["name"]."_".$related[1];
+					$related= $related[0];
 				}
 				else{
 					$tablename = $related."_".$entity["name"];
