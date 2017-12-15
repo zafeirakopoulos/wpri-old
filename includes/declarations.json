@@ -956,11 +956,16 @@
                             "type": "text"
                         },
                         {
-                            "caption" : "Role" ,
-                            "name": "role",
+                            "caption" : "Affiliation" ,
+                            "name": "affiliation",
                             "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "caption" : "Title" ,
+                            "name": "title",
                             "type": "select",
-                            "table" : "role",
+                            "table" : "title",
                             "column" : "id",
                             "display_column" : "localized"
                         }
