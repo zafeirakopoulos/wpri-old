@@ -367,7 +367,9 @@ class WPRI_Admin {
 
 			// If POST for deleting
 			if( isset( $_POST['type']) && $_POST['type'] == 'delete_member' ) {
-				$result = WPRI_Database::delete_member($_POST['member_id']);
+				$declarations = WPRI_Declarations::get_declarations();
+
+				$result = WPRI_Database::delete_record($_POST['member_id'],$declarations["member"]);
 				if($result) {
 					echo "<div class='updated'><p><strong>Deleted.</strong></p></div>";
 				} else {
