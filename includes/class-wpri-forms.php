@@ -150,7 +150,7 @@ class WPRI_Form {
         $update = false;
         if (isset($_POST["update_button"]) ){
             $update = true;
-            $old_data = WPRI_Database::get_entity($form["name"],$_POST["id"]);
+            $old_data = WPRI_Database:: get_entity_raw($form["name"],$_POST["id"]);
             error_log(print_r($old_data));
         }
 
