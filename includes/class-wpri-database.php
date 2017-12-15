@@ -432,7 +432,6 @@ public static function update_form($id, $entity, $form) {
 
 	foreach (  $form["multirelations"]  as $name => $relation ) {
 		 WPRI_Database::update_double_relation($entity["name"],array_keys($relation[0])[0],array_keys($relation[0])[1],$id,$relation) ;
-
 	}
 
 
