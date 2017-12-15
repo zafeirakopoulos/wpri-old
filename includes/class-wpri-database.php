@@ -336,7 +336,6 @@ public static function add_double_relation($left, $middle, $right, $id, $relatio
    return $success;
 }
 
-00000000000000000000000000000
 
 
  public static function update_localized_relation($entityname, $elementame,$id,$names) {
