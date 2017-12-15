@@ -459,7 +459,6 @@ public static function update_form($id, $entity, $form) {
 							"DELETE FROM " . self::table_name($related."_".$entity["name"]). " WHERE ".$entity["name"]." = %d", $id
 						)
 					);
-				}
 				} else{
 					$GLOBALS['wpdb']->prepare(
 							"DELETE FROM " . self::table_name($related."_".$entity["name"]). " WHERE ".$entity["name"]." = %d", $id
@@ -467,6 +466,7 @@ public static function update_form($id, $entity, $form) {
 					);
 				}
 		}
+	}
 
 
 		foreach ($entity["groups"] as $group) {
