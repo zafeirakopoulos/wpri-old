@@ -794,11 +794,6 @@ public static function update_form($id, $entity, $form) {
 	 			$results[$name]= $tmp;
 	 	 	}
 
-	 		foreach (  $select  as $selection ) {
-	 			if (isset($declarations[$selection]["groups"][0]["elements"][0]["all_locales"])){
-	 				$results[$selection]=  WPRI_Database::get_localized($selection,$results[$selection]) ;
-	 			}
-	 		}
 
 
 	 	 	foreach ( $multiplerelations as $relation ) {
@@ -811,7 +806,7 @@ public static function update_form($id, $entity, $form) {
 	 				$tmp=array();
 	 				if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
 	 					foreach (WPRI_Database::get_relation($related,$entity_name,"",$id) as $row) {
-	 						$tmp[] = WPRI_Database::get_localized($related,$row[$related]) ;
+	 						$tmp[] = $row[$related] ;
 	 					}
 	 				} else{
 	 					foreach (WPRI_Database::get_relation($related,$entity_name,"",$id) as $row) {
