@@ -938,6 +938,7 @@
         "collaborator": {
             "title" : "Collaborators",
             "table_name" : "collaborator",
+            "has_menu" : true,
             "name" :"collaborator",
             "actions": {
                 "add" : "manage_options",

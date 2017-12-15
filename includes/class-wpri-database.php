@@ -336,6 +336,62 @@ public static function add_double_relation($left, $middle, $right, $id, $relatio
    return $success;
 }
 
+00000000000000000000000000000
+
+
+ public static function update_localized_relation($entityname, $elementame,$id,$names) {
+	 $success = 1;
+
+	foreach ( WPRI_Database::get_locales() as $locale ) {
+		$GLOBALS['wpdb']->update( self::table_name("locale_".$entityname."_".$elementame) , array(
+			'locale' => $locale["id"],
+			$entityname => $id,
+			'name' => $names[$locale["id"]]
+		), array( 'locale' => $locale["id"], $entityname => $id));
+		// $success = $success * $GLOBALS['wpdb']->insert_id;
+	}
+	if (!$success){
+		# TODO Delete what was added
+	}
+	return $success;
+}
+
+# select
+public static function update_simple_relation($left, $right, $id, $rightvalues) {
+	$success = 1;
+	foreach ( $rightvalues as $value ) {
+	   $GLOBALS['wpdb']->update( self::table_name($left."_".$right) , array(
+		   $left => $id,
+		   $right => $value
+	   ), array( $left => $id));
+	  //  $success = $success * $GLOBALS['wpdb']->insert_id;
+	}
+	if (!$success){
+	   # TODO Delete what was added
+	}
+	return $success;
+}
+
+
+# foreach & select
+public static function update_double_relation($left, $middle, $right, $id, $relations) {
+	$success = 1;
+
+   foreach ( $relations as $relation ) {
+	   $success = 1;
+	   foreach ( $relation[$middle]  as $value ) {
+		   $GLOBALS['wpdb']->update( self::table_name($left."_".$middle."_".$right) , array(
+			   $left => $id,
+			   $middle => $value,
+			   $right =>$relation[$right]
+		   ), array( $left => $id, $middle => $value) );
+	   }
+   }
+
+   return $success ;
+}
+
+
 public static function add_form($entity, $form) {
 
 	$GLOBALS['wpdb']->insert( self::table_name($entity["table_name"]) , $form["plain"] );
@@ -362,6 +418,29 @@ public static function add_form($entity, $form) {
 	return $success;
 }
 
+public static function update_form($id, $entity, $form) {
+
+	$GLOBALS['wpdb']->update( self::table_name($entity["table_name"]) , $form["plain"], array("id"=>$id) );
+
+	foreach (  $form["localized"]  as $localizedname => $names ) {
+		WPRI_Database::update_localized_relation($entity["name"],$localizedname,$id , $names) ;
+	}
+
+	foreach (  $form["relations"]  as $name => $items ) {
+		WPRI_Database::update_simple_relation($entity["name"],$name,$id,$items) ;
+	}
+
+	foreach (  $form["multirelations"]  as $name => $relation ) {
+		 WPRI_Database::update_double_relation($entity["name"],array_keys($relation[0])[0],array_keys($relation[0])[1],$id,$relation) ;
+
+	}
+
+
+	if (!$success){
+		# TODO Delete what was added
+	}
+	return $success;
+}
 
 /******************************************************************************************
 *******************************************************************************************

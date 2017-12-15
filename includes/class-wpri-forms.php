@@ -45,11 +45,6 @@ class WPRI_Form {
 						WPRI_Form::wpri_form_show_existing($form);
 					   ?>
 					</div>
-		   			<div class="tab-pane" id="update">
-						<?php
-					    WPRI_Form::wpri_form_update($form);
-					   ?>
-		   			</div>
 					<div class="tab-pane" id="add">
 						<?php
 					    WPRI_Form::wpri_form_add_update($form);
@@ -126,16 +121,20 @@ class WPRI_Form {
 			$to_add["relations"]=$relations;
 			$to_add["multirelations"]=$multiplerelations;
 			$to_add["localized"]=$local;
-			$success = WPRI_Database::add_form($entity,$to_add);
+      if($_POST['type'] == 'add'){
+        $success = WPRI_Database::add_form($entity,$to_add);
+      }
+      elseif($_POST['type'] == 'update'){
+        $success = WPRI_Database::update_form($_POST['id'],$entity,$to_add);
+      }
+
 			if($success ) {
 				echo "<div class='updated'><p><strong>Added.</strong></p></div>";
 			} else {
 				echo "<div class='error'><p>Unable to add.</p></div>";
 			}
 		}
-		if( isset( $_POST['type']) && $_POST['type'] == 'update') {
 
-		}
 		if( isset( $_POST['delete_button'])) {
 			$success = WPRI_Database::delete_record($_POST["id"],$entity);
 			if($success ) {
@@ -389,38 +388,5 @@ class WPRI_Form {
 		  	</ul>
 	<?php }
 	}
-	public static function wpri_form_update($form) {
-		?>
-		<div>
-			<div class='row'>
-			<form name='<?php echo $form["name"]?>' method="post" action="">
-				<div class='col-sm-12 form-title'> <?php echo $form["title"] ?> </div>
-				<?php
-				foreach ($form["groups"] as $group) {?>
-					<hr/>
-					<div class='col-sm-12 form-group-title'> <?php echo $group["title"] ?> </div>
-					<?php
-					foreach ($group["elements"] as $element) {
-						if ($element["type"]=="text"){?>
-							<label class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></label>
-							<div class='col-sm-3 form-element-value'>
-								<textarea id='<?php echo $element["name"]?>'
-										  name='<?php echo $element["name"]?>'
-										  cols='80'
-										  rows='3'>
-									 <?php echo $element["value"]?>
-								</textarea>
-							</div>
-						<?php }
-						elseif ($element["type"]=="radio"){?>
-							<div class='col-sm-3 form-element-caption'> <?php echo $element["caption"] ?></div>
-							<div class='col-sm-3 form-element-value'>   <?php echo $element["value"]   ?></div>
-						<?php }	?>
-					<?php } ?>
-				<?php } ?>
-				<button type="submit" name="action" value="add">Add</button>
-			</form>
-		</div>
-	</div>
-	<?php }
+
 }
