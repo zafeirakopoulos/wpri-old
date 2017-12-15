@@ -197,7 +197,7 @@ h1.site-title{
     font-weight: normal;
     color: var(--main-color);
     /*font-size: var(--normal-font-size);*/
-    /*background-color: var(--main-background-color);*/
+    background-color: var(--alt-background-color);
 
   }
   .list-group-item-alt{
