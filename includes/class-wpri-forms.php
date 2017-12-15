@@ -36,7 +36,7 @@ class WPRI_Form {
 	    	<div id="exTab1" class="container">
 				<ul  class="nav nav-pills">
 					<li  class="active"><a href="#show" data-toggle="tab">Existing</a></li>
-					<li><a href="#add" data-toggle="tab">Add New</a></li>
+					<li><a href="#add_update" data-toggle="tab">Add New</a></li>
 			   	</ul>
 
 	   			<div class="tab-content clearfix">
@@ -45,7 +45,7 @@ class WPRI_Form {
 						WPRI_Form::wpri_form_show_existing($form);
 					   ?>
 					</div>
-					<div class="tab-pane" id="add">
+					<div class="tab-pane" id="add_update">
 						<?php
 					    WPRI_Form::wpri_form_add_update($form);
 					   ?>
@@ -375,11 +375,13 @@ class WPRI_Form {
 				  <?php
 				  	foreach ( $all_entries as $item ) {
 					  echo "<li>";
-					  echo "<form name='id' method='post' action=''>";
 					  echo $item[$form["display_element"]];
+            echo "<form name='id' method='post' action=''>";
 					  echo "<input type='submit' name='delete_button' value='Delete' class='btn btn-primary' /> ";
+					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
+					  echo "</form>";
+            echo "<form name='id' method='post' action='#add_update'>";
 					  echo "<input type='submit' name='update_button' value='Update' class='btn btn-primary' /> ";
-					  // echo '<input type="hidden" name="type" value="delete" />';
 					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
 					  echo "</form>";
 					  echo "</li>";
