@@ -450,6 +450,25 @@ public static function update_form($id, $entity, $form) {
 
 	public static function delete_record($id,$entity) {
 
+		if (isset($entity["related"])){
+			foreach ( $entity["related"] as $related ) {
+				$tmp=array();
+				if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
+					$success = $GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name($related."_".$entity["name"]). " WHERE ".$entity["name"]." = %d", $id
+						)
+					);
+				}
+				} else{
+					$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name($related."_".$entity["name"]). " WHERE ".$entity["name"]." = %d", $id
+						)
+					);
+				}
+			}
+	 	}
+
 		foreach ($entity["groups"] as $group) {
 			foreach ($group["elements"] as $element) {
 				if ($element["type"]=="multiple-select"){
