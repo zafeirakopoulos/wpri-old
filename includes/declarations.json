@@ -940,6 +940,7 @@
             "table_name" : "collaborator",
             "has_menu" : true,
             "name" :"collaborator",
+            "display_element": "name",
             "actions": {
                 "add" : "manage_options",
                 "remove" : ["admin"],

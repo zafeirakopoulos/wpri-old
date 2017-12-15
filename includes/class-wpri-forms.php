@@ -36,7 +36,7 @@ class WPRI_Form {
 	    	<div id="exTab1" class="container">
 				<ul  class="nav nav-pills">
 					<li  class="active"><a href="#show" data-toggle="tab">Existing</a></li>
-					<li><a href="#add_update" data-toggle="tab">Add New</a></li>
+					<li><a href="#add_update?action_type=update" data-toggle="tab">Add New</a></li>
 			   	</ul>
 
 	   			<div class="tab-content clearfix">
@@ -353,11 +353,22 @@ class WPRI_Form {
 						}?>
 						</div>
 					 <?php }
-				 } ?>
-				<div class='col-sm-12 form-element-caption'>
-					<button type="submit" class="btn btn-primary">Add</button>
-				</div>
-				<input type="hidden" name="type" value="add"/>
+				 }
+         if( isset( $_GET['action_type']) && ($_GET['action_type'] == 'add'))
+         {
+          ?>
+    				<div class='col-sm-12 form-element-caption'>
+    					<button type="submit" class="btn btn-primary">Add</button>
+    				</div>
+				    <input type="hidden" name="type" value="add"/>
+        <?php else{
+        ?>
+        <div class='col-sm-12 form-element-caption'>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+        <input type="hidden" name="type" value="update"/>
+        <?php
+        }?>
 			</form>
 			</div>
 		</div>
@@ -380,7 +391,7 @@ class WPRI_Form {
 					  echo "<input type='submit' name='delete_button' value='Delete' class='btn btn-primary' /> ";
 					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
 					  echo "</form>";
-            echo "<form name='id' method='post' action='#add_update'>";
+            echo "<form name='id' method='post' action='#add_update?action_type=update'>";
 					  echo "<input type='submit' name='update_button' value='Update' class='btn btn-primary' /> ";
 					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
 					  echo "</form>";
