@@ -40,12 +40,12 @@ class WPRI_Form {
 			   	</ul>
 
 	   			<div class="tab-content clearfix">
-					<div class="tab-pane active" id="show">
+					<div class="tab-pane <?php echo ( isset($_POST("update_button")) ? "": "active")?>" id="show">
 						<?php
 						WPRI_Form::wpri_form_show_existing($form);
 					   ?>
 					</div>
-					<div class="tab-pane" id="add_update">
+					<div class="tab-pane <?php echo ( isset($_POST("update_button")) ? "active" : "")?>" id="add_update">
 						<?php
 					    WPRI_Form::wpri_form_add_update($form);
 					   ?>
