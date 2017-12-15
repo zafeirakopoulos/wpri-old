@@ -354,21 +354,11 @@ class WPRI_Form {
 						</div>
 					 <?php }
 				 }
-         if( isset( $_GET['action_type']) && ($_GET['action_type'] == 'add'))
-         {
-          ?>
-    				<div class='col-sm-12 form-element-caption'>
-    					<button type="submit" class="btn btn-primary">Add</button>
-    				</div>
-				    <input type="hidden" name="type" value="add"/>
-        <?php else{
-        ?>
-        <div class='col-sm-12 form-element-caption'>
-          <button type="submit" class="btn btn-primary">Update</button>
-        </div>
-        <input type="hidden" name="type" value="update"/>
-        <?php
-        }?>
+         <div class='col-sm-12 form-element-caption'>
+           <button type="submit" class="btn btn-primary">Add</button>
+         </div>
+         <input type="hidden" name="type" value="add"/>
+
 			</form>
 			</div>
 		</div>
