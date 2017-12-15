@@ -454,12 +454,11 @@ public static function update_form($id, $entity, $form) {
 		if (isset($entity["related"])){
 			foreach ( $entity["related"] as $related ) {
  				if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
-				// 	$success = $GLOBALS['wpdb']->query(
-				// 		$GLOBALS['wpdb']->prepare(
-				// 			"DELETE FROM " . self::table_name($related."_".$entity["name"]). " WHERE ".$entity["name"]." = %d", $id
-				// 		)
-				// 	);
-
+					$success = $GLOBALS['wpdb']->query(
+						$GLOBALS['wpdb']->prepare(
+							"DELETE FROM " . self::table_name($related."_".$entity["name"]). " WHERE ".$entity["name"]." = %d", $id
+						)
+					);
 				} else{
 				// 	$GLOBALS['wpdb']->prepare(
 				// 			"DELETE FROM " . self::table_name($related."_".$entity["name"]). " WHERE ".$entity["name"]." = %d", $id
