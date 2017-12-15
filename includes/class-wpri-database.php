@@ -453,7 +453,7 @@ public static function update_form($id, $entity, $form) {
 
 		if (isset($entity["related"])){
 			foreach ( $entity["related"] as $related ) {
-				if is_array($related){
+				if (is_array($related)){
 					$related = join("_", $related);
 				}
  				if (isset($declarations[$related]["groups"][0]["elements"][0]["all_locales"])){
