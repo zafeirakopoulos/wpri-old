@@ -204,7 +204,7 @@ h1.site-title{
     margin-top: 0;
     font-family: var(--font-family);
     font-weight: normal;
-    color: var(--main-background-color);
+    color: var(--alt-background-color);
     /*font-size: var(--normal-font-size);*/
     /*background-color: var(--main-background-color);*/
 
@@ -241,40 +241,40 @@ h1.site-title{
 
     a.list-group-item h1.list-item{
         color: var(--main-color);
-        background-color: var(--main-background-color);
+        background-color: var(--alt-background-color);
     }
     a.list-group-item h2.list-item{
         color: var(--main-color);
-        background-color: var(--main-background-color);
+        background-color: var(--alt-background-color);
     }
     a.list-group-item h3.list-item{
         color: var(--main-color);
-        background-color: var(--main-background-color);
+        background-color: var(--alt-background-color);
     }
     a.list-group-item h4.list-item{
         color: var(--main-color);
-        background-color: var(--main-background-color);
+        background-color: var(--alt-background-color);
     }
 
     h1.list-item{
         color: var(--main-color);
-        background-color: var(--main-background-color);
+        background-color: var(--alt-background-color);
     }
     h2.list-item{
         color: var(--main-color);
-        background-color: var(--main-background-color);
+        background-color: var(--alt-background-color);
     }
     h3.list-item{
         color: var(--main-color);
-        background-color: var(--main-background-color);
+        background-color: var(--alt-background-color);
     }
     h4.list-item{
         color: var(--main-color);
-        background-color: var(--main-background-color);
+        background-color: var(--alt-background-color);
     }
 
  .list-item-alt{
-         color: var(--main-background-color);
+         color: var(--alt-background-color);
  }
 
   .outfont  {
