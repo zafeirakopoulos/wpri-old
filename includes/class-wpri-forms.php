@@ -64,7 +64,7 @@ class WPRI_Form {
 		$locales= WPRI_Database::get_locales();
 
 		// If POST for adding
-		if( isset( $_POST['type']) && $_POST['type'] == 'add') {
+		if( isset( $_POST['type']) && ($_POST['type'] == 'add') || ($_POST['type'] == 'update')  {
 			$to_add = array();
 			$plain = array();
 			$local = array();
@@ -146,12 +146,13 @@ class WPRI_Form {
 		}
 	}
 
-	public static function wpri_form_add($form) {
+	public static function wpri_form_add_update($form) {
 		$locales= WPRI_Database::get_locales();
 		?>
 		<div>
 			<div class='row'>
 			<form name='<?php echo $form["name"]?>' method="post" action="">
+                <!-- Entity title -->
 				<div class='col-sm-12 form-title'> <?php echo $form["title"] ?> </div>
 				<?php
 				foreach ($form["groups"] as $group) {?>
