@@ -59,7 +59,7 @@ class WPRI_Form {
 		$locales= WPRI_Database::get_locales();
 
 		// If POST for adding
-		if( isset( $_POST['type']) && ($_POST['type'] == 'add') || ($_POST['type'] == 'update'))  {
+		if( isset( $_POST['type']) && ($_POST['type'] == 'add' || $_POST['type'] == 'update'))  {
 			$to_add = array();
 			$plain = array();
 			$local = array();
