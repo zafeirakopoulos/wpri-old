@@ -146,6 +146,13 @@ class WPRI_Form {
 	}
 
 	public static function wpri_form_add_update($form) {
+
+        $update = false;
+        if (isset($_POST["update_button"]) ){
+            $update = true;
+            $old_data = WPRI_Database::get_entity($form["name"],$_POST["id"]);
+        }
+
 		$locales= WPRI_Database::get_locales();
 		?>
 		<div>
@@ -171,7 +178,7 @@ class WPRI_Form {
 													  name='<?php echo $element["name"].$locale["id"] ?>'
 													  cols='80'
 													  rows='3'>
-												 <?php echo $element["value"]?>
+												 <?php echo  $element["value"]?>
 											</textarea>
 										</div>
 									<?php
