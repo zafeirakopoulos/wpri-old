@@ -369,7 +369,7 @@ class WPRI_Form {
 				</div>
 				<input type="hidden" name="type" value="add"/>
         <?php
-      } ?>        
+      } ?>
 			</form>
 			</div>
 		</div>
@@ -392,7 +392,7 @@ class WPRI_Form {
 					  echo "<input type='submit' name='delete_button' value='Delete' class='btn btn-primary' /> ";
 					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
 					  echo "</form>";
-            echo "<form name='id' method='post' action=''>";
+            echo "<form name='id' method='post' action='#add_update'>";
 					  echo "<input type='submit' name='update_button' value='Update' class='btn btn-primary' /> ";
 					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
 					  echo "</form>";
