@@ -967,7 +967,7 @@
                             "type": "select",
                             "table" : "title",
                             "column" : "id",
-                            "display_column" : "localized"
+                            "display_column" : "title"
                         }
                     ]
                 }
