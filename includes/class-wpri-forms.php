@@ -36,7 +36,7 @@ class WPRI_Form {
 	    	<div id="exTab1" class="container">
 				<ul  class="nav nav-pills">
 					<li  class="active"><a href="#show" data-toggle="tab">Existing</a></li>
-					<li><a href="#add_update?action=add" data-toggle="tab">Add New</a></li>
+					<li><a href="#add_update" data-toggle="tab">Add New</a></li>
 			   	</ul>
 
 	   			<div class="tab-content clearfix">
