@@ -178,7 +178,7 @@ class WPRI_Form {
 													  name='<?php echo $element["name"].$locale["id"] ?>'
 													  cols='80'
 													  rows='3'>
-                                                      <?php echo  $element["value"] ?>
+                                                      <?php echo ( isset($element["data"]) ? $element["data"][.$locale["id"]] : $element["value"] ) ?>
 											</textarea>
 										</div>
 									<?php
