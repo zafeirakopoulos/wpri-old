@@ -376,7 +376,7 @@ class WPRI_Form {
 							}
 
 							foreach ( $all_entries as $item ) {
-                                if ( isset($element["data"]) && $item["id"]==$element["data"]) {
+                                if ( isset($element["data"]) && $item[0]["id"]==$element["data"]) {
                                     echo "<option selected name='".$item[0]["id"]."' value='".$item[0]["id"]."'>".$item[1]."</option>";
                                 }
                                 else{
