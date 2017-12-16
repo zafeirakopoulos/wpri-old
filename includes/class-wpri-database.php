@@ -384,7 +384,7 @@ public static function update_double_relation($left, $middle, $right, $id, $rela
 			   $middle => $value,
 			   $right =>$relation[$right]
 		   ), array( $left => $id, $middle => $value) );
-		   if (!$success){
+		   if ($success==false){
 			  $success = WPRI_Database::add_double_relation($left, $middle, $right, $id, $relations) ;
 		   }
 	   }
