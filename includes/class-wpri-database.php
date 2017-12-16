@@ -862,7 +862,6 @@ public static function update_form($id, $entity, $form) {
 	 	 				}
 						else {
 							$element["data"] = $results[$element["name"]];
-							error_log("element gets data".print_r($element) );
 						}
 	 	 		 	}
 	 	 		 }
