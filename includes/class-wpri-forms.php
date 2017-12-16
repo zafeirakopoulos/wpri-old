@@ -130,9 +130,19 @@ class WPRI_Form {
               }
 
 			if($success ) {
-				echo "<div class='updated'><p><strong>Added.</strong></p></div>";
+                if($_POST['type'] == 'add'){
+                    echo "<div class='updated'><p><strong>Added.</strong></p></div>";
+                }
+                elseif($_POST['type'] == 'update'){
+                    echo "<div class='updated'><p><strong>Updated.</strong></p></div>";
+                }
 			} else {
-				echo "<div class='error'><p>Unable to add.</p></div>";
+                if($_POST['type'] == 'add'){
+                    echo "<div class='error'><p>Unable to add.</p></div>";
+                }
+                elseif($_POST['type'] == 'update'){
+                    echo "<div class='error'><p>Unable to update.</p></div>";
+                }
 			}
 		}
 
