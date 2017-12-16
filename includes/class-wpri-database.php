@@ -914,13 +914,7 @@ public static function update_form($id, $entity, $form) {
 	 	 	 // 	return $entity;
 	 	 	 // }
 
-	 	 public static function get_ids($entity) {
-	 		 $ids =array();
-	 		 foreach ($GLOBALS['wpdb']->get_results("SELECT id FROM " . self::table_name($entity),"ARRAY_A") as $key => $value) {
-	 		 	$ids[] = $value["id"];
-	 		 }
-	 		 return $ids;
-	 	 }
+ 
 
 	 	 public static function get_members_full() {
 			 $declarations = WPRI_Declarations::get_declarations();
