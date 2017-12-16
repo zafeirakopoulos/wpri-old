@@ -190,7 +190,7 @@ class WPRI_Form {
 											  name='<?php echo $element["name"]?>'
 											  cols='80>'
 											  rows='3'>
-										 <?php echo $element["value"]?>
+                                              <?php echo ( isset($element["data"]) ? $element["data"] : $element["value"] ) ?>
 									</textarea>
 								</div>
 							<?php
@@ -206,7 +206,7 @@ class WPRI_Form {
 												  name='<?php echo $element["name"].$locale["id"] ?>'
 												  cols='80'
 												  rows='3'>
-											 <?php echo $element["value"]?>
+                                                  <?php echo ( isset($element["data"]) ? $element["data"][$locale["id"]] : $element["value"] ) ?>
 										</textarea>
 									</div>
 								<?php
@@ -219,7 +219,7 @@ class WPRI_Form {
 									  name='<?php echo $element["name"] ?>'
 									  cols='40'
 									  rows='1'>
-								 <?php echo $element["value"]?>
+                                      <?php echo ( isset($element["data"]) ? $element["data"] : $element["value"] ) ?>
 							</textarea>
 						<?php }
 						elseif ($element["type"]=="INT"){?>
