@@ -249,13 +249,13 @@ class WPRI_Form {
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<?php
-								// foreach ( $all_entries as $item ) {
+								 foreach ( $all_entries as $item ) {
                                 //     if ( !isset($element["data"]) || !in_array( $item["id"],$element["data"])){
     							// 		echo "<li
     							// 			class='list-group-item' optionname='".$item["id"]."'>
     							// 			<span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
     							// 	}
-                                // }
+
 
                                 if (isset($relation["select"]["table"])){
                                     $all_options = WPRI_Database::get_all($relation["select"]["table"]);
@@ -275,7 +275,7 @@ class WPRI_Form {
                                                 class='list-group-item' optionname='".$item["id"]."'>
                                                 <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
                                           }
-                                        
+
                                      }
                                 } else {
                                       foreach ( $all_entries as $item ) {
@@ -291,7 +291,7 @@ class WPRI_Form {
 
                                     }
                                  }
-
+                                }
 								?>
 							</ul>
 							<?php
