@@ -250,10 +250,12 @@ class WPRI_Form {
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<?php
 								foreach ( $all_entries as $item ) {
-									echo "<li
-										class='list-group-item' optionname='".$item["id"]."'>
-										<span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
-								}
+                                    if (!in_array($element["data"], $item["id"])){
+    									echo "<li
+    										class='list-group-item' optionname='".$item["id"]."'>
+    										<span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
+    								}
+                                }
 								?>
 							</ul>
 							<?php
@@ -262,13 +264,20 @@ class WPRI_Form {
 									$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 									foreach ($all_options as $option){
 										echo "<div>".$option[$relation["select"]["display_column"]];
-										echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'></ul>";
+										echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'>";
+                                        // ADD HERE TODO
+                                        // echo ( isset($element["data"]) ? $element["data"] : $element["value"] )
+                                        echo "</ul>";
 										echo "</div>";
 										echo "<input type='hidden' name='".$element["name"].$option["id"]."' id='".$element["name"].$option["id"]."'/>";
 									}
 								} else {
 									echo "<div> Selected:";
-									echo "<ul id='output".$element["name"]."' class='list-group' style='min-height:100px'></ul>";
+									echo "<ul id='output".$element["name"]."' class='list-group' style='min-height:100px'>";
+                                    // ADD HERE TODO
+                                    // echo ( isset($element["data"]) ? $element["data"] : $element["value"] )
+
+                                    echo "</ul>";
 									echo "</div>";
 									echo "<input type='hidden' name='".$element["name"]."' id='".$element["name"]."'/>";
 								}
