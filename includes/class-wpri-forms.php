@@ -152,7 +152,7 @@ class WPRI_Form {
             $update = true;
             $old_data = WPRI_Database:: get_entity_raw($form["name"],$_POST["id"]);
             error_log(print_r($old_data));
-            // error_log(print_r(WPRI_Database:: get_entity($form["name"],$_POST["id"])));
+            error_log(print_r(WPRI_Database:: get_entity($form["name"],$_POST["id"])));
         }
 
 		$locales= WPRI_Database::get_locales();
@@ -180,7 +180,7 @@ class WPRI_Form {
 													  name='<?php echo $element["name"].$locale["id"] ?>'
 													  cols='80'
 													  rows='3'>
-												 <?php echo  ( $update ? $element["value"]?>
+												 <?php echo  ( $update ? "test" : $element["value"] )?>
 											</textarea>
 										</div>
 									<?php
