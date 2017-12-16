@@ -267,7 +267,7 @@ class WPRI_Form {
 										echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'>";
                                          if ( isset($element["data"])){
                                              foreach ( $all_entries as $item ) {
-                                                 if ( $item[$relation["foreach"]["table"]]==$element["data"][$relation["foreach"]["table"]] &&  $option["id"]==$element["data"][$relation["select"]["table"]]){
+                                                 if ( $item["id"]==$element["data"][$relation["foreach"]["table"]] &&  $option["id"]==$element["data"][$relation["select"]["table"]]){
                                                    echo "<li
                                                        class='list-group-item' optionname='".$item["id"]."'>
                                                        <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
