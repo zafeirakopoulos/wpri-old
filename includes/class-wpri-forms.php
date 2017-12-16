@@ -151,7 +151,7 @@ class WPRI_Form {
         if (isset($_POST["update_button"]) ){
             $update = true;
             $form = WPRI_Database:: get_entity_with_data($form["name"],$_POST["id"]);
-             error_log(print_r($form));
+             // error_log(print_r($form));
         }
 
 		$locales= WPRI_Database::get_locales();
