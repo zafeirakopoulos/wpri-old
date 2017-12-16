@@ -612,6 +612,17 @@ public static function update_form($id, $entity, $form) {
 		return $results["name"];
 	}
 
+	public static function get_element_by_locale($entity,$element,$id,$locale) {
+		$results=  $GLOBALS['wpdb']->get_results(
+			$GLOBALS['wpdb']->prepare(
+				"SELECT * FROM " . self::table_name("locale_".$entity."_".$element). " WHERE ".$entity." = %d AND locale= %d",
+				$id, $locale
+			)
+		,"ARRAY_A")[0];
+		return $results["name"];
+	}
+
+
 	public static function get_all($entity) {
 		return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name($entity),"ARRAY_A" );
 	}
@@ -834,6 +845,7 @@ public static function update_form($id, $entity, $form) {
 
 	 	 		 $declarations = WPRI_Declarations::get_declarations();
 	 	 		 $entity = $declarations[$entity_name];
+				 $locales =  WPRI_Database::get_locales();
 
 	 	 		 $local = array();
 	 	 		 $relations = array();
@@ -847,7 +859,11 @@ public static function update_form($id, $entity, $form) {
 	 	 		 foreach ($entity["groups"] as &$group ) {
 	 	 		 	foreach ($group["elements"] as &$element ) {
 						if (isset($element["localized"]) ){
-							$element["data"] = WPRI_Database::get_localized_element($entity_name,$element["name"],$id);
+							$localdata = array();
+							foreach ($locales as $locale) {
+								$localdata[$locale["id"]] = WPRI_Database::get_element_by_locale($entity_name,$element["name"],$id,$locale["id"]);
+							}
+							$element["data"] = $localdata;
 						}
 	 	 		 		elseif  ($element["type"]== "multiple-select"){
 	 	 		 			$relation = $element["relation"];
