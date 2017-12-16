@@ -275,7 +275,7 @@ class WPRI_Form {
                                                 class='list-group-item' optionname='".$item["id"]."'>
                                                 <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
                                           }
-                                        }
+                                        
                                      }
                                 } else {
                                       foreach ( $all_entries as $item ) {
@@ -288,7 +288,7 @@ class WPRI_Form {
                                                 class='list-group-item' optionname='".$item["id"]."'>
                                                 <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
                                           }
-                                        }
+
                                     }
                                  }
 
