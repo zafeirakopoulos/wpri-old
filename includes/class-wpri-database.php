@@ -830,41 +830,41 @@ public static function update_form($id, $entity, $form) {
 	 }
 
 
-	 	 	 public static function get_entity_with_data($entity_name, $id) {
-
-	 	 		 $declarations = WPRI_Declarations::get_declarations();
-	 	 		 $entity = $declarations[$entity_name];
-
-	 	 		 $local = array();
-	 	 		 $relations = array();
-	 	 		 $multiplerelations = array();
-	 	 		 $select = array();
-
-				 $results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
-	 	 			 "SELECT * FROM " . self::table_name($entity_name). " WHERE id = %d", $id) ,"ARRAY_A"
-	 	 		 )[0];
-
-	 	 		 foreach ($entity["groups"] as $group ) {
-	 	 		 	foreach ($group["elements"] as $element ) {
-	 	 		 		if (isset($element["localized"]) ){
-	 	 		 			$local[] = $element["name"];
-	 	 		 		}
-	 	 		 		elseif ($element["type"]== "multiple-select"){
-	 	 		 			$relation = $element["relation"];
-	 	 		 			if (isset($relation["select"])) {
-	 	 						$multiplerelations[] = array($element["name"],$relation["foreach"]["table"],$relation["select"]["table"]);
-	 	  		 			} else {
-	 	 						array_push($relations, $relation["foreach"]["table"]);
-	 	 		 			}
-	 	 		 		}
-	 	 				elseif ($element["type"]== "select"){
-	 	 					array_push($select, $element["table"]);
-	 	 				}
-						else {
-							$element["data"] = $results[$element["name"]];
-						}
-	 	 		 	}
-	 	 		 }
+	 	 	 // public static function get_entity_with_data($entity_name, $id) {
+             //
+	 	 		//  $declarations = WPRI_Declarations::get_declarations();
+	 	 		//  $entity = $declarations[$entity_name];
+             //
+	 	 		//  $local = array();
+	 	 		//  $relations = array();
+	 	 		//  $multiplerelations = array();
+	 	 		//  $select = array();
+             //
+				//  $results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
+	 	 		// 	 "SELECT * FROM " . self::table_name($entity_name). " WHERE id = %d", $id) ,"ARRAY_A"
+	 	 		//  )[0];
+             //
+	 	 		//  foreach ($entity["groups"] as $group ) {
+	 	 		//  	foreach ($group["elements"] as $element ) {
+	 	 		//  		if (isset($element["localized"]) ){
+	 	 		//  			$local[] = $element["name"];
+	 	 		//  		}
+	 	 		//  		elseif ($element["type"]== "multiple-select"){
+	 	 		//  			$relation = $element["relation"];
+	 	 		//  			if (isset($relation["select"])) {
+	 	 		// 				$multiplerelations[] = array($element["name"],$relation["foreach"]["table"],$relation["select"]["table"]);
+	 	  		//  			} else {
+	 	 		// 				array_push($relations, $relation["foreach"]["table"]);
+	 	 		//  			}
+	 	 		//  		}
+	 	 		// 		elseif ($element["type"]== "select"){
+	 	 		// 			array_push($select, $element["table"]);
+	 	 		// 		}
+				// 		else {
+				// 			$element["data"] = $results[$element["name"]];
+				// 		}
+	 	 		//  	}
+	 	 		//  }
 
                 //
                 //
@@ -910,9 +910,9 @@ public static function update_form($id, $entity, $form) {
 	 	 		// 	}
 	 	 	 	// }
 
-	 	 		error_log(print_r($entity));
-	 	 	 	return $entity;
-	 	 	 }
+	 	 		// error_log(print_r($entity));
+	 	 	 // 	return $entity;
+	 	 	 // }
 
 	 	 public static function get_ids($entity) {
 	 		 $ids =array();
