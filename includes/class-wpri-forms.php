@@ -150,9 +150,8 @@ class WPRI_Form {
         $update = false;
         if (isset($_POST["update_button"]) ){
             $update = true;
-            $old_data = WPRI_Database:: get_entity_raw($form["name"],$_POST["id"]);
-            error_log(print_r($old_data));
-            error_log(print_r(WPRI_Database:: get_entity_with_data($form["name"],$_POST["id"])));
+            $form = WPRI_Database:: get_entity_with_data($form["name"],$_POST["id"]);
+             error_log(print_r($form));
         }
 
 		$locales= WPRI_Database::get_locales();
