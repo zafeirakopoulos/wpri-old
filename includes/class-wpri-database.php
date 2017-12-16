@@ -875,7 +875,7 @@ public static function update_form($id, $entity, $form) {
  	 	  		 			} else {
 								$tmp = array();
  								foreach (WPRI_Database::get_relation($entity_name,$relation["foreach"]["table"],$id,"") as $row) {
-			 	 					$tmp[] = $row["id"];
+			 	 					$tmp[] = $row[$relation["foreach"]["table"]];
 			 	 				}
 								$element["data"] =$tmp;
 	 	 		 			}
