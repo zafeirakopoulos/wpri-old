@@ -250,7 +250,7 @@ class WPRI_Form {
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<?php
 								foreach ( $all_entries as $item ) {
-                                    if (!in_array($element["data"], $item["id"])){
+                                    if (!in_array( $item["id"],$element["data"])){
     									echo "<li
     										class='list-group-item' optionname='".$item["id"]."'>
     										<span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
