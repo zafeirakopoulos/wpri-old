@@ -846,20 +846,18 @@ public static function update_form($id, $entity, $form) {
 
 	 	 		 foreach ($entity["groups"] as &$group ) {
 	 	 		 	foreach ($group["elements"] as &$element ) {
-	 	 		 		if (isset($element["localized"]) ){
-	 	 		 			$local[] = $element["name"];
-	 	 		 		}
-	 	 		 		elseif ($element["type"]== "multiple-select"){
+	 	 		 		if  ($element["type"]== "multiple-select"){
 	 	 		 			$relation = $element["relation"];
 	 	 		 			if (isset($relation["select"])) {
 	 	 						$multiplerelations[] = array($element["name"],$relation["foreach"]["table"],$relation["select"]["table"]);
 	 	  		 			} else {
-	 	 						array_push($relations, $relation["foreach"]["table"]);
+								$tmp = array();
+ 								foreach (WPRI_Database::get_relation($entity_name,$relation["foreach"]["table"],$id,"") as $row) {
+			 	 					$tmp[] = $row["id"];
+			 	 				}
+								$element["data"] =$tmp;
 	 	 		 			}
 	 	 		 		}
-	 	 				elseif ($element["type"]== "select"){
-	 	 					array_push($select, $element["table"]);
-	 	 				}
 						else {
 							$element["data"] = $results[$element["name"]];
 						}
@@ -868,11 +866,8 @@ public static function update_form($id, $entity, $form) {
 
 
 
-                //
-	 	 	 	// foreach (  $local  as $localizedname) {
-	 	 	 	// 	$results[$localizedname] = WPRI_Database::get_localized_element($entity_name,$localizedname,$id);
-	 	 	 	// }
-                //
+
+
 	 	 	 	// foreach (  $relations  as $name ) {
 	 	 		// 	$tmp=array();
 	 	 		// 	if (isset($declarations[$name]["groups"][0]["elements"][0]["all_locales"])){
@@ -880,13 +875,11 @@ public static function update_form($id, $entity, $form) {
 	 	 		// 			$tmp[] = $row["id"] ;
 	 	 		// 		}
 	 	 		// 	} else{
-	 	 		// 		foreach (WPRI_Database::get_relation($entity_name,$name,$id,"") as $row) {
-	 	 		// 			$tmp[] = $row["id"];
-	 	 		// 		}
+	 	 		//
 	 	 		// 	}
 	 	 		// 	$results[$name]= $tmp;
 	 	 	 	// }
-                //
+
                 //
                 //
 	 	 	 	// foreach ( $multiplerelations as $relation ) {
