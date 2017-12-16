@@ -276,7 +276,11 @@ class WPRI_Form {
 									echo "<ul id='output".$element["name"]."' class='list-group' style='min-height:100px'>";
                                     // ADD HERE TODO
                                     // echo ( isset($element["data"]) ? $element["data"] : $element["value"] )
-
+                                    if (!in_array( $item["id"],$element["data"])){
+    									echo "<li
+    										class='list-group-item' optionname='".$item["id"]."'>
+    										<span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
+    								}
                                     echo "</ul>";
 									echo "</div>";
 									echo "<input type='hidden' name='".$element["name"]."' id='".$element["name"]."'/>";
