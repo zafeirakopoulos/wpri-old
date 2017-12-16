@@ -259,6 +259,7 @@ class WPRI_Form {
 								?>
 							</ul>
 							<?php
+                             foreach ( $all_entries as $item ) {
 
 								if (isset($relation["select"]["table"])){
 									$all_options = WPRI_Database::get_all($relation["select"]["table"]);
@@ -275,8 +276,7 @@ class WPRI_Form {
 									echo "<div> Selected:";
 									echo "<ul id='output".$element["name"]."' class='list-group' style='min-height:100px'>";
                                     // ADD HERE TODO
-                                    // echo ( isset($element["data"]) ? $element["data"] : $element["value"] )
-                                    if ( isset($element["data"]) && in_array( $item["id"],$element["data"])){
+                                     if ( isset($element["data"]) && in_array( $item["id"],$element["data"])){
     									echo "<li
     										class='list-group-item' optionname='".$item["id"]."'>
     										<span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
@@ -285,6 +285,7 @@ class WPRI_Form {
 									echo "</div>";
 									echo "<input type='hidden' name='".$element["name"]."' id='".$element["name"]."'/>";
 								}
+                            }
 							?>
  							<script>
  								var input = document.getElementById('input<?php echo $element["name"]?>');
