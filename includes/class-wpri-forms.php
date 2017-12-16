@@ -265,8 +265,15 @@ class WPRI_Form {
 									foreach ($all_options as $option){
 										echo "<div>".$option[$relation["select"]["display_column"]];
 										echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'>";
-                                        // ADD HERE TODO
-                                        // echo ( isset($element["data"]) ? $element["data"] : $element["value"] )
+                                         if ( isset($element["data"])){
+                                             foreach ( $all_entries as $item ) {
+                                                 if ( $item[$relation["foreach"]]==$element["data"][$relation["foreach"]] &&  $option["id"]==$element["data"][$relation["select"]["table"]]){
+                                                   echo "<li
+                                                       class='list-group-item' optionname='".$item["id"]."'>
+                                                       <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
+                                               }
+                                            }
+                                         }
                                         echo "</ul>";
 										echo "</div>";
 										echo "<input type='hidden' name='".$element["name"].$option["id"]."' id='".$element["name"].$option["id"]."'/>";
@@ -274,8 +281,7 @@ class WPRI_Form {
 								} else {
 									echo "<div> Selected:";
 									echo "<ul id='output".$element["name"]."' class='list-group' style='min-height:100px'>";
-                                    // ADD HERE TODO
-                                    foreach ( $all_entries as $item ) {
+                                     foreach ( $all_entries as $item ) {
                                          if ( isset($element["data"]) && in_array( $item["id"],$element["data"])){
         									echo "<li
         										class='list-group-item' optionname='".$item["id"]."'>
