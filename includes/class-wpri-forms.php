@@ -180,7 +180,7 @@ class WPRI_Form {
 													  name='<?php echo $element["name"].$locale["id"] ?>'
 													  cols='80'
 													  rows='3'>
-												 <?php echo  ( $update ? "test" : $element["value"] )?>
+                                                      <?php echo  $element["value"] ?>
 											</textarea>
 										</div>
 									<?php
