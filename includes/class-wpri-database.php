@@ -419,6 +419,7 @@ public static function add_form($entity, $form) {
 
 public static function update_form($id, $entity, $form) {
 
+	$success=1;
 	$GLOBALS['wpdb']->update( self::table_name($entity["table_name"]) , $form["plain"], array("id"=>$id) );
 
 	foreach (  $form["localized"]  as $localizedname => $names ) {
