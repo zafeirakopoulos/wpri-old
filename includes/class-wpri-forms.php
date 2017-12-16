@@ -228,7 +228,7 @@ class WPRI_Form {
                                       name='<?php echo $element["name"] ?>'
                                       cols='12'
                                       rows='1'>
-                                 <?php echo $element["value"]?>
+                                      <?php echo ( isset($element["data"]) ? $element["data"] : $element["value"] ) ?>
                             </textarea>
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
@@ -356,7 +356,9 @@ class WPRI_Form {
 						}
 						elseif ($element["type"]=="datetime") {
 							echo "<h3>".$element["caption"]."</h3>";
-							echo "<input type='date' name='".$element["name"]."'/>";
+                            $thedate = date("c", strtotime($element["data"]));
+							echo "<input type='date' name='".$element["name"]."' value='".$thedate."'/>";
+
 						}?>
 						</div>
 					 <?php }
