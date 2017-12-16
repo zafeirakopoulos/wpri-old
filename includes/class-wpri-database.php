@@ -844,8 +844,8 @@ public static function update_form($id, $entity, $form) {
 	 	 			 "SELECT * FROM " . self::table_name($entity_name). " WHERE id = %d", $id) ,"ARRAY_A"
 	 	 		 )[0];
 
-	 	 		 foreach ($entity["groups"] as $group ) {
-	 	 		 	foreach ($group["elements"] as $element ) {
+	 	 		 foreach ($entity["groups"] as &$group ) {
+	 	 		 	foreach ($group["elements"] as &$element ) {
 	 	 		 		if (isset($element["localized"]) ){
 	 	 		 			$local[] = $element["name"];
 	 	 		 		}
@@ -861,7 +861,7 @@ public static function update_form($id, $entity, $form) {
 	 	 					array_push($select, $element["table"]);
 	 	 				}
 						else {
-							$element["data"] =& $results[$element["name"]];
+							$element["data"] = $results[$element["name"]];
 						}
 	 	 		 	}
 	 	 		 }
