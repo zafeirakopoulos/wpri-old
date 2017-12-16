@@ -121,12 +121,13 @@ class WPRI_Form {
 			$to_add["relations"]=$relations;
 			$to_add["multirelations"]=$multiplerelations;
 			$to_add["localized"]=$local;
-      if($_POST['type'] == 'add'){
-        $success = WPRI_Database::add_form($entity,$to_add);
-      }
-      elseif($_POST['type'] == 'update'){
-        $success = WPRI_Database::update_form($_POST['id'],$entity,$to_add);
-      }
+
+              if($_POST['type'] == 'add'){
+                $success = WPRI_Database::add_form($entity,$to_add);
+              }
+              elseif($_POST['type'] == 'update'){
+                $success = WPRI_Database::update_form($_POST['id'],$entity,$to_add);
+              }
 
 			if($success ) {
 				echo "<div class='updated'><p><strong>Added.</strong></p></div>";
@@ -370,6 +371,7 @@ class WPRI_Form {
           <div class='col-sm-12 form-element-caption'>
             <button type="submit" class="btn btn-primary">Update</button>
           </div>
+          <input type="hidden" name="id" value="<?php echo $_POST["id"]?>"/>
           <input type="hidden" name="type" value="update"/>
         <?php
       } else {?>
