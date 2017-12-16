@@ -861,7 +861,7 @@ public static function update_form($id, $entity, $form) {
 	 	 					array_push($select, $element["table"]);
 	 	 				}
 						else {
-							$element["data"] = $results[$element["name"]];
+							$element["data"] =& $results[$element["name"]];
 						}
 	 	 		 	}
 	 	 		 }
