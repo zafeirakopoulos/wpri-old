@@ -847,7 +847,7 @@ public static function update_form($id, $entity, $form) {
 	 	 		 foreach ($entity["groups"] as &$group ) {
 	 	 		 	foreach ($group["elements"] as &$element ) {
 						if (isset($element["localized"]) ){
-							$element["data"] = WPRI_Database::get_localized_element($entity_name,$localizedname,$id);
+							$element["data"] = WPRI_Database::get_localized_element($entity_name,$element["name"],$id);
 						}
 	 	 		 		elseif  ($element["type"]== "multiple-select"){
 	 	 		 			$relation = $element["relation"];
