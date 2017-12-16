@@ -315,6 +315,42 @@ public static function add_simple_relation($left, $right, $id, $rightvalues) {
 }
 
 
+
+
+
+ public static function update_localized_relation($entityname, $elementame,$id,$names) {
+	 $success = 1;
+
+	foreach ( WPRI_Database::get_locales() as $locale ) {
+		$success = $success * $GLOBALS['wpdb']->update( self::table_name("locale_".$entityname."_".$elementame) , array(
+			'locale' => $locale["id"],
+			$entityname => $id,
+			'name' => $names[$locale["id"]]
+		), array( 'locale' => $locale["id"], $entityname => $id));
+		// $success = $success * $GLOBALS['wpdb']->insert_id;
+	}
+	if (!$success){
+		# TODO Delete what was added
+	}
+	return $success;
+}
+
+# select
+public static function update_simple_relation($left, $right, $id, $rightvalues) {
+	$success = 1;
+	foreach ( $rightvalues as $value ) {
+	   $success = $success * $GLOBALS['wpdb']->update( self::table_name($left."_".$right) , array(
+		   $left => $id,
+		   $right => $value
+	   ), array( $left => $id));
+	  //  $success = $success * $GLOBALS['wpdb']->insert_id;
+	}
+	if (!$success){
+	   # TODO Delete what was added
+	}
+	return $success;
+}
+
 # foreach & select
 public static function add_double_relation($left, $middle, $right, $id, $relations) {
 	$success = 1;
@@ -336,42 +372,6 @@ public static function add_double_relation($left, $middle, $right, $id, $relatio
    return $success;
 }
 
-
-
- public static function update_localized_relation($entityname, $elementame,$id,$names) {
-	 $success = 1;
-
-	foreach ( WPRI_Database::get_locales() as $locale ) {
-		$GLOBALS['wpdb']->update( self::table_name("locale_".$entityname."_".$elementame) , array(
-			'locale' => $locale["id"],
-			$entityname => $id,
-			'name' => $names[$locale["id"]]
-		), array( 'locale' => $locale["id"], $entityname => $id));
-		// $success = $success * $GLOBALS['wpdb']->insert_id;
-	}
-	if (!$success){
-		# TODO Delete what was added
-	}
-	return $success;
-}
-
-# select
-public static function update_simple_relation($left, $right, $id, $rightvalues) {
-	$success = 1;
-	foreach ( $rightvalues as $value ) {
-	   $GLOBALS['wpdb']->update( self::table_name($left."_".$right) , array(
-		   $left => $id,
-		   $right => $value
-	   ), array( $left => $id));
-	  //  $success = $success * $GLOBALS['wpdb']->insert_id;
-	}
-	if (!$success){
-	   # TODO Delete what was added
-	}
-	return $success;
-}
-
-
 # foreach & select
 public static function update_double_relation($left, $middle, $right, $id, $relations) {
 	$success = 1;
@@ -379,7 +379,7 @@ public static function update_double_relation($left, $middle, $right, $id, $rela
    foreach ( $relations as $relation ) {
 	   $success = 1;
 	   foreach ( $relation[$middle]  as $value ) {
-		   $GLOBALS['wpdb']->update( self::table_name($left."_".$middle."_".$right) , array(
+		   $success = $success * $GLOBALS['wpdb']->update( self::table_name($left."_".$middle."_".$right) , array(
 			   $left => $id,
 			   $middle => $value,
 			   $right =>$relation[$right]
