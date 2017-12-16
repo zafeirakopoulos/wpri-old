@@ -379,11 +379,13 @@ public static function update_double_relation($left, $middle, $right, $id, $rela
    foreach ( $relations as $relation ) {
 	   $success = 1;
 	   foreach ( $relation[$middle]  as $value ) {
-		   $success = $success * $GLOBALS['wpdb']->update( self::table_name($left."_".$middle."_".$right) , array(
+		   if (!$GLOBALS['wpdb']->update( self::table_name($left."_".$middle."_".$right) , array(
 			   $left => $id,
 			   $middle => $value,
 			   $right =>$relation[$right]
-		   ), array( $left => $id, $middle => $value) );
+		   ), array( $left => $id, $middle => $value) )){
+			  add_double_relation($left, $middle, $right, $id, $relations) ;
+		   }
 	   }
    }
 
