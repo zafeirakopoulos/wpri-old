@@ -249,16 +249,45 @@ class WPRI_Form {
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<?php
-								foreach ( $all_entries as $item ) {
-                                    if ( !isset($element["data"]) || !in_array( $item["id"],$element["data"])){
-    									echo "<li
-    										class='list-group-item' optionname='".$item["id"]."'>
-    										<span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
-    								}
-                                }
+								// foreach ( $all_entries as $item ) {
+                                //     if ( !isset($element["data"]) || !in_array( $item["id"],$element["data"])){
+    							// 		echo "<li
+    							// 			class='list-group-item' optionname='".$item["id"]."'>
+    							// 			<span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
+    							// 	}
+                                // }
+    
+                                if (isset($relation["select"]["table"])){
+                                    $all_options = WPRI_Database::get_all($relation["select"]["table"]);
+                                    foreach ($all_options as $option){
+                                          if ( isset($element["data"])){
+                                             foreach ( $all_entries as $item ) {
+                                                 foreach ( $element["data"] as $dato) {
+                                                     if ( $item["id"]==$dato[$relation["foreach"]["table"]] &&  $option["id"]==$dato[$relation["select"]["table"]]){
+                                                       echo "<li
+                                                           class='list-group-item' optionname='".$item["id"]."'>
+                                                           <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
+                                                     }
+                                                }
+                                            }
+                                         }
+                                     }
+                                } else {
+                                      foreach ( $all_entries as $item ) {
+                                         if ( isset($element["data"]) && in_array( $item["id"],$element["data"])){
+                                            echo "<li
+                                                class='list-group-item' optionname='".$item["id"]."'>
+                                                <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
+                                        }
+                                    }
+                                 }
+
 								?>
 							</ul>
 							<?php
+
+
+
 
 								if (isset($relation["select"]["table"])){
 									$all_options = WPRI_Database::get_all($relation["select"]["table"]);
