@@ -36,7 +36,7 @@ class WPRI_Form {
 	    	<div id="exTab1" class="container">
 				<ul  class="nav nav-pills">
 					<li  <?php echo ( isset( $_POST['update_button'])? "" : "class='active'") ?>><a href="#show" data-toggle="tab">Existing</a></li>
-					<li  <?php echo ( isset( $_POST['update_button'])? "class='active'" : "") ?>><a href="#add_update" data-toggle="tab">Add New</a></li>
+					<li  <?php echo ( isset( $_POST['update_button'])? "class='active'" : "") ?>><a href="#add_update" data-toggle="tab">Add</a></li>
 			   	</ul>
 
 	   			<div class="tab-content clearfix">
