@@ -869,8 +869,10 @@ public static function update_form($id, $entity, $form) {
 	 	 		 		elseif  ($element["type"]== "multiple-select"){
 	 	 		 			$relation = $element["relation"];
 	 	 		 			if (isset($relation["select"])) {
-	 	 						$multiplerelations[] = array($element["name"],$relation["foreach"]["table"],$relation["select"]["table"]);
-	 	  		 			} else {
+
+								$element["data"] = WPRI_Database::get_double_relation($entity_name,$relation["foreach"]["table"],$relation["select"]["table"],$id,"","") ;
+
+ 	 	  		 			} else {
 								$tmp = array();
  								foreach (WPRI_Database::get_relation($entity_name,$relation["foreach"]["table"],$id,"") as $row) {
 			 	 					$tmp[] = $row["id"];
@@ -888,24 +890,8 @@ public static function update_form($id, $entity, $form) {
 
 
 
-	 	 	 	// foreach (  $relations  as $name ) {
-	 	 		// 	$tmp=array();
-	 	 		// 	if (isset($declarations[$name]["groups"][0]["elements"][0]["all_locales"])){
-	 	 		// 		foreach (WPRI_Database::get_relation($entity_name,$name,$id,"") as $row) {
-	 	 		// 			$tmp[] = $row["id"] ;
-	 	 		// 		}
-	 	 		// 	} else{
-	 	 		//
-	 	 		// 	}
-	 	 		// 	$results[$name]= $tmp;
-	 	 	 	// }
+                //
 
-                //
-                //
-	 	 	 	// foreach ( $multiplerelations as $relation ) {
-	 	 	 	// 	 $results[$relation[0]] = WPRI_Database::get_double_relation($entity_name,$relation[1],$relation[2],$id,"","") ;
-                //
-	 	 	 	// }
                 //
 	 	 		// if (isset($entity["related"])){
 	 	 		// 	foreach ( $entity["related"] as $related ) {
