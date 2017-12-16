@@ -376,7 +376,12 @@ class WPRI_Form {
 							}
 
 							foreach ( $all_entries as $item ) {
-								echo "<option name='".$item[0]["id"]."' value='".$item[0]["id"]."'>".$item[1]."</option>";
+                                if ( isset($element["data"]) && in_array( $item["id"],$element["data"])){
+                                    echo "<option selected name='".$item[0]["id"]."' value='".$item[0]["id"]."'>".$item[1]."</option>";
+                                }
+                                else{
+                                    echo "<option name='".$item[0]["id"]."' value='".$item[0]["id"]."'>".$item[1]."</option>";
+                                }
 							}
 							echo "</select>";
 						}
