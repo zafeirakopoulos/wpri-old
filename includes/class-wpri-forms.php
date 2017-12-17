@@ -342,7 +342,7 @@ class WPRI_Form {
 										echo "<input type='hidden' name='".$element["name"].$option["id"]."' id='".$element["name"].$option["id"]."'/>";
 									}
 								} else {
-									echo "<div> Selected:";
+									echo "<div class='col-sm-12'> Selected:";
 									echo "<ul id='output".$element["name"]."' class='list-group' style='min-height:100px'>";
                                      foreach ( $all_entries as $item ) {
                                          if ( isset($element["data"]) && in_array( $item["id"],$element["data"])){
