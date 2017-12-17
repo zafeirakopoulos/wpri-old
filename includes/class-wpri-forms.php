@@ -268,7 +268,7 @@ class WPRI_Form {
                                         foreach ($all_options as $option){
                                                  foreach ( $all_entries as $item ) {
                                                      foreach ( $element["data"] as $dato) {
-                                                         if (!( $item["id"]==$dato[$relation["foreach"]["table"]] &&  $option["id"]==$dato[$relation["select"]["table"]])){
+                                                         if (!( $item[$relation["foreach"]["table"]]==$dato[$relation["foreach"]["table"]] &&  $option["id"]==$dato[$relation["select"]["table"]])){
                                                              if (!in_array($item,$items_to_add)){
                                                                  array_push($items_to_add,$item);
                                                              }
