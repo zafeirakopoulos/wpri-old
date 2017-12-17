@@ -40,3 +40,15 @@
        font-size: var(--normal-font-size);
        color : red;
      }
+
+
+      .form-element-caption {
+        font-size: var(--normal-font-size);
+        color : blue;
+      }
+
+
+       .form-element-value {
+         font-size: var(--normal-font-size);
+         color : green;
+       }
