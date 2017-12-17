@@ -392,6 +392,12 @@
             "default_values" : [
                 {
                     "localized" : true,
+                    "title" : " ",
+                    "en_US" : " ",
+                    "tr_TR" : " "
+                },
+                {
+                    "localized" : true,
                     "title" : "Professor",
                     "en_US" : "Professor",
                     "tr_TR" : "Professor"
@@ -746,6 +752,7 @@
             "title" : "Journal",
             "table_name" : "journal",
             "name" :"journal",
+            "has_menu": true,
             "actions": {
                 "add" : "manage_options",
                 "remove" : ["admin"],
@@ -776,6 +783,7 @@
             "title" : "Conference",
             "table_name" : "conference",
             "name" :"conference",
+            "has_menu": true,
             "actions": {
                 "add" : "manage_options",
                 "remove" : ["admin"],
@@ -1523,6 +1531,165 @@
                             "table" : "member",
                             "column" : "id",
                             "display_column" : "name"
+                        }
+                    ]
+                }
+            ]
+        },
+        "award": {
+            "title" : "Awards",
+            "table_name" : "award",
+            "has_menu": true,
+            "name" :"award",
+            "display_element": "name",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "Award name",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "official_name",
+                            "caption" : "Official award name" ,
+                            "value": " ",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "type": "text",
+                            "localized":true,
+                            "name": "name",
+                            "caption" : "Award name in different locales" ,
+                            "value": "Award in different locales",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "caption" : "Member awarded" ,
+                            "name": "member",
+                            "value": "",
+                            "type": "select",
+                            "table" : "member",
+                            "column" : "id",
+                            "display_column" : "name"
+                        }
+                        {
+                            "type": "text",
+                            "name" : "institution",
+                            "caption" : "Institution awarding the award" ,
+                            "value": " ",
+                            "cols" : "100",
+                            "rows": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        "patent": {
+            "title" : "Patents",
+            "table_name" : "patent",
+            "has_menu": true,
+            "name" :"patent",
+            "display_element": "name",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "Patent name",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "official_name",
+                            "caption" : "Official patent name" ,
+                            "value": " ",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "type": "text",
+                            "localized":true,
+                            "name": "name",
+                            "caption" : "Patent name in different locales" ,
+                            "value": "Award in different locales",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "caption" : "Member awarded the patent" ,
+                            "name": "member",
+                            "value": "",
+                            "type": "select",
+                            "table" : "member",
+                            "column" : "id",
+                            "display_column" : "name"
+                        }
+                        {
+                            "type": "text",
+                            "name" : "institution",
+                            "caption" : "Institution awarding the patent" ,
+                            "value": " ",
+                            "cols" : "100",
+                            "rows": "1"
+                        }
+                    ]
+                }
+            ]
+        },
+        "scholarship": {
+            "title" : "Scholarships",
+            "table_name" : "scholarship",
+            "has_menu": true,
+            "name" :"patent",
+            "display_element": "name",
+            "actions": {
+                "add" : "manage_options",
+                "remove" : ["admin"],
+                "update" : ["all"]
+            },
+            "groups" :[
+                {
+                    "title" : "Scholarship name",
+                    "elements" : [
+                        {
+                            "type": "text",
+                            "name" : "official_name",
+                            "caption" : "Official scholarship name" ,
+                            "value": " ",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "type": "text",
+                            "localized":true,
+                            "name": "name",
+                            "caption" : "Scholarship name in different locales" ,
+                            "value": "",
+                            "cols" : "50",
+                            "rows": "2"
+                        },
+                        {
+                            "caption" : "Member awarded the scholarship" ,
+                            "name": "member",
+                            "value": "",
+                            "type": "select",
+                            "table" : "member",
+                            "column" : "id",
+                            "display_column" : "name"
+                        }
+                        {
+                            "type": "text",
+                            "name" : "institution",
+                            "caption" : "Institution awarding the scholarship" ,
+                            "value": " ",
+                            "cols" : "100",
+                            "rows": "1"
                         }
                     ]
                 }

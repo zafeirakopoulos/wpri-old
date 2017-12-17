@@ -262,21 +262,19 @@ class WPRI_Form {
 
                                     if ( isset($element["data"])){
                                         $items_to_add = array();
-                                        // foreach ($all_options as $option){
-                                        //     $items_to_add[$option["id"]] = array();
-                                        // }
-                                                 foreach ( $all_entries as $item ) {
-                                                     $toadd =true;
-                                                     foreach ( $element["data"] as $dato) { //This is an asscociativ array?
-                                                         if ( $item["id"]==$dato[$relation["foreach"]["table"]]) {
-                                                                 $toadd=false;
-                                                         }
-                                                     }
 
-                                                     if ($toadd && !in_array($item,$items_to_add)){
-                                                         array_push($items_to_add,$item);
-                                                     }
-                                                }
+                                         foreach ( $all_entries as $item ) {
+                                             $toadd =true;
+                                             foreach ( $element["data"] as $dato) { //This is an asscociativ array?
+                                                 if ( $item["id"]==$dato[$relation["foreach"]["table"]]) {
+                                                         $toadd=false;
+                                                 }
+                                             }
+
+                                             if ($toadd && !in_array($item,$items_to_add)){
+                                                 array_push($items_to_add,$item);
+                                             }
+                                        }
 
                                          foreach ($items_to_add as $add_item) {
                                              echo "<li
