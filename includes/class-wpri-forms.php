@@ -226,25 +226,29 @@ class WPRI_Form {
 						}
 						elseif ($element["type"]=="tinytext"){?>
                             <label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
-							<textarea id='<?php echo $element["name"]?>'
-									  name='<?php echo $element["name"] ?>'
-									  cols='40'
-									  rows='1'>
-                                      <?php echo ( isset($element["data"]) ? $element["data"] : $element["value"] ) ?>
-							</textarea>
+                            <div class='col-sm-12 form-element-value'>
+    							<textarea id='<?php echo $element["name"]?>'
+    									  name='<?php echo $element["name"] ?>'
+    									  cols='40'
+    									  rows='1'>
+                                          <?php echo ( isset($element["data"]) ? $element["data"] : $element["value"] ) ?>
+    							</textarea>
+                            </div>
 						<?php }
 						elseif ($element["type"]=="INT"){?>
                             <label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
-                            <textarea id='<?php echo $element["name"]?>'
-                                      name='<?php echo $element["name"] ?>'
-                                      cols='12'
-                                      rows='1'>
-                                      <?php echo ( isset($element["data"]) ? $element["data"] : $element["value"] ) ?>
-                            </textarea>
+                                <div class='col-sm-12 form-element-value'>
+                                <textarea id='<?php echo $element["name"]?>'
+                                          name='<?php echo $element["name"] ?>'
+                                          cols='12'
+                                          rows='1'>
+                                          <?php echo ( isset($element["data"]) ? $element["data"] : $element["value"] ) ?>
+                                </textarea>
+                            </div>
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
 							$relation = $element["relation"];
- 							echo "<h3>".$element["caption"]."</h3>";
+                            echo "<div class='col-sm-12 form-element-caption'>".$element["caption"]."</div>";
  							$all_entries = WPRI_Database::get_all($relation["foreach"]["table"]);
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
