@@ -600,9 +600,8 @@ class WPRI_Admin {
 
 		// If POST for adding
 		if( isset( $_POST['type']) && $_POST['type'] == 'add_' . $setting_name ) {
-			$GLOBALS['wpdb']->insert( $table_name , array( 'name' => $_POST["setting_name"] ) );
-			echo $GLOBALS['wpdb']->insert_id ;
-			$new_id = $GLOBALS['wpdb']->insert_id;
+			$GLOBALS['wpdb']->insert( $table_name , array( $setting_name => $_POST["setting_name"] ) );
+ 			$new_id = $GLOBALS['wpdb']->insert_id;
 			if($GLOBALS['wpdb']->insert_id) {
 				?>
 		    <div class="updated"><p><strong>Added.</strong></p></div>
