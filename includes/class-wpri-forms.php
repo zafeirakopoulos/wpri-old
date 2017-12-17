@@ -248,12 +248,13 @@ class WPRI_Form {
 						<?php }
 						elseif ($element["type"]=="multiple-select"){
 							$relation = $element["relation"];
-                            echo "<div class='form-element-caption'>".$element["caption"]."</div>";
+                            echo "<div class='col-sm-12  form-element-caption'>".$element["caption"]."</div>";
 
                             // echo  $element["caption"] ; // TODO remove
 
  							$all_entries = WPRI_Database::get_all($relation["foreach"]["table"]);
 							?>
+                            <div class='col-sm-12 '>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<?php
 								 // foreach ( $all_entries as $item ) {
@@ -316,6 +317,8 @@ class WPRI_Form {
 
 								?>
 							</ul>
+                            </div>
+
 							<?php
 
 								if (isset($relation["select"]["table"])){
