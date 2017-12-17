@@ -268,7 +268,7 @@ class WPRI_Form {
                                                  foreach ( $all_entries as $item ) {
                                                      $toadd =true;
                                                      foreach ( $element["data"] as $dato) { //This is an asscociativ array?
-                                                         if ( $item[$relation["foreach"]["table"]]==$dato[$relation["foreach"]["table"]]) {
+                                                         if ( $item["id"]==$dato[$relation["foreach"]["table"]]) {
                                                                  $toadd=false;
                                                          }
                                                      }
