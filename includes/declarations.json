@@ -777,7 +777,7 @@
                             "caption" : "Publication type" ,
                             "table" : "pubtype",
                             "column" : "id",
-                            "display_column" : "name"
+                            "display_column" : "pubtype"
                         }
                     ]
                 }
