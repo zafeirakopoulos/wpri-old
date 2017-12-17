@@ -490,7 +490,7 @@ class WPRI_Form {
 				  <?php
 				  	foreach ( $all_entries as $item ) {
 					  echo "<li><table><tr>";
-					  echo "<td>".$item[$form["display_element"]]."</td>";
+					  echo "<td>".$item[$form["display_element"]]."   </td>";
                       echo "<td><form name='id' method='post' action=''>";
 					  echo "<input type='submit' name='delete_button' value='Delete' class='btn btn-primary' /> ";
 					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
