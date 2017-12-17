@@ -2,3 +2,41 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+
+ :root {
+     /* fonts */
+     --site-title-font-size : 30px;
+     --small-font-size : 10px;
+     --medium-font-size : 13px;
+     --normal-font-size : 14px;
+     --large-font-size : 16px;
+     --title-font-size : 19px;
+     --super-title-font-size : 21px;
+
+     --menu-font-size : 20px;
+
+
+     --font-family: "Palatino", Helvetica, Arial, sans-serif;
+     --main-color : #D98310;
+     --main-focus-color : orange;
+     --alt-color : #494E6B;
+
+
+     /* background */
+     --main-background-color : #0B3C5D;
+     --alt-background-color : #D5D5D5;
+     /*--alt-background-color : #88BBD6;*/
+     /*--alt-background-color : #0375B4;*/
+
+
+      }
+
+     /****************************
+     ********** Forms  **********
+     *****************************/
+
+     .form-group-title {
+       font-size: var(--normal-font-size);
+       color : red;
+     }
