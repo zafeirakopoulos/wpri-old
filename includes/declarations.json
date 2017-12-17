@@ -1404,7 +1404,6 @@
                             "caption" : "Name" ,
                             "type": "text",
                             "name" : "name",
-                            "caption" : "Name" ,
                             "value": "",
                             "cols" : "50",
                             "rows": "1"
@@ -1576,7 +1575,7 @@
                             "table" : "member",
                             "column" : "id",
                             "display_column" : "name"
-                        }
+                        },
                         {
                             "type": "text",
                             "name" : "institution",
@@ -1629,7 +1628,7 @@
                             "table" : "member",
                             "column" : "id",
                             "display_column" : "name"
-                        }
+                        },
                         {
                             "type": "text",
                             "name" : "institution",
@@ -1682,7 +1681,7 @@
                             "table" : "member",
                             "column" : "id",
                             "display_column" : "name"
-                        }
+                        },
                         {
                             "type": "text",
                             "name" : "institution",
