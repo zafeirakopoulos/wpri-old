@@ -770,13 +770,22 @@
                             "value": " ",
                             "cols" : "125",
                             "rows": "1"
-                        }
+                        },
+                        {
+                            "type": "select",
+                            "name" : "pubtype",
+                            "caption" : "Publication type" ,
+                            "table" : "pubtype",
+                            "column" : "id",
+                            "display_column" : "name"
+                        },
                     ]
                 }
             ],
             "default_values" : [
                 {
-                    "journal" : "Journal of Symbolic Computation"
+                    "journal" : "Journal of Symbolic Computation",
+                    "pubtype": "1"
                 }
             ]
         },
