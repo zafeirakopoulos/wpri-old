@@ -260,7 +260,7 @@ class WPRI_Form {
                                 if (isset($relation["select"]["table"])){
                                     $ids_to_add = array();
                                     foreach ($all_options as $option){
-                                        array_push($ids_to_add => array());
+                                        array_push($ids_to_add, $option["id"] => array());
                                     }
                                     $all_options = WPRI_Database::get_all($relation["select"]["table"]);
                                     foreach ($all_options as $option){
@@ -283,7 +283,7 @@ class WPRI_Form {
                                      }
                                 } else {
                                       foreach ( $all_entries as $item ) {
-                                         if ( isset($element["data"])){
+                                         if ( isset($element["data"])) {
                                              if (!in_array( $item["id"],$element["data"])){
                                              echo "<li
                                                  class='list-group-item' optionname='".$item["id"]."'>
