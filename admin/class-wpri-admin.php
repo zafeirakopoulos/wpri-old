@@ -151,7 +151,7 @@ class WPRI_Admin {
 		echo '<td>';
 		echo '<select name="title">';
 			foreach ( WPRI_Database::get_all("title") as $title ) {
-				echo '<option value='.$title["id"]. ' ' . ( $title["title"] == get_user_meta($user,'title',true)? 'selected ' : ' ') .'>'.$title["title"].'</option>';
+				echo '<option value='.$title["id"]. ' ' . ( $title["id"] == get_user_meta($user,'title',true)? 'selected ' : ' ') .'>'.$title["title"].'</option>';
 			}
 		echo '</select>';
 		echo '<span class="description"></span>';
@@ -161,7 +161,7 @@ class WPRI_Admin {
 		echo '<td>';
 		echo '<select name="position">';
 			foreach ( WPRI_Database::get_all("position") as $position ) {
-				echo '<option value='.$position["id"]. ' ' . ( $position["position"] == get_user_meta($user,'position',true)? 'selected ' : ' ') .'>'.$position["position"].'</option>';
+				echo '<option value='.$position["id"]. ' ' . ( $position["id"] == get_user_meta($user,'position',true)? 'selected ' : ' ') .'>'.$position["position"].'</option>';
 			}
 		echo '</select>';
 		echo '<span class="description"></span>';
