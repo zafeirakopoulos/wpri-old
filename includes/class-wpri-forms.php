@@ -183,7 +183,7 @@ class WPRI_Form {
 							if (isset($element["all_locales"])!=true){
 								if (isset($element["localized"])){
 									foreach ($locales as $locale) {?>
-										<label class='col-sm-12 form-element-caption'> <?php echo $locale["locale"] ?></label>
+										<div class='col-sm-12 form-element-caption'> <?php echo $locale["locale"] ?></div>
 										<div class='col-sm-12 form-element-value'>
 											<textarea id='<?php echo $element["name"]?>'
 													  name='<?php echo $element["name"].$locale["id"] ?>'
@@ -195,7 +195,7 @@ class WPRI_Form {
 									<?php
 									}
 			 					}else{ ?>
-								<label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
+								<div class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></div>
 								<div class='col-sm-3 form-element-value'>
 									<textarea id='<?php echo $element["name"]?>'
 											  name='<?php echo $element["name"]?>'
@@ -208,7 +208,7 @@ class WPRI_Form {
 								}
 							}
 							else{?>
-								<label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
+								<div class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></div>
 								<?php
 								foreach ($locales as $locale) {?>
 									<label class='col-sm-12 form-element-caption'> <?php echo $locale["name"] ?></label>
@@ -225,7 +225,7 @@ class WPRI_Form {
 							}
 						}
 						elseif ($element["type"]=="tinytext"){?>
-                            <label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
+                            <div class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></div>
                             <div class='col-sm-12 form-element-value'>
     							<textarea id='<?php echo $element["name"]?>'
     									  name='<?php echo $element["name"] ?>'
@@ -236,7 +236,7 @@ class WPRI_Form {
                             </div>
 						<?php }
 						elseif ($element["type"]=="INT"){?>
-                            <label class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></label>
+                            <div class='col-sm-12 form-element-caption'> <?php echo $element["caption"] ?></div>
                                 <div class='col-sm-12 form-element-value'>
                                 <textarea id='<?php echo $element["name"]?>'
                                           name='<?php echo $element["name"] ?>'
