@@ -451,7 +451,7 @@ class WPRI_Form {
 							echo "</select>";
 						}
 						elseif ($element["type"]=="datetime") {
-							echo "<h3>".$element["caption"]."</h3>";
+                            echo "<div class='form-element-caption'>".$element["caption"]."</div>";
                             $thedate = ( isset($element["data"]) ? date('Y-m-d', strtotime($element["data"])) : "");
 							echo "<input type='date' name='".$element["name"]."' value='".$thedate."'/>";
 
