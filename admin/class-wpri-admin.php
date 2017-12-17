@@ -122,7 +122,7 @@ class WPRI_Admin {
 	 */
 	public function member_fields( $user )
 	{
-		error_log($user["id"]);
+		error_log($user::get("id"));
 	    echo '<h3>Office and Contact</h3>';
 		echo '<table class="form-table">';
 	 	echo '<tr>';
