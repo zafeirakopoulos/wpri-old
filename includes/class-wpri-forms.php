@@ -321,8 +321,7 @@ class WPRI_Form {
 									$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 									foreach ($all_options as $option){
 										echo "<div  class='col-sm-12 form-element-caption' >".$option[$relation["select"]["display_column"]];
-                                        echo "</div>";
-			                             echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'>";
+										echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'>";
                                          if ( isset($element["data"])){
                                              foreach ( $all_entries as $item ) {
                                                  foreach ( $element["data"] as $dato) {
@@ -335,6 +334,7 @@ class WPRI_Form {
                                             }
                                          }
                                         echo "</ul>";
+										echo "</div>";
 										echo "<input type='hidden' name='".$element["name"].$option["id"]."' id='".$element["name"].$option["id"]."'/>";
 									}
 								} else {
@@ -422,7 +422,7 @@ class WPRI_Form {
 
 						}
 						elseif ($element["type"]=="select"){
-							echo "<h3>".$element["caption"]."</h3>";
+							echo "<div class='form-element-caption'>".$element["caption"]."</div>";
 							echo "<select name='".$element["name"]."'>";
 							$all_entries = array();
 							foreach (WPRI_Database::get_all($element["table"]) as $dbitem) {
