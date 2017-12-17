@@ -249,7 +249,8 @@ class WPRI_Form {
 						elseif ($element["type"]=="multiple-select"){
 							$relation = $element["relation"];
                             echo "<div class='col-sm-12 form-element-caption'>".$element["caption"]."</div>";
- 
+                            echo  $element["caption"] ; // TODO remove
+
  							$all_entries = WPRI_Database::get_all($relation["foreach"]["table"]);
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
