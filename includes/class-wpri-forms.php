@@ -249,15 +249,19 @@ class WPRI_Form {
 							?>
 							<ul id="input<?php echo $element["name"]?>" class="list-group">
 								<?php
-								 foreach ( $all_entries as $item ) {
+								 // foreach ( $all_entries as $item ) {
                                 //     if ( !isset($element["data"]) || !in_array( $item["id"],$element["data"])){
     							// 		echo "<li
     							// 			class='list-group-item' optionname='".$item["id"]."'>
     							// 			<span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
     							// 	}
-
+// }
 
                                 if (isset($relation["select"]["table"])){
+                                    $ids_to_add = array();
+                                    foreach ($all_options as $option){
+                                        array_push($ids_to_add => array());
+                                    }
                                     $all_options = WPRI_Database::get_all($relation["select"]["table"]);
                                     foreach ($all_options as $option){
                                           if ( isset($element["data"])){
@@ -279,11 +283,14 @@ class WPRI_Form {
                                      }
                                 } else {
                                       foreach ( $all_entries as $item ) {
-                                         if ( isset($element["data"]) && !in_array( $item["id"],$element["data"])){
-                                            echo "<li
-                                                class='list-group-item' optionname='".$item["id"]."'>
-                                                <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
-                                        } else{
+                                         if ( isset($element["data"])){
+                                             if (!in_array( $item["id"],$element["data"])){
+                                             echo "<li
+                                                 class='list-group-item' optionname='".$item["id"]."'>
+                                                 <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
+                                             }
+                                         }
+                                         else{
                                             echo "<li
                                                 class='list-group-item' optionname='".$item["id"]."'>
                                                 <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
@@ -291,7 +298,7 @@ class WPRI_Form {
 
                                     }
                                  }
-                                }
+
 								?>
 							</ul>
 							<?php
