@@ -37,13 +37,13 @@
      *****************************/
 
      .form-group-title {
-       font-size: var(--normal-font-size);
+       font-size: var(--title-font-size);
        color : red;
      }
 
 
       .form-element-caption {
-        font-size: var(--normal-font-size);
+        font-size: var(--large-font-size);
         color : blue;
       }
 
