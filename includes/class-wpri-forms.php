@@ -270,7 +270,7 @@ class WPRI_Form {
                                                      foreach ( $element["data"] as $dato) {
                                                          if (!( $item["id"]==$dato[$relation["foreach"]["table"]] &&  $option["id"]==$dato[$relation["select"]["table"]])){
                                                              if (!in_array($item,$items_to_add)){
-                                                                 array_push($items_to_add,$item)
+                                                                 array_push($items_to_add,$item);
                                                              }
                                                          }
                                                     }
