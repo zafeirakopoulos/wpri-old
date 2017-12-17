@@ -489,17 +489,17 @@ class WPRI_Form {
 
 				  <?php
 				  	foreach ( $all_entries as $item ) {
-					  echo "<li>";
-					  echo $item[$form["display_element"]];
-                      echo "<form name='id' method='post' action=''>";
+					  echo "<li><table><tr>";
+					  echo "<td>".$item[$form["display_element"]]."</td>";
+                      echo "<td><form name='id' method='post' action=''>";
 					  echo "<input type='submit' name='delete_button' value='Delete' class='btn btn-primary' /> ";
 					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
-					  echo "</form>";
-                      echo "<form name='id' method='post' action='#add_update'>";
+					  echo "</form></td>";
+                      echo "<td><form name='id' method='post' action='#add_update'>";
 					  echo "<input type='submit' name='update_button' value='Update' class='btn btn-primary' /> ";
 					  echo '<input type="hidden" name="id" value="'.$item["id"].'"/>';
-					  echo "</form>";
-					  echo "</li>";
+					  echo "</form></td>";
+					  echo "</tr></table></li>";
   			  		}
 				 ?>
 		  	</ul>
