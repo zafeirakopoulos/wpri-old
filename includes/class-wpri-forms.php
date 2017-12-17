@@ -258,10 +258,10 @@ class WPRI_Form {
 // }
 
                                 if (isset($relation["select"]["table"])){
-                                    $ids_to_add = array();
-                                    foreach ($all_options as $option){
-                                        array_push($ids_to_add, $option["id"] => array());
-                                    }
+                                    // $ids_to_add = array();
+                                    // foreach ($all_options as $option){
+                                    //     array_push($ids_to_add, $option["id"] => array());
+                                    // }
                                     $all_options = WPRI_Database::get_all($relation["select"]["table"]);
                                     foreach ($all_options as $option){
                                           if ( isset($element["data"])){
