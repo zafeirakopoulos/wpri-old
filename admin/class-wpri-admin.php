@@ -186,7 +186,7 @@ class WPRI_Admin {
 	    echo '<h2>Undergraduate</h2>';
 	    echo '<table class="form-table">';
 		echo '<th><label">Title</label></th>';
-		echo '<td><textarea id="bs_title" name="bs_title" cols="70" rows="1"></textarea>';
+		echo '<td><textarea id="bs_title" name="bs_title" cols="70" rows="1">'. get_user_meta($user,'bs_title',true) .'</textarea>';
 		echo '<span class="description">BSc, BA, etc.</span>';
 		echo '</td></tr>';
 		echo '<tr>';
