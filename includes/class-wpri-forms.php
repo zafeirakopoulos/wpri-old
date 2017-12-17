@@ -260,27 +260,37 @@ class WPRI_Form {
                                 if (isset($relation["select"]["table"])){
                                     $all_options = WPRI_Database::get_all($relation["select"]["table"]);
 
-                                    $ids_to_add = array();
-                                    foreach ($all_options as $option){
-                                        $ids_to_add[$option["id"]] = array();
-                                    }
-                                    foreach ($all_options as $option){
-                                          if ( isset($element["data"])){
-                                             foreach ( $all_entries as $item ) {
-                                                 foreach ( $element["data"] as $dato) {
-                                                     if (!( $item["id"]==$dato[$relation["foreach"]["table"]] &&  $option["id"]==$dato[$relation["select"]["table"]])){
-                                                       echo "<li
-                                                           class='list-group-item' optionname='".$item["id"]."'>
-                                                           <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
-                                                     }
+                                    if ( isset($element["data"])){
+                                        $items_to_add = array();
+                                        // foreach ($all_options as $option){
+                                        //     $items_to_add[$option["id"]] = array();
+                                        // }
+                                        foreach ($all_options as $option){
+                                                 foreach ( $all_entries as $item ) {
+                                                     foreach ( $element["data"] as $dato) {
+                                                         if (!( $item["id"]==$dato[$relation["foreach"]["table"]] &&  $option["id"]==$dato[$relation["select"]["table"]])){
+                                                             if (!in_array($item,$items_to_add)){
+                                                                 array_push($items_to_add,$item)
+                                                             }
+                                                         }
+                                                    }
                                                 }
-                                            }
-                                        } else{
-                                            echo "<li
-                                                class='list-group-item' optionname='".$item["id"]."'>
-                                                <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
-                                          }
+                                            } else{
 
+                                            }
+
+                                         foreach ($items_to_add as $add_item) {
+                                             echo "<li
+                                                 class='list-group-item' optionname='".$add_item["id"]."'>
+                                                 <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$add_item[$relation["foreach"]["display_column"]]."</li>";
+                                         }
+                                     }
+                                     else{
+                                         foreach ($all_entries as $item) {
+                                             echo "<li
+                                                 class='list-group-item' optionname='".$item["id"]."'>
+                                                 <span class='glyphicon glyphicon-move' aria-hidden='true'></span>".	$item[$relation["foreach"]["display_column"]]."</li>";
+                                         }
                                      }
                                 } else {
                                       foreach ( $all_entries as $item ) {
