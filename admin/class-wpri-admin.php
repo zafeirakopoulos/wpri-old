@@ -651,7 +651,7 @@ class WPRI_Admin {
 	 	foreach ( $all_entries as $dbitem ) {
 			echo '<form name="delete_$setting_name" method="post" action="">';
 			echo '<tr>';
-			echo '<td><label>' . $dbitem->name . ': </label></td>';
+			echo '<td><label>' . $dbitem->$setting_name . ': </label></td>';
 			echo '<td> <input type="submit" name="delete_button' . $dbitem->id  . '" value="Delete" class="button" />';
 	    	echo '<input type="hidden" name="type" value="delete_' . $setting_name . '" />';
 	   		echo '<input type="hidden" name="setting_id" value=' . $dbitem->id . '/></td>';
