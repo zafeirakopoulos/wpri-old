@@ -317,14 +317,12 @@ class WPRI_Form {
 							</ul>
 							<?php
 
-
-
-
 								if (isset($relation["select"]["table"])){
 									$all_options = WPRI_Database::get_all($relation["select"]["table"]);
 									foreach ($all_options as $option){
-										echo "<div>".$option[$relation["select"]["display_column"]];
-										echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'>";
+										echo "<div  class='col-sm-12 form-element-caption' >".$option[$relation["select"]["display_column"]];
+                                        echo "</div>";
+			                             echo "<ul id='output".$element["name"].$option["id"]."' class='list-group' style='min-height:100px'>";
                                          if ( isset($element["data"])){
                                              foreach ( $all_entries as $item ) {
                                                  foreach ( $element["data"] as $dato) {
@@ -337,7 +335,6 @@ class WPRI_Form {
                                             }
                                          }
                                         echo "</ul>";
-										echo "</div>";
 										echo "<input type='hidden' name='".$element["name"].$option["id"]."' id='".$element["name"].$option["id"]."'/>";
 									}
 								} else {
