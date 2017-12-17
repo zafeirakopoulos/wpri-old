@@ -38,17 +38,14 @@
 
      .form-group-title {
        font-size: var(--title-font-size);
-       color : red;
-     }
+      }
 
 
       .form-element-caption {
         font-size: var(--large-font-size);
-        color : blue;
-      }
+       }
 
 
        .form-element-value {
          font-size: var(--normal-font-size);
-         color : green;
-       }
+        }
