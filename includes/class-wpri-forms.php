@@ -265,17 +265,18 @@ class WPRI_Form {
                                         // foreach ($all_options as $option){
                                         //     $items_to_add[$option["id"]] = array();
                                         // }
-                                        foreach ($all_options as $option){
                                                  foreach ( $all_entries as $item ) {
-                                                     foreach ( $element["data"] as $dato) {
-                                                         if (!( $item[$relation["foreach"]["table"]]==$dato[$relation["foreach"]["table"]] &&  $option["id"]==$dato[$relation["select"]["table"]])){
-                                                             if (!in_array($item,$items_to_add)){
-                                                                 array_push($items_to_add,$item);
-                                                             }
+                                                     $toadd =true;
+                                                     foreach ( $element["data"] as $dato) { //This is an asscociativ array?
+                                                         if ( $item[$relation["foreach"]["table"]]==$dato[$relation["foreach"]["table"]]) {
+                                                                 $toadd=false;
                                                          }
-                                                    }
+                                                     }
+
+                                                     if ($toadd && !in_array($item,$items_to_add)){
+                                                         array_push($items_to_add,$item);
+                                                     }
                                                 }
-                                            }
 
                                          foreach ($items_to_add as $add_item) {
                                              echo "<li
