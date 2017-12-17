@@ -424,6 +424,7 @@ class WPRI_Form {
 						}
 						elseif ($element["type"]=="select"){
 							echo "<div class='col-sm-12 form-element-caption'>".$element["caption"]."</div>";
+                            echo "<div class='col-sm-12'>";
 							echo "<select name='".$element["name"]."'>";
 							$all_entries = array();
 							foreach (WPRI_Database::get_all($element["table"]) as $dbitem) {
@@ -450,6 +451,7 @@ class WPRI_Form {
                                 }
 							}
 							echo "</select>";
+                            echo "</div>";
 						}
 						elseif ($element["type"]=="datetime") {
                             echo "<div class='col-sm-12 form-element-caption'>".$element["caption"]."</div>";
