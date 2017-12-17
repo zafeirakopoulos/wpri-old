@@ -753,6 +753,7 @@
             "table_name" : "journal",
             "name" :"journal",
             "has_menu": true,
+            "display_element":"journal",
             "actions": {
                 "add" : "manage_options",
                 "remove" : ["admin"],
