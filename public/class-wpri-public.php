@@ -184,7 +184,7 @@ class WPRI_Public {
 	 * Load plugin textdomain.
 	 */
 	function wpri_load_textdomain() {
-	  load_plugin_textdomain( 'wpri', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	  load_plugin_textdomain( 'wpri', false,  'wpri/languages' );
 	}
 
 }
