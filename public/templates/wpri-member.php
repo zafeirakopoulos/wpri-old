@@ -10,7 +10,7 @@
 			echo "<div class='col-xs-12'><h3 class='list-item'>".$member['position']."</h3> </div>";
 
 			echo "<div class='col-xs-12'><h3 class='list-item'> Office: ".$member['office']."</h3> </div>";
-			echo "<div class='col-xs-12'><h3 class='list-item'> Phone: ".$member['phone']."</h3> </div>";
+			echo "<div class='col-xs-12'><h3 class='list-item'> <i class='fa fa-telephone' aria-hidden='true'></i>: ".$member['phone']."</h3> </div>";
 			echo "<div class='col-xs-12'><h3 class='list-item'> Email: ".$member['email']."</h3> </div>";
 
 		echo "</div>";
