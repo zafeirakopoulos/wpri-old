@@ -263,7 +263,8 @@ class WPRI {
 		$this->loader->add_action('wp_logout', $plugin_public,'WPRIEndSession');
 		$this->loader->add_action('wp_login',$plugin_public, 'WPRIEndSession');
 
-		$this->loader->add_action('init', $plugin_public,'wpri_load_textdomain', 99);
+		$this->loader->add_action('plugins_loaded', $plugin_public,'wpri_load_textdomain', 99);
+
 
 
 		$plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
