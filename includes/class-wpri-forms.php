@@ -144,7 +144,7 @@ class WPRI_Form {
                 $success = WPRI_Database::add_form($entity,$to_add);
               }
               elseif($_POST['type'] == 'update'){
-                $success = WPRI_Database::update_($_POST['id'],$entity,$to_add);
+                $success = WPRI_Database::update_form($_POST['id'],$entity,$to_add);
               }
 
 			if($success ) {
@@ -186,7 +186,7 @@ class WPRI_Form {
 		?>
 		<div>
 			<div class='row'>
-			<form enctype="multipart/form-data" name='<?php echo $form["name"]?>' method="post" action="">
+			<form name='<?php echo $form["name"]?>' method="post" action="">
                 <!-- Entity title -->
 				<!-- <div class='col-sm-12 form-title'> <?php echo $form["title"] ?> </div> -->
 				<?php
