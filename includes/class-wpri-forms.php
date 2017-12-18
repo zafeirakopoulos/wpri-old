@@ -113,7 +113,7 @@ class WPRI_Form {
                         }
 					} elseif ($element["type"]== "picture"){
                         if ( ! function_exists( 'wp_handle_upload' ) ) {require_once( ABSPATH . 'wp-admin/includes/file.php' );}
-                            $uploadedfile = $_FILES[$_POST["project_picture_upload"]];
+                            $uploadedfile = $_FILES["project_picture_upload"];
                             // $upload_overrides = array( 'test_form' => false );
                             $project_picture= wp_handle_upload( $uploadedfile, array('test_form' => FALSE) );
 
