@@ -192,7 +192,9 @@ h1.site-title{
 
 
   .list-group-item {
-    margin-top: 0; 
+    margin-top: 0;
+    border-top: 0 none;
+
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--alt-color);
