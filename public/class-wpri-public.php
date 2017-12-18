@@ -173,17 +173,17 @@ class WPRI_Public {
 		session_destroy ();
 	}
 
-		function wpri_redefine_locale( ) {
-			if(!session_id()) {
-		    	session_start();
-			}
-		   return WPRI_Database::get_locale($_SESSION['locale']);
+	function wpri_locale( ) {
+		if(!session_id()) {
+	    	session_start();
 		}
-		/**
-		 * Load plugin textdomain.
-		 */
-		function wpri_load_textdomain() {
-		  load_plugin_textdomain( 'wpri', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-		}
+	   return WPRI_Database::get_locale($_SESSION['locale']);
+	}
+	/**
+	 * Load plugin textdomain.
+	 */
+	function wpri_load_textdomain() {
+	  load_plugin_textdomain( 'wpri', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	}
 
 }

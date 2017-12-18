@@ -264,7 +264,7 @@ class WPRI {
 		$this->loader->add_action('wp_login',$plugin_public, 'WPRIEndSession');
 
 		$this->loader->add_action('init', $plugin_public,'wpri_load_textdomain', 99);
- 
+
 
 		$plugin_menu = new WPRI_Menu( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->	add_action( 'admin_menu', $plugin_menu, 'wpri_menus' );
@@ -287,7 +287,7 @@ class WPRI {
 		$plugin_report = new WPRI_Report( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_filter( 'template_include',$plugin_report, 'download_report_page_template', 99 );
 
-		$this->loader->add_filter( 'locale', $plugin_public, 'wpri_redefine_locale',99 );
+		$this->loader->add_filter( 'locale', $plugin_public, 'wpri_locale',99 );
 
 
 
