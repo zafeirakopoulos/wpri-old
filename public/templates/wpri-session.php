@@ -7,6 +7,8 @@ nocache_headers();
 // Check if locale is set
 $_SESSION['locale'] = $_REQUEST['data']['locale'];
 
+WPRI_Public::change_textdomain();
+
 /*
 Header('Content-Type: application/json;charset=utf8');
 die(json_encode(array(
