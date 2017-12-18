@@ -11,7 +11,7 @@ $_SESSION['locale'] = $_REQUEST['data']['locale'];
 // error_log(plugin_dir_path( dirname( __FILE__ ) ) .'/../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo');
 // load_textdomain( "wpri", plugin_dir_path( dirname( __FILE__ ) ) .'/../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo' );
 
-echo "test";
+echo json_encode('apple');
 
 // Header('Content-Type: application/json;charset=utf8');
 // die(json_encode(array(
