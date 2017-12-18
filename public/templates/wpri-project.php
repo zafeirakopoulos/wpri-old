@@ -68,6 +68,16 @@
 				}
 			?>
 
+            <h2 class="outfont">Open Positions</h2>
+
+			<?php
+				foreach ($project["vacancy"] as $vacancy_id) {
+					error_log("vac id:".$vacancy_id);
+					$vacancy = WPRI_Database::get_record("vacancy",$vacancy_id) ;
+                    echo "<a class='list-group-item' href='".site_url()."/position?id=".$vacancy_id."'>".$vacancy["official_title"]."</a>";
+				}
+			?>
+
 </div><!-- #project -->
 
 
