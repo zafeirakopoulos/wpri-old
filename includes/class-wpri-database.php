@@ -639,6 +639,17 @@ public static function update_form($id, $entity, $form) {
 		return $GLOBALS['wpdb']->get_results("SELECT * FROM " . self::table_name("locale"),"ARRAY_A");
 	}
 
+	public static function get_locale($id) {
+
+	$results=  $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare(
+		"SELECT locale FROM " . self::table_name("locale"). " WHERE id = %d", $id),"ARRAY_A");
+	return $results[0]["locale"];
+
+
+
+		return $GLOBALS['wpdb']->get_results("SELECT locale FROM " . self::table_name("locale"),"ARRAY_A");
+	}
+
 	public static function get_relation($left, $right, $lid, $rid) {
  		if ($rid==""){
 			$query = "SELECT * FROM " . self::table_name($left."_".$right). " WHERE ".$left." = %d";
