@@ -9,11 +9,11 @@
                 echo "<h2 class='col-xs-12 list-item'>".$project['title']."</h2>";
 
 
-                $agency_array = array();
-                foreach ($project['agency'] as $agency) {
-                    $agency_array[] = WPRI_Database::get_localized("agency",$agency);
-                }
-                echo "<h3 class='col-xs-12 list-item'>Funded by: ".join(",",$agency_array)."</h3>";
+                // $agency_array = array();
+                // foreach ($project['agency'] as $agency) {
+                //     $agency_array[] = WPRI_Database::get_localized("agency",$agency);
+                // }
+                echo "<h3 class='col-xs-12 list-item'>Funded by: ".join(",",$project['agency'])."</h3>";
 
 
     			echo "<div class='col-xs-12'><h3 class='list-item'> Status: ".$project['status']."</h3> </div>";
