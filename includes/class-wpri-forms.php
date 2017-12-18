@@ -299,6 +299,7 @@ class WPRI_Form {
                                      }
                                 } else {
                                       foreach ( $all_entries as $item ) {
+                                          error_log(print_r($item));
                                          if ( isset($element["data"])) {
                                              if (!in_array( $item["id"],$element["data"])){
                                              echo "<li
