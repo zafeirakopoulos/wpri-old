@@ -7,15 +7,8 @@
             echo "<img class='col-xs-3'  src='".$project["picture"]."'>";
             echo "<div class='col-xs-9  row  list-item'>";
                 echo "<h2 class='col-xs-12 list-item'>".$project['title']."</h2>";
-
-
-                // $agency_array = array();
-                // foreach ($project['agency'] as $agency) {
-                //     $agency_array[] = WPRI_Database::get_localized("agency",$agency);
-                // }
                 echo "<h3 class='col-xs-12 list-item'>Funded by: ".join(",",$project['agency'])."</h3>";
-
-
+                echo "<h3 class='col-xs-12 list-item'>Budget: ".join(",",$project['budget'])."</h3>";
     			echo "<div class='col-xs-12'><h3 class='list-item'> Status: ".$project['status']."</h3> </div>";
 
     			if (isset($project['website']) AND $project['website']!=""){
