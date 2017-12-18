@@ -193,8 +193,9 @@ h1.site-title{
 
   .list-group-item {
     margin-top: 0;
-    border-top: 0 none;
-
+    border-top: :0 none;
+    border-left: :0 none;
+    border-right: :0 none;
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--alt-color);
@@ -203,10 +204,10 @@ h1.site-title{
 
   }
   .list-group-item-alt{
-    margin-top: 0;
-    border-top: :0;
-    border-left: :0;
-    border-right: :0;
+    margin-top: 0 ;
+    border-top: :0 none;
+    border-left: :0 none;
+    border-right: :0 none;
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--alt-color);
