@@ -1,5 +1,5 @@
 <?php
-nocache_headers();
+// nocache_headers();
 
 // DO NOT, FOR ANY REASON, ACCESS DIRECTLY $_SESSION
 // ONLY USE A VARIABLE WITHIN $_SESSION (here, "ajjx")
