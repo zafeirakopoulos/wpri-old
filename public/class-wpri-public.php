@@ -173,9 +173,9 @@ class WPRI_Public {
 		session_destroy ();
 	}
 
-	public function change_textdomain($lang) {
-		error_log(plugin_dir_path( dirname( __FILE__ ) ) .'/../languages/wpri-'.$lang.'.mo');
-		load_textdomain( "wpri", plugin_dir_path( dirname( __FILE__ ) ) .'/../languages/wpri-'.$lang.'.mo' );
+	public function change_textdomain() {
+		error_log(plugin_dir_path( dirname( __FILE__ ) ) .'/../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo');
+		load_textdomain( "wpri", plugin_dir_path( dirname( __FILE__ ) ) .'/../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo' );
 	}
 
 
