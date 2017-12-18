@@ -6,7 +6,7 @@ nocache_headers();
 // OTHERWISE THIS MAY ALLOW ANYONE TO TAKE CONTROL OF YOUR INSTALLATION.
 // Check if locale is set
 $_SESSION['locale'] = $_REQUEST['data']['locale'];
-echo plugin_dir_path( dirname( __FILE__ ) ) .'/../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo';
+error_log(plugin_dir_path( dirname( __FILE__ ) ) .'/../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo');
 load_textdomain( "wpri", plugin_dir_path( dirname( __FILE__ ) ) .'/../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo' );
 
 /*
