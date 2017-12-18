@@ -3,10 +3,10 @@
 		<?php
 		$member_id=$_GET['id'];
 		$member = WPRI_Database::get_member_full($member_id);
+		echo "<h2 class='col-xs-12 list-item'>". $member["title"]." ".$member['name']."</h2><br>";
 
 		echo "<div class='col-xs-2'>". get_avatar($member['user']) ."</div>";
 		echo "<div class='col-xs-10  row  list-item'>";
-			echo "<h2 class='col-xs-12 list-item'>". $member["title"]." ".$member['name']."</h2><br>";
 			echo "<div class='col-xs-12'><h3 class='list-item'>".$member['position']."</h3> </div>";
 
 			echo "<div class='col-xs-12'><h3 class='list-item'> Office: ".$member['office']."</h3> </div>";
