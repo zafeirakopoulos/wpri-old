@@ -8,18 +8,10 @@
 		echo "<div class='col-xs-10  row  list-item'>";
 			echo "<h2 class='col-xs-12 list-item'>". $member["title"]." ".$member['name']."</h2><br>";
 			echo "<div class='col-xs-12'><h3 class='list-item'>".$member['position']."</h3> </div>";
-			// echo "<div class='col-xs-12'><h3 class='list-item'>Budget: ".$project['budget']."</h3> </div>";
-			// echo "<div class='col-xs-12'><h3 class='list-item'> Status: ".$project['status']."</h3> </div>";
-			// if (isset($project['website']) AND $project['website']!=""){
-			// 	echo "<div class='col-xs-12 single'><h3 class='list-item'>".$project['website']."</h3></div>";
-			// }
-            //
-			// echo "<div class='col-xs-12 single'><h3 class='list-item'> Activity Period: ".
-			// 	mysql2date( 'F j, Y', $project['startdate'] )
-			// 	."-".
-			// 	mysql2date( 'F j, Y', $project['enddate'] )
-			// 	."</h3> </div>";
 
+			echo "<div class='col-xs-12'><h3 class='list-item'> Office: ".$member['office']."</h3> </div>";
+			echo "<div class='col-xs-12'><h3 class='list-item'> Phone: ".$member['phone']."</h3> </div>";
+			echo "<div class='col-xs-12'><h3 class='list-item'> Email: ".$member['email']."</h3> </div>";
 
 		echo "</div>";
 
@@ -29,28 +21,7 @@
         <!-- </div> -->
 	<!-- </div> -->
 
-	<h1 class="outfont"> Contact </h1>
-	<ul class="list-group">
- 		<div class='col-xs-12 col-sm-4 list-group-item'>
-				<h3 class="list-item">Office</h3> <br>
-				<h3 class="list-item"><?php echo $member['office'];?></h3>
-		</div>
-		<div class='col-xs-12 col-sm-4 list-group-item'>
-				<h3 class="list-item">Phone</h3> <br>
-				<h3 class="list-item"><?php echo $member['phone'];?></h3>
-		</div>
-		<div class='col-xs-12 col-sm-4 list-group-item'>
-				<h3 class="list-item">email</h3> <br>
-				<h3 class="list-item"><?php echo $member['email'];?></h3>
-			</p>
-		</div>
-	</ul>
 
-   <?php
-   echo "<div class='col-xs-12'><h3 class='list-item'> Office: ".$member['office']."</h3> </div>";
-   echo "<div class='col-xs-12'><h3 class='list-item'> Phone: ".$member['phone']."</h3> </div>";
-   echo "<div class='col-xs-12'><h3 class='list-item'> Email: ".$member['email']."</h3> </div>";
-	?>
 
 	<h1 class="outfont"> Posts </h1>
 
