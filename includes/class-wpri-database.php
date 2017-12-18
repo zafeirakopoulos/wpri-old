@@ -799,11 +799,11 @@ public static function update_form($id, $entity, $form) {
 	 			$tmp=array();
 	 			if (isset($declarations[$name]["groups"][0]["elements"][0]["all_locales"])){
 	 				foreach (WPRI_Database::get_relation($entity_name,$name,$id,"") as $row) {
-	 					$tmp[] = $row["id"] ;
+	 					$tmp[] = $row[$name] ;
 	 				}
 	 			} else{
 	 				foreach (WPRI_Database::get_relation($entity_name,$name,$id,"") as $row) {
-	 					$tmp[] = $row["id"];
+	 					$tmp[] = $row[$name];
 	 				}
 	 			}
 	 			$results[$name]= $tmp;
