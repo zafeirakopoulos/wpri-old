@@ -1,7 +1,7 @@
 # wpri Pot
 msgid ""
 msgstr ""
-"Project-Id-Version: WordPress Blank Pot v1.0.0\n"
+"Project-Id-Version: wpri\n"
 "POT-Creation-Date: 2017-12-18 17:57+0300\n"
 "PO-Revision-Date: \n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -58,7 +58,7 @@ msgstr ""
 
 #: public/templates/front-page.php:25
 msgid "Highlights"
-msgstr ""
+msgstr "Öne çıkanlar"
 
 #: public/templates/sidebar-news.php:2
 msgid "News"
@@ -70,11 +70,11 @@ msgstr "Adres"
 
 #: public/templates/wpri-contact.php:6
 msgid "Gebze Technical University Computer Engineering Building"
-msgstr ""
+msgstr "Gebze Teknik Üniversitesi Bilgisayar Mühendisliği Binası"
 
 #: public/templates/wpri-contact.php:7 public/templates/wpri-footer.php:11
 msgid "Gebze – Kocaeli – Turkey"
-msgstr ""
+msgstr "Gebze - Kocaeli - Türkiye"
 
 #: public/templates/wpri-contact.php:8
 msgid "ZIP Code"
@@ -86,27 +86,27 @@ msgstr "Telefon"
 
 #: public/templates/wpri-contact.php:13
 msgid "E-mail"
-msgstr "E-mail"
+msgstr "E-posta"
 
 #: public/templates/wpri-faculty.php:30 public/templates/wpri-header.php:48
 msgid "Faculty"
-msgstr ""
+msgstr "Akademik kadro"
 
 #: public/templates/wpri-faculty.php:52
 msgid "Assistants"
-msgstr ""
+msgstr "Araştırma Görevlileri"
 
 #: public/templates/wpri-faculty.php:62
 msgid "Administrative personel"
-msgstr ""
+msgstr "İdari Personel"
 
 #: public/templates/wpri-footer.php:5
 msgid "Gebze Technical University"
-msgstr ""
+msgstr "Gebze Teknik Üniversitesi"
 
 #: public/templates/wpri-footer.php:8 public/templates/wpri-header.php:35
 msgid "Institute of Information Technologies"
-msgstr ""
+msgstr "Bilişim Teknolojileri Enstitüsü"
 
 #: public/templates/wpri-header.php:49
 msgid "Research"
@@ -122,88 +122,88 @@ msgstr "Projeler"
 #: public/templates/wpri-project.php:53
 #: public/templates/wpri-publications.php:2
 msgid "Publications"
-msgstr ""
+msgstr "Yayınlar"
 
 #: public/templates/wpri-header.php:52 public/templates/wpri-project.php:62
 msgid "Open Positions"
-msgstr ""
+msgstr "Kadro duyuruları"
 
 #: public/templates/wpri-header.php:53
 msgid "Contact"
-msgstr ""
+msgstr "İletişim"
 
 #: public/templates/wpri-member.php:26
 msgid "Posts"
-msgstr ""
+msgstr "Duyurular"
 
 #: public/templates/wpri-member.php:68
 msgid "Education"
-msgstr ""
+msgstr "Eğitim"
 
 #: public/templates/wpri-project.php:10 public/templates/wpri-projects.php:18
 msgid "Funded by"
-msgstr ""
+msgstr "Mali destek"
 
 #: public/templates/wpri-project.php:11
 msgid "Budget"
-msgstr ""
+msgstr "Bütçe"
 
 #: public/templates/wpri-project.php:12
 msgid "Status"
-msgstr ""
+msgstr "Durum"
 
 #: public/templates/wpri-project.php:17
 msgid "Activity Period"
-msgstr ""
+msgstr "Etkinlik Süresi"
 
 #: public/templates/wpri-project.php:27
 msgid "Participants"
-msgstr ""
+msgstr "Katılımcılar"
 
 #: public/templates/wpri-project.php:28
 msgid "Institute members"
-msgstr ""
+msgstr "Enstitü üyeleri"
 
 #: public/templates/wpri-publication.php:12
 msgid "DOI number"
-msgstr ""
+msgstr "DOI numarası"
 
 #: public/templates/wpri-publication.php:13
 msgid "Publication type"
-msgstr ""
+msgstr "Yayın türü"
 
 #: public/templates/wpri-publication.php:17
 msgid "Authors"
-msgstr ""
+msgstr "Yazarlar"
 
 #: public/templates/wpri-vacancies.php:2
 msgid "Open positions"
-msgstr ""
+msgstr "Açık pozisyonlar"
 
 #: public/templates/wpri-vacancy.php:14
 msgid "Position"
-msgstr ""
+msgstr "Pozisyon"
 
 #: public/templates/wpri-vacancy.php:15
 msgid "Application deadline"
-msgstr ""
+msgstr "Başvuru son tarihi"
 
 #: public/templates/wpri-vacancy.php:16
 msgid "Starting date"
-msgstr ""
+msgstr "Başlangıç tarihi"
 
 #: public/templates/wpri-vacancy.php:19
 msgid "Job description"
-msgstr ""
+msgstr "İş tanımı"
 
 #: public/templates/wpri-vacancy.php:25
 msgid "Requirements"
-msgstr ""
+msgstr "Gereklilikler"
 
 #: public/templates/wpri-vacancy.php:34
 msgid "Contacts"
-msgstr ""
+msgstr "İletişim bilgileri"
 
 #: public/templates/wpri-vacancy.php:43
 msgid "Related Projects"
-msgstr ""
+msgstr "İlgili projeler"
