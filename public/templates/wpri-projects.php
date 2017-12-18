@@ -10,7 +10,8 @@
                     echo "<a class='row list-group-item' href='".site_url()."/project?id=".$project_id."'>";
                     // echo "<div class=' list-group-item'>";
                         echo "<div class='col-xs-2 list-group-item'><img src='".$project["picture"]."' width='50px'></div>";
-                        echo "<div class='col-xs-10 list-group-item'><h2 class='list-item'>".$project['title']."</h2><br>";
+                        echo "<div class='col-xs-10 list-group-item'>";
+                        echo "<h2 class='list-item'>".$project['title']."</h2>";
                         echo "<h3 class='list-item'>Funded by: ".join(",",$project['agency'])."</h3></div>";
                         echo "</a> ";
                         // echo " </div> ";
