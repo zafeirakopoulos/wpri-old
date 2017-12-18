@@ -26,7 +26,7 @@
 
  define( 'WPRI_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
- 
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
