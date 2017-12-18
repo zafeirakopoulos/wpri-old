@@ -190,16 +190,9 @@ h1.site-title{
   ********** Single  **********
   *****************************/
 
-  .list-group {
-    border-top: :0;
-    border-left: :0;
-    border-right: :0;
-  }
+
   .list-group-item {
-    margin-top: 0;
-    border-top: :0;
-    border-left: :0;
-    border-right: :0;
+    margin-top: 0; 
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--alt-color);
