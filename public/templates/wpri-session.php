@@ -10,11 +10,11 @@ $_SESSION['locale'] = $_REQUEST['data']['locale'];
 // error_log(plugin_dir_path( dirname( __FILE__ ) ) .'../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo');
 // load_textdomain( "wpri", plugin_dir_path( dirname( __FILE__ ) ) .'../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo' );
 // error_log(load_plugin_textdomain( 'wpri', false, basename( dirname( __FILE__ ) ) . '/languages' ));
-function wpri_get_new_locale($locale=false){
-    return $_SESSION['locale'];
-}
-add_filter( 'locale', 'wpri_get_new_locale',20 );
-
+// function wpri_get_new_locale($locale=false){
+//     return $_SESSION['locale'];
+// }
+// add_filter( 'locale', 'wpri_get_new_locale',20 );
+define( 'WPLANG', $_SESSION['locale'] );
 /*
 Header('Content-Type: application/json;charset=utf8');
 die(json_encode(array(
