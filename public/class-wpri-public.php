@@ -179,7 +179,7 @@ class WPRI_Public {
 			}
 
 
-			error_log("change locale");
+			error_log(get_locale());
 		   return $_SESSION['locale'];
 		}
 
