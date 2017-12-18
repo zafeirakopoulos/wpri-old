@@ -115,7 +115,7 @@ class WPRI_Form {
                         if ( ! function_exists( 'wp_handle_upload' ) ) {require_once( ABSPATH . 'wp-admin/includes/file.php' );}
                             $uploadedfile = $_FILES[$_POST["project_picture_upload"]];
                             // $upload_overrides = array( 'test_form' => false );
-                            $project_picture= wp_handle_upload( $uploadedfile );
+                            $project_picture= wp_handle_upload( $uploadedfile, array('test_form' => FALSE) );
 
                             if ( $project_picture && ! isset( $project_picture['error'] ) ) {
                             echo "File is valid, and was successfully uploaded.\n";
