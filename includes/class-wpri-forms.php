@@ -186,7 +186,7 @@ class WPRI_Form {
 		?>
 		<div>
 			<div class='row'>
-			<form name='<?php echo $form["name"]?>' method="post" action="">
+			<form  enctype="multipart/form-data" name='<?php echo $form["name"]?>' method="post" action="">
                 <!-- Entity title -->
 				<!-- <div class='col-sm-12 form-title'> <?php echo $form["title"] ?> </div> -->
 				<?php
