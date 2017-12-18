@@ -1,12 +1,11 @@
 <div class='single' id="project" >
- 		<ul class='list-group'>
-			<?php
+ 			<?php
 
 			$project_id=$_GET['id'];
 			$project = WPRI_Database::get_entity("project",$project_id);
 
-            echo "<img class='col-xs-2'  src='".$project["picture"]."'>";
-            echo "<div class='col-xs-10  row  list-item'>";
+            echo "<img class='col-xs-3'  src='".$project["picture"]."'>";
+            echo "<div class='col-xs-9  row  list-item'>";
                 echo "<h2 class='col-xs-12 list-item'>".$project['title']."</h2>";
 
 
@@ -15,28 +14,23 @@
                     $agency_array[] = WPRI_Database::get_localized("agency",$agency);
                 }
                 echo "<h3 class='col-xs-12 list-item'>Funded by: ".join(",",$agency_array)."</h3>";
-            echo "</div>";
 
-            echo "<div class='col-xs-8  list-group-item'>";
 
-			echo "<div class='col-xs-9'><h2 class='list-item'>".$project['title']."</h2> </div>";
+    			echo "<div class='col-xs-12'><h3 class='list-item'> Status: ".$project['status']."</h3> </div>";
 
-			echo "<div class='col-xs-12'><h3 class='list-item'> Status: ".$project['status']."</h3> </div>";
+    			if (isset($project['website']) AND $project['website']!=""){
+    				echo "<div class='col-xs-12 single'><h3 class='list-item'>".$project['website']."</h3></div>";
+    			}
 
-			if (isset($project['website']) AND $project['website']!=""){
-				echo "<div class='col-xs-12 single'><h3 class='list-item'>".$project['website']."</h3></div>";
-			}
+    			echo "<div class='col-xs-12 single'><h3 class='list-item'> Activity Period: ".
+    				mysql2date( 'F j, Y', $project['startdate'] )
+    				."-".
+    				mysql2date( 'F j, Y', $project['enddate'] )
+    				."</h3> </div>";
 
-			echo "<div class='col-xs-12 single'><h3 class='list-item'> Activity Period: ".
-				mysql2date( 'F j, Y', $project['startdate'] )
-				."-".
-				mysql2date( 'F j, Y', $project['enddate'] )
-				."</h3> </div>";
 
-			echo "<div class='col-xs-12 single'><h3 class='list-item-alt'> Funded by: ".join(",",$project['agency'])."</h3> </div>";
             echo "</div>";
  			?>
-</ul>
 
 			<h2 class="outfont">Participants</h2>
 			<h3 class="outfont">Institute members</h3>
