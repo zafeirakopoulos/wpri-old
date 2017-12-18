@@ -752,7 +752,7 @@ public static function update_form($id, $entity, $form) {
 			}
 	 	}
 
-		error_log(print_r($results));
+		// error_log(print_r($results));
 	 	return $results;
 	 }
 
@@ -832,7 +832,7 @@ public static function update_form($id, $entity, $form) {
 	 			}
 	 	 	}
 
-	 		error_log(print_r($results));
+	 		// error_log(print_r($results));
 	 	 	return $results;
 	 	 }
 
@@ -889,10 +889,6 @@ public static function update_form($id, $entity, $form) {
 	 	 		 	}
 	 	 		 }
 
-
-
-
-
                 //
 
                 //
@@ -912,7 +908,7 @@ public static function update_form($id, $entity, $form) {
 	 	 		// 	}
 	 	 	 	// }
 
-	 	 		error_log(print_r($entity));
+	 	 		// error_log(print_r($entity));
 	 	 	 	return $entity;
 	 	 	 }
 
