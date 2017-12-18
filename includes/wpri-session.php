@@ -6,7 +6,7 @@
 // OTHERWISE THIS MAY ALLOW ANYONE TO TAKE CONTROL OF YOUR INSTALLATION.
 // Check if locale is set
 // error_log("about to change locale");
-$_SESSION['locale'] = $_REQUEST['data']['locale'];
+// $_SESSION['locale'] = $_REQUEST['data']['locale'];
 
 WPRI_Public::change_textdomain();
 
