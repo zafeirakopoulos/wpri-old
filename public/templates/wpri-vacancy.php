@@ -11,18 +11,18 @@
 
 			<div class='col-sm-12 col-md-12 col-lg-12 '><h1 class='list-item-alt'> <?php echo $position['official_title'];?></h1> </div>
 
-			<div class='col-xs-12 col-md-4 col-lg-4 '>Position: <?php echo $position['vacancytype'];?> </div>
-			<div class='col-xs-12 col-md-4 col-lg-4 '>Application deadline:  <?php echo $position['deadline'];?> </div>
-			<div class='col-xs-12 col-md-4 col-lg-4 '>Starting date: <?php echo $position['startingdate'];?> </div>
+			<div class='col-xs-12 col-md-4 col-lg-4 '><?php _e("Position","wpri") ?>: <?php echo $position['vacancytype'];?> </div>
+			<div class='col-xs-12 col-md-4 col-lg-4 '><?php _e("Application deadline","wpri") ?>:  <?php echo $position['deadline'];?> </div>
+			<div class='col-xs-12 col-md-4 col-lg-4 '><?php _e("Starting date","wpri") ?>: <?php echo $position['startingdate'];?> </div>
 			</div>
 
-		<h2 class="outfont">Job description</h2>
+		<h2 class="outfont"><?php _e("Job description","wpri") ?></h2>
 		<ul class='list-group'>
 			<div class='list-group-item-alt'> <?php echo $position['description'];?> </div>
 		</ul>
 
 
- 	<h2 class="outfont">Requirements</h2>
+ 	<h2 class="outfont"><?php _e("Requirements","wpri") ?></h2>
 	<ul class='list-group'>
 		<?php
 		foreach ($position['requirement'] as $requirement) {
@@ -31,7 +31,7 @@
 	</ul>
 
 
-	<h2 class="outfont">Contacts</h2>
+	<h2 class="outfont"><?php _e("Contacts","wpri") ?></h2>
 	<ul class="list-group">
 	<?php
 		foreach ($position["member"] as $member_id) {
@@ -40,7 +40,7 @@
 		}
 	?>
 
-	<h2 class="outfont">Related Projects</h2>
+	<h2 class="outfont"><?php _e("Related Projects","wpri") ?></h2>
 	<ul class="list-group">
 	<?php
 		foreach ($position["project"] as $project_id) {

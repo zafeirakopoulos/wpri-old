@@ -23,7 +23,7 @@
 
 
 
-	<h1 class="outfont"> Posts </h1>
+	<h1 class="outfont"><?php _e("Posts","wpri") ?>  </h1>
 
 	<?php $args = array(
 	      'author__in'     => array($member['user']),
@@ -41,7 +41,7 @@
 
 		?>
 
-	<h1 class="outfont"> Publications </h1>
+	<h1 class="outfont"> <?php _e("Publications","wpri") ?>  </h1>
 	<ul class="list-group ">
 		<?php
 		foreach ($member["publication"] as $publication_id) {
@@ -53,7 +53,7 @@
 		?>
 	</ul>
 
-	<h1 class="outfont"> Projects </h1>
+	<h1 class="outfont"> <?php _e("Projects","wpri") ?> </h1>
 		<ul class="list-group">
 		<?php
 		foreach ($member["project"] as $proj) {
@@ -65,7 +65,7 @@
 		?>
 		</ul>
 
-		<h1 class="outfont"> Education </h1>
+		<h1 class="outfont"> <?php _e("Education","wpri") ?> </h1>
 			<ul class="list-group">
 				<?php
 					if ($member["undergrad"]["year"]!=""){

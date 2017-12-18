@@ -9,12 +9,12 @@
     		<div class='col-sm-12 col-md-12 col-lg-12'><h1 class="list-item-alt"> <?php echo $publication['title'];?></h1> </div>
     		<div class='col-sm-3 col-md-3 col-lg-3 '> <?php echo "publication picture"?> </div>
     		<div class='col-sm-12 '><h3 class="list-item-alt"> <?php echo $publication['authors'];?> </h3></div>
-    		<div class='col-sm-3 col-md-3 col-lg-4 '><h3 class="list-item-alt">DOI number<br> <?php echo $publication['doi'];?>  </h3></div>
-    		<div class='col-sm-3 col-md-3 col-lg-5 '><h3 class=" list-item-alt">Publication type<br> <?php echo $publication["pubtype"];?> </h3> </div>
+    		<div class='col-sm-3 col-md-3 col-lg-4 '><h3 class="list-item-alt"><?php _e("DOI number","wpri") ?><br> <?php echo $publication['doi'];?>  </h3></div>
+    		<div class='col-sm-3 col-md-3 col-lg-5 '><h3 class=" list-item-alt"><?php _e("Publication type","wpri") ?><br> <?php echo $publication["pubtype"];?> </h3> </div>
     		<div class='col-sm-12 col-md-12 col-lg-12 wordwrap '><h3 class=" list-item-alt"> <?php echo $publication['bibtex'];?>  </h3></div>
         </div>
     </ul>
-	<h2 class="outfont">Authors</h2>
+	<h2 class="outfont"><?php _e("Authors","wpri") ?></h2>
     <ul class="list-group">
 	<?php
 		foreach ($publication['member'] as $member_id) {
@@ -23,7 +23,7 @@
 		}?>
     </ul>
 
-	<h2 class="outfont">Projects</h2>
+	<h2 class="outfont"><?php _e("Projects","wpri") ?> </h2>
     <ul class="list-group">
 		<?php
 		foreach ($publication['project'] as $project_id) {

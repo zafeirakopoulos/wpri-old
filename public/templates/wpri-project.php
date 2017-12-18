@@ -24,7 +24,7 @@
             echo "</div>";
  			?>
 
-			<h2 class="outfont">" <?php _e("Participants","wpri") ?></h2>
+			<h2 class="outfont"> <?php _e("Participants","wpri") ?></h2>
 			<h3 class="outfont"><?php _e("Institute members","wpri") ?>Institute members</h3>
 			<ul class="list-group">
 			<?php

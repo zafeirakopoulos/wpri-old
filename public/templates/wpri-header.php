@@ -32,7 +32,7 @@
 <div class="masthead container">
 	<div class="row">
 	    <div class="col-xs-2 " style="margin-top:25px;"><img width="150px" src="<?php echo plugin_dir_url( __FILE__ ).'..';?>/gtu-white.png"></div>
-	    <div class="col-xs-10 "><h1 class="site-title">Institute of Information Technologies</h1><br>
+	    <div class="col-xs-10 "><h1 class="site-title"><?php _e("Institute of Information Technologies","wpri") ?> </h1><br>
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -45,12 +45,12 @@
 				<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="<?php echo get_home_url()?>">Home</a></li>
-					<li><a href="<?php echo get_permalink( get_page_by_path('faculty'))?>">People</a></li>
-					<li><a href="<?php echo get_permalink( get_page_by_path('research'))?>">Research</a></li>
-					<li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>">Projects</a></li>
-					<li><a href="<?php echo get_permalink( get_page_by_path('publications'))?>">Publications</a></li>
-					<li><a href="<?php echo get_permalink( get_page_by_path('positions'))?>">Open Positions</a></li>
-					<li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>">Contact</a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('faculty'))?>"><?php _e("Faculty","wpri") ?></a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('research'))?>"><?php _e("Research","wpri") ?> </a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('projects'))?>"><?php _e("Projects","wpri") ?> </a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('publications'))?>"><?php _e("Publications","wpri") ?> </a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('positions'))?>"><?php _e("Open Positions","wpri") ?> </a></li>
+					<li><a href="<?php echo get_permalink( get_page_by_path('contact'))?>"><?php _e("Contact","wpri") ?> </a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><button class="navbar-btn locale-picker " onclick="wpri_change_locale('1')"> English</button></li>

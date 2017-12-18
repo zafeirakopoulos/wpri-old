@@ -2,13 +2,13 @@
     <footer class="footer">
         <div class="row">
             <div class="col-sm-3 bte-footer">
-                    Gebze Technical University
+                    <?php _e("Gebze Technical University","wpri") ?>
              </div>
              <div class="col-sm-3 bte-footer">
-                       Institute of Information Technologies
+                 <?php _e("Institute of Information Technologies","wpri") ?> 
                </div>
                <div class="col-sm-3 bte-footer">
-                          Gebze – Kocaeli – Turkey
+                          <?php _e("Gebze – Kocaeli – Turkey","wpri") ?>
                </div>
                <div class="col-sm-3 bte-footer">
                           +90 (262) 605 2203

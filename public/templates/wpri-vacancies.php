@@ -1,5 +1,5 @@
 <div class='single' id="vanacies" >
-    <h1 class="outfont"> Open positions </h1>
+    <h1 class="outfont"> <?php _e("Open positions","wpri") ?> </h1>
         <ul class="list-group">
  			<?php
 			$vacancy_ids= WPRI_Database::get_ids("vacancy");
