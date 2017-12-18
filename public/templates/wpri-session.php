@@ -7,9 +7,9 @@ nocache_headers();
 // Check if locale is set
 $_SESSION['locale'] = $_REQUEST['data']['locale'];
 
-error_log(plugin_dir_path( dirname( __FILE__ ) ) .'../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo');
+// error_log(plugin_dir_path( dirname( __FILE__ ) ) .'../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo');
 // load_textdomain( "wpri", plugin_dir_path( dirname( __FILE__ ) ) .'../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo' );
-load_plugin_textdomain( 'wpri', false, basename( dirname( __FILE__ ) ) . '/languages' ); 
+error_log(load_plugin_textdomain( 'wpri', false, basename( dirname( __FILE__ ) ) . '/languages' ));
 
 /*
 Header('Content-Type: application/json;charset=utf8');
