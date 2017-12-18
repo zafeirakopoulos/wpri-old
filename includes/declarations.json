@@ -1130,6 +1130,17 @@
                             "type": "datetime"
                         }
                     ]
+                },
+                {
+                    "title" : "Picture",
+                    "elements" : [
+                        {
+                            "caption" : "Project picture" ,
+                            "name": "picture",
+                            "value": "",
+                            "type": "picture"
+                        }
+                    ]
                 }
             ],
             "related" : [

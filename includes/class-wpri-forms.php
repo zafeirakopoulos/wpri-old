@@ -463,7 +463,14 @@ class WPRI_Form {
                             echo "<div class='col-sm-12'>";
 							echo "<input type='date' name='".$element["name"]."' value='".$thedate."'/>";
                             echo "</div>";
-						}?>
+						}
+                        elseif ($element["type"]=="picture") {
+                            echo "<div class='col-sm-12 form-element-caption'>".$element["caption"]."</div>";
+                            echo "<input type='file' name='project_picture_upload' id='project_picture_upload'  multiple='false' />";
+                        	wp_nonce_field( 'my_image_upload', 'my_image_upload_nonce' );
+                            echo "</div>";
+						}
+                        ?>
 						</div>
 					 <?php }
 				 } ?>
