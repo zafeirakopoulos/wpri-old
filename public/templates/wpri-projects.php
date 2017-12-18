@@ -11,7 +11,11 @@
                         echo "<img class='col-xs-2'  src='".$project["picture"]."' width='50px'>";
                         echo "<div class='col-xs-10  row  list-item'>";
                             echo "<h2 class=' list-item'>".$project['title']."</h2>";
-                            echo "<h3 class='list-item'>Funded by: ".join(",",WPRI_Database::get_localized("agency",$project['agency']))."</h3>";
+                            $agency_array = array();
+                            foreach ($project['agency'] as $agency) {
+                                $agency_array[] = WPRI_Database::get_localized("agency",$agency);
+                            }
+                            echo "<h3 class='list-item'>Funded by: ".join(",",$agency_array)."</h3>";
                         echo "</div>";
                     echo "</a> ";
                     echo " <hr/>";
