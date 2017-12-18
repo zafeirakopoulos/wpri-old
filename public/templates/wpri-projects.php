@@ -5,7 +5,7 @@
  			<?php
 			$project_ids= WPRI_Database::get_ids("project");
  			foreach ( $project_ids as $project_id ) {
-				$project = WPRI_Database::get_entity("project",$project_id);
+				$project = WPRI_Database::get_entity_raw("project",$project_id);
                 if (in_array($project["status"], array(1,3,4))) {
                     echo "<a class='list-group-item' href='".site_url()."/project?id=".$project_id."'>";
                         echo "<h2 class='list-item'>".$project['title']."</h2><br>";
