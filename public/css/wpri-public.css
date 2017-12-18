@@ -193,9 +193,9 @@ h1.site-title{
 
   .list-group-item {
     margin-top: 0;
-    border-top: :0 none;
-    border-left: :0 none;
-    border-right: :0 none;
+    border-top: : none;
+    border-left: : none;
+    border-right: : none;
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--alt-color);
@@ -205,9 +205,9 @@ h1.site-title{
   }
   .list-group-item-alt{
     margin-top: 0 ;
-    border-top: :0 none;
-    border-left: :0 none;
-    border-right: :0 none;
+    border-top: : none;
+    border-left: : none;
+    border-right: : none;
     font-family: var(--font-family);
     font-weight: normal;
     color: var(--alt-color);
