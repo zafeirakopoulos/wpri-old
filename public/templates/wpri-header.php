@@ -27,6 +27,7 @@
 		if(!isset($_SESSION['locale'])) {
 		    $_SESSION['locale']=1;
 		}
+		echo get_locale();
 	?>
 
 <div class="masthead container">
