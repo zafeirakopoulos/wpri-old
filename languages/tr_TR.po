@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Blank Pot v1.0.0\n"
-"POT-Creation-Date: 2017-12-18 17:34+0300\n"
+"POT-Creation-Date: 2017-12-18 17:57+0300\n"
 "PO-Revision-Date: \n"
 "Language-Team: Your Team <translations@example.com>\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
@@ -12,12 +12,133 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 2.0.4\n"
 "Last-Translator: \n"
 "Language: tr_TR\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: public/templates/front-page.php:14
+msgid ""
+"Gebze Technical University Institute of Information Technologies (GTU IIT) "
+"conducts qualified research and development activities at national and "
+"international level with an industrial perspective.\n"
+"         \t\t\t   <br><br>\n"
+"         \t\t\t   The institute aims to be in cooperation with other "
+"departments, especially the GTU computer engineering department, domestic "
+"and foreign universities, public institutions, research centers and IT "
+"companies. IIT brings together researchers and resources from different "
+"disciplines aiming at collaboration.\n"
+"         \t\t\t   <br><br>\n"
+"         \t\t\t   Bringing together institutions, organizations in the "
+"industry with innovative technology, gathering the R&D capabilities and "
+"development of university-industry collaborations are shown to be in the "
+"country’s priorities. IIT aims to be among the stakeholders in the formation "
+"of industrial policy towards the achievement of global competitive advantage "
+"and usage of high technology with indigenous and local content. Successful "
+"completion, by private and public research institutions and universities, of "
+"R & D projects for the development of needed high-tech products is very "
+"important. IIT continues the activities related to the creation of new R & D "
+"projects and carrying them out as well as to the improvement of the quality "
+"of other ongoing projects. According to the objectives mentioned above with "
+"the use of international support funds (the European Union, etc.), national "
+"support funds (TUBITAK, ministries, foundations, etc.) and equity capitals, "
+"IIT plays a significant role both alone and with the institutions it has "
+"collaboration with. With the subject-oriented research centers established "
+"within itself, IIT brings academics and industrialists together and gains "
+"valuable projects to the country.\n"
+"         \t\t\t   <br><br>\n"
+"         \t\t\t   With national and international collaborations, personnel "
+"movement and creation of policies, GTU IIT positions itself as the center of "
+"attraction."
+msgstr ""
+
+#: public/templates/front-page.php:25
+msgid "Highlights"
+msgstr ""
+
+#: public/templates/sidebar-news.php:2
+msgid "News"
+msgstr "Haberler"
+
+#: public/templates/wpri-contact.php:4
+msgid "Address"
+msgstr "Adres"
+
+#: public/templates/wpri-contact.php:6
+msgid "Gebze Technical University Computer Engineering Building"
+msgstr ""
+
+#: public/templates/wpri-contact.php:7 public/templates/wpri-footer.php:11
+msgid "Gebze – Kocaeli – Turkey"
+msgstr ""
+
+#: public/templates/wpri-contact.php:8
+msgid "ZIP Code"
+msgstr "Posta Kodu"
+
+#: public/templates/wpri-contact.php:11
+msgid "Phone"
+msgstr "Telefon"
+
+#: public/templates/wpri-contact.php:13
+msgid "E-mail"
+msgstr "E-mail"
+
+#: public/templates/wpri-faculty.php:30 public/templates/wpri-header.php:48
+msgid "Faculty"
+msgstr ""
+
+#: public/templates/wpri-faculty.php:52
+msgid "Assistants"
+msgstr ""
+
+#: public/templates/wpri-faculty.php:62
+msgid "Administrative personel"
+msgstr ""
+
+#: public/templates/wpri-footer.php:5
+msgid "Gebze Technical University"
+msgstr ""
+
+#: public/templates/wpri-footer.php:8 public/templates/wpri-header.php:35
+msgid "Institute of Information Technologies"
+msgstr ""
+
+#: public/templates/wpri-header.php:49
+msgid "Research"
+msgstr "Araştırma"
+
+#: public/templates/wpri-header.php:50 public/templates/wpri-member.php:56
+#: public/templates/wpri-projects.php:2
+#: public/templates/wpri-publication.php:26
+msgid "Projects"
+msgstr "Projeler"
+
+#: public/templates/wpri-header.php:51 public/templates/wpri-member.php:44
+#: public/templates/wpri-project.php:53
+#: public/templates/wpri-publications.php:2
+msgid "Publications"
+msgstr ""
+
+#: public/templates/wpri-header.php:52 public/templates/wpri-project.php:62
+msgid "Open Positions"
+msgstr ""
+
+#: public/templates/wpri-header.php:53
+msgid "Contact"
+msgstr ""
+
+#: public/templates/wpri-member.php:26
+msgid "Posts"
+msgstr ""
+
+#: public/templates/wpri-member.php:68
+msgid "Education"
+msgstr ""
 
 #: public/templates/wpri-project.php:10 public/templates/wpri-projects.php:18
 msgid "Funded by"
@@ -29,7 +150,7 @@ msgstr ""
 
 #: public/templates/wpri-project.php:12
 msgid "Status"
-msgstr "Statu"
+msgstr ""
 
 #: public/templates/wpri-project.php:17
 msgid "Activity Period"
@@ -41,16 +162,48 @@ msgstr ""
 
 #: public/templates/wpri-project.php:28
 msgid "Institute members"
-msgstr "Enstitu"
-
-#: public/templates/wpri-project.php:53
-msgid "Publications"
 msgstr ""
 
-#: public/templates/wpri-project.php:62
-msgid "Open Positions"
+#: public/templates/wpri-publication.php:12
+msgid "DOI number"
 msgstr ""
 
-#: public/templates/wpri-projects.php:2
-msgid "Projects"
-msgstr "Projeler"
+#: public/templates/wpri-publication.php:13
+msgid "Publication type"
+msgstr ""
+
+#: public/templates/wpri-publication.php:17
+msgid "Authors"
+msgstr ""
+
+#: public/templates/wpri-vacancies.php:2
+msgid "Open positions"
+msgstr ""
+
+#: public/templates/wpri-vacancy.php:14
+msgid "Position"
+msgstr ""
+
+#: public/templates/wpri-vacancy.php:15
+msgid "Application deadline"
+msgstr ""
+
+#: public/templates/wpri-vacancy.php:16
+msgid "Starting date"
+msgstr ""
+
+#: public/templates/wpri-vacancy.php:19
+msgid "Job description"
+msgstr ""
+
+#: public/templates/wpri-vacancy.php:25
+msgid "Requirements"
+msgstr ""
+
+#: public/templates/wpri-vacancy.php:34
+msgid "Contacts"
+msgstr ""
+
+#: public/templates/wpri-vacancy.php:43
+msgid "Related Projects"
+msgstr ""
