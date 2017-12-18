@@ -1,5 +1,5 @@
 <div class='single' id="projects" >
-    <h1 class="outfont"> Projects </h1>
+    <h1 class="outfont"> <?php _e("Projects","wpri") ?> </h1>
         <ul class="list-group">
 
  			<?php
@@ -15,12 +15,12 @@
                             foreach ($project['agency'] as $agency) {
                                 $agency_array[] = WPRI_Database::get_localized("agency",$agency);
                             }
-                            echo "<h3 class='list-item'>Funded by: ".join(",",$agency_array)."</h3>";
+                            echo "<h3 class='list-item'>".__("Funded by","wpri").": ".join(",",$agency_array)."</h3>";
                         echo "</div>";
                     echo "</a> ";
                     echo " <hr/>";
                 }
- 
+
 
 			}
  			?>

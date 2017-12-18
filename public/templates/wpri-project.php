@@ -8,13 +8,13 @@
             echo "<div class='col-xs-9  row  list-item'>";
                 echo "<h2 class='col-xs-12 list-item'>".$project['title']."</h2><br>";
                 echo "<div class='col-xs-12'><h3 class='list-item'>".__("Funded by","wpri").": ".join(",",$project['agency'])."</h3> </div>";
-                echo "<div class='col-xs-12'><h3 class='list-item'>Budget: ".$project['budget']."</h3> </div>";
-    			echo "<div class='col-xs-12'><h3 class='list-item'> Status: ".$project['status']."</h3> </div>";
+                echo "<div class='col-xs-12'><h3 class='list-item'>".__("Budget","wpri").": ".$project['budget']."</h3> </div>";
+    			echo "<div class='col-xs-12'><h3 class='list-item'>".__("Status","wpri").": ".$project['status']."</h3> </div>";
     			if (isset($project['website']) AND $project['website']!=""){
     				echo "<div class='col-xs-12 single'><h3 class='list-item'>".$project['website']."</h3></div>";
     			}
 
-    			echo "<div class='col-xs-12 single'><h3 class='list-item'> Activity Period: ".
+    			echo "<div class='col-xs-12 single'><h3 class='list-item'> ".__("Activity Period","wpri").": ".
     				mysql2date( 'F j, Y', $project['startdate'] )
     				."-".
     				mysql2date( 'F j, Y', $project['enddate'] )
@@ -24,8 +24,8 @@
             echo "</div>";
  			?>
 
-			<h2 class="outfont">Participants</h2>
-			<h3 class="outfont">Institute members</h3>
+			<h2 class="outfont">" <?php _e("Participants","wpri") ?></h2>
+			<h3 class="outfont"><?php _e("Institute members","wpri") ?>Institute members</h3>
 			<ul class="list-group">
 			<?php
 				foreach ($project["members"] as $member_row) {
@@ -50,7 +50,7 @@
 
 
 
-			<h2 class="outfont">Publications</h2>
+			<h2 class="outfont"><?php _e("Publications","wpri") ?></h2>
 
 			<?php
 				foreach ($project["publication"] as $publication_id) {
@@ -59,7 +59,7 @@
 				}
 			?>
 
-            <h2 class="outfont">Open Positions</h2>
+            <h2 class="outfont"><?php _e("Open Positions","wpri") ?></h2>
 
 			<?php
 				foreach ($project["vacancy"] as $vacancy_id) {
@@ -71,15 +71,3 @@
 
             <br><br>
 </div><!-- #project -->
-
-
-
-
-
-
-
-
-	<!--
-	<h2 class="member">News:</h2>
-	Needs work. From project management connect a wpri_news post with the project to query from here.
-	-->
