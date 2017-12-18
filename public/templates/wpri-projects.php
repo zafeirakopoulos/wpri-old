@@ -11,7 +11,7 @@
                         echo "<img class='col-xs-2'  src='".$project["picture"]."' width='50px'>";
                         echo "<div class='col-xs-10  row  list-item'>";
                             echo "<h2 class=' list-item'>".$project['title']."</h2>";
-                            echo "<h3 class='list-item'>Funded by: ".join(",",WPRI_Database::get_localized_element("agency",$project['agency']))."</h3>";
+                            echo "<h3 class='list-item'>Funded by: ".join(",",WPRI_Database::get_localized("agency",$project['agency']))."</h3>";
                         echo "</div>";
                     echo "</a> ";
                     echo " <hr/>";
