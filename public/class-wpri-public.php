@@ -173,11 +173,15 @@ class WPRI_Public {
 		session_destroy ();
 	}
 
-	function wpri_redefine_locale( ) {
-// $_SESSION['locale']
-		error_log("change locale");
-	   return "tr_TR";
-	}
+		function wpri_redefine_locale( ) {
+			if(!session_id()) {
+		    	session_start();
+			}
+
+
+			error_log("change locale");
+		   return $_SESSION['locale'];
+		}
 
 
 }
