@@ -173,6 +173,10 @@ class WPRI_Public {
 		session_destroy ();
 	}
 
- 
+	function wpri_redefine_locale($locale) {
+
+       return $_SESSION['locale'];
+   }
+
 
 }

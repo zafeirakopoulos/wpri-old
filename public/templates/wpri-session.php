@@ -14,7 +14,7 @@ $_SESSION['locale'] = $_REQUEST['data']['locale'];
 //     return $_SESSION['locale'];
 // }
 // add_filter( 'locale', 'wpri_get_new_locale',20 );
-define( 'WPLANG', $_SESSION['locale'] );
+// define( 'WPLANG', $_SESSION['locale'] );
 /*
 Header('Content-Type: application/json;charset=utf8');
 die(json_encode(array(

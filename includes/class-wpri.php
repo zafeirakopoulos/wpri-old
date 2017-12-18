@@ -286,6 +286,8 @@ class WPRI {
 		$plugin_report = new WPRI_Report( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_filter( 'template_include',$plugin_report, 'download_report_page_template', 99 );
 
+		$this->loader->add_action( 'locale', $plugin_public, 'wpri_redefine_locale',10 );
+
 
 	}
 
