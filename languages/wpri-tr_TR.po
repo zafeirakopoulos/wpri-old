@@ -90,7 +90,7 @@ msgstr "E-posta"
 
 #: public/templates/wpri-faculty.php:30 public/templates/wpri-header.php:48
 msgid "Faculty"
-msgstr "Akademik kadro"
+msgstr "Akademik Kadro"
 
 #: public/templates/wpri-faculty.php:52
 msgid "Assistants"
@@ -126,7 +126,7 @@ msgstr "Yayınlar"
 
 #: public/templates/wpri-header.php:52 public/templates/wpri-project.php:62
 msgid "Open Positions"
-msgstr "Kadro duyuruları"
+msgstr "Kadro İlanı"
 
 #: public/templates/wpri-header.php:53
 msgid "Contact"
@@ -178,7 +178,7 @@ msgstr "Yazarlar"
 
 #: public/templates/wpri-vacancies.php:2
 msgid "Open positions"
-msgstr "Açık pozisyonlar"
+msgstr "Kadro ılanı"
 
 #: public/templates/wpri-vacancy.php:14
 msgid "Position"
