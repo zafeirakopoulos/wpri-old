@@ -3,18 +3,28 @@
 		<?php
 		$member_id=$_GET['id'];
 		$member = WPRI_Database::get_member_full($member_id);
-		?>
-		<!-- <div class='row'> -->
-		<ul class="list-group">
 
-	        <a href='<?php echo site_url()."/member?id=".$member["id"];?>' class=''>
-                <div class='col-xs-8  list-group-item-alt '>
-                    <div class='col-xs-12'><h1 class='list-item-alt' ><?php echo $member["title"]." ".$member['name'];?></h1></div>
-                    <div class='col-xs-3 '><?php echo get_avatar($member['user']);?></div>
-                    <div class='col-xs-9 '><h3  class="list-item-alt"><?php echo $member['position'];?></h3></div>
-                </div>
-            </a>
-		</ul>
+		echo "<div class='col-xs-3'>". get_avatar($member['user']) ."</div>";
+		echo "<div class='col-xs-9  row  list-item'>";
+			echo "<h2 class='col-xs-12 list-item'>". $member["title"]." ".$member['name']."</h2><br>";
+			echo "<div class='col-xs-12'><h3 class='list-item'>".$member['position']."</h3> </div>";
+			// echo "<div class='col-xs-12'><h3 class='list-item'>Budget: ".$project['budget']."</h3> </div>";
+			// echo "<div class='col-xs-12'><h3 class='list-item'> Status: ".$project['status']."</h3> </div>";
+			// if (isset($project['website']) AND $project['website']!=""){
+			// 	echo "<div class='col-xs-12 single'><h3 class='list-item'>".$project['website']."</h3></div>";
+			// }
+            //
+			// echo "<div class='col-xs-12 single'><h3 class='list-item'> Activity Period: ".
+			// 	mysql2date( 'F j, Y', $project['startdate'] )
+			// 	."-".
+			// 	mysql2date( 'F j, Y', $project['enddate'] )
+			// 	."</h3> </div>";
+
+
+		echo "</div>";
+
+		?>
+		 
 		<br>
         <!-- </div> -->
 	<!-- </div> -->
