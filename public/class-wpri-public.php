@@ -79,6 +79,7 @@ class WPRI_Public {
 		 wp_enqueue_style( 'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
 		 wp_enqueue_style( 'wpri', plugin_dir_url( __FILE__ ) . 'css/wpri-public.css' );
 
+		 wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); 
 	}
 
 	/**
