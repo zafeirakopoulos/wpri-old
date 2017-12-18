@@ -41,7 +41,7 @@
 		    },
 		    function(response){
 			location.reload();
-		        alert('The server responded: ' + response);
+		        // alert('The server responded: ' + response);
 		    }
 		);
 
