@@ -7,7 +7,8 @@ nocache_headers();
 // Check if locale is set
 $_SESSION['locale'] = $_REQUEST['data']['locale'];
 
-WPRI_Public::change_textdomain();
+error_log(plugin_dir_path( dirname( __FILE__ ) ) .'languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo');
+load_textdomain( "wpri", plugin_dir_path( dirname( __FILE__ ) ) .'/../languages/wpri-'.WPRI_Database::get_locale($_SESSION['locale']).'.mo' );
 
 /*
 Header('Content-Type: application/json;charset=utf8');
