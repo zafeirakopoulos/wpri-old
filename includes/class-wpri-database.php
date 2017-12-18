@@ -81,6 +81,9 @@ class WPRI_Database {
 						elseif ($element["type"]!= "multiple-select"){
 							$sql = $sql .  ", ".  $element["name"] ." ". $element["type"];
 						}
+						elseif (isset($element["picture"]) ){
+							$sql = $sql .  ", ".  $element["name"] ." text";
+						}
 					}
 				}
 				$sql = $sql . ");";
