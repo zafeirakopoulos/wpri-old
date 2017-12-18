@@ -177,9 +177,6 @@ class WPRI_Public {
 			if(!session_id()) {
 		    	session_start();
 			}
-
-
-			error_log(get_locale());
 		   return $_SESSION['locale'];
 		}
 
