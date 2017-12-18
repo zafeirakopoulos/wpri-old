@@ -175,8 +175,8 @@ class WPRI_Public {
 
 	function wpri_redefine_locale($locale) {
 
-       return $_SESSION['locale'];
-   }
+	   return $_SESSION['locale'];
+	}
 
 
 }

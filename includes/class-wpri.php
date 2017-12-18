@@ -275,7 +275,7 @@ class WPRI {
 
 		$this->loader->add_filter( 'template_include',$plugin_public, 'page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'front_page_template', 99 );
-		$this->loader->add_filter( 'template_include',$plugin_public, 'session_page_template', 50 );
+		$this->loader->add_filter( 'template_include',$plugin_public, 'session_page_template', 99 );
 		$this->loader->add_filter( 'template_include',$plugin_public, 'single_template', 99 );
 
 
@@ -286,7 +286,7 @@ class WPRI {
 		$plugin_report = new WPRI_Report( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_filter( 'template_include',$plugin_report, 'download_report_page_template', 99 );
 
-		$this->loader->add_action( 'locale', $plugin_public, 'wpri_redefine_locale',99 );
+		$this->loader->add_filter( 'locale', $plugin_public, 'wpri_redefine_locale',99 );
 
 
 	}
