@@ -9,7 +9,7 @@
                 echo "<h2 class='col-xs-12 list-item'>".$project['title']."</h2>";
                 echo "<h3 class='col-xs-12'>Funded by: ".join(",",$project['agency'])."</h3>";
                 echo "<h3 class='col-xs-12'>Budget: ".$project['budget']."</h3>";
-    			echo "<div class='col-xs-12'><h3 class='list-item'> Status: ".$project['status']."</h3> </div>";
+    			echo "<h3 class='col-xs-12'> Status: ".$project['status']."</h3>";
     			if (isset($project['website']) AND $project['website']!=""){
     				echo "<div class='col-xs-12 single'><h3 class='list-item'>".$project['website']."</h3></div>";
     			}
