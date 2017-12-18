@@ -78,11 +78,11 @@ class WPRI_Database {
 						elseif (isset($element["localized"]) ){
 							$sql = $sql .  ", ".  $element["name"] ." INT";
 						}
+						elseif ($element["type"]== "picture") {
+						    $sql = $sql .  ", ".  $element["name"] ." text";
+						}
 						elseif ($element["type"]!= "multiple-select"){
 							$sql = $sql .  ", ".  $element["name"] ." ". $element["type"];
-						}
-						elseif (isset($element["picture"]) ){
-							$sql = $sql .  ", ".  $element["name"] ." text";
 						}
 					}
 				}
