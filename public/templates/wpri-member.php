@@ -67,10 +67,17 @@
 
 		<h1 class="outfont"> Education </h1>
 			<ul class="list-group">
-				<li class="list-group-item"> <?php echo $member["undergrad"]["year"].": ".$member["undergrad"]["title"]." from ".$member["undergrad"]["university"]." (".$member["undergrad"]["program"].")"?>
-				<li class="list-group-item"> <?php echo $member["masters"]["year"].": ".$member["masters"]["title"]." from ".$member["masters"]["university"]." (".$member["masters"]["program"].")"?>
-				<li class="list-group-item"> <?php echo $member["phd"]["year"].": ".$member["phd"]["title"]." from ".$member["phd"]["university"]." (".$member["phd"]["program"].")"?>
-
+				<?php
+					if ($member["undergrad"]["year"]!=""){
+					  echo "<li class='list-group-item'>" .$member["undergrad"]["year"].": ".$member["undergrad"]["title"]." from ".$member["undergrad"]["university"]." (".$member["undergrad"]["program"].")";
+					}
+					if ($member["masters"]["year"]!=""){
+						echo "<li class='list-group-item'>" .$member["masters"]["year"].": ".$member["masters"]["title"]." from ".$member["masters"]["university"]." (".$member["masters"]["program"].")";
+					}
+					if ($member["phd"]["year"]!=""){
+						echo "<li class='list-group-item'>" .$member["phd"]["year"].": ".$member["phd"]["title"]." from ".$member["phd"]["university"]." (".$member["phd"]["program"].")";
+					}
+ 				?>
 			</ul>
 
 
