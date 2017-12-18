@@ -175,7 +175,7 @@ class WPRI_Public {
 
 	function wpri_redefine_locale( ) {
 // $_SESSION['locale']
-		// error_log("change locale");
+		error_log("change locale");
 	   return "tr_TR";
 	}
 
