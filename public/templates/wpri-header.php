@@ -28,8 +28,6 @@
 		    $_SESSION['locale']=1;
 		}
 		echo get_locale();
-		echo WPLANG;
-
 	?>
 
 <div class="masthead container">
